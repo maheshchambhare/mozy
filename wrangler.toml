@@ -1,5 +1,16 @@
-# Cloudflare Pages project config, used by `wrangler pages dev` and `wrangler pages deploy`
-# (https://developers.cloudflare.com/pages/functions/wrangler-configuration/).
+# Cloudflare Workers static assets: `npx wrangler deploy` (what Workers Builds runs) builds the site, then uploads dist/.
+# https://developers.cloudflare.com/workers/static-assets/
 name = "mozy"
-pages_build_output_dir = "./dist"
 compatibility_date = "2026-10-01"
+
+# Runs before `wrangler deploy` and `wrangler dev`, so the Git build needs no separate build command.
+[build]
+command = "npm run build"
+watch_dir = ["src", "public", "index.html"]
+
+[assets]
+directory = "./dist"
+# dist/pricing.html is served at /pricing; /pricing/ and /pricing.html redirect there.
+html_handling = "auto-trailing-slash"
+# Unknown addresses get dist/404.html with a real 404 status.
+not_found_handling = "404-page"

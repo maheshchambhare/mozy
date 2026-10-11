@@ -41,7 +41,7 @@ try {
     }
     const content=route.path==='/'?h(route.component):h('div',{className:'lp'},h(SiteHeader),h(route.component,route.props),h(SiteFooter));
     html=html.replace('<div id="root"></div>',`<div id="root">${renderToString(h(Router, { ssrPath: route.path }, content))}</div>`);
-    // Cloudflare Pages serves dist/pricing.html at /pricing (the canonical, no trailing slash); a pricing/index.html would
+    // Cloudflare serves dist/pricing.html at /pricing (the canonical, no trailing slash); a pricing/index.html would
     // instead be redirected to /pricing/.
     const file=route.file??(route.path==='/'?'dist/index.html':`dist${route.path}.html`);
     await mkdir(dirname(file),{recursive:true});await writeFile(file,html);

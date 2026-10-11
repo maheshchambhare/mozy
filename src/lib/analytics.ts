@@ -13,7 +13,7 @@ const KEY = import.meta.env.VITE_POSTHOG_KEY ?? 'phc_rziqBjs6ZhEMRSFtWzeKjGghbkq
 const HOST = import.meta.env.VITE_POSTHOG_HOST ?? 'https://us.i.posthog.com';
 const OFF_KEY = 'mozy_analytics_off';
 const DEBUG_KEY = 'mozy_ph_debug';
-// Cloudflare Pages previews (*.pages.dev) run the production build too; they stay out of the numbers.
+// Cloudflare preview addresses (*.workers.dev) run the production build too; they stay out of the numbers.
 const LIVE_HOSTS = ['mozy.mcrudra.com'];
 
 type Queued = [event: string, properties?: Properties, beacon?: boolean];

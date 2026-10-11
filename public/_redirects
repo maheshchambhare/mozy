@@ -1,3 +1,3 @@
-# Cloudflare Pages redirects (https://developers.cloudflare.com/pages/configuration/redirects/).
+# Redirects for Cloudflare static assets (https://developers.cloudflare.com/workers/static-assets/redirects/).
 # The old site's store link (QR codes, bios) now lives at /get, which picks the App Store or Google Play by device.
 /download  /get  301
