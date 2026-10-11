@@ -1,0 +1,5 @@
+# Cloudflare Pages project config, used by `wrangler pages dev` and `wrangler pages deploy`
+# (https://developers.cloudflare.com/pages/functions/wrangler-configuration/).
+name = "mozy"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-10-01"

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Moz walk cycle frames · final-a</title>
+<style>
+  * { box-sizing: border-box; } html, body { margin: 0; }
+  body { width: 1600px; background: linear-gradient(#d5eefa 0 210px, #8fcf6a 210px); font: 12px -apple-system, Arial, sans-serif; padding: 10px; }
+  .r { display: flex; gap: 0; } figure { margin: 0; width: 196px; text-align: center; }
+  figure > div { width: 196px; }
+  h3 { margin: 4px 0; font-size: 12px; }
+  /*KIT_CSS*/
+</style></head><body>
+<h3>walkSide · 8 phases of one .is-walking cycle (0.72 s)</h3><div class="r" id="a"></div>
+<h3>walk (frontal) · 8 phases</h3><div class="r" id="b"></div>
+<script>
+/*KIT_JS*/
+const ph = [0, .09, .18, .27, .36, .45, .54, .63];
+for (const [id, mood] of [['a', 'walkSide'], ['b', 'walk']])
+  document.getElementById(id).innerHTML = ph.map((t, i) => `<figure><div class="is-walking is-paused" style="--phase:-${t}s">${moz(mood, { prefix: id + i })}</div>${Math.round(t / .72 * 100)}%</figure>`).join('');
+</script></body></html>

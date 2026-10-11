@@ -1,0 +1,288 @@
+{
+  "date": "2026-10-03",
+  "method": "curl GET with redirects, normal client, system TLS verification",
+  "checks": [
+    {
+      "url": "https://mozy.mcrudra.com/",
+      "error": "",
+      "result": "200 FINAL:https://mozy.mcrudra.com/",
+      "response_codes": [
+        "200"
+      ],
+      "locations": [],
+      "xrobots": [],
+      "title": [
+        "Mozy: Walk to Unlock Apps | Screen Time App for Android | mcrudra"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://mozy.mcrudra.com\"/>"
+      ],
+      "sitemap_urls": [],
+      "robots_policy": null
+    },
+    {
+      "url": "https://mozy.mcrudra.com/robots.txt",
+      "error": "",
+      "result": "200 FINAL:https://mozy.mcrudra.com/robots.txt",
+      "response_codes": [
+        "200"
+      ],
+      "locations": [],
+      "xrobots": [],
+      "title": [],
+      "canonical": [],
+      "sitemap_urls": [],
+      "robots_policy": "# ==============================================================================\n# mcrudra Robots Directive\n# Optimized for Search Engine Optimization (SEO) & Generative Search Optimization (GSO)\n# ==============================================================================\n\n# Default Rules for General Crawlers\nUser-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\nDisallow: /_next/\n\n# Generative AI & LLM Search Agents (Full Access to Content, Apps & Science Hubs)\nUser-agent: GPTBot\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: OAI-SearchBot\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: ChatGPT-User\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: ClaudeBot\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: anthropic-ai\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: PerplexityBot\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: Google-Extended\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: Applebot\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: Applebot-Extended\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: Meta-ExternalAgent\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: cohere-ai\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: Bytespider\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: CCBot\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\n\n# Sitemaps\nSitemap: https://mozy.mcrudra.com/sitemap.xml\n\n# LLM Manifests (GSO Specification)\n# llms.txt: https://mcrudra.com/llms.txt\n# llms-full.txt: https://mcrudra.com/llms-full.txt\n\n"
+    },
+    {
+      "url": "https://mozy.mcrudra.com/sitemap.xml",
+      "error": "",
+      "result": "200 FINAL:https://mozy.mcrudra.com/sitemap.xml",
+      "response_codes": [
+        "200"
+      ],
+      "locations": [],
+      "xrobots": [],
+      "title": [],
+      "canonical": [],
+      "sitemap_urls": [
+        "https://mozy.mcrudra.com",
+        "https://mozy.mcrudra.com/blog",
+        "https://mozy.mcrudra.com/blog/algorithmic-variable-reward-schedules-infinite-scroll-dopamine",
+        "https://mozy.mcrudra.com/blog/bedtime-revenge-procrastination-limbic-prefrontal-exhaustion",
+        "https://mozy.mcrudra.com/blog/breathwork-interventions-vagus-nerve-digital-compulsion",
+        "https://mozy.mcrudra.com/blog/continuous-partial-attention-cpa-prefrontal-cortex-fragmentation",
+        "https://mozy.mcrudra.com/blog/dopamine-depletion-vs-tonic-baseline-screen-fatigue",
+        "https://mozy.mcrudra.com/blog/frictionless-ui-dark-patterns-bottomless-feeds",
+        "https://mozy.mcrudra.com/blog/interoception-insula-activation-somatic-craving-delay",
+        "https://mozy.mcrudra.com/blog/neurobiology-of-screen-addiction-somatic-friction-protocol",
+        "https://mozy.mcrudra.com/blog/phantom-vibration-syndrome-thalamocortical-hypervigilance",
+        "https://mozy.mcrudra.com/blog/pop-up-dismissal-reflex-system-1-cognitive-bypass",
+        "https://mozy.mcrudra.com/blog/short-form-video-brain-atrophy-micro-content-cognitive-decay",
+        "https://mozy.mcrudra.com/blog/somatic-friction-vs-binary-app-blockers-habit-loops",
+        "https://mozy.mcrudra.com/blog/how-to-stop-doomscrolling",
+        "https://mozy.mcrudra.com/blog/best-screen-time-app-android-2026",
+        "https://mozy.mcrudra.com/blog/digital-wellbeing-vs-mozy",
+        "https://mozy.mcrudra.com/blog/instagram-time-limit-android",
+        "https://mozy.mcrudra.com/blog/tiktok-screen-time-limit-android",
+        "https://mozy.mcrudra.com/blog/why-apps-are-addictive",
+        "https://mozy.mcrudra.com/blog/screen-time-statistics-2026",
+        "https://mozy.mcrudra.com/blog/dopamine-detox",
+        "https://mozy.mcrudra.com/blog/parents-guide-screen-time-kids",
+        "https://mozy.mcrudra.com/blog/screen-addiction-behavioral-science",
+        "https://mozy.mcrudra.com/blog/doomscrolling-addiction-help",
+        "https://mozy.mcrudra.com/blog/screen-time-app-that-actually-works",
+        "https://mozy.mcrudra.com/blog/how-to-reduce-screen-time-android",
+        "https://mozy.mcrudra.com/blog/walk-to-earn-screen-time",
+        "https://mozy.mcrudra.com/blog/phone-addiction-test",
+        "https://mozy.mcrudra.com/blog/how-to-stop-checking-phone",
+        "https://mozy.mcrudra.com/blog/scroll-addiction-test",
+        "https://mozy.mcrudra.com/blog/screen-time-limits-android",
+        "https://mozy.mcrudra.com/privacy"
+      ],
+      "robots_policy": null
+    },
+    {
+      "url": "https://mozy.mcrudra.com/blog",
+      "error": "",
+      "result": "200 FINAL:https://mozy.mcrudra.com/blog",
+      "response_codes": [
+        "200"
+      ],
+      "locations": [],
+      "xrobots": [],
+      "title": [
+        "Mozy Blog: Screen Time &amp; Digital Wellness Guides | mcrudra"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://mozy.mcrudra.com/blog\"/>"
+      ],
+      "sitemap_urls": [],
+      "robots_policy": null
+    },
+    {
+      "url": "https://mozy.mcrudra.com/blog/walk-to-earn-screen-time",
+      "error": "",
+      "result": "200 FINAL:https://mozy.mcrudra.com/blog/walk-to-earn-screen-time",
+      "response_codes": [
+        "200"
+      ],
+      "locations": [],
+      "xrobots": [],
+      "title": [
+        "Walk to Earn Screen Time: How Movement-Based Rewards Change Habits | mcrudra"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://mozy.mcrudra.com/blog/walk-to-earn-screen-time\"/>"
+      ],
+      "sitemap_urls": [],
+      "robots_policy": null
+    },
+    {
+      "url": "https://mozy.mcrudra.com/privacy",
+      "error": "",
+      "result": "200 FINAL:https://mozy.mcrudra.com/privacy",
+      "response_codes": [
+        "200"
+      ],
+      "locations": [],
+      "xrobots": [],
+      "title": [
+        "Privacy Policy | Mozy: Walk to Unlock Apps | mcrudra"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://mozy.mcrudra.com/privacy\"/>"
+      ],
+      "sitemap_urls": [],
+      "robots_policy": null
+    },
+    {
+      "url": "https://mozy.mcrudra.com/audit-missing-page-20261003",
+      "error": "",
+      "result": "404 FINAL:https://mozy.mcrudra.com/audit-missing-page-20261003",
+      "response_codes": [
+        "404"
+      ],
+      "locations": [],
+      "xrobots": [],
+      "title": [
+        "mcrudra: Apps That Fix What Technology Did to Your Body"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://mcrudra.com\"/>"
+      ],
+      "sitemap_urls": [],
+      "robots_policy": null
+    },
+    {
+      "url": "https://mcrudra.com/robots.txt",
+      "error": "",
+      "result": "200 FINAL:https://mcrudra.com/robots.txt",
+      "response_codes": [
+        "200"
+      ],
+      "locations": [],
+      "xrobots": [],
+      "title": [],
+      "canonical": [],
+      "sitemap_urls": [],
+      "robots_policy": "# ==============================================================================\n# mcrudra Robots Directive\n# Optimized for Search Engine Optimization (SEO) & Generative Search Optimization (GSO)\n# ==============================================================================\n\n# Default Rules for General Crawlers\nUser-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\nDisallow: /_next/\n\n# Generative AI & LLM Search Agents (Full Access to Content, Apps & Science Hubs)\nUser-agent: GPTBot\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: OAI-SearchBot\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: ChatGPT-User\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: ClaudeBot\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: anthropic-ai\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: PerplexityBot\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: Google-Extended\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: Applebot\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: Applebot-Extended\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: Meta-ExternalAgent\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: cohere-ai\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: Bytespider\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\nUser-agent: CCBot\nAllow: /\nDisallow: /api/\nDisallow: /checkout/\n\n\n# Sitemaps\nSitemap: https://mcrudra.com/sitemap.xml\nSitemap: https://mcrudra.com/sitemap-index.xml\n\n# LLM Manifests (GSO Specification)\n# llms.txt: https://mcrudra.com/llms.txt\n# llms-full.txt: https://mcrudra.com/llms-full.txt\n\n"
+    },
+    {
+      "url": "https://mcrudra.com/sitemap.xml",
+      "error": "",
+      "result": "200 FINAL:https://mcrudra.com/sitemap.xml",
+      "response_codes": [
+        "200"
+      ],
+      "locations": [],
+      "xrobots": [],
+      "title": [],
+      "canonical": [],
+      "sitemap_urls": [
+        "https://mcrudra.com",
+        "https://mcrudra.com/apps",
+        "https://mcrudra.com/apps/mozy",
+        "https://mcrudra.com/apps/pozy",
+        "https://mcrudra.com/apps/doovi",
+        "https://mcrudra.com/apps/lynqo",
+        "https://mcrudra.com/tools",
+        "https://mcrudra.com/tools/wellness-focus-timer",
+        "https://mcrudra.com/tools/phone-free-hour-tracker",
+        "https://mcrudra.com/tools/scroll-pause-timer",
+        "https://mcrudra.com/tools/steps-to-screen-time",
+        "https://mcrudra.com/tools/daily-eye-exercises",
+        "https://mcrudra.com/tools/daily-wellbeing-checkin",
+        "https://mcrudra.com/tools/screen-break-tracker",
+        "https://mcrudra.com/tools/posture-checkin-timer",
+        "https://mcrudra.com/tools/desk-stretch-timer",
+        "https://mcrudra.com/tools/weekly-screen-time-review",
+        "https://mcrudra.com/tools/screen-curfew-timer",
+        "https://mcrudra.com/tools/ergonomic-workday-planner",
+        "https://mcrudra.com/tools/best-focus-timer-with-eye-breaks",
+        "https://mcrudra.com/tools/20-20-20-rule-does-it-work",
+        "https://mcrudra.com/tools/tech-neck-exercises-that-work",
+        "https://mcrudra.com/blog",
+        "https://mcrudra.com/blog/3-2-1-sleep-hygiene-protocol-food-screens-light",
+        "https://mcrudra.com/blog/460nm-blue-light-melanopsin-iprgc-sleep-decay",
+        "https://mcrudra.com/blog/adenosine-sleep-pressure-caffeine-half-life-screen-burnout",
+        "https://mcrudra.com/blog/biophilic-workspace-design-fractal-visual-rest",
+        "https://mcrudra.com/blog/chronotype-alignment-desk-workers-larks-vs-owls",
+        "https://mcrudra.com/blog/cortisol-awakening-response-car-sunrise-photon-capture",
+        "https://mcrudra.com/blog/digital-satiety-stopping-cues-intentional-disconnection",
+        "https://mcrudra.com/blog/dual-monitor-attention-tax-peripheral-visual-clutter",
+        "https://mcrudra.com/blog/suprachiasmatic-nucleus-morning-melatonin-circadian-rhythm",
+        "https://mcrudra.com/blog/tri-app-digital-wellness-ecosystem-pozy-doovi-mozy",
+        "https://mcrudra.com/blog/ultradian-rhythms-90-minute-focus-cycles-brac",
+        "https://mcrudra.com/blog/unified-architecture-human-digital-wellness-clinical-master-protocol",
+        "https://mcrudra.com/blog/smartphone-health-damage",
+        "https://mcrudra.com/blog/attention-economy-explained",
+        "https://mcrudra.com/blog/digital-wellness-statistics-2026",
+        "https://mcrudra.com/about",
+        "https://mcrudra.com/faq",
+        "https://mcrudra.com/accessibility",
+        "https://mcrudra.com/privacy",
+        "https://mcrudra.com/refund-policy",
+        "https://mcrudra.com/terms"
+      ],
+      "robots_policy": null
+    },
+    {
+      "url": "https://mcrudra.com/apps/mozy",
+      "error": "",
+      "result": "200 FINAL:https://mcrudra.com/apps/mozy",
+      "response_codes": [
+        "200"
+      ],
+      "locations": [],
+      "xrobots": [],
+      "title": [
+        "Mozy: Walk to Unlock Apps | Screen Time App for Android | mcrudra"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://mozy.mcrudra.com\"/>"
+      ],
+      "sitemap_urls": [],
+      "robots_policy": null
+    },
+    {
+      "url": "http://mozy.mcrudra.com/",
+      "error": "",
+      "result": "200 FINAL:http://mozy.mcrudra.com/",
+      "response_codes": [
+        "200"
+      ],
+      "locations": [],
+      "xrobots": [],
+      "title": [
+        "Mozy: Walk to Unlock Apps | Screen Time App for Android | mcrudra"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://mozy.mcrudra.com\"/>"
+      ],
+      "sitemap_urls": [],
+      "robots_policy": null
+    },
+    {
+      "url": "https://mozy.mcrudra.com/blog/",
+      "error": "",
+      "result": "200 FINAL:https://mozy.mcrudra.com/blog",
+      "response_codes": [
+        "308",
+        "200"
+      ],
+      "locations": [
+        "/blog"
+      ],
+      "xrobots": [],
+      "title": [
+        "Mozy Blog: Screen Time &amp; Digital Wellness Guides | mcrudra"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://mozy.mcrudra.com/blog\"/>"
+      ],
+      "sitemap_urls": [],
+      "robots_policy": null
+    }
+  ]
+}

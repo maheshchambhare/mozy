@@ -1,0 +1,123 @@
+/* Open Graph banners (1200 x 630). Rendered by scripts/og/render.mjs together with story.css (tokens, app tiles, Moz). */
+html, body { margin: 0; padding: 0; background: #000; }
+.og { position: relative; width: 1200px; height: 630px; overflow: hidden; isolation: isolate; font-family: 'Nunito', system-ui, sans-serif; -webkit-font-smoothing: antialiased; color: #fbf3e6; }
+.og * { box-sizing: border-box; }
+.og p { margin: 0; }
+.og-h1 { margin: 0; font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700; line-height: 0.98; letter-spacing: -0.035em; }
+.og-sub { margin-top: 22px !important; font-size: 28px; line-height: 1.35; font-weight: 600; }
+
+/* Brand row (top left) and site line (top right): the bottom-left corner stays clear for X's domain label. */
+.og-brand { position: absolute; left: 64px; top: 52px; z-index: 5; display: flex; align-items: center; gap: 14px; }
+.og-brand-name { font-family: 'Baloo 2', 'Fredoka', sans-serif; font-weight: 800; font-size: 44px; line-height: 1; letter-spacing: -0.02em; color: #fff; }
+.og-brand.is-light .og-brand-name { color: #141413; }
+.og-site { position: absolute; right: 64px; top: 70px; z-index: 5; font-size: 22px; font-weight: 800; letter-spacing: 0.01em; color: rgba(251, 243, 230, 0.86); }
+.og-site.is-light { color: #4f574a; }
+.og-site span { margin: 0 6px; opacity: 0.6; }
+.og-accent { position: relative; display: inline-block; white-space: nowrap; color: #63d586; }
+.og-swoosh { position: absolute; left: 2%; bottom: -12px; width: 96%; height: 16px; fill: none; stroke: currentColor; stroke-width: 4; stroke-linecap: round; }
+.og-stars { position: absolute; inset: 0; z-index: -1;
+  background-image:
+    radial-gradient(1.8px 1.8px at 6% 18%, #fff 50%, transparent 55%), radial-gradient(1.3px 1.3px at 18% 46%, rgba(255, 255, 255, 0.7) 50%, transparent 55%),
+    radial-gradient(2px 2px at 31% 12%, #fff 50%, transparent 55%), radial-gradient(1.2px 1.2px at 44% 30%, rgba(255, 255, 255, 0.6) 50%, transparent 55%),
+    radial-gradient(1.7px 1.7px at 57% 9%, #fff 50%, transparent 55%), radial-gradient(1.3px 1.3px at 68% 34%, rgba(255, 255, 255, 0.7) 50%, transparent 55%),
+    radial-gradient(1.5px 1.5px at 93% 44%, rgba(255, 255, 255, 0.6) 50%, transparent 55%), radial-gradient(1.3px 1.3px at 12% 70%, rgba(255, 255, 255, 0.45) 50%, transparent 55%),
+    radial-gradient(1.4px 1.4px at 50% 58%, rgba(255, 255, 255, 0.4) 50%, transparent 55%), radial-gradient(1.6px 1.6px at 82% 16%, #fff 50%, transparent 55%);
+  background-size: 600px 420px; }
+
+
+/* Every render is a still: site animations (Moz idling, windmills, clouds, twinkles) are frozen at their base state. */
+.og *, .og *::before, .og *::after { animation: none !important; transition: none !important; }
+.og-icon { display: block; object-fit: cover; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.25); }
+.og-brand .og-icon { box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3); }
+.og-brand.is-light .og-icon { box-shadow: 0 8px 20px rgba(60, 40, 20, 0.18); }
+.og-trail { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.og-badges { display: flex; align-items: center; gap: 12px; margin-top: 28px; }
+.og-badges img { display: block; width: auto; height: 54px; }
+.og-grain { position: absolute; inset: 0; z-index: 20; pointer-events: none; opacity: 0.07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+/* ── E: Launch poster ── */
+.og-e { background: linear-gradient(155deg, #0b0e1a 0%, #141a38 52%, #2b2253 100%); }
+.og-e-aurora { position: absolute; inset: 0; z-index: -1; background:
+  radial-gradient(32% 46% at 72% 46%, rgba(255, 154, 77, 0.32), transparent 70%),
+  radial-gradient(28% 40% at 86% 70%, rgba(99, 213, 134, 0.22), transparent 70%),
+  radial-gradient(40% 60% at 10% 100%, rgba(124, 92, 255, 0.22), transparent 70%); }
+.og-e-orbits { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; fill: none; stroke: rgba(255, 255, 255, 0.2); stroke-width: 2; stroke-dasharray: 3 9; stroke-linecap: round; }
+.og-e-halo { position: absolute; left: 868px; top: 300px; z-index: 0; width: 420px; height: 420px; margin: -210px 0 0 -210px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 213, 154, 0.55) 0%, rgba(255, 154, 77, 0.18) 42%, rgba(255, 154, 77, 0) 70%); }
+.og-e-icon { position: absolute; left: 750px; top: 182px; z-index: 2; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 10px rgba(255, 255, 255, 0.07), 0 0 0 22px rgba(255, 255, 255, 0.035) !important; rotate: -6deg; }
+.og-e-tile { position: absolute; z-index: 3; }
+.og-e-tile .st-tile { box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45); --lock-ring: #1a1f45; }
+.og-e-tile.is-1 { left: 600px; top: 128px; rotate: -12deg; }
+.og-e-tile.is-2 { left: 1074px; top: 150px; rotate: 10deg; }
+.og-e-tile.is-3 { left: 618px; top: 404px; rotate: 8deg; }
+.og-e-tile.is-4 { left: 1100px; top: 366px; rotate: -8deg; }
+.og-e-trail { z-index: 3; }
+.og-e-walker { position: absolute; left: 990px; top: 424px; z-index: 4; width: 150px; }
+.og-e-moz { display: block; width: 100%; height: auto; filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.45)); }
+.og-e-copy { position: absolute; left: 64px; top: 78px; z-index: 5; width: 520px; }
+.og-e-kicker { display: inline-flex; padding: 8px 16px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); font-size: 18px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #d9ddea; }
+.og-e-title { margin: 18px 0 0; font-family: 'Baloo 2', 'Fredoka', sans-serif; font-weight: 800; font-size: 150px; line-height: 0.86; letter-spacing: -0.03em; color: #fff; text-shadow: 0 10px 40px rgba(255, 154, 77, 0.25); }
+.og-e-tag { margin-top: 10px !important; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 46px; line-height: 1.05; letter-spacing: -0.02em; color: #fbf3e6; }
+.og-e-tag span { color: #63d586; }
+.og-e-sub { margin-top: 16px !important; font-size: 24px; font-weight: 600; line-height: 1.35; color: #c9cede; }
+.og-e-site { top: 70px; }
+
+/* ── F: Night hero ── */
+.og-f { background: #0b0e1a; }
+.og-f-sky { position: absolute; inset: 0; z-index: 0; }
+.og-f .st-hero-sky { z-index: 0; }
+.og-f .st-hero-sky > circle { display: none; }
+.og-f-moon { position: absolute; left: 1012px; top: 88px; z-index: 1; width: 230px; height: 230px; }
+.og-f-copy { position: absolute; left: 64px; top: 170px; z-index: 5; width: 600px; }
+.og-f .og-h1 { font-size: 78px; color: #fbf3e6; text-shadow: 0 6px 30px rgba(11, 14, 26, 0.6); }
+.og-f .og-sub { font-size: 26px; color: #c9cede; white-space: nowrap; }
+.og-f-art { position: absolute; right: 40px; top: 70px; z-index: 3; width: 480px; height: 560px; }
+.og-f-glow { position: absolute; left: 50%; top: 50%; width: 520px; height: 520px; margin: -260px 0 0 -260px; border-radius: 50%; background: radial-gradient(circle, rgba(99, 213, 134, 0.26) 0%, rgba(124, 92, 255, 0.14) 40%, rgba(11, 14, 26, 0) 68%); }
+.og-f-phone { position: absolute; left: 90px; top: -40px; width: 300px; height: 640px; transform: perspective(1400px) rotateY(-16deg) rotateX(6deg) rotate(4deg) scale(0.8); transform-origin: 50% 50%; }
+/* story.css's later .st-screen rule (cream) outranks .st-screen-shield, so the lock screen's dark ground is restated here. */
+.og .st-screen-shield { padding: 0; background: #101116; }
+.og-f-tile { position: absolute; z-index: 4; }
+.og-f-tile .st-tile { box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45); --lock-ring: #141a38; }
+.og-f-tile.is-1 { left: 22px; top: 60px; rotate: -10deg; }
+.og-f-tile.is-2 { right: 4px; top: 236px; rotate: 9deg; }
+.og-f-tile.is-3 { right: 34px; bottom: 112px; rotate: -6deg; }
+.og-f-note { position: absolute; left: 446px; top: 536px; z-index: 5; font-family: 'Caveat', cursive; font-weight: 700; font-size: 34px; color: #ffd9a8; rotate: -4deg; white-space: nowrap; }
+
+/* ── G: Gate at sunrise ── */
+.og-g { background: linear-gradient(180deg, #2a2a5e 0%, #5b3d78 26%, #c15f7c 52%, #ff9e6d 72%, #ffd39a 88%); }
+.og-g-rays { position: absolute; left: 980px; top: 310px; z-index: 0; width: 1500px; height: 1500px; margin: -750px 0 0 -750px; border-radius: 50%;
+  background: repeating-conic-gradient(from 4deg, rgba(255, 238, 196, 0.16) 0deg 5deg, rgba(255, 238, 196, 0) 5deg 15deg);
+  -webkit-mask-image: radial-gradient(circle, #000 8%, transparent 52%); mask-image: radial-gradient(circle, #000 8%, transparent 52%); }
+.og-g-sun { position: absolute; left: 860px; top: 190px; z-index: 0; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle at 44% 42%, #fffef7 0%, #fff2c8 55%, #ffd98c 100%); box-shadow: 0 0 120px 40px rgba(255, 214, 140, 0.55); }
+.og-g-cloud { position: absolute; z-index: 1; opacity: 0.9; }
+.og-g-cloud.is-a { left: 610px; top: 90px; }
+.og-g-cloud.is-b { left: 1040px; top: 120px; opacity: 0.75; }
+.og-g-cloud.is-c { left: 760px; top: 250px; opacity: 0.7; }
+.og-g-land { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; }
+.og-g-gate { position: absolute; left: 836px; top: 236px; z-index: 4; width: 340px; height: 291px; overflow: visible; }
+.og-g-flowers { position: absolute; inset: 0; z-index: 4; width: 100%; height: 100%; }
+.og-g-trail { z-index: 5; }
+.og-g-walker { position: absolute; left: 676px; top: 386px; z-index: 6; width: 160px; }
+.og-g-moz { display: block; width: 100%; height: auto; filter: drop-shadow(0 14px 16px rgba(40, 20, 30, 0.3)); }
+.og-g-copy { position: absolute; left: 64px; top: 150px; z-index: 7; width: 600px; text-shadow: 0 3px 24px rgba(42, 42, 94, 0.45); }
+.og-g .og-h1 { font-size: 92px; color: #fff; }
+.og-g-warm { color: #ffe2a8; }
+.og-g .og-sub { font-size: 27px; color: #fff3e6; }
+
+/* ── H: Park day ── */
+.og-h.st-final { padding: 0; text-align: center; }
+.og-h .st-final-bank { display: none; }
+.og-h-copy { position: absolute; left: 0; right: 0; top: 46px; z-index: 5; display: flex; flex-direction: column; align-items: center; }
+.og-h .og-brand { position: static; }
+.og-h .og-h1 { margin-top: 14px; font-size: 78px; color: #141413; }
+.og-h .og-sub { margin-top: 14px !important; font-size: 23px; color: #3f4a3b; }
+.og-h .st-final-isle.is-a { left: 66px; top: 168px; width: 150px; }
+.og-h .st-final-isle.is-b { right: 92px; top: 126px; width: 100px; }
+.og-h .st-final-birds { left: 226px; top: 62px; width: 92px; }
+.og-h .st-final-cloud.is-0 { left: 18px; top: 104px; width: 180px; }
+.og-h .st-final-cloud.is-1 { right: 236px; top: 40px; width: 110px; }
+.og-h .st-final-cloud.is-2 { left: 214px; right: auto; top: 356px; width: 140px; opacity: 0.8; }
+.og-h .og-badges { margin-top: 20px; }
+.og-h-scene { position: absolute; left: 0; right: 0; bottom: -58px; z-index: 2; transform: scale(1.18); transform-origin: 62% 100%; }
+.og-h .st-final-scene { left: 0; width: 1200px; margin-top: 0; transform: none; }
+.og-h-site { top: auto; bottom: 24px; right: 32px; color: #24402a; text-shadow: 0 1px 8px rgba(255, 255, 255, 0.5); }

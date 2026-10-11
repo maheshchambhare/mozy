@@ -1,0 +1,52 @@
+# Mozy
+
+> App blocker and step counter: walking earns screen-time minutes for the apps you pick, and those apps lock when the minutes run out.
+
+Mozy is made by mcrudra.com (founder: Mahesh Chambhare). It runs on iOS 16.4+ (iPhone), Android 8.0+.
+
+<!-- REVIEW before publishing: reword the pricing line from MCX's verified facts, then delete this comment. -->
+Pricing: iOS (US): free download; Monthly Premium $4.99, Yearly Premium $29.99; an active subscription is required for app features. Android (US): free with in-app purchases ($4.99-$34.99 per item). The website says free/freemium, which conflicts with iOS.
+
+## Get Mozy
+
+- [App Store](https://apps.apple.com/us/app/mozy-walk-to-earn-screen-time/id6792097497): Mozy: Walk to Earn Screen Time
+- [Google Play](https://play.google.com/store/apps/details?id=com.moxstudio.mozy): Mozy: Walk to Unlock Apps
+
+## Pages
+
+- [MOZY: Walk to Earn Screen Time | App Blocker for Android & iPhone](https://mozy.mcrudra.com/): MOZY turns walking into screen time. Block distracting apps, earn minutes with your steps, and build more intentional phone habits on Android and iPhone.
+- [The MOZY Journal | Screen Time, Walking & Digital Habits](https://mozy.mcrudra.com/blog): Explore the MOZY journal: practical perspectives on screen time, walking, sleep, and more intentional digital habits.
+- [Pricing | MOZY](https://mozy.mcrudra.com/pricing): MOZY pricing on iPhone and Android: a free download on both stores, Mozy Premium at $4.99 a month or $29.99 a year on iPhone (US), and in-app purchases on Android.
+- [Privacy Policy | MOZY](https://mozy.mcrudra.com/privacy): How Mozy handles your data: no account, your steps and screen time stay on your phone, and anonymous analytics are used only to improve the app and website.
+
+## Articles
+
+- [Variable Reward Schedules: Dopamine and Infinite Scroll | Mozy](https://mozy.mcrudra.com/blog/algorithmic-variable-reward-schedules-infinite-scroll-dopamine): Why can't you stop scrolling? Unpack B.F. Skinner's variable reward schedules, mesolimbic dopamine hijacking, and break the loop with Mozy.
+- [The Attention Economy: How Big Tech Profits from Your Distraction | Mozy](https://mozy.mcrudra.com/blog/attention-economy-explained): Your attention is the product. Social media platforms are designed to harvest it. Here is how the attention economy works, why it is making you scroll, and how Mozy breaks the loop.
+- [Revenge Bedtime Procrastination: Sleep vs Late Scrolling | Mozy](https://mozy.mcrudra.com/blog/bedtime-revenge-procrastination-limbic-prefrontal-exhaustion): Can't stop scrolling in bed? Understand limbic exhaustion and autonomy compensation, and put late-night feeds behind a walk with Mozy.
+- [Breathwork & the Vagus Nerve: Stopping Screen Compulsion | Mozy](https://mozy.mcrudra.com/blog/breathwork-interventions-vagus-nerve-digital-compulsion): Stop compulsive screen checking with breathwork. Discover how the vagus nerve and physiological sighs calm digital urge spikes, and where Mozy fits in.
+- [Continuous Partial Attention: Healing Mind Fragmentation | Mozy](https://mozy.mcrudra.com/blog/continuous-partial-attention-cpa-prefrontal-cortex-fragmentation): Constantly multitasking across tabs and feeds? Understand Continuous Partial Attention (CPA) and attention residue, and put your feeds behind a walk with Mozy.
+- [Android Digital Wellbeing vs. Mozy: Which Screen Time App Actually Works? | Mozy](https://mozy.mcrudra.com/blog/digital-wellbeing-vs-mozy): Android Digital Wellbeing runs on timers you set yourself. Mozy makes you earn screen time by walking. Here is a direct, feature-by-feature comparison of both apps, and why enforcement matters.
+- [The Infinite Scroll Trap: Why Your Brain Cannot Stop | Doomscrolling Help](https://mozy.mcrudra.com/blog/doomscrolling-addiction-help): Discover the neuroscience behind infinite scroll addiction. Learn why doomscrolling hijacks your dopamine system and 7 science-backed strategies to break free.
+- [Dopamine Baseline vs Phasic Spikes: Screen Burnout Fix | Mozy](https://mozy.mcrudra.com/blog/dopamine-depletion-vs-tonic-baseline-screen-fatigue): Why does real life feel boring after scrolling? Learn how constant phasic spikes crash your tonic dopamine baseline, and put those feeds behind a walk with Mozy.
+- [How to Do a Phone Dopamine Detox: A 30-Day Guide | Mozy](https://mozy.mcrudra.com/blog/dopamine-detox): Reclaim your focus and reset your brain. Here is a realistic 30-day dopamine detox blueprint for your phone, backed by science and enforced by Mozy.
+- [Dark Patterns & Frictionless UI: Dismantling Screen Traps | Mozy](https://mozy.mcrudra.com/blog/frictionless-ui-dark-patterns-bottomless-feeds): Infinite scroll, autoplay, and pull-to-refresh are dark UX patterns engineered to enslave attention. Learn how to add friction back, with help from Mozy.
+- [How to Reduce Screen Time on Android: 10 Proven Methods (2026)](https://mozy.mcrudra.com/blog/how-to-reduce-screen-time-android): Go beyond Android's built-in Digital Wellbeing. 10 proven methods to reduce screen time, including app-based solutions, behavioral tricks, and movement rewards.
+- [How to Stop Checking Your Phone Every 5 Minutes (9-Step Protocol)](https://mozy.mcrudra.com/blog/how-to-stop-checking-phone): Most people check their phones dozens of times a day. Learn a 9-step behavioral protocol to break the compulsive phone-checking cycle for good.
+- [How to Stop Doomscrolling: The Science-Backed Guide (2026) | Mozy](https://mozy.mcrudra.com/blog/how-to-stop-doomscrolling): Doomscrolling isn't a willpower problem. It is a design problem. Here is the neuroscience, the psychology, and the app (Mozy) that turns your steps into screen time.
+- [How to Set a Strict Instagram Time Limit on Android | Mozy](https://mozy.mcrudra.com/blog/instagram-time-limit-android): Instagram's built-in reminder and Android Digital Wellbeing timers are easy to wave away. Here is how to set a stricter Instagram limit on Android with Mozy: one you earn by walking.
+- [Urge Surfing & Interoception: Breaking Phone Cravings | Mozy](https://mozy.mcrudra.com/blog/interoception-insula-activation-somatic-craving-delay): Stop white-knuckling screen urges. Learn the science of interoception, insula activation, and Alan Marlatt's urge surfing, plus how Mozy adds a walk before the scroll.
+- [Screen Addiction Neurobiology: The Somatic Friction Guide | Mozy](https://mozy.mcrudra.com/blog/neurobiology-of-screen-addiction-somatic-friction-protocol): A practical guide to digital dependency. Discover the neurobiology of screen addiction and add somatic friction back with Mozy's walk-to-earn screen time.
+- [Parents Guide to Managing Kids Screen Time on Android (2026) | Mozy](https://mozy.mcrudra.com/blog/parents-guide-screen-time-kids): Help your kids build a healthy relationship with screens. Learn the latest research linking screen limits to mental wellbeing, and where Mozy fits into a family screen plan.
+- [Phantom Vibration Syndrome: Calming Notification Anxiety | Mozy](https://mozy.mcrudra.com/blog/phantom-vibration-syndrome-thalamocortical-hypervigilance): Feel your phone vibrating when it isn't? Understand thalamocortical hypervigilance and sensory gating failure, and how to cut down the alerts behind the phantom buzz.
+- [Phone Addiction Test: 15 Questions to Determine If You're Addicted](https://mozy.mcrudra.com/blog/phone-addiction-test): Take this 15-question phone addiction self-check and discover if your smartphone habits cross the line into addiction.
+- [Pop-Up Dismissal Reflex: Stop Bypassing Screen Limits | Mozy](https://mozy.mcrudra.com/blog/pop-up-dismissal-reflex-system-1-cognitive-bypass): Dismissing screen time limits in 0.3 seconds? Understand Daniel Kahneman's System 1 cognitive bypass, and swap one-tap limits for Mozy's walk-to-earn minutes.
+- [Screen Addiction: The Behavioral Science of Scrolling | Mozy](https://mozy.mcrudra.com/blog/screen-addiction-behavioral-science): Doomscrolling is powered by neural reward circuits. Learn how variable reinforcement schedules and dopamine triggers hijack your brain, and how Mozy breaks the cycle.
+- [How to Set Screen Time Limits on Android (Built-in + Apps 2026)](https://mozy.mcrudra.com/blog/screen-time-limits-android): Complete guide to every Android screen time limit method: Digital Wellbeing, Focus Mode, app timers, and the third-party apps that go beyond built-in tools.
+- [Screen Time Statistics 2026: How Much Time Are We Spending? | Mozy](https://mozy.mcrudra.com/blog/screen-time-statistics-2026): Explore the latest screen time statistics for 2026. Discover average daily usage rates, social media consumption metrics, and phone check frequencies.
+- [Scroll Addiction Test: Are You Addicted to Infinite Scroll? (12 Questions)](https://mozy.mcrudra.com/blog/scroll-addiction-test): Take this 12-question scroll addiction test. Based on behavioral psychology research, discover if infinite scroll design has trapped you in compulsive scrolling patterns.
+- [Block Shorts & Reels: Stopping Micro-Content Decay | Mozy](https://mozy.mcrudra.com/blog/short-form-video-brain-atrophy-micro-content-cognitive-decay): Losing your attention span to TikTok, Reels, and Shorts? Discover the neurology of micro-content cognitive decay and put those apps behind a walk with Mozy.
+- [Somatic Friction vs Binary App Blockers: Habit Loops | Mozy](https://mozy.mcrudra.com/blog/somatic-friction-vs-binary-app-blockers-habit-loops): Why do traditional app blockers get uninstalled in days? Discover the power of somatic friction to rewire habit loops and regain screen control with Mozy.
+- [How to Limit TikTok Screen Time on Android in 2026 | Mozy](https://mozy.mcrudra.com/blog/tiktok-screen-time-limit-android): TikTok's built-in screen time controls are easy to get past. Here is how to set a stricter daily TikTok limit on Android with Mozy, using minutes you earn by walking.
+- [Walk to Earn Screen Time: How Movement-Based Rewards Change Habits](https://mozy.mcrudra.com/blog/walk-to-earn-screen-time): Discover how walk-to-earn screen time apps like Mozy use behavioral psychology and dopamine redirection to build healthier phone habits.
+- [Why Your Phone Apps Are Designed to Be Addictive | Mozy](https://mozy.mcrudra.com/blog/why-apps-are-addictive): Your favorite apps are built on behavioral psychology to keep you hooked. Learn the science of variable rewards, the Fogg Behavior Model, and how Mozy breaks the loop.

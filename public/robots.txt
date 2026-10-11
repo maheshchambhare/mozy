@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Dedicated AI search discovery crawlers
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Standard web search crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://mozy.mcrudra.com/sitemap.xml

@@ -1,0 +1,117 @@
+/* Navigation: the burger, the full-screen ripple menu, the page-transition curtain and the Moz loader. */
+.st-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+main[tabindex='-1']:focus { outline: none; }
+
+/* Keep the header's nav pill above the menu overlay (both live in the root stacking context). */
+.st-nav { position: relative; }
+
+/* ── Burger: three lines that fold into a cross ── */
+.st-burger { position: relative; display: none; flex: none; width: 44px; height: 44px; border-radius: 50%; color: #fff; background: rgba(255, 255, 255, 0.08); cursor: pointer; transition: background 0.25s, transform 0.25s var(--st-ease); }
+.st-burger:hover { background: rgba(255, 255, 255, 0.14); }
+.st-burger:active { transform: scale(0.94); }
+.st-burger span { position: absolute; left: 13px; right: 13px; height: 2.2px; border-radius: 2px; background: currentColor; transition: top 0.3s var(--st-ease) 0.1s, transform 0.3s var(--st-ease), opacity 0.2s, right 0.3s var(--st-ease); }
+.st-burger span:nth-child(1) { top: 15px; }
+.st-burger span:nth-child(2) { top: 21px; right: 17px; }
+.st-burger span:nth-child(3) { top: 27px; }
+.st-burger[aria-expanded='true'] { background: var(--st-sprout); color: #0b2414; }
+.st-burger[aria-expanded='true'] span { transition: top 0.3s var(--st-ease), transform 0.3s var(--st-ease) 0.12s, opacity 0.2s; }
+.st-burger[aria-expanded='true'] span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+.st-burger[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
+.st-burger[aria-expanded='true'] span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+@media (max-width: 860px) { .st-burger { display: block; } }
+
+/* While the menu is open: no page scroll, and the sticky "Get Mozy" bar steps aside. */
+html.st-menu-open { overflow: hidden; }
+html.st-menu-open .st-hud { opacity: 0 !important; visibility: hidden !important; }
+
+/* ── Ripple rings (shared by the menu and the curtain) ── */
+.st-rings { position: fixed; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.st-ring { opacity: 0; }
+.st-ring-glow { fill: none; stroke: rgba(99, 213, 134, 0.22); stroke-width: 34; }
+.st-ring-crest { fill: none; stroke: rgba(220, 255, 232, 0.9); stroke-width: 2.4; }
+.st-ring + .st-ring .st-ring-glow { stroke: rgba(150, 190, 255, 0.12); stroke-width: 22; }
+.st-ring + .st-ring .st-ring-crest { stroke: rgba(255, 255, 255, 0.45); stroke-width: 1.6; }
+
+/* ── The menu ── */
+.st-rmenu { position: fixed; inset: 0; z-index: 49; visibility: hidden; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; color: #fbf3e6; font-family: var(--st-body);
+  background:
+    radial-gradient(60% 40% at 85% 100%, rgba(99, 213, 134, 0.18), transparent 70%),
+    radial-gradient(50% 35% at 0% 0%, rgba(150, 170, 255, 0.14), transparent 70%),
+    linear-gradient(180deg, #0b0e1a 0%, #141a38 60%, #1c2350 100%); }
+.st-rmenu-rings { z-index: 49; }
+.st-rmenu-sky, .st-curtain-sky { position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(1.6px 1.6px at 8% 16%, #fff 50%, transparent 55%), radial-gradient(1.2px 1.2px at 22% 48%, rgba(255, 255, 255, 0.6) 50%, transparent 55%),
+    radial-gradient(1.7px 1.7px at 41% 10%, #fff 50%, transparent 55%), radial-gradient(1.1px 1.1px at 63% 36%, rgba(255, 255, 255, 0.55) 50%, transparent 55%),
+    radial-gradient(1.5px 1.5px at 79% 14%, #fff 50%, transparent 55%), radial-gradient(1.2px 1.2px at 92% 52%, rgba(255, 255, 255, 0.6) 50%, transparent 55%),
+    radial-gradient(1.3px 1.3px at 14% 82%, rgba(255, 255, 255, 0.4) 50%, transparent 55%), radial-gradient(1.2px 1.2px at 55% 72%, rgba(255, 255, 255, 0.35) 50%, transparent 55%);
+  background-size: 520px 520px; }
+.st-rmenu-body { position: relative; min-height: 100%; width: min(640px, 100%); margin: 0 auto; display: flex; flex-direction: column; padding: 108px 22px max(26px, env(safe-area-inset-bottom)); }
+.st-rmenu-kicker { font-size: 12px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--st-sprout); }
+.st-rmenu-list { list-style: none; margin-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.09); }
+.st-rmenu-item a { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 15px 2px; border-bottom: 1px solid rgba(255, 255, 255, 0.09); color: inherit; -webkit-tap-highlight-color: transparent; }
+.st-rmenu-num { align-self: start; padding-top: 10px; font-family: var(--st-display); font-weight: 600; font-size: 14px; color: rgba(251, 243, 230, 0.38); }
+.st-rmenu-label { display: block; font-family: var(--st-display); font-weight: 700; font-size: clamp(30px, 8.6vw, 46px); line-height: 1.04; letter-spacing: -0.025em; color: #fbf3e6; transition: color 0.25s, transform 0.35s var(--st-ease); }
+.st-rmenu-hint { display: block; margin-top: 3px; font-size: 14px; line-height: 1.4; color: #aeb5cc; }
+.st-rmenu-arrow { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: rgba(255, 255, 255, 0.07); color: var(--st-sprout); transition: transform 0.35s var(--st-ease), background 0.25s, color 0.25s; }
+.st-rmenu-item a:hover .st-rmenu-label, .st-rmenu-item a:focus-visible .st-rmenu-label { color: var(--st-sprout); transform: translateX(4px); }
+.st-rmenu-item a:hover .st-rmenu-arrow, .st-rmenu-item a:focus-visible .st-rmenu-arrow { background: var(--st-sprout); color: #0b2414; transform: translateX(4px); }
+.st-rmenu-item a:active .st-rmenu-label { transform: scale(0.98); }
+.st-rmenu-item a.is-current .st-rmenu-label { color: var(--st-sprout); }
+.st-rmenu-item a.is-current .st-rmenu-hint { color: var(--st-sprout); font-weight: 700; }
+.st-rmenu :focus-visible { outline: 3px solid var(--st-sprout); outline-offset: 3px; border-radius: 12px; }
+.st-rmenu-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 26px; }
+.st-rmenu-cta { display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 26px; border-radius: 999px; background: var(--st-green); color: #fff; font-family: var(--st-display); font-weight: 600; font-size: 20px; box-shadow: 0 14px 30px rgba(40, 118, 62, 0.4); transition: transform 0.25s var(--st-ease), background 0.2s; }
+.st-rmenu-cta:hover { transform: translateY(-2px); background: #2f8a49; }
+.st-rmenu-note { margin-top: 10px; font-size: 13px; font-weight: 700; color: #aeb5cc; }
+.st-rmenu-moz { flex: none; width: 150px; margin-right: -14px; margin-bottom: -6px; }
+.st-rmenu-small { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.09); }
+.st-rmenu-small a { display: inline-flex; align-items: center; min-height: 40px; font-size: 14px; font-weight: 700; color: #c9cede; }
+.st-rmenu-small a:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+
+/* ── The page-transition curtain ── */
+.st-curtain { position: fixed; inset: 0; z-index: 1000; visibility: hidden; display: grid; place-items: center; color: #fbf3e6; font-family: var(--st-body);
+  background:
+    radial-gradient(42% 36% at 50% 50%, rgba(99, 213, 134, 0.16), transparent 70%),
+    linear-gradient(180deg, #0b0e1a 0%, #141a38 60%, #262c57 100%); }
+.st-curtain.is-revealing { pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle at var(--hx, 50%) var(--hy, 50%), transparent calc(var(--hole, 0px) - 4px), rgba(0, 0, 0, 0.55) calc(var(--hole, 0px) + 22px), #000 calc(var(--hole, 0px) + 80px));
+  mask-image: radial-gradient(circle at var(--hx, 50%) var(--hy, 50%), transparent calc(var(--hole, 0px) - 4px), rgba(0, 0, 0, 0.55) calc(var(--hole, 0px) + 22px), #000 calc(var(--hole, 0px) + 80px)); }
+.st-curtain-rings { z-index: 1001; }
+.st-curtain-loader { position: relative; margin-top: -4vh; }
+
+/* ── Moz on his pond (curtain, menu and route-loading fallback) ── */
+.st-loader { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.st-loader-pond { position: relative; width: 240px; height: 190px; }
+.st-loader-pond::before { content: ''; position: absolute; left: 50%; bottom: 0; width: 230px; height: 66px; margin-left: -115px; border-radius: 50%; background: radial-gradient(closest-side, rgba(99, 213, 134, 0.26), rgba(99, 213, 134, 0.08) 70%, transparent); }
+.st-loader-wave { position: absolute; left: 50%; bottom: 6px; width: 220px; height: 60px; margin-left: -110px; border-radius: 50%; border: 2px solid rgba(160, 240, 196, 0.6); opacity: 0; transform: scale(0.2); animation: st-pond 2.1s cubic-bezier(0.2, 0.6, 0.35, 1) infinite; }
+.st-loader-wave.is-b { animation-delay: 0.7s; }
+.st-loader-wave.is-c { animation-delay: 1.4s; }
+@keyframes st-pond { 0% { opacity: 0; transform: scale(0.2); } 14% { opacity: 0.95; } 100% { opacity: 0; transform: scale(1.3); } }
+.st-loader-moz { position: absolute; left: 50%; bottom: 14px; width: 132px; transform: translateX(-50%); }
+.st-loader-mozart { width: 100%; height: auto; }
+.st-loader-label { font-family: var(--st-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; color: #c9cede; }
+.st-loader-label b { font-weight: 700; color: var(--st-sprout); }
+.st-loader-pond.is-menu { width: 160px; height: 150px; }
+.st-loader-pond.is-menu::before { width: 160px; height: 46px; margin-left: -80px; }
+.st-loader-pond.is-menu .st-loader-wave { width: 150px; height: 42px; margin-left: -75px; }
+.st-loader-pond.is-menu .st-loader-moz { width: 108px; bottom: 10px; }
+.st-loader.is-day .st-loader-wave { border-color: rgba(40, 118, 62, 0.4); }
+.st-loader.is-day .st-loader-pond::before { background: radial-gradient(closest-side, rgba(40, 118, 62, 0.16), transparent); }
+.st-route-loading { min-height: 72vh; display: grid; place-items: center; }
+
+@media (max-width: 380px) {
+  .st-rmenu-moz { width: 118px; }
+  .st-loader-pond.is-menu { width: 128px; height: 124px; }
+  .st-loader-pond.is-menu .st-loader-moz { width: 88px; }
+  .st-rmenu-cta { padding: 0 20px; font-size: 18px; }
+}
+@media (max-height: 640px) {
+  .st-rmenu-item a { padding: 10px 2px; }
+  .st-rmenu-label { font-size: clamp(26px, 7vw, 36px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .st-loader-wave { animation: none; opacity: 0.5; transform: scale(0.8); }
+  .st-loader .st-moz *, .st-rmenu .st-moz * { animation: none !important; }
+  .st-burger span { transition: none; }
+}

@@ -1,0 +1,7 @@
+name: moz
+logs:
+  file: build/rive.log
+  problems: build/problems.log
+exclude:
+  - backup
+  - tools

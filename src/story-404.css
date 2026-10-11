@@ -1,0 +1,70 @@
+/* 404 page: a night pond where the 0 of "404" is a little window with Moz walking in it. The sky ends in #2b3a5e, where
+   the shared footer's evening scene takes over. Used by the router's catch-all route, unknown journal stories and the
+   prerendered dist/404.html. */
+.st-nf { background: #141a12; }
+.st-nf-hero { position: relative; isolation: isolate; overflow: clip; margin-top: -92px; min-height: calc(100vh - 40px); min-height: calc(100svh - 40px);
+  display: flex; align-items: center; padding: 150px 0 110px; color: #fbf3e6; text-align: center;
+  background:
+    radial-gradient(36% 34% at 50% 36%, rgba(99, 213, 134, 0.16), transparent 72%),
+    linear-gradient(180deg, #0b0e1a 0%, #141a38 50%, #222c58 80%, #2b3a5e 100%); }
+.st-nf-sky { position: absolute; inset: 0 0 25% 0; z-index: -1; pointer-events: none;
+  background-image:
+    radial-gradient(1.6px 1.6px at 8% 22%, #fff 50%, transparent 55%), radial-gradient(1.2px 1.2px at 19% 52%, rgba(255, 255, 255, 0.65) 50%, transparent 55%),
+    radial-gradient(1.8px 1.8px at 28% 14%, #fff 50%, transparent 55%), radial-gradient(1.1px 1.1px at 41% 38%, rgba(255, 255, 255, 0.6) 50%, transparent 55%),
+    radial-gradient(1.5px 1.5px at 59% 11%, #fff 50%, transparent 55%), radial-gradient(1.2px 1.2px at 72% 34%, rgba(255, 255, 255, 0.7) 50%, transparent 55%),
+    radial-gradient(1.4px 1.4px at 88% 46%, rgba(255, 255, 255, 0.6) 50%, transparent 55%), radial-gradient(1.2px 1.2px at 14% 78%, rgba(255, 255, 255, 0.45) 50%, transparent 55%),
+    radial-gradient(1.3px 1.3px at 53% 66%, rgba(255, 255, 255, 0.4) 50%, transparent 55%);
+  background-size: 700px 520px; }
+.st-nf-moon { position: absolute; top: 96px; right: max(16px, calc(50% - 640px)); z-index: -1; width: 190px; height: 190px; pointer-events: none; }
+.st-nf-inner { display: flex; flex-direction: column; align-items: center; }
+
+/* "4 0 4": the zero is a window onto the pond */
+.st-nf-404 { display: flex; align-items: center; justify-content: center; gap: 0.05em; font-size: clamp(124px, 34vw, 228px); line-height: 1; user-select: none; }
+.st-nf-digit { font-family: var(--st-display); font-weight: 700; letter-spacing: -0.02em; color: #f7f1e3; text-shadow: 0 0.035em 0 rgba(8, 10, 26, 0.55), 0 0 0.32em rgba(99, 213, 134, 0.22); }
+.st-nf-zero { position: relative; flex: none; width: 0.58em; height: 0.72em; margin-top: 0.04em; border: 0.1em solid #f7f1e3; border-radius: 50%; overflow: hidden; isolation: isolate;
+  background: radial-gradient(80% 70% at 50% 24%, #2d3a6c 0%, #182046 62%, #121836 100%);
+  box-shadow: 0 0.035em 0 rgba(8, 10, 26, 0.55), 0 0 0.32em rgba(99, 213, 134, 0.22), inset 0 0 0.1em rgba(0, 0, 0, 0.45); }
+.st-nf-zero::before { content: ''; position: absolute; inset: 0; z-index: -1;
+  background-image: radial-gradient(0.012em 0.012em at 28% 22%, #fff 50%, transparent 60%), radial-gradient(0.01em 0.01em at 70% 16%, rgba(255, 255, 255, 0.8) 50%, transparent 60%),
+    radial-gradient(0.009em 0.009em at 56% 36%, rgba(255, 255, 255, 0.6) 50%, transparent 60%), radial-gradient(0.011em 0.011em at 36% 44%, rgba(255, 255, 255, 0.5) 50%, transparent 60%); }
+.st-nf-zero::after { content: ''; position: absolute; left: -12%; right: -12%; bottom: -8%; z-index: -1; height: 38%;
+  background: radial-gradient(closest-side, rgba(99, 213, 134, 0.42), rgba(40, 118, 62, 0.16) 62%, transparent); }
+.st-nf-ripple { position: absolute; left: 50%; bottom: 12%; width: 0.36em; height: 0.085em; margin-left: -0.18em; border-radius: 50%; border: 0.008em solid rgba(170, 244, 202, 0.75); opacity: 0; transform: scale(0.2);
+  animation: st-nf-ripple 2.1s cubic-bezier(0.2, 0.6, 0.35, 1) infinite; }
+.st-nf-ripple.is-b { animation-delay: 0.7s; }
+.st-nf-ripple.is-c { animation-delay: 1.4s; }
+@keyframes st-nf-ripple { 0% { opacity: 0; transform: scale(0.2); } 14% { opacity: 0.95; } 100% { opacity: 0; transform: scale(1.3); } }
+.st-nf-moz { position: absolute; left: 50%; bottom: 13%; width: 0.27em; transform: translateX(-50%); }
+.st-nf-mozart { display: block; width: 100%; height: auto; }
+
+/* Copy */
+.st-nf .st-nf-kicker { display: inline-flex; align-items: center; gap: 8px; margin-top: 34px; padding: 8px 16px; border-radius: 999px; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.14); font-size: 13px; font-weight: 800; line-height: 1.4; letter-spacing: 0.14em; text-transform: uppercase; color: #d9ddea; }
+.st-nf .st-nf-kicker svg { flex: none; color: var(--st-sprout); }
+.st-nf .st-nf-title { max-width: 780px; margin-top: 22px; font-family: var(--st-display); font-weight: 700; font-size: clamp(38px, 5vw, 64px); line-height: 1.04; letter-spacing: -0.035em; color: #fbf3e6; text-wrap: balance; }
+.st-nf-nowrap { white-space: nowrap; }
+.st-nf .st-nf-lede { max-width: 620px; margin-top: 18px; font-size: clamp(17px, 1.45vw, 19px); line-height: 1.65; color: #c9cede; text-wrap: pretty; }
+.st-nf-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+.st-nf-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 22px; border-radius: 999px; background: var(--st-green); color: #fff; font-weight: 800; font-size: 16px; box-shadow: 0 12px 28px rgba(40, 118, 62, 0.35); transition: transform 0.2s var(--st-ease), background 0.2s; }
+.st-nf-button:hover { transform: translateY(-2px); background: #1f7a3f; }
+.st-nf-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.22); color: #e9ecf5; font-weight: 800; font-size: 16px; transition: background 0.2s, border-color 0.2s; }
+.st-nf-ghost:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.4); }
+.st-nf-more { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 18px; margin-top: 26px; font-size: 15px; color: #aeb5cc; }
+.st-nf-more a { font-weight: 800; color: #e6e9f3; text-decoration: underline; text-decoration-color: rgba(99, 213, 134, 0.6); text-decoration-thickness: 2px; text-underline-offset: 5px; transition: color 0.2s, text-decoration-color 0.2s; }
+.st-nf-more a:hover { color: #fff; text-decoration-color: var(--st-sprout); }
+.st-nf :focus-visible { outline: 3px solid var(--st-sprout); outline-offset: 4px; border-radius: 10px; }
+
+@media (max-width: 640px) {
+  .st-nf-hero { padding: 124px 0 84px; }
+  .st-nf-moon { top: 86px; right: 4px; width: 120px; height: 120px; }
+  .st-nf .st-nf-kicker { margin-top: 28px; padding: 7px 13px; font-size: 11px; letter-spacing: 0.12em; }
+  .st-nf .st-nf-title { font-size: clamp(34px, 9.6vw, 44px); }
+  .st-nf .st-nf-lede { font-size: 16px; }
+  .st-nf-actions { width: 100%; }
+  .st-nf-actions > a { flex: 1 1 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .st-nf-ripple { animation: none; opacity: 0.5; transform: scale(0.85); }
+  .st-nf-ripple.is-b, .st-nf-ripple.is-c { display: none; }
+  .st-nf .st-moz * { animation: none !important; }
+  .st-nf-button, .st-nf-ghost { transition: none; }
+}

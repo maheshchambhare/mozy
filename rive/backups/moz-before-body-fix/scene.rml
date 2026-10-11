@@ -1,0 +1,551 @@
+<Rive version="1" kind="fragment">
+    <!-- Moz, the Mozy sprout mascot, drawn from the 3D clay renders in public/mascot_emotions.
+         Artboard 640x800. Every feature lives in its own Node, centred on its own origin, so the
+         turnaround rig can slide, foreshorten and hide it later without touching the artwork. -->
+    <Artboard defaultStateMachineId="0:7" styleId="0:5" width="640" height="800" name="Moz" id="0:2">
+        <LayoutComponentStyle name="Artboard Style" id="0:5"/>
+
+        <!-- Design-time background, removed for the shipped file. -->
+        <Fill name="Background">
+            <SolidColor colorValue="FFF7F4EE" name="Color"/>
+        </Fill>
+
+        <!-- ===================== HEAD ===================== -->
+        <Node x="320" y="380" name="Head" id="0:20">
+
+            <!-- Sprout: a thick stub stem on the crown, two plump leaves branching from its top. -->
+            <Node x="0" y="-162" name="Sprout" id="0:30">
+                <!-- Left leaf, steep up-left -->
+                <Node x="0" y="-34" rotation="-2.40" name="Leaf L" id="0:32">
+                    <Shape name="Leaf L Shine" id="0:36">
+                        <Ellipse x="88" y="-26" width="118" height="44" name="Path"/>
+                        <Fill name="Fill">
+                            <RadialGradient startX="88" startY="-26" endX="147" endY="-26" name="Gradient">
+                                <GradientStop colorValue="6EFFFFFF" position="0"/>
+                                <GradientStop colorValue="00FFFFFF" position="1"/>
+                            </RadialGradient>
+                        </Fill>
+                    </Shape>
+                    <Shape name="Leaf L Vein" id="0:37">
+                        <PointsPath name="Path">
+                            <StraightVertex x="10" y="0"/>
+                            <CubicMirroredVertex x="86" y="3" rotation="0" distance="38"/>
+                            <StraightVertex x="152" y="0"/>
+                        </PointsPath>
+                        <Stroke thickness="3" cap="round" name="Stroke">
+                            <SolidColor colorValue="995D9D2A" name="Color"/>
+                        </Stroke>
+                    </Shape>
+                    <Shape name="Leaf L Body" id="0:34">
+                        <PointsPath isClosed="true" name="Path">
+                            <CubicMirroredVertex x="0" y="0" rotation="-1.5708" distance="30"/>
+                            <CubicMirroredVertex x="86" y="-66" rotation="0" distance="50"/>
+                            <CubicMirroredVertex x="167" y="0" rotation="1.5708" distance="40"/>
+                            <CubicMirroredVertex x="86" y="66" rotation="3.1416" distance="50"/>
+                        </PointsPath>
+                        <Fill name="Fill">
+                            <RadialGradient startX="78" startY="-28" endX="238" endY="-28" name="Gradient">
+                                <GradientStop colorValue="FFC8EC60" position="0"/>
+                                <GradientStop colorValue="FF92C941" position="0.5"/>
+                                <GradientStop colorValue="FF4C9527" position="1"/>
+                            </RadialGradient>
+                        </Fill>
+                    </Shape>
+                </Node>
+
+                <!-- Right leaf, nearly level up-right -->
+                <Node x="0" y="-34" rotation="-0.35" name="Leaf R" id="0:33">
+                    <Shape name="Leaf R Shine" id="0:38">
+                        <Ellipse x="84" y="-24" width="112" height="40" name="Path"/>
+                        <Fill name="Fill">
+                            <RadialGradient startX="84" startY="-24" endX="140" endY="-24" name="Gradient">
+                                <GradientStop colorValue="6EFFFFFF" position="0"/>
+                                <GradientStop colorValue="00FFFFFF" position="1"/>
+                            </RadialGradient>
+                        </Fill>
+                    </Shape>
+                    <Shape name="Leaf R Vein" id="0:39">
+                        <PointsPath name="Path">
+                            <StraightVertex x="10" y="0"/>
+                            <CubicMirroredVertex x="82" y="3" rotation="0" distance="36"/>
+                            <StraightVertex x="146" y="0"/>
+                        </PointsPath>
+                        <Stroke thickness="3" cap="round" name="Stroke">
+                            <SolidColor colorValue="995D9D2A" name="Color"/>
+                        </Stroke>
+                    </Shape>
+                    <Shape name="Leaf R Body" id="0:35">
+                        <PointsPath isClosed="true" name="Path">
+                            <CubicMirroredVertex x="0" y="0" rotation="-1.5708" distance="28"/>
+                            <CubicMirroredVertex x="82" y="-60" rotation="0" distance="48"/>
+                            <CubicMirroredVertex x="160" y="0" rotation="1.5708" distance="38"/>
+                            <CubicMirroredVertex x="82" y="60" rotation="3.1416" distance="48"/>
+                        </PointsPath>
+                        <Fill name="Fill">
+                            <RadialGradient startX="74" startY="-26" endX="224" endY="-26" name="Gradient">
+                                <GradientStop colorValue="FFC8EC60" position="0"/>
+                                <GradientStop colorValue="FF92C941" position="0.5"/>
+                                <GradientStop colorValue="FF4C9527" position="1"/>
+                            </RadialGradient>
+                        </Fill>
+                    </Shape>
+                </Node>
+
+                <!-- Stem: a short thick stub -->
+                <Shape name="Stem" id="0:31">
+                    <PointsPath name="Path">
+                        <StraightVertex x="0" y="10"/>
+                        <StraightVertex x="0" y="-34"/>
+                    </PointsPath>
+                    <Stroke thickness="22" cap="round" name="Stroke">
+                        <LinearGradient startX="-11" startY="0" endX="11" endY="0" name="Gradient">
+                            <GradientStop colorValue="FF86C73F" position="0"/>
+                            <GradientStop colorValue="FF4A9430" position="1"/>
+                        </LinearGradient>
+                    </Stroke>
+                </Shape>
+
+                <!-- Dimple where the stem meets the crown -->
+                <Shape x="0" y="8" name="Stem Dimple" id="0:40">
+                    <Ellipse width="48" height="18" name="Path"/>
+                    <Fill name="Fill">
+                        <RadialGradient startX="0" startY="0" endX="24" endY="0" name="Gradient">
+                            <GradientStop colorValue="59B88F62" position="0"/>
+                            <GradientStop colorValue="00B88F62" position="1"/>
+                        </RadialGradient>
+                    </Fill>
+                </Shape>
+            </Node>
+
+            <!-- ===== Face middle: eyes and blush. Brows exist for the stern mood and stay hidden. ===== -->
+            <Node x="0" y="-26" name="Eyes" id="0:50">
+                <Node x="-78" y="0" rotation="-0.08" name="Eye L" id="0:51">
+                    <Shape x="17" y="-25" name="Eye L Catchlight" id="0:52">
+                        <Ellipse width="17" height="17" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="FFFFFFFF" name="Color"/></Fill>
+                    </Shape>
+                    <Shape x="-16" y="20" name="Eye L Glint" id="0:53">
+                        <Ellipse width="8" height="8" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="E6FFFFFF" name="Color"/></Fill>
+                    </Shape>
+                    <Shape name="Eye L Bead" id="0:54">
+                        <Ellipse width="78" height="94" name="Path"/>
+                        <Fill name="Fill">
+                            <RadialGradient startX="0" startY="32" endX="56" endY="32" name="Gradient">
+                                <GradientStop colorValue="FF4E2009" position="0"/>
+                                <GradientStop colorValue="FF26120A" position="0.45"/>
+                                <GradientStop colorValue="FF16101A" position="1"/>
+                            </RadialGradient>
+                        </Fill>
+                        <Stroke thickness="2" name="Rim">
+                            <SolidColor colorValue="CC3C2417" name="Color"/>
+                        </Stroke>
+                    </Shape>
+                </Node>
+                <Node x="78" y="0" rotation="0.08" name="Eye R" id="0:55">
+                    <Shape x="17" y="-25" name="Eye R Catchlight" id="0:56">
+                        <Ellipse width="17" height="17" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="FFFFFFFF" name="Color"/></Fill>
+                    </Shape>
+                    <Shape x="-16" y="20" name="Eye R Glint" id="0:57">
+                        <Ellipse width="8" height="8" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="E6FFFFFF" name="Color"/></Fill>
+                    </Shape>
+                    <Shape name="Eye R Bead" id="0:58">
+                        <Ellipse width="78" height="94" name="Path"/>
+                        <Fill name="Fill">
+                            <RadialGradient startX="0" startY="32" endX="56" endY="32" name="Gradient">
+                                <GradientStop colorValue="FF4E2009" position="0"/>
+                                <GradientStop colorValue="FF26120A" position="0.45"/>
+                                <GradientStop colorValue="FF16101A" position="1"/>
+                            </RadialGradient>
+                        </Fill>
+                        <Stroke thickness="2" name="Rim">
+                            <SolidColor colorValue="CC3C2417" name="Color"/>
+                        </Stroke>
+                    </Shape>
+                </Node>
+                <!-- Stern brows (hidden until the mood rig uses them) -->
+                <Shape x="-78" y="-58" rotation="0.22" hidden="true" name="Brow L" id="0:59">
+                    <PointsPath name="Path">
+                        <StraightVertex x="-36" y="0"/>
+                        <StraightVertex x="36" y="0"/>
+                    </PointsPath>
+                    <Stroke thickness="13" cap="round" name="Stroke">
+                        <SolidColor colorValue="FF2B160D" name="Color"/>
+                    </Stroke>
+                </Shape>
+                <Shape x="78" y="-58" rotation="-0.22" hidden="true" name="Brow R" id="0:60">
+                    <PointsPath name="Path">
+                        <StraightVertex x="-36" y="0"/>
+                        <StraightVertex x="36" y="0"/>
+                    </PointsPath>
+                    <Stroke thickness="13" cap="round" name="Stroke">
+                        <SolidColor colorValue="FF2B160D" name="Color"/>
+                    </Stroke>
+                </Shape>
+            </Node>
+            <Node x="0" y="36" name="Blush" id="0:61">
+                <Shape x="-130" y="0" name="Blush L" id="0:62">
+                    <Ellipse width="78" height="56" name="Path"/>
+                    <Fill name="Fill">
+                        <RadialGradient startX="0" startY="0" endX="39" endY="0" name="Gradient">
+                            <GradientStop colorValue="E6F2A3AB" position="0"/>
+                            <GradientStop colorValue="80F2A3AB" position="0.5"/>
+                            <GradientStop colorValue="00F3A5AC" position="1"/>
+                        </RadialGradient>
+                    </Fill>
+                </Shape>
+                <Shape x="130" y="0" name="Blush R" id="0:63">
+                    <Ellipse width="78" height="56" name="Path"/>
+                    <Fill name="Fill">
+                        <RadialGradient startX="0" startY="0" endX="39" endY="0" name="Gradient">
+                            <GradientStop colorValue="E6F2A3AB" position="0"/>
+                            <GradientStop colorValue="80F2A3AB" position="0.5"/>
+                            <GradientStop colorValue="00F3A5AC" position="1"/>
+                        </RadialGradient>
+                    </Fill>
+                </Shape>
+            </Node>
+
+            <!-- ===== Face bottom: an open smile with a tongue; a hidden frown for the stern mood ===== -->
+            <Node x="0" y="46" name="Mouth" id="0:70">
+                <Shape x="0" y="20" name="Tongue" id="0:72">
+                    <Ellipse width="52" height="34" name="Path"/>
+                    <Fill name="Fill">
+                        <LinearGradient startX="0" startY="-17" endX="0" endY="17" name="Gradient">
+                            <GradientStop colorValue="FFF27B82" position="0"/>
+                            <GradientStop colorValue="FFD94B55" position="1"/>
+                        </LinearGradient>
+                    </Fill>
+                    <ClippingShape sourceId="0:71" name="Clip"/>
+                </Shape>
+                <Shape name="Mouth Open" id="0:71">
+                    <PointsPath isClosed="true" name="Path">
+                        <StraightVertex x="-35" y="-6" radius="6"/>
+                        <CubicMirroredVertex x="0" y="-15" rotation="0" distance="16"/>
+                        <StraightVertex x="35" y="-6" radius="6"/>
+                        <CubicMirroredVertex x="0" y="38" rotation="3.1416" distance="32"/>
+                    </PointsPath>
+                    <Fill name="Fill">
+                        <RadialGradient startX="0" startY="6" endX="40" endY="6" name="Gradient">
+                            <GradientStop colorValue="FF5C1410" position="0"/>
+                            <GradientStop colorValue="FF3B0906" position="1"/>
+                        </RadialGradient>
+                    </Fill>
+                    <Stroke thickness="1.5" name="Lip">
+                        <SolidColor colorValue="99461009" name="Color"/>
+                    </Stroke>
+                </Shape>
+                <Shape x="0" y="-2" hidden="true" name="Mouth Frown" id="0:73">
+                    <PointsPath name="Path">
+                        <StraightVertex x="-12" y="4"/>
+                        <CubicMirroredVertex x="0" y="-3" rotation="0" distance="7"/>
+                        <StraightVertex x="12" y="4"/>
+                    </PointsPath>
+                    <Stroke thickness="4" cap="round" name="Stroke">
+                        <SolidColor colorValue="FF3A1B10" name="Color"/>
+                    </Stroke>
+                </Shape>
+            </Node>
+
+            <!-- Soft broad highlight on the crown -->
+            <Shape x="-55" y="-100" rotation="-0.35" name="Head Highlight" id="0:22">
+                <Ellipse width="230" height="130" name="Path"/>
+                <Fill name="Fill">
+                    <RadialGradient startX="0" startY="0" endX="115" endY="0" name="Gradient">
+                        <GradientStop colorValue="7AFFFFFF" position="0"/>
+                        <GradientStop colorValue="33FFFFFF" position="0.55"/>
+                        <GradientStop colorValue="00FFFFFF" position="1"/>
+                    </RadialGradient>
+                </Fill>
+            </Shape>
+
+            <!-- The head ball: a soft sphere, a touch fuller at the cheeks than the crown -->
+            <Shape name="Head Ball" id="0:21">
+                <PointsPath isClosed="true" name="Path">
+                    <CubicMirroredVertex x="0" y="-170" rotation="0" distance="104"/>
+                    <CubicMirroredVertex x="197" y="6" rotation="1.5708" distance="96"/>
+                    <CubicMirroredVertex x="0" y="174" rotation="3.1416" distance="126"/>
+                    <CubicMirroredVertex x="-197" y="6" rotation="-1.5708" distance="96"/>
+                </PointsPath>
+                <Fill name="Base">
+                    <RadialGradient startX="-40" startY="-120" endX="210" endY="-120" name="Gradient">
+                        <GradientStop colorValue="FFFCF5E6" position="0"/>
+                        <GradientStop colorValue="FFF7E8CD" position="0.45"/>
+                        <GradientStop colorValue="FFDFBF98" position="1"/>
+                    </RadialGradient>
+                </Fill>
+                <Fill name="Chin Shadow">
+                    <LinearGradient startX="0" startY="20" endX="0" endY="174" name="Gradient">
+                        <GradientStop colorValue="00C8A276" position="0"/>
+                        <GradientStop colorValue="70C49C70" position="1"/>
+                    </LinearGradient>
+                </Fill>
+                <Fill name="Rim Light">
+                    <RadialGradient startX="0" startY="250" endX="190" endY="250" name="Gradient">
+                        <GradientStop colorValue="5AFFF3DC" position="0"/>
+                        <GradientStop colorValue="00FFF3DC" position="1"/>
+                    </RadialGradient>
+                </Fill>
+            </Shape>
+        </Node>
+
+        <!-- ===================== ARMS ===================== -->
+        <!-- Beside the torso, overlapping its edge; behind the head. Each arm pivots at its shoulder. -->
+        <Node x="210" y="554" rotation="0.05" name="Arm L" id="0:100">
+            <!-- One organic shape: shoulder cap, short fat arm, big fist-mitten with a thumb bump on the inner side -->
+            <Shape name="Arm L Shape" id="0:101">
+                <PointsPath isClosed="true" name="Path">
+                    <CubicMirroredVertex x="-35" y="0" rotation="-1.5708" distance="19"/>
+                    <CubicMirroredVertex x="0" y="-33" rotation="0" distance="21"/>
+                    <CubicMirroredVertex x="35" y="0" rotation="1.5708" distance="19"/>
+                    <CubicMirroredVertex x="25" y="44" rotation="1.72" distance="16"/>
+                    <CubicMirroredVertex x="36" y="74" rotation="1.2" distance="12"/>
+                    <CubicMirroredVertex x="26" y="102" rotation="2.3" distance="14"/>
+                    <CubicMirroredVertex x="-12" y="112" rotation="3.1416" distance="22"/>
+                    <CubicMirroredVertex x="-46" y="94" rotation="-2.0" distance="14"/>
+                    <CubicMirroredVertex x="-48" y="60" rotation="-1.5708" distance="16"/>
+                    <CubicMirroredVertex x="-42" y="28" rotation="-1.78" distance="14"/>
+                </PointsPath>
+                <Ellipse x="36" y="76" width="24" height="30" rotation="0.5" name="Thumb"/>
+                <Fill name="Base">
+                    <LinearGradient startX="-46" startY="0" endX="38" endY="0" name="Gradient">
+                        <GradientStop colorValue="FFFFF6DF" position="0"/>
+                        <GradientStop colorValue="FFFBE6C8" position="0.45"/>
+                        <GradientStop colorValue="FFDCBE98" position="1"/>
+                    </LinearGradient>
+                </Fill>
+                <Fill name="Mitten Shade">
+                    <LinearGradient startX="0" startY="76" endX="0" endY="114" name="Gradient">
+                        <GradientStop colorValue="00C49A6E" position="0"/>
+                        <GradientStop colorValue="73C49A6E" position="1"/>
+                    </LinearGradient>
+                </Fill>
+                <Fill name="Shoulder Shade">
+                    <LinearGradient startX="0" startY="-30" endX="0" endY="14" name="Gradient">
+                        <GradientStop colorValue="66B88A60" position="0"/>
+                        <GradientStop colorValue="00B88A60" position="1"/>
+                    </LinearGradient>
+                </Fill>
+            </Shape>
+            <!-- Soft shadow the arm casts on the body, along its inner edge -->
+            <Shape name="Arm L Contact" id="0:108">
+                <PointsPath name="Path">
+                    <StraightVertex x="28" y="-2"/>
+                    <CubicMirroredVertex x="24" y="48" rotation="1.5708" distance="22"/>
+                    <StraightVertex x="32" y="100"/>
+                </PointsPath>
+                <Stroke thickness="18" cap="round" name="Shadow">
+                    <SolidColor colorValue="73A67A50" name="Color"/>
+                    <Feather strength="12" name="Feather"/>
+                </Stroke>
+            </Shape>
+        </Node>
+        <Node x="430" y="554" rotation="0.05" scaleX="-1" name="Arm R" id="0:104">
+            <!-- One organic shape: shoulder cap, short fat arm, big fist-mitten with a thumb bump on the inner side -->
+            <Shape name="Arm R Shape" id="0:105">
+                <PointsPath isClosed="true" name="Path">
+                    <CubicMirroredVertex x="-35" y="0" rotation="-1.5708" distance="19"/>
+                    <CubicMirroredVertex x="0" y="-33" rotation="0" distance="21"/>
+                    <CubicMirroredVertex x="35" y="0" rotation="1.5708" distance="19"/>
+                    <CubicMirroredVertex x="25" y="44" rotation="1.72" distance="16"/>
+                    <CubicMirroredVertex x="36" y="74" rotation="1.2" distance="12"/>
+                    <CubicMirroredVertex x="26" y="102" rotation="2.3" distance="14"/>
+                    <CubicMirroredVertex x="-12" y="112" rotation="3.1416" distance="22"/>
+                    <CubicMirroredVertex x="-46" y="94" rotation="-2.0" distance="14"/>
+                    <CubicMirroredVertex x="-48" y="60" rotation="-1.5708" distance="16"/>
+                    <CubicMirroredVertex x="-42" y="28" rotation="-1.78" distance="14"/>
+                </PointsPath>
+                <Ellipse x="36" y="76" width="24" height="30" rotation="0.5" name="Thumb"/>
+                <Fill name="Base">
+                    <LinearGradient startX="-46" startY="0" endX="38" endY="0" name="Gradient">
+                        <GradientStop colorValue="FFFFF6DF" position="0"/>
+                        <GradientStop colorValue="FFFBE6C8" position="0.45"/>
+                        <GradientStop colorValue="FFDCBE98" position="1"/>
+                    </LinearGradient>
+                </Fill>
+                <Fill name="Mitten Shade">
+                    <LinearGradient startX="0" startY="76" endX="0" endY="114" name="Gradient">
+                        <GradientStop colorValue="00C49A6E" position="0"/>
+                        <GradientStop colorValue="73C49A6E" position="1"/>
+                    </LinearGradient>
+                </Fill>
+                <Fill name="Shoulder Shade">
+                    <LinearGradient startX="0" startY="-30" endX="0" endY="14" name="Gradient">
+                        <GradientStop colorValue="66B88A60" position="0"/>
+                        <GradientStop colorValue="00B88A60" position="1"/>
+                    </LinearGradient>
+                </Fill>
+            </Shape>
+            <!-- Soft shadow the arm casts on the body, along its inner edge -->
+            <Shape name="Arm R Contact" id="0:109">
+                <PointsPath name="Path">
+                    <StraightVertex x="28" y="-2"/>
+                    <CubicMirroredVertex x="24" y="48" rotation="1.5708" distance="22"/>
+                    <StraightVertex x="32" y="100"/>
+                </PointsPath>
+                <Stroke thickness="18" cap="round" name="Shadow">
+                    <SolidColor colorValue="73A67A50" name="Color"/>
+                    <Feather strength="12" name="Feather"/>
+                </Stroke>
+            </Shape>
+        </Node>
+
+        <!-- ===================== BODY ===================== -->
+        <!-- A short wide barrel with a broad, nearly flat underside. Drawn behind the head and arms; the legs
+             hang from behind its lower sides, and a feathered fold softens every join. -->
+        <Node x="320" y="592" name="Body" id="0:80">
+            <Shape x="-22" y="4" rotation="-0.25" name="Belly Highlight" id="0:82">
+                <Ellipse width="130" height="90" name="Path"/>
+                <Fill name="Fill">
+                    <RadialGradient startX="0" startY="0" endX="65" endY="0" name="Gradient">
+                        <GradientStop colorValue="33FFFFFF" position="0"/>
+                        <GradientStop colorValue="00FFFFFF" position="1"/>
+                    </RadialGradient>
+                </Fill>
+            </Shape>
+            <Shape name="Torso" id="0:81">
+                <PointsPath isClosed="true" name="Path">
+                    <CubicMirroredVertex x="0" y="-100" rotation="0" distance="60"/>
+                    <CubicMirroredVertex x="104" y="-56" rotation="1.2" distance="36"/>
+                    <CubicMirroredVertex x="112" y="12" rotation="1.5708" distance="30"/>
+                    <CubicMirroredVertex x="98" y="56" rotation="2.2" distance="22"/>
+                    <CubicMirroredVertex x="0" y="78" rotation="3.1416" distance="64"/>
+                    <CubicMirroredVertex x="-98" y="56" rotation="-2.2" distance="22"/>
+                    <CubicMirroredVertex x="-112" y="12" rotation="-1.5708" distance="30"/>
+                    <CubicMirroredVertex x="-104" y="-56" rotation="-1.2" distance="36"/>
+                </PointsPath>
+                <Fill name="Base">
+                    <LinearGradient startX="0" startY="-100" endX="0" endY="78" name="Gradient">
+                        <GradientStop colorValue="FFE8C9A6" position="0"/>
+                        <GradientStop colorValue="FFF6DEC0" position="0.22"/>
+                        <GradientStop colorValue="FFFEE6CA" position="0.5"/>
+                        <GradientStop colorValue="FFEBD0B3" position="0.76"/>
+                        <GradientStop colorValue="FFD2B390" position="0.9"/>
+                        <GradientStop colorValue="FFB9976F" position="1"/>
+                    </LinearGradient>
+                </Fill>
+                <Fill name="Side Shade">
+                    <LinearGradient startX="10" startY="0" endX="116" endY="0" name="Gradient">
+                        <GradientStop colorValue="00B98E62" position="0"/>
+                        <GradientStop colorValue="66B98E62" position="1"/>
+                    </LinearGradient>
+                </Fill>
+                <Fill name="Left Bounce">
+                    <LinearGradient startX="-116" startY="0" endX="-40" endY="0" name="Gradient">
+                        <GradientStop colorValue="40C9A47A" position="0"/>
+                        <GradientStop colorValue="00C9A47A" position="1"/>
+                    </LinearGradient>
+                </Fill>
+            </Shape>
+        </Node>
+
+        <!-- Soft fold where the belly meets the legs: half hides under the torso, half feathers onto the legs -->
+        <Shape x="320" y="592" name="Belly Fold" id="0:84">
+            <PointsPath name="Path">
+                <StraightVertex x="-96" y="48"/>
+                <CubicMirroredVertex x="0" y="80" rotation="0" distance="56"/>
+                <StraightVertex x="96" y="48"/>
+            </PointsPath>
+            <Stroke thickness="18" cap="round" name="Shadow">
+                <SolidColor colorValue="8CA67A50" name="Color"/>
+                <Feather strength="12" name="Feather"/>
+            </Stroke>
+        </Shape>
+
+        <!-- ===================== LEGS ===================== -->
+        <!-- Short, wide, splaying slightly outward; the tops tuck under the belly. Each pivots at its hip. -->
+        <Node x="256" y="640" name="Leg L" id="0:90">
+            <Shape name="Leg L Shape" id="0:91">
+                <PointsPath isClosed="true" name="Path">
+                    <CubicMirroredVertex x="-50" y="-44" rotation="-1.3" distance="16"/>
+                    <CubicMirroredVertex x="8" y="-56" rotation="0" distance="28"/>
+                    <CubicMirroredVertex x="54" y="-34" rotation="1.45" distance="16"/>
+                    <CubicMirroredVertex x="55" y="20" rotation="1.62" distance="22"/>
+                    <CubicMirroredVertex x="47" y="72" rotation="2.0" distance="16"/>
+                    <CubicMirroredVertex x="-6" y="101" rotation="3.1416" distance="34"/>
+                    <CubicMirroredVertex x="-60" y="82" rotation="4.25" distance="18"/>
+                    <CubicMirroredVertex x="-63" y="24" rotation="-1.47" distance="26"/>
+                </PointsPath>
+                <Fill name="Base">
+                    <RadialGradient startX="-30" startY="60" endX="70" endY="60" name="Gradient">
+                        <GradientStop colorValue="FFF8E6CB" position="0"/>
+                        <GradientStop colorValue="FFE8CFAE" position="0.55"/>
+                        <GradientStop colorValue="FFC9A57E" position="1"/>
+                    </RadialGradient>
+                </Fill>
+                <Fill name="Hip Shadow">
+                    <LinearGradient startX="0" startY="-30" endX="0" endY="50" name="Gradient">
+                        <GradientStop colorValue="C0A98762" position="0"/>
+                        <GradientStop colorValue="00A98762" position="1"/>
+                    </LinearGradient>
+                </Fill>
+                <Fill name="Inner Shade">
+                    <LinearGradient startX="20" startY="0" endX="56" endY="0" name="Gradient">
+                        <GradientStop colorValue="00A98762" position="0"/>
+                        <GradientStop colorValue="66A98762" position="1"/>
+                    </LinearGradient>
+                </Fill>
+                <Fill name="Sole Light">
+                    <RadialGradient startX="-10" startY="110" endX="46" endY="110" name="Gradient">
+                        <GradientStop colorValue="73FFF3DC" position="0"/>
+                        <GradientStop colorValue="00FFF3DC" position="1"/>
+                    </RadialGradient>
+                </Fill>
+            </Shape>
+        </Node>
+        <Node x="384" y="640" scaleX="-1" name="Leg R" id="0:92">
+            <Shape name="Leg R Shape" id="0:93">
+                <PointsPath isClosed="true" name="Path">
+                    <CubicMirroredVertex x="-50" y="-44" rotation="-1.3" distance="16"/>
+                    <CubicMirroredVertex x="8" y="-56" rotation="0" distance="28"/>
+                    <CubicMirroredVertex x="54" y="-34" rotation="1.45" distance="16"/>
+                    <CubicMirroredVertex x="55" y="20" rotation="1.62" distance="22"/>
+                    <CubicMirroredVertex x="47" y="72" rotation="2.0" distance="16"/>
+                    <CubicMirroredVertex x="-6" y="101" rotation="3.1416" distance="34"/>
+                    <CubicMirroredVertex x="-60" y="82" rotation="4.25" distance="18"/>
+                    <CubicMirroredVertex x="-63" y="24" rotation="-1.47" distance="26"/>
+                </PointsPath>
+                <Fill name="Base">
+                    <RadialGradient startX="-30" startY="60" endX="70" endY="60" name="Gradient">
+                        <GradientStop colorValue="FFF8E6CB" position="0"/>
+                        <GradientStop colorValue="FFE8CFAE" position="0.55"/>
+                        <GradientStop colorValue="FFC9A57E" position="1"/>
+                    </RadialGradient>
+                </Fill>
+                <Fill name="Hip Shadow">
+                    <LinearGradient startX="0" startY="-30" endX="0" endY="50" name="Gradient">
+                        <GradientStop colorValue="C0A98762" position="0"/>
+                        <GradientStop colorValue="00A98762" position="1"/>
+                    </LinearGradient>
+                </Fill>
+                <Fill name="Inner Shade">
+                    <LinearGradient startX="20" startY="0" endX="56" endY="0" name="Gradient">
+                        <GradientStop colorValue="00A98762" position="0"/>
+                        <GradientStop colorValue="66A98762" position="1"/>
+                    </LinearGradient>
+                </Fill>
+                <Fill name="Sole Light">
+                    <RadialGradient startX="-10" startY="110" endX="46" endY="110" name="Gradient">
+                        <GradientStop colorValue="73FFF3DC" position="0"/>
+                        <GradientStop colorValue="00FFF3DC" position="1"/>
+                    </RadialGradient>
+                </Fill>
+            </Shape>
+        </Node>
+
+        <LinearAnimation duration="60" name="Idle" id="0:6"/>
+
+        <StateMachine name="State Machine 1" id="0:7">
+            <StateMachineLayer name="Layer 1" id="0:8">
+                <AnyState x="200" y="-120"/>
+                <ExitState x="400" y="-120"/>
+                <EntryState>
+                    <StateTransition stateToId="0:12"/>
+                </EntryState>
+                <AnimationState x="200" animationId="0:6" id="0:12"/>
+            </StateMachineLayer>
+        </StateMachine>
+    </Artboard>
+</Rive>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Moz walk · final-a</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1200px; height: 420px; overflow: hidden; }
+  .scene { position: absolute; inset: 0; background: linear-gradient(#bfe6f8 0 50%, #9ad57a 50% 53%, #7cc35a 53% 100%); overflow: hidden; }
+  .hill { position: absolute; bottom: 47%; left: -8%; width: 62%; height: 120px; border-radius: 50% 50% 0 0; background: #a8dc8a; }
+  .hill.b { left: 44%; width: 70%; height: 86px; background: #b4e397; }
+  .path { position: absolute; left: -6%; right: -6%; bottom: 40px; height: 86px; border-radius: 50%; background: radial-gradient(ellipse at 50% 40%, #f2dfb5, #dec18c 70%, #d1b079); }
+  .pebbles { position: absolute; left: 0; right: 0; bottom: 70px; height: 20px; background:
+    radial-gradient(circle at 30px 8px, #c9a873 3px, transparent 4px) 0 0 / 140px 20px repeat-x,
+    radial-gradient(circle at 90px 14px, #e9d3a6 2.5px, transparent 3.5px) 0 0 / 170px 20px repeat-x; opacity: .9; }
+  .tufts { position: absolute; left: 0; right: 0; bottom: 14px; height: 22px; background: radial-gradient(circle at 12px 22px, #5fae3f 7px, transparent 8px) 0 0 / 52px 22px repeat-x; opacity: .75; }
+  .walker { position: absolute; left: 450px; bottom: 50px; width: 300px; }
+</style>
+</head>
+<body>
+<div class="scene"><div class="hill"></div><div class="hill b"></div><div class="path"></div><div class="pebbles"></div><div class="tufts"></div>
+  <div class="walker is-walking is-paused" style="--phase:-0.02s" id="w"></div>
+</div>
+<style>/*KIT_CSS*/</style>
+<script>
+/*KIT_JS*/
+document.getElementById('w').innerHTML = moz('walkSide', { prefix: 'walk', title: 'Moz walking' });
+</script>
+</body>
+</html>

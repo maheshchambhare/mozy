@@ -1,0 +1,21 @@
+{
+  "$comment": "MCS settings for the Mozy landing page. Run: npm run mcs:check (report in docs/mcs/) or npm run mcs:gate (pre-deploy). Docs: ~/.claude/skills/mcs/SKILL.md",
+  "origin": "https://mozy.mcrudra.com",
+  "app": "mozy",
+  "brand_name": "Mozy",
+  "build_dir": "dist",
+  "report_dir": "docs/mcs",
+  "noindex_paths": ["/get"],
+  "trailing_slash": "never",
+  "training_crawlers": "undecided",
+  "banned_phrases": [
+    {"phrase": "Data Not Collected", "reason": "the app sends anonymous Firebase Analytics events; say \"no personal details\" instead"},
+    {"phrase": "no data collected", "reason": "the app sends anonymous Firebase Analytics events; say \"no personal details\" instead"},
+    {"phrase": "zero tracking", "reason": "the site uses PostHog and the app uses Firebase Analytics"},
+    {"phrase": "completely free", "reason": "iOS needs a subscription for features"},
+    {"phrase": "free forever", "reason": "iOS needs a subscription for features"},
+    {"phrase": "iOS coming soon", "reason": "the iPhone app is live"}
+  ],
+  "sameas_extra": ["https://mcrudra.com"],
+  "apple_provider_token": "pending"
+}

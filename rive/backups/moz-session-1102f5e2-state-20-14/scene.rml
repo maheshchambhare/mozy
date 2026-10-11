@@ -1,0 +1,1001 @@
+<Rive version="1" kind="fragment">
+    <!-- Moz, the Mozy sprout mascot, drawn from the 3D clay renders in public/mascot_emotions.
+         Artboard 640x800. Every feature lives in its own Node, centred on its own origin, so the
+         turnaround rig can slide, foreshorten and hide it later without touching the artwork. -->
+    <Artboard defaultStateMachineId="0:7" styleId="0:5" width="640" height="900" name="Moz" id="0:2">
+        <LayoutComponentStyle name="Artboard Style" id="0:5"/>
+
+        <!-- Design-time background, removed for the shipped file. -->
+        <Fill name="Background">
+            <SolidColor colorValue="FFF7F4EE" name="Color"/>
+        </Fill>
+
+        <!-- ===================== HEAD ===================== -->
+        <!-- Root: origin on the ground line between the feet. The head keeps its artboard position (320, 380). -->
+        <Node x="320" y="829" name="Root" id="0:200">
+        <Node x="0" y="-449" name="Head" id="0:20">
+
+            <!-- Sprout: a thick stub stem on the crown, two plump leaves branching from its top. -->
+            <Node x="0" y="-162" name="Sprout" id="0:30">
+                <!-- Left leaf, steep up-left -->
+                <Node x="0" y="-34" rotation="-2.40" name="Leaf L" id="0:32">
+                    <Shape name="Leaf L Shine" id="0:36">
+                        <Ellipse x="88" y="-26" width="118" height="44" name="Path"/>
+                        <Fill name="Fill">
+                            <RadialGradient startX="88" startY="-26" endX="147" endY="-26" name="Gradient">
+                                <GradientStop colorValue="6EFFFFFF" position="0"/>
+                                <GradientStop colorValue="00FFFFFF" position="1"/>
+                            </RadialGradient>
+                        </Fill>
+                    </Shape>
+                    <Shape name="Leaf L Vein" id="0:37">
+                        <PointsPath name="Path">
+                            <StraightVertex x="10" y="0"/>
+                            <CubicMirroredVertex x="86" y="3" rotation="0" distance="38"/>
+                            <StraightVertex x="152" y="0"/>
+                        </PointsPath>
+                        <Stroke thickness="3" cap="round" name="Stroke">
+                            <SolidColor colorValue="995D9D2A" name="Color"/>
+                        </Stroke>
+                    </Shape>
+                    <Shape name="Leaf L Body" id="0:34">
+                        <PointsPath isClosed="true" name="Path">
+                            <CubicMirroredVertex x="0" y="0" rotation="-1.5708" distance="30"/>
+                            <CubicMirroredVertex x="86" y="-66" rotation="0" distance="50"/>
+                            <CubicMirroredVertex x="167" y="0" rotation="1.5708" distance="40"/>
+                            <CubicMirroredVertex x="86" y="66" rotation="3.1416" distance="50"/>
+                        </PointsPath>
+                        <Fill name="Fill">
+                            <RadialGradient startX="78" startY="-28" endX="238" endY="-28" name="Gradient">
+                                <GradientStop colorValue="FFC8EC60" position="0"/>
+                                <GradientStop colorValue="FF92C941" position="0.5"/>
+                                <GradientStop colorValue="FF4C9527" position="1"/>
+                            </RadialGradient>
+                        </Fill>
+                    </Shape>
+                </Node>
+
+                <!-- Right leaf, nearly level up-right -->
+                <Node x="0" y="-34" rotation="-0.35" name="Leaf R" id="0:33">
+                    <Shape name="Leaf R Shine" id="0:38">
+                        <Ellipse x="84" y="-24" width="112" height="40" name="Path"/>
+                        <Fill name="Fill">
+                            <RadialGradient startX="84" startY="-24" endX="140" endY="-24" name="Gradient">
+                                <GradientStop colorValue="6EFFFFFF" position="0"/>
+                                <GradientStop colorValue="00FFFFFF" position="1"/>
+                            </RadialGradient>
+                        </Fill>
+                    </Shape>
+                    <Shape name="Leaf R Vein" id="0:39">
+                        <PointsPath name="Path">
+                            <StraightVertex x="10" y="0"/>
+                            <CubicMirroredVertex x="82" y="3" rotation="0" distance="36"/>
+                            <StraightVertex x="146" y="0"/>
+                        </PointsPath>
+                        <Stroke thickness="3" cap="round" name="Stroke">
+                            <SolidColor colorValue="995D9D2A" name="Color"/>
+                        </Stroke>
+                    </Shape>
+                    <Shape name="Leaf R Body" id="0:35">
+                        <PointsPath isClosed="true" name="Path">
+                            <CubicMirroredVertex x="0" y="0" rotation="-1.5708" distance="28"/>
+                            <CubicMirroredVertex x="82" y="-60" rotation="0" distance="48"/>
+                            <CubicMirroredVertex x="160" y="0" rotation="1.5708" distance="38"/>
+                            <CubicMirroredVertex x="82" y="60" rotation="3.1416" distance="48"/>
+                        </PointsPath>
+                        <Fill name="Fill">
+                            <RadialGradient startX="74" startY="-26" endX="224" endY="-26" name="Gradient">
+                                <GradientStop colorValue="FFC8EC60" position="0"/>
+                                <GradientStop colorValue="FF92C941" position="0.5"/>
+                                <GradientStop colorValue="FF4C9527" position="1"/>
+                            </RadialGradient>
+                        </Fill>
+                    </Shape>
+                </Node>
+
+                <!-- Stem: a short thick stub -->
+                <Shape name="Stem" id="0:31">
+                    <PointsPath name="Path">
+                        <StraightVertex x="0" y="10"/>
+                        <StraightVertex x="0" y="-34"/>
+                    </PointsPath>
+                    <Stroke thickness="22" cap="round" name="Stroke">
+                        <LinearGradient startX="-11" startY="0" endX="11" endY="0" name="Gradient">
+                            <GradientStop colorValue="FF86C73F" position="0"/>
+                            <GradientStop colorValue="FF4A9430" position="1"/>
+                        </LinearGradient>
+                    </Stroke>
+                </Shape>
+
+                <!-- Dimple where the stem meets the crown -->
+                <Shape x="0" y="8" name="Stem Dimple" id="0:40">
+                    <Ellipse width="48" height="18" name="Path"/>
+                    <Fill name="Fill">
+                        <RadialGradient startX="0" startY="0" endX="24" endY="0" name="Gradient">
+                            <GradientStop colorValue="59B88F62" position="0"/>
+                            <GradientStop colorValue="00B88F62" position="1"/>
+                        </RadialGradient>
+                    </Fill>
+                </Shape>
+            </Node>
+
+            <!-- ===== Face middle: eyes and blush. Brows exist for the stern mood and stay hidden. ===== -->
+            <Node x="0" y="-26" name="Eyes" id="0:50">
+                <Node x="-78" y="0" rotation="-0.08" name="Eye L" id="0:51">
+                    <Shape x="17" y="-25" name="Eye L Catchlight" id="0:52">
+                        <Ellipse width="17" height="17" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="FFFFFFFF" name="Color"/></Fill>
+                    </Shape>
+                    <Shape x="-16" y="20" name="Eye L Glint" id="0:53">
+                        <Ellipse width="8" height="8" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="E6FFFFFF" name="Color"/></Fill>
+                    </Shape>
+                    <Shape name="Eye L Bead" id="0:54">
+                        <Ellipse width="78" height="94" name="Path"/>
+                        <Fill name="Fill">
+                            <RadialGradient startX="0" startY="32" endX="56" endY="32" name="Gradient">
+                                <GradientStop colorValue="FF4E2009" position="0"/>
+                                <GradientStop colorValue="FF26120A" position="0.45"/>
+                                <GradientStop colorValue="FF16101A" position="1"/>
+                            </RadialGradient>
+                        </Fill>
+                        <Stroke thickness="2" name="Rim">
+                            <SolidColor colorValue="CC3C2417" name="Color"/>
+                        </Stroke>
+                    </Shape>
+                </Node>
+                <Node x="78" y="0" rotation="0.08" name="Eye R" id="0:55">
+                    <Shape x="17" y="-25" name="Eye R Catchlight" id="0:56">
+                        <Ellipse width="17" height="17" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="FFFFFFFF" name="Color"/></Fill>
+                    </Shape>
+                    <Shape x="-16" y="20" name="Eye R Glint" id="0:57">
+                        <Ellipse width="8" height="8" name="Path"/>
+                        <Fill name="Fill"><SolidColor colorValue="E6FFFFFF" name="Color"/></Fill>
+                    </Shape>
+                    <Shape name="Eye R Bead" id="0:58">
+                        <Ellipse width="78" height="94" name="Path"/>
+                        <Fill name="Fill">
+                            <RadialGradient startX="0" startY="32" endX="56" endY="32" name="Gradient">
+                                <GradientStop colorValue="FF4E2009" position="0"/>
+                                <GradientStop colorValue="FF26120A" position="0.45"/>
+                                <GradientStop colorValue="FF16101A" position="1"/>
+                            </RadialGradient>
+                        </Fill>
+                        <Stroke thickness="2" name="Rim">
+                            <SolidColor colorValue="CC3C2417" name="Color"/>
+                        </Stroke>
+                    </Shape>
+                </Node>
+                <!-- Stern brows (hidden until the mood rig uses them) -->
+                <Shape x="-78" y="-58" rotation="0.22" hidden="true" name="Brow L" id="0:59">
+                    <PointsPath name="Path">
+                        <StraightVertex x="-36" y="0"/>
+                        <StraightVertex x="36" y="0"/>
+                    </PointsPath>
+                    <Stroke thickness="13" cap="round" name="Stroke">
+                        <SolidColor colorValue="FF2B160D" name="Color"/>
+                    </Stroke>
+                </Shape>
+                <Shape x="78" y="-58" rotation="-0.22" hidden="true" name="Brow R" id="0:60">
+                    <PointsPath name="Path">
+                        <StraightVertex x="-36" y="0"/>
+                        <StraightVertex x="36" y="0"/>
+                    </PointsPath>
+                    <Stroke thickness="13" cap="round" name="Stroke">
+                        <SolidColor colorValue="FF2B160D" name="Color"/>
+                    </Stroke>
+                </Shape>
+            </Node>
+            <Node x="0" y="36" name="Blush" id="0:61">
+                <Shape x="-130" y="0" name="Blush L" id="0:62">
+                    <Ellipse width="78" height="56" name="Path"/>
+                    <Fill name="Fill">
+                        <RadialGradient startX="0" startY="0" endX="39" endY="0" name="Gradient">
+                            <GradientStop colorValue="E6F2A3AB" position="0"/>
+                            <GradientStop colorValue="80F2A3AB" position="0.5"/>
+                            <GradientStop colorValue="00F3A5AC" position="1"/>
+                        </RadialGradient>
+                    </Fill>
+                </Shape>
+                <Shape x="130" y="0" name="Blush R" id="0:63">
+                    <Ellipse width="78" height="56" name="Path"/>
+                    <Fill name="Fill">
+                        <RadialGradient startX="0" startY="0" endX="39" endY="0" name="Gradient">
+                            <GradientStop colorValue="E6F2A3AB" position="0"/>
+                            <GradientStop colorValue="80F2A3AB" position="0.5"/>
+                            <GradientStop colorValue="00F3A5AC" position="1"/>
+                        </RadialGradient>
+                    </Fill>
+                </Shape>
+            </Node>
+
+            <!-- ===== Face bottom: an open smile with a tongue; a hidden frown for the stern mood ===== -->
+            <Node x="0" y="46" name="Mouth" id="0:70">
+                <Shape x="0" y="20" name="Tongue" id="0:72">
+                    <Ellipse width="52" height="34" name="Path"/>
+                    <Fill name="Fill">
+                        <LinearGradient startX="0" startY="-17" endX="0" endY="17" name="Gradient">
+                            <GradientStop colorValue="FFF27B82" position="0"/>
+                            <GradientStop colorValue="FFD94B55" position="1"/>
+                        </LinearGradient>
+                    </Fill>
+                    <ClippingShape sourceId="0:71" name="Clip"/>
+                </Shape>
+                <Shape name="Mouth Open" id="0:71">
+                    <PointsPath isClosed="true" name="Path">
+                        <StraightVertex x="-35" y="-6" radius="6"/>
+                        <CubicMirroredVertex x="0" y="-15" rotation="0" distance="16"/>
+                        <StraightVertex x="35" y="-6" radius="6"/>
+                        <CubicMirroredVertex x="0" y="38" rotation="3.1416" distance="32"/>
+                    </PointsPath>
+                    <Fill name="Fill">
+                        <RadialGradient startX="0" startY="6" endX="40" endY="6" name="Gradient">
+                            <GradientStop colorValue="FF5C1410" position="0"/>
+                            <GradientStop colorValue="FF3B0906" position="1"/>
+                        </RadialGradient>
+                    </Fill>
+                    <Stroke thickness="1.5" name="Lip">
+                        <SolidColor colorValue="99461009" name="Color"/>
+                    </Stroke>
+                </Shape>
+                <Shape x="0" y="-2" hidden="true" name="Mouth Frown" id="0:73">
+                    <PointsPath name="Path">
+                        <StraightVertex x="-12" y="4"/>
+                        <CubicMirroredVertex x="0" y="-3" rotation="0" distance="7"/>
+                        <StraightVertex x="12" y="4"/>
+                    </PointsPath>
+                    <Stroke thickness="4" cap="round" name="Stroke">
+                        <SolidColor colorValue="FF3A1B10" name="Color"/>
+                    </Stroke>
+                </Shape>
+            </Node>
+
+            <!-- Soft broad highlight on the crown -->
+            <Shape x="-55" y="-100" rotation="-0.35" name="Head Highlight" id="0:22">
+                <Ellipse width="230" height="130" name="Path"/>
+                <Fill name="Fill">
+                    <RadialGradient startX="0" startY="0" endX="115" endY="0" name="Gradient">
+                        <GradientStop colorValue="7AFFFFFF" position="0"/>
+                        <GradientStop colorValue="33FFFFFF" position="0.55"/>
+                        <GradientStop colorValue="00FFFFFF" position="1"/>
+                    </RadialGradient>
+                </Fill>
+            </Shape>
+
+            <!-- The head ball: a soft sphere, a touch fuller at the cheeks than the crown -->
+            <Shape name="Head Ball" id="0:21">
+                <PointsPath isClosed="true" name="Path">
+                    <CubicMirroredVertex x="0" y="-170" rotation="0" distance="104"/>
+                    <CubicMirroredVertex x="197" y="6" rotation="1.5708" distance="96"/>
+                    <CubicMirroredVertex x="0" y="174" rotation="3.1416" distance="126"/>
+                    <CubicMirroredVertex x="-197" y="6" rotation="-1.5708" distance="96"/>
+                </PointsPath>
+                <Fill name="Base">
+                    <RadialGradient startX="-40" startY="-120" endX="210" endY="-120" name="Gradient">
+                        <GradientStop colorValue="FFFCF5E6" position="0"/>
+                        <GradientStop colorValue="FFF7E8CD" position="0.45"/>
+                        <GradientStop colorValue="FFDFBF98" position="1"/>
+                    </RadialGradient>
+                </Fill>
+                <Fill name="Chin Shadow">
+                    <LinearGradient startX="0" startY="20" endX="0" endY="174" name="Gradient">
+                        <GradientStop colorValue="00C8A276" position="0"/>
+                        <GradientStop colorValue="70C49C70" position="1"/>
+                    </LinearGradient>
+                </Fill>
+                <Fill name="Rim Light">
+                    <RadialGradient startX="0" startY="250" endX="190" endY="250" name="Gradient">
+                        <GradientStop colorValue="5AFFF3DC" position="0"/>
+                        <GradientStop colorValue="00FFF3DC" position="1"/>
+                    </RadialGradient>
+                </Fill>
+            </Shape>
+        </Node>
+
+        <!-- BODY:BEGIN -->
+        <!-- Torso: a soft pear from the chin to the hips, pivot at the hips. Arms hang from it. -->
+        <Node x="0.00" y="-79.00" name="Torso" id="0:202">
+            <RootBone x="-86.68" y="-198.00" rotation="1.81514" length="64.00" name="Shoulder_L" id="0:203">
+                <Bone rotation="-0.13963" length="36.00" name="Elbow_L" id="0:204">
+                    <Bone rotation="0.00000" length="20.00" name="Wrist_L" id="0:205">
+                    <Solo activeComponentId="0:207" name="Hand_L" id="0:211">
+                        <Node name="Mitten" id="0:207">
+                            <Shape name="Mitten_L">
+                                <PointsPath isClosed="true" name="Mitten_Path">
+                                    <CubicDetachedVertex x="56.50" y="0.00" inRotation="-1.5708" inDistance="1.65" outRotation="1.5708" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="56.09" y="4.84" inRotation="-1.4006" inDistance="1.65" outRotation="1.7410" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="54.86" y="9.54" inRotation="-1.2290" inDistance="1.65" outRotation="1.9125" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="52.85" y="13.95" inRotation="-1.0553" inDistance="1.65" outRotation="2.0862" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="50.10" y="17.94" inRotation="-0.8800" inDistance="1.65" outRotation="2.2616" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="46.69" y="21.40" inRotation="-0.7049" inDistance="1.65" outRotation="2.4367" outDistance="1.67"/>
+                                    <CubicDetachedVertex x="42.69" y="24.25" inRotation="-0.5330" inDistance="1.67" outRotation="2.6086" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="38.21" y="26.40" inRotation="-0.3674" inDistance="1.69" outRotation="2.7742" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="33.35" y="27.84" inRotation="-0.2106" inDistance="1.72" outRotation="2.9310" outDistance="1.75"/>
+                                    <CubicDetachedVertex x="28.24" y="28.54" inRotation="-0.0637" inDistance="1.75" outRotation="3.0779" outDistance="1.78"/>
+                                    <CubicDetachedVertex x="23.00" y="28.50" inRotation="0.0736" inDistance="1.78" outRotation="-3.0680" outDistance="1.80"/>
+                                    <CubicDetachedVertex x="17.76" y="27.76" inRotation="0.2029" inDistance="1.80" outRotation="-2.9387" outDistance="1.80"/>
+                                    <CubicDetachedVertex x="12.65" y="26.37" inRotation="0.3270" inDistance="1.80" outRotation="-2.8146" outDistance="1.78"/>
+                                    <CubicDetachedVertex x="7.79" y="24.38" inRotation="0.4492" inDistance="1.78" outRotation="-2.6924" outDistance="1.75"/>
+                                    <CubicDetachedVertex x="3.31" y="21.87" inRotation="0.5737" inDistance="1.75" outRotation="-2.5679" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="-0.69" y="18.90" inRotation="0.7049" inDistance="1.69" outRotation="-2.4367" outDistance="1.62"/>
+                                    <CubicDetachedVertex x="-4.10" y="15.56" inRotation="0.8473" inDistance="1.62" outRotation="-2.2943" outDistance="1.55"/>
+                                    <CubicDetachedVertex x="-6.85" y="11.93" inRotation="1.0049" inDistance="1.55" outRotation="-2.1367" outDistance="1.48"/>
+                                    <CubicDetachedVertex x="-8.86" y="8.07" inRotation="1.1797" inDistance="1.48" outRotation="-1.9619" outDistance="1.42"/>
+                                    <CubicDetachedVertex x="-10.09" y="4.07" inRotation="1.3704" inDistance="1.42" outRotation="-1.7712" outDistance="1.39"/>
+                                    <CubicDetachedVertex x="-10.50" y="0.00" inRotation="1.5708" inDistance="1.39" outRotation="-1.5708" outDistance="1.39"/>
+                                    <CubicDetachedVertex x="-10.09" y="-4.07" inRotation="1.7708" inDistance="1.39" outRotation="-1.3708" outDistance="1.42"/>
+                                    <CubicDetachedVertex x="-8.86" y="-8.07" inRotation="1.9586" inDistance="1.42" outRotation="-1.1830" outDistance="1.48"/>
+                                    <CubicDetachedVertex x="-6.88" y="-11.94" inRotation="2.1152" inDistance="1.48" outRotation="-1.0264" outDistance="1.54"/>
+                                    <CubicDetachedVertex x="-4.27" y="-15.66" inRotation="2.1899" inDistance="1.54" outRotation="-0.9517" outDistance="1.62"/>
+                                    <CubicDetachedVertex x="-1.47" y="-19.53" inRotation="2.1057" inDistance="1.62" outRotation="-1.0359" outDistance="1.88"/>
+                                    <CubicDetachedVertex x="0.96" y="-24.48" inRotation="2.0090" inDistance="1.88" outRotation="-1.1326" outDistance="2.35"/>
+                                    <CubicDetachedVertex x="3.80" y="-30.78" inRotation="2.2704" inDistance="2.35" outRotation="-0.8712" outDistance="2.31"/>
+                                    <CubicDetachedVertex x="9.43" y="-34.56" inRotation="2.9803" inDistance="2.31" outRotation="-0.1613" outDistance="2.56"/>
+                                    <CubicDetachedVertex x="16.79" y="-32.89" inRotation="-2.8222" inDistance="2.56" outRotation="0.3193" outDistance="2.32"/>
+                                    <CubicDetachedVertex x="23.00" y="-30.07" inRotation="-2.7986" inDistance="2.32" outRotation="0.3430" outDistance="1.85"/>
+                                    <CubicDetachedVertex x="28.29" y="-28.79" inRotation="-2.9317" inDistance="1.85" outRotation="0.2099" outDistance="1.75"/>
+                                    <CubicDetachedVertex x="33.36" y="-27.86" inRotation="-2.9063" inDistance="1.75" outRotation="0.2353" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="38.21" y="-26.41" inRotation="-2.7718" inDistance="1.72" outRotation="0.3698" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="42.69" y="-24.25" inRotation="-2.6084" inDistance="1.69" outRotation="0.5331" outDistance="1.67"/>
+                                    <CubicDetachedVertex x="46.69" y="-21.40" inRotation="-2.4367" inDistance="1.67" outRotation="0.7049" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="50.10" y="-17.94" inRotation="-2.2616" inDistance="1.65" outRotation="0.8800" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="52.85" y="-13.95" inRotation="-2.0862" inDistance="1.65" outRotation="1.0553" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="54.86" y="-9.54" inRotation="-1.9125" inDistance="1.65" outRotation="1.2290" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="56.09" y="-4.84" inRotation="-1.7410" inDistance="1.65" outRotation="1.4006" outDistance="1.65"/>
+                                </PointsPath>
+                                <Fill name="Base"><RadialGradient startX="12.3" startY="6.9" endX="57.9" endY="6.9" name="Gradient"><GradientStop colorValue="FFFDF4E4" position="0"/><GradientStop colorValue="FFF8EBD4" position="0.45"/><GradientStop colorValue="FFEFDBBB" position="0.8"/><GradientStop colorValue="FFE0C098" position="1"/></RadialGradient></Fill><Fill name="CoreShadow"><RadialGradient startX="52.8" startY="-30.5" endX="84.6" endY="-30.5" name="Gradient"><GradientStop colorValue="61C9A47C" position="0"/><GradientStop colorValue="2CC9A47C" position="0.5"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill><Fill name="Highlight"><RadialGradient startX="8.2" startY="10.6" endX="25.0" endY="10.6" name="Gradient"><GradientStop colorValue="66FEF9EF" position="0"/><GradientStop colorValue="00FEF9EF" position="1"/></RadialGradient></Fill>
+                            </Shape>
+                        </Node>
+                        <Node name="Fist" id="0:208">
+                            <Shape x="27.00" y="-15.00" rotation="-0.5500" scaleX="1.0000" scaleY="0.3200" name="Fist_Crease_L"><Ellipse width="20.0" height="20.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="10.0" endY="0" name="Gradient"><GradientStop colorValue="80C9A47C" position="0"/><GradientStop colorValue="4CC9A47C" position="0.6"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill></Shape>
+                            <Shape name="Fist_L">
+                                <PointsPath isClosed="true" name="Fist_Path">
+                                    <CubicDetachedVertex x="49.00" y="0.00" inRotation="-1.5708" inDistance="1.81" outRotation="1.5708" outDistance="1.81"/>
+                                    <CubicDetachedVertex x="48.56" y="5.29" inRotation="-1.4042" inDistance="1.81" outRotation="1.7374" outDistance="1.79"/>
+                                    <CubicDetachedVertex x="47.25" y="10.40" inRotation="-1.2346" inDistance="1.79" outRotation="1.9070" outDistance="1.77"/>
+                                    <CubicDetachedVertex x="45.11" y="15.15" inRotation="-1.0597" inDistance="1.77" outRotation="2.0819" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="42.22" y="19.38" inRotation="-0.8783" inDistance="1.74" outRotation="2.2633" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="38.64" y="22.95" inRotation="-0.6913" inDistance="1.72" outRotation="2.4503" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="34.50" y="25.76" inRotation="-0.5013" inDistance="1.70" outRotation="2.6403" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="29.92" y="27.73" inRotation="-0.3119" inDistance="1.70" outRotation="2.8297" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="25.04" y="28.82" inRotation="-0.1270" inDistance="1.70" outRotation="3.0146" outDistance="1.71"/>
+                                    <CubicDetachedVertex x="20.00" y="29.00" inRotation="0.0509" inDistance="1.71" outRotation="-3.0907" outDistance="1.73"/>
+                                    <CubicDetachedVertex x="14.96" y="28.30" inRotation="0.2212" inDistance="1.73" outRotation="-2.9203" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="10.08" y="26.77" inRotation="0.3852" inDistance="1.74" outRotation="-2.7564" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="5.50" y="24.47" inRotation="0.5454" inDistance="1.74" outRotation="-2.5962" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="1.36" y="21.48" inRotation="0.7049" inDistance="1.74" outRotation="-2.4367" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="-2.22" y="17.90" inRotation="0.8669" inDistance="1.72" outRotation="-2.2747" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="-5.11" y="13.85" inRotation="1.0342" inDistance="1.69" outRotation="-2.1074" outDistance="1.67"/>
+                                    <CubicDetachedVertex x="-7.25" y="9.44" inRotation="1.2079" inDistance="1.67" outRotation="-1.9337" outDistance="1.64"/>
+                                    <CubicDetachedVertex x="-8.56" y="4.78" inRotation="1.3875" inDistance="1.64" outRotation="-1.7541" outDistance="1.63"/>
+                                    <CubicDetachedVertex x="-9.00" y="0.00" inRotation="1.5708" inDistance="1.63" outRotation="-1.5708" outDistance="1.63"/>
+                                    <CubicDetachedVertex x="-8.56" y="-4.78" inRotation="1.7541" inDistance="1.63" outRotation="-1.3875" outDistance="1.64"/>
+                                    <CubicDetachedVertex x="-7.25" y="-9.44" inRotation="1.9337" inDistance="1.64" outRotation="-1.2079" outDistance="1.67"/>
+                                    <CubicDetachedVertex x="-5.11" y="-13.85" inRotation="2.1074" inDistance="1.67" outRotation="-1.0342" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="-2.22" y="-17.90" inRotation="2.2747" inDistance="1.69" outRotation="-0.8669" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="1.36" y="-21.48" inRotation="2.4367" inDistance="1.72" outRotation="-0.7049" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="5.50" y="-24.47" inRotation="2.5962" inDistance="1.74" outRotation="-0.5454" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="10.08" y="-26.77" inRotation="2.7564" inDistance="1.74" outRotation="-0.3852" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="14.96" y="-28.30" inRotation="2.9203" inDistance="1.74" outRotation="-0.2212" outDistance="1.73"/>
+                                    <CubicDetachedVertex x="20.00" y="-29.00" inRotation="3.0907" inDistance="1.73" outRotation="-0.0509" outDistance="1.71"/>
+                                    <CubicDetachedVertex x="25.04" y="-28.82" inRotation="-3.0146" inDistance="1.71" outRotation="0.1270" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="29.92" y="-27.73" inRotation="-2.8297" inDistance="1.70" outRotation="0.3119" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="34.50" y="-25.76" inRotation="-2.6403" inDistance="1.70" outRotation="0.5013" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="38.64" y="-22.95" inRotation="-2.4503" inDistance="1.70" outRotation="0.6913" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="42.22" y="-19.38" inRotation="-2.2633" inDistance="1.72" outRotation="0.8783" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="45.11" y="-15.15" inRotation="-2.0819" inDistance="1.74" outRotation="1.0597" outDistance="1.77"/>
+                                    <CubicDetachedVertex x="47.25" y="-10.40" inRotation="-1.9070" inDistance="1.77" outRotation="1.2346" outDistance="1.79"/>
+                                    <CubicDetachedVertex x="48.56" y="-5.29" inRotation="-1.7374" inDistance="1.79" outRotation="1.4042" outDistance="1.81"/>
+                                </PointsPath>
+                                <Fill name="Base"><RadialGradient startX="10.7" startY="9.1" endX="53.2" endY="9.1" name="Gradient"><GradientStop colorValue="FFFDF4E4" position="0"/><GradientStop colorValue="FFF8EBD4" position="0.45"/><GradientStop colorValue="FFEFDBBB" position="0.8"/><GradientStop colorValue="FFE0C098" position="1"/></RadialGradient></Fill><Fill name="CoreShadow"><RadialGradient startX="45.8" startY="-25.3" endX="73.3" endY="-25.3" name="Gradient"><GradientStop colorValue="61C9A47C" position="0"/><GradientStop colorValue="2CC9A47C" position="0.5"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill><Fill name="Highlight"><RadialGradient startX="7.2" startY="12.6" endX="21.7" endY="12.6" name="Gradient"><GradientStop colorValue="66FEF9EF" position="0"/><GradientStop colorValue="00FEF9EF" position="1"/></RadialGradient></Fill>
+                            </Shape>
+                        </Node>
+                        <Node name="OpenPalm" id="0:209">
+                            <Shape x="46.00" y="-14.50" rotation="0.0000" scaleX="1.0000" scaleY="0.4571" name="Palm_Crease_L0"><Ellipse width="14.0" height="14.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="7.0" endY="0" name="Gradient"><GradientStop colorValue="80C9A47C" position="0"/><GradientStop colorValue="4CC9A47C" position="0.6"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill></Shape>
+                            <Shape x="46.00" y="0.00" rotation="0.0000" scaleX="1.0000" scaleY="0.4571" name="Palm_Crease_L1"><Ellipse width="14.0" height="14.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="7.0" endY="0" name="Gradient"><GradientStop colorValue="80C9A47C" position="0"/><GradientStop colorValue="4CC9A47C" position="0.6"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill></Shape>
+                            <Shape x="46.00" y="14.50" rotation="0.0000" scaleX="1.0000" scaleY="0.4571" name="Palm_Crease_L2"><Ellipse width="14.0" height="14.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="7.0" endY="0" name="Gradient"><GradientStop colorValue="80C9A47C" position="0"/><GradientStop colorValue="4CC9A47C" position="0.6"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill></Shape>
+                            <Shape name="OpenPalm_L">
+                                <PointsPath isClosed="true" name="Palm_Path">
+                                    <CubicDetachedVertex x="54.00" y="0.00" inRotation="-1.5708" inDistance="1.36" outRotation="1.5708" outDistance="1.36"/>
+                                    <CubicDetachedVertex x="56.18" y="3.36" inRotation="-1.9335" inDistance="1.36" outRotation="1.2081" outDistance="1.23"/>
+                                    <CubicDetachedVertex x="56.64" y="6.95" inRotation="-1.1589" inDistance="1.23" outRotation="1.9827" outDistance="1.44"/>
+                                    <CubicDetachedVertex x="53.42" y="9.69" inRotation="-0.6725" inDistance="1.44" outRotation="2.4691" outDistance="1.34"/>
+                                    <CubicDetachedVertex x="50.25" y="12.04" inRotation="-1.1849" inDistance="1.34" outRotation="1.9567" outDistance="1.48"/>
+                                    <CubicDetachedVertex x="50.70" y="16.38" inRotation="-1.3193" inDistance="1.48" outRotation="1.8223" outDistance="1.33"/>
+                                    <CubicDetachedVertex x="48.33" y="19.50" inRotation="-0.7898" inDistance="1.33" outRotation="2.3518" outDistance="1.40"/>
+                                    <CubicDetachedVertex x="45.09" y="22.04" inRotation="-0.6073" inDistance="1.40" outRotation="2.5343" outDistance="1.43"/>
+                                    <CubicDetachedVertex x="41.50" y="24.25" inRotation="-0.4967" inDistance="1.43" outRotation="2.6449" outDistance="1.46"/>
+                                    <CubicDetachedVertex x="37.63" y="26.09" inRotation="-0.3891" inDistance="1.46" outRotation="2.7525" outDistance="1.47"/>
+                                    <CubicDetachedVertex x="33.54" y="27.51" inRotation="-0.2817" inDistance="1.47" outRotation="2.8599" outDistance="1.48"/>
+                                    <CubicDetachedVertex x="29.31" y="28.49" inRotation="-0.1725" inDistance="1.48" outRotation="2.9691" outDistance="1.47"/>
+                                    <CubicDetachedVertex x="25.00" y="29.00" inRotation="-0.0600" inDistance="1.47" outRotation="3.0816" outDistance="1.46"/>
+                                    <CubicDetachedVertex x="20.69" y="29.01" inRotation="0.0571" inDistance="1.46" outRotation="-3.0845" outDistance="1.45"/>
+                                    <CubicDetachedVertex x="16.46" y="28.51" inRotation="0.1796" inDistance="1.45" outRotation="-2.9620" outDistance="1.43"/>
+                                    <CubicDetachedVertex x="12.37" y="27.50" inRotation="0.3079" inDistance="1.43" outRotation="-2.8337" outDistance="1.41"/>
+                                    <CubicDetachedVertex x="8.50" y="25.98" inRotation="0.4416" inDistance="1.41" outRotation="-2.7000" outDistance="1.40"/>
+                                    <CubicDetachedVertex x="4.91" y="23.97" inRotation="0.5797" inDistance="1.40" outRotation="-2.5619" outDistance="1.39"/>
+                                    <CubicDetachedVertex x="1.67" y="21.51" inRotation="0.7210" inDistance="1.39" outRotation="-2.4206" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-1.18" y="18.62" inRotation="0.8639" inDistance="1.38" outRotation="-2.2777" outDistance="1.37"/>
+                                    <CubicDetachedVertex x="-3.58" y="15.37" inRotation="1.0072" inDistance="1.37" outRotation="-2.1344" outDistance="1.37"/>
+                                    <CubicDetachedVertex x="-5.49" y="11.80" inRotation="1.1497" inDistance="1.37" outRotation="-1.9919" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-6.88" y="8.01" inRotation="1.2910" inDistance="1.38" outRotation="-1.8506" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-7.72" y="4.04" inRotation="1.4313" inDistance="1.38" outRotation="-1.7103" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-8.00" y="0.00" inRotation="1.5708" inDistance="1.38" outRotation="-1.5708" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-7.72" y="-4.04" inRotation="1.7103" inDistance="1.38" outRotation="-1.4313" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-6.88" y="-8.01" inRotation="1.8506" inDistance="1.38" outRotation="-1.2910" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-5.49" y="-11.80" inRotation="1.9919" inDistance="1.38" outRotation="-1.1497" outDistance="1.37"/>
+                                    <CubicDetachedVertex x="-3.58" y="-15.37" inRotation="2.1344" inDistance="1.37" outRotation="-1.0072" outDistance="1.37"/>
+                                    <CubicDetachedVertex x="-1.18" y="-18.62" inRotation="2.2777" inDistance="1.37" outRotation="-0.8639" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="1.67" y="-21.51" inRotation="2.4206" inDistance="1.38" outRotation="-0.7210" outDistance="1.39"/>
+                                    <CubicDetachedVertex x="4.91" y="-23.97" inRotation="2.5617" inDistance="1.39" outRotation="-0.5799" outDistance="1.40"/>
+                                    <CubicDetachedVertex x="8.50" y="-25.98" inRotation="2.6973" inDistance="1.40" outRotation="-0.4443" outDistance="1.41"/>
+                                    <CubicDetachedVertex x="12.36" y="-27.52" inRotation="2.8099" inDistance="1.41" outRotation="-0.3317" outDistance="1.43"/>
+                                    <CubicDetachedVertex x="16.40" y="-28.70" inRotation="2.8262" inDistance="1.43" outRotation="-0.3154" outDistance="1.49"/>
+                                    <CubicDetachedVertex x="20.52" y="-30.18" inRotation="2.6292" inDistance="1.49" outRotation="-0.5124" outDistance="1.90"/>
+                                    <CubicDetachedVertex x="25.00" y="-33.54" inRotation="2.4259" inDistance="1.90" outRotation="-0.7157" outDistance="2.80"/>
+                                    <CubicDetachedVertex x="30.93" y="-39.24" inRotation="2.5419" inDistance="2.80" outRotation="-0.5997" outDistance="2.73"/>
+                                    <CubicDetachedVertex x="38.22" y="-42.58" inRotation="-3.0873" inDistance="2.73" outRotation="0.0543" outDistance="2.30"/>
+                                    <CubicDetachedVertex x="43.66" y="-38.54" inRotation="-2.1256" inDistance="2.30" outRotation="1.0160" outDistance="2.84"/>
+                                    <CubicDetachedVertex x="45.73" y="-30.46" inRotation="-1.7881" inDistance="2.84" outRotation="1.3535" outDistance="2.23"/>
+                                    <CubicDetachedVertex x="46.87" y="-24.00" inRotation="-1.8564" inDistance="2.23" outRotation="1.2852" outDistance="1.54"/>
+                                    <CubicDetachedVertex x="48.82" y="-19.91" inRotation="-2.0499" inDistance="1.54" outRotation="1.0917" outDistance="1.36"/>
+                                    <CubicDetachedVertex x="50.80" y="-16.44" inRotation="-1.7516" inDistance="1.36" outRotation="1.3900" outDistance="1.50"/>
+                                    <CubicDetachedVertex x="50.26" y="-12.05" inRotation="-1.9413" inDistance="1.50" outRotation="1.2003" outDistance="1.34"/>
+                                    <CubicDetachedVertex x="53.42" y="-9.69" inRotation="-2.4674" inDistance="1.34" outRotation="0.6742" outDistance="1.44"/>
+                                    <CubicDetachedVertex x="56.64" y="-6.95" inRotation="-1.9824" inDistance="1.44" outRotation="1.1592" outDistance="1.23"/>
+                                    <CubicDetachedVertex x="56.18" y="-3.36" inRotation="-1.2080" inDistance="1.23" outRotation="1.9336" outDistance="1.36"/>
+                                </PointsPath>
+                                <Fill name="Base"><RadialGradient startX="14.0" startY="4.5" endX="66.9" endY="4.5" name="Gradient"><GradientStop colorValue="FFFDF4E4" position="0"/><GradientStop colorValue="FFF8EBD4" position="0.45"/><GradientStop colorValue="FFEFDBBB" position="0.8"/><GradientStop colorValue="FFE0C098" position="1"/></RadialGradient></Fill><Fill name="CoreShadow"><RadialGradient startX="53.0" startY="-38.0" endX="87.0" endY="-38.0" name="Gradient"><GradientStop colorValue="61C9A47C" position="0"/><GradientStop colorValue="2CC9A47C" position="0.5"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill><Fill name="Highlight"><RadialGradient startX="10.1" startY="8.7" endX="28.0" endY="8.7" name="Gradient"><GradientStop colorValue="66FEF9EF" position="0"/><GradientStop colorValue="00FEF9EF" position="1"/></RadialGradient></Fill>
+                            </Shape>
+                        </Node>
+                        <Node name="ThumbUp" id="0:210">
+                            <Shape x="36.00" y="-16.00" rotation="-1.1000" scaleX="1.0000" scaleY="0.4000" name="ThumbUp_Crease_L"><Ellipse width="16.0" height="16.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="8.0" endY="0" name="Gradient"><GradientStop colorValue="80C9A47C" position="0"/><GradientStop colorValue="4CC9A47C" position="0.6"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill></Shape>
+                            <Shape name="ThumbUp_L">
+                                <PointsPath isClosed="true" name="Fist_Path">
+                                    <CubicDetachedVertex x="49.00" y="0.00" inRotation="-1.5708" inDistance="1.81" outRotation="1.5708" outDistance="1.81"/>
+                                    <CubicDetachedVertex x="48.56" y="5.29" inRotation="-1.4042" inDistance="1.81" outRotation="1.7374" outDistance="1.79"/>
+                                    <CubicDetachedVertex x="47.25" y="10.40" inRotation="-1.2346" inDistance="1.79" outRotation="1.9070" outDistance="1.77"/>
+                                    <CubicDetachedVertex x="45.11" y="15.15" inRotation="-1.0597" inDistance="1.77" outRotation="2.0819" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="42.22" y="19.38" inRotation="-0.8783" inDistance="1.74" outRotation="2.2633" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="38.64" y="22.95" inRotation="-0.6913" inDistance="1.72" outRotation="2.4503" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="34.50" y="25.76" inRotation="-0.5013" inDistance="1.70" outRotation="2.6403" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="29.92" y="27.73" inRotation="-0.3119" inDistance="1.70" outRotation="2.8297" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="25.04" y="28.82" inRotation="-0.1270" inDistance="1.70" outRotation="3.0146" outDistance="1.71"/>
+                                    <CubicDetachedVertex x="20.00" y="29.00" inRotation="0.0509" inDistance="1.71" outRotation="-3.0907" outDistance="1.73"/>
+                                    <CubicDetachedVertex x="14.96" y="28.30" inRotation="0.2212" inDistance="1.73" outRotation="-2.9203" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="10.08" y="26.77" inRotation="0.3852" inDistance="1.74" outRotation="-2.7564" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="5.50" y="24.47" inRotation="0.5454" inDistance="1.74" outRotation="-2.5962" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="1.36" y="21.48" inRotation="0.7049" inDistance="1.74" outRotation="-2.4367" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="-2.22" y="17.90" inRotation="0.8669" inDistance="1.72" outRotation="-2.2747" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="-5.11" y="13.85" inRotation="1.0342" inDistance="1.69" outRotation="-2.1074" outDistance="1.67"/>
+                                    <CubicDetachedVertex x="-7.25" y="9.44" inRotation="1.2079" inDistance="1.67" outRotation="-1.9337" outDistance="1.64"/>
+                                    <CubicDetachedVertex x="-8.56" y="4.78" inRotation="1.3875" inDistance="1.64" outRotation="-1.7541" outDistance="1.63"/>
+                                    <CubicDetachedVertex x="-9.00" y="0.00" inRotation="1.5708" inDistance="1.63" outRotation="-1.5708" outDistance="1.63"/>
+                                    <CubicDetachedVertex x="-8.56" y="-4.78" inRotation="1.7541" inDistance="1.63" outRotation="-1.3875" outDistance="1.64"/>
+                                    <CubicDetachedVertex x="-7.25" y="-9.44" inRotation="1.9337" inDistance="1.64" outRotation="-1.2079" outDistance="1.67"/>
+                                    <CubicDetachedVertex x="-5.11" y="-13.85" inRotation="2.1074" inDistance="1.67" outRotation="-1.0342" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="-2.22" y="-17.90" inRotation="2.2747" inDistance="1.69" outRotation="-0.8669" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="1.36" y="-21.48" inRotation="2.4367" inDistance="1.72" outRotation="-0.7049" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="5.50" y="-24.47" inRotation="2.5962" inDistance="1.74" outRotation="-0.5454" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="10.08" y="-26.77" inRotation="2.7564" inDistance="1.74" outRotation="-0.3852" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="14.96" y="-28.30" inRotation="2.9203" inDistance="1.74" outRotation="-0.2212" outDistance="1.73"/>
+                                    <CubicDetachedVertex x="20.00" y="-29.00" inRotation="3.0907" inDistance="1.73" outRotation="-0.0509" outDistance="1.71"/>
+                                    <CubicDetachedVertex x="25.04" y="-28.82" inRotation="-3.0146" inDistance="1.71" outRotation="0.1270" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="29.92" y="-27.73" inRotation="-2.8297" inDistance="1.70" outRotation="0.3119" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="34.50" y="-25.76" inRotation="-2.6403" inDistance="1.70" outRotation="0.5013" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="38.64" y="-22.95" inRotation="-2.4503" inDistance="1.70" outRotation="0.6913" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="42.22" y="-19.38" inRotation="-2.2633" inDistance="1.72" outRotation="0.8783" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="45.11" y="-15.15" inRotation="-2.0819" inDistance="1.74" outRotation="1.0597" outDistance="1.77"/>
+                                    <CubicDetachedVertex x="47.25" y="-10.40" inRotation="-1.9070" inDistance="1.77" outRotation="1.2346" outDistance="1.79"/>
+                                    <CubicDetachedVertex x="48.56" y="-5.29" inRotation="-1.7374" inDistance="1.79" outRotation="1.4042" outDistance="1.81"/>
+                                </PointsPath>
+                                <PointsPath isClosed="true" name="Thumb_Path">
+                                    <CubicDetachedVertex x="67.03" y="-14.95" inRotation="-3.0090" inDistance="10.93" outRotation="0.1326" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="72.37" y="-12.97" inRotation="-2.5245" inDistance="1.94" outRotation="0.6171" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="76.00" y="-8.59" inRotation="-2.0009" inDistance="1.94" outRotation="1.1407" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="76.95" y="-2.97" inRotation="-1.4773" inDistance="1.94" outRotation="1.6643" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="74.97" y="2.37" inRotation="-0.9537" inDistance="1.94" outRotation="2.1879" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="70.59" y="6.00" inRotation="-0.4301" inDistance="1.94" outRotation="2.7115" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="64.97" y="6.95" inRotation="0.0543" inDistance="1.94" outRotation="-3.0872" outDistance="10.93"/>
+                                    <CubicDetachedVertex x="32.97" y="3.95" inRotation="0.1326" inDistance="10.93" outRotation="-3.0090" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="27.63" y="1.97" inRotation="0.6171" inDistance="1.94" outRotation="-2.5245" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="24.00" y="-2.41" inRotation="1.1407" inDistance="1.94" outRotation="-2.0009" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="23.05" y="-8.03" inRotation="1.6643" inDistance="1.94" outRotation="-1.4773" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="25.03" y="-13.37" inRotation="2.1879" inDistance="1.94" outRotation="-0.9537" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="29.41" y="-17.00" inRotation="2.7115" inDistance="1.94" outRotation="-0.4301" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="35.03" y="-17.95" inRotation="-3.0872" inDistance="1.94" outRotation="0.0543" outDistance="10.93"/>
+                                </PointsPath>
+                                <Fill name="Base"><RadialGradient startX="20.2" startY="9.1" endX="78.7" endY="9.1" name="Gradient"><GradientStop colorValue="FFFDF4E4" position="0"/><GradientStop colorValue="FFF8EBD4" position="0.45"/><GradientStop colorValue="FFEFDBBB" position="0.8"/><GradientStop colorValue="FFE0C098" position="1"/></RadialGradient></Fill><Fill name="CoreShadow"><RadialGradient startX="72.2" startY="-25.3" endX="113.0" endY="-25.3" name="Gradient"><GradientStop colorValue="61C9A47C" position="0"/><GradientStop colorValue="2CC9A47C" position="0.5"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill><Fill name="Highlight"><RadialGradient startX="15.0" startY="12.6" endX="36.5" endY="12.6" name="Gradient"><GradientStop colorValue="66FEF9EF" position="0"/><GradientStop colorValue="00FEF9EF" position="1"/></RadialGradient></Fill>
+                            </Shape>
+                        </Node>
+                    </Solo>
+                    </Bone>
+                </Bone>
+                <Shape x="6.00" y="0.00" rotation="0.0000" scaleX="1.0000" scaleY="0.6897" name="ShoulderAO_L"><Ellipse width="58.0" height="58.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="29.0" endY="0" name="Gradient"><GradientStop colorValue="858A6646" position="0"/><GradientStop colorValue="568A6646" position="0.55"/><GradientStop colorValue="008A6646" position="1"/></RadialGradient></Fill><ClippingShape sourceId="0:206" name="Clip"/></Shape>
+                <Shape name="Arm_L" id="0:206">
+                    <PointsPath isClosed="true" name="Arm_L_Path">
+                        <CubicDetachedVertex x="-0.00" y="23.50" inRotation="-2.9525" inDistance="6.12" outRotation="0.1891" outDistance="5.44"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="16.00" y="22.86" inRotation="3.1016" inDistance="5.44" outRotation="-0.0400" outDistance="5.44"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="32.00" y="22.22" inRotation="3.1016" inDistance="5.44" outRotation="-0.0400" outDistance="5.44"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="48.00" y="21.58" inRotation="3.1018" inDistance="5.44" outRotation="-0.0398" outDistance="5.94"><CubicWeight values="11220" indices="513" inValues="11220" inIndices="513" outValues="11220" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="65.46" y="20.89" inRotation="3.0351" inDistance="5.94" outRotation="-0.1064" outDistance="5.94"><CubicWeight values="32640" indices="513" inValues="32640" inIndices="513" outValues="32640" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="82.67" y="17.88" inRotation="2.9649" inDistance="5.94" outRotation="-0.1767" outDistance="6.81"><CubicWeight values="54570" indices="513" inValues="54570" inIndices="513" outValues="54570" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="102.36" y="14.30" inRotation="2.8116" inDistance="6.81" outRotation="-0.3300" outDistance="5.07"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="115.22" y="6.73" inRotation="2.2166" inDistance="5.07" outRotation="-0.9250" outDistance="5.07"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="118.96" y="-7.72" inRotation="1.4312" inDistance="5.07" outRotation="-1.7104" outDistance="5.07"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="111.39" y="-20.58" inRotation="0.6458" inDistance="5.07" outRotation="-2.4958" outDistance="5.07"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="96.94" y="-24.32" inRotation="0.0508" inDistance="5.07" outRotation="-3.0908" outDistance="6.81"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="77.02" y="-22.33" inRotation="-0.0994" inDistance="6.81" outRotation="3.0422" outDistance="4.95"><CubicWeight values="54570" indices="513" inValues="54570" inIndices="513" outValues="54570" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="62.54" y="-20.89" inRotation="-0.0258" inDistance="4.95" outRotation="3.1158" outDistance="4.95"><CubicWeight values="32640" indices="513" inValues="32640" inIndices="513" outValues="32640" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="48.00" y="-21.58" inRotation="0.0436" inDistance="4.95" outRotation="-3.0980" outDistance="5.44"><CubicWeight values="11220" indices="513" inValues="11220" inIndices="513" outValues="11220" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="32.00" y="-22.22" inRotation="0.0400" inDistance="5.44" outRotation="-3.1016" outDistance="5.44"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="16.00" y="-22.86" inRotation="0.0400" inDistance="5.44" outRotation="-3.1016" outDistance="5.44"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="0.00" y="-23.50" inRotation="-0.1891" inDistance="5.44" outRotation="2.9525" outDistance="6.12"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="-16.62" y="-16.62" inRotation="-0.7854" inDistance="6.12" outRotation="2.3562" outDistance="6.12"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="-23.50" y="0.00" inRotation="-1.5708" inDistance="6.12" outRotation="1.5708" outDistance="6.12"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="-16.62" y="16.62" inRotation="-2.3562" inDistance="6.12" outRotation="0.7854" outDistance="6.12"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <Skin xx="-0.24192" xy="0.97030" yx="-0.97030" yy="-0.24192" tx="233.32" ty="552.00" name="Skin">
+                            <Tendon boneId="0:203" xx="-0.24192" xy="0.97030" yx="-0.97030" yy="-0.24192" tx="233.32" ty="552.00" name="Shoulder_L"/>
+                            <Tendon boneId="0:204" xx="-0.10453" xy="0.99452" yx="-0.99452" yy="-0.10453" tx="217.84" ty="614.10" name="Elbow_L"/>
+                        </Skin>
+                    </PointsPath>
+                    <Fill name="Base"><RadialGradient startX="28.3" startY="8.1" endX="120.3" endY="8.1" name="Gradient"><GradientStop colorValue="FFFDF4E4" position="0"/><GradientStop colorValue="FFF8EBD4" position="0.45"/><GradientStop colorValue="FFEFDBBB" position="0.8"/><GradientStop colorValue="FFE0C098" position="1"/></RadialGradient></Fill><Fill name="CoreShadow"><RadialGradient startX="101.8" startY="-24.0" endX="169.4" endY="-24.0" name="Gradient"><GradientStop colorValue="73C9A47C" position="0"/><GradientStop colorValue="34C9A47C" position="0.5"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill><Fill name="Highlight"><RadialGradient startX="20.9" startY="11.3" endX="56.5" endY="11.3" name="Gradient"><GradientStop colorValue="8CFEF9EF" position="0"/><GradientStop colorValue="00FEF9EF" position="1"/></RadialGradient></Fill>
+                </Shape>
+            </RootBone>
+            <RootBone x="86.68" y="-198.00" rotation="1.32645" length="64.00" name="Shoulder_R" id="0:212">
+                <Bone rotation="0.13963" length="36.00" name="Elbow_R" id="0:213">
+                    <Bone rotation="0.00000" length="20.00" name="Wrist_R" id="0:214">
+                    <Solo activeComponentId="0:216" name="Hand_R" id="0:220">
+                        <Node name="Mitten" id="0:216">
+                            <Shape name="Mitten_R">
+                                <PointsPath isClosed="true" name="Mitten_Path">
+                                    <CubicDetachedVertex x="56.50" y="0.00" inRotation="-1.5708" inDistance="1.65" outRotation="1.5708" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="56.09" y="4.84" inRotation="-1.4006" inDistance="1.65" outRotation="1.7410" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="54.86" y="9.54" inRotation="-1.2290" inDistance="1.65" outRotation="1.9125" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="52.85" y="13.95" inRotation="-1.0553" inDistance="1.65" outRotation="2.0862" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="50.10" y="17.94" inRotation="-0.8800" inDistance="1.65" outRotation="2.2616" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="46.69" y="21.40" inRotation="-0.7049" inDistance="1.65" outRotation="2.4367" outDistance="1.67"/>
+                                    <CubicDetachedVertex x="42.69" y="24.25" inRotation="-0.5331" inDistance="1.67" outRotation="2.6084" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="38.21" y="26.41" inRotation="-0.3698" inDistance="1.69" outRotation="2.7718" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="33.36" y="27.86" inRotation="-0.2353" inDistance="1.72" outRotation="2.9063" outDistance="1.75"/>
+                                    <CubicDetachedVertex x="28.29" y="28.79" inRotation="-0.2099" inDistance="1.75" outRotation="2.9317" outDistance="1.85"/>
+                                    <CubicDetachedVertex x="23.00" y="30.07" inRotation="-0.3430" inDistance="1.85" outRotation="2.7986" outDistance="2.32"/>
+                                    <CubicDetachedVertex x="16.79" y="32.89" inRotation="-0.3193" inDistance="2.32" outRotation="2.8222" outDistance="2.56"/>
+                                    <CubicDetachedVertex x="9.43" y="34.56" inRotation="0.1613" inDistance="2.56" outRotation="-2.9803" outDistance="2.31"/>
+                                    <CubicDetachedVertex x="3.80" y="30.78" inRotation="0.8712" inDistance="2.31" outRotation="-2.2704" outDistance="2.35"/>
+                                    <CubicDetachedVertex x="0.96" y="24.48" inRotation="1.1326" inDistance="2.35" outRotation="-2.0090" outDistance="1.88"/>
+                                    <CubicDetachedVertex x="-1.47" y="19.53" inRotation="1.0359" inDistance="1.88" outRotation="-2.1057" outDistance="1.62"/>
+                                    <CubicDetachedVertex x="-4.27" y="15.66" inRotation="0.9517" inDistance="1.62" outRotation="-2.1899" outDistance="1.54"/>
+                                    <CubicDetachedVertex x="-6.88" y="11.94" inRotation="1.0264" inDistance="1.54" outRotation="-2.1152" outDistance="1.48"/>
+                                    <CubicDetachedVertex x="-8.86" y="8.07" inRotation="1.1830" inDistance="1.48" outRotation="-1.9586" outDistance="1.42"/>
+                                    <CubicDetachedVertex x="-10.09" y="4.07" inRotation="1.3708" inDistance="1.42" outRotation="-1.7708" outDistance="1.39"/>
+                                    <CubicDetachedVertex x="-10.50" y="0.00" inRotation="1.5708" inDistance="1.39" outRotation="-1.5708" outDistance="1.39"/>
+                                    <CubicDetachedVertex x="-10.09" y="-4.07" inRotation="1.7712" inDistance="1.39" outRotation="-1.3704" outDistance="1.42"/>
+                                    <CubicDetachedVertex x="-8.86" y="-8.07" inRotation="1.9619" inDistance="1.42" outRotation="-1.1797" outDistance="1.48"/>
+                                    <CubicDetachedVertex x="-6.85" y="-11.93" inRotation="2.1367" inDistance="1.48" outRotation="-1.0049" outDistance="1.55"/>
+                                    <CubicDetachedVertex x="-4.10" y="-15.56" inRotation="2.2943" inDistance="1.55" outRotation="-0.8473" outDistance="1.62"/>
+                                    <CubicDetachedVertex x="-0.69" y="-18.90" inRotation="2.4367" inDistance="1.62" outRotation="-0.7049" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="3.31" y="-21.87" inRotation="2.5679" inDistance="1.69" outRotation="-0.5737" outDistance="1.75"/>
+                                    <CubicDetachedVertex x="7.79" y="-24.38" inRotation="2.6924" inDistance="1.75" outRotation="-0.4492" outDistance="1.78"/>
+                                    <CubicDetachedVertex x="12.65" y="-26.37" inRotation="2.8146" inDistance="1.78" outRotation="-0.3270" outDistance="1.80"/>
+                                    <CubicDetachedVertex x="17.76" y="-27.76" inRotation="2.9387" inDistance="1.80" outRotation="-0.2029" outDistance="1.80"/>
+                                    <CubicDetachedVertex x="23.00" y="-28.50" inRotation="3.0680" inDistance="1.80" outRotation="-0.0736" outDistance="1.78"/>
+                                    <CubicDetachedVertex x="28.24" y="-28.54" inRotation="-3.0779" inDistance="1.78" outRotation="0.0637" outDistance="1.75"/>
+                                    <CubicDetachedVertex x="33.35" y="-27.84" inRotation="-2.9310" inDistance="1.75" outRotation="0.2106" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="38.21" y="-26.40" inRotation="-2.7742" inDistance="1.72" outRotation="0.3674" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="42.69" y="-24.25" inRotation="-2.6086" inDistance="1.69" outRotation="0.5330" outDistance="1.67"/>
+                                    <CubicDetachedVertex x="46.69" y="-21.40" inRotation="-2.4367" inDistance="1.67" outRotation="0.7049" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="50.10" y="-17.94" inRotation="-2.2616" inDistance="1.65" outRotation="0.8800" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="52.85" y="-13.95" inRotation="-2.0862" inDistance="1.65" outRotation="1.0553" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="54.86" y="-9.54" inRotation="-1.9125" inDistance="1.65" outRotation="1.2290" outDistance="1.65"/>
+                                    <CubicDetachedVertex x="56.09" y="-4.84" inRotation="-1.7410" inDistance="1.65" outRotation="1.4006" outDistance="1.65"/>
+                                </PointsPath>
+                                <Fill name="Base"><RadialGradient startX="10.3" startY="10.6" endX="59.4" endY="10.6" name="Gradient"><GradientStop colorValue="FFFDF4E4" position="0"/><GradientStop colorValue="FFF8EBD4" position="0.45"/><GradientStop colorValue="FFEFDBBB" position="0.8"/><GradientStop colorValue="FFE0C098" position="1"/></RadialGradient></Fill><Fill name="CoreShadow"><RadialGradient startX="58.2" startY="-18.1" endX="90.0" endY="-18.1" name="Gradient"><GradientStop colorValue="61C9A47C" position="0"/><GradientStop colorValue="2CC9A47C" position="0.5"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill><Fill name="Highlight"><RadialGradient startX="5.5" startY="13.5" endX="22.3" endY="13.5" name="Gradient"><GradientStop colorValue="66FEF9EF" position="0"/><GradientStop colorValue="00FEF9EF" position="1"/></RadialGradient></Fill>
+                            </Shape>
+                        </Node>
+                        <Node name="Fist" id="0:217">
+                            <Shape x="27.00" y="15.00" rotation="0.5500" scaleX="1.0000" scaleY="0.3200" name="Fist_Crease_R"><Ellipse width="20.0" height="20.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="10.0" endY="0" name="Gradient"><GradientStop colorValue="80C9A47C" position="0"/><GradientStop colorValue="4CC9A47C" position="0.6"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill></Shape>
+                            <Shape name="Fist_R">
+                                <PointsPath isClosed="true" name="Fist_Path">
+                                    <CubicDetachedVertex x="49.00" y="0.00" inRotation="-1.5708" inDistance="1.81" outRotation="1.5708" outDistance="1.81"/>
+                                    <CubicDetachedVertex x="48.56" y="5.29" inRotation="-1.4042" inDistance="1.81" outRotation="1.7374" outDistance="1.79"/>
+                                    <CubicDetachedVertex x="47.25" y="10.40" inRotation="-1.2346" inDistance="1.79" outRotation="1.9070" outDistance="1.77"/>
+                                    <CubicDetachedVertex x="45.11" y="15.15" inRotation="-1.0597" inDistance="1.77" outRotation="2.0819" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="42.22" y="19.38" inRotation="-0.8783" inDistance="1.74" outRotation="2.2633" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="38.64" y="22.95" inRotation="-0.6913" inDistance="1.72" outRotation="2.4503" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="34.50" y="25.76" inRotation="-0.5013" inDistance="1.70" outRotation="2.6403" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="29.92" y="27.73" inRotation="-0.3119" inDistance="1.70" outRotation="2.8297" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="25.04" y="28.82" inRotation="-0.1270" inDistance="1.70" outRotation="3.0146" outDistance="1.71"/>
+                                    <CubicDetachedVertex x="20.00" y="29.00" inRotation="0.0509" inDistance="1.71" outRotation="-3.0907" outDistance="1.73"/>
+                                    <CubicDetachedVertex x="14.96" y="28.30" inRotation="0.2212" inDistance="1.73" outRotation="-2.9203" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="10.08" y="26.77" inRotation="0.3852" inDistance="1.74" outRotation="-2.7564" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="5.50" y="24.47" inRotation="0.5454" inDistance="1.74" outRotation="-2.5962" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="1.36" y="21.48" inRotation="0.7049" inDistance="1.74" outRotation="-2.4367" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="-2.22" y="17.90" inRotation="0.8669" inDistance="1.72" outRotation="-2.2747" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="-5.11" y="13.85" inRotation="1.0342" inDistance="1.69" outRotation="-2.1074" outDistance="1.67"/>
+                                    <CubicDetachedVertex x="-7.25" y="9.44" inRotation="1.2079" inDistance="1.67" outRotation="-1.9337" outDistance="1.64"/>
+                                    <CubicDetachedVertex x="-8.56" y="4.78" inRotation="1.3875" inDistance="1.64" outRotation="-1.7541" outDistance="1.63"/>
+                                    <CubicDetachedVertex x="-9.00" y="0.00" inRotation="1.5708" inDistance="1.63" outRotation="-1.5708" outDistance="1.63"/>
+                                    <CubicDetachedVertex x="-8.56" y="-4.78" inRotation="1.7541" inDistance="1.63" outRotation="-1.3875" outDistance="1.64"/>
+                                    <CubicDetachedVertex x="-7.25" y="-9.44" inRotation="1.9337" inDistance="1.64" outRotation="-1.2079" outDistance="1.67"/>
+                                    <CubicDetachedVertex x="-5.11" y="-13.85" inRotation="2.1074" inDistance="1.67" outRotation="-1.0342" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="-2.22" y="-17.90" inRotation="2.2747" inDistance="1.69" outRotation="-0.8669" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="1.36" y="-21.48" inRotation="2.4367" inDistance="1.72" outRotation="-0.7049" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="5.50" y="-24.47" inRotation="2.5962" inDistance="1.74" outRotation="-0.5454" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="10.08" y="-26.77" inRotation="2.7564" inDistance="1.74" outRotation="-0.3852" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="14.96" y="-28.30" inRotation="2.9203" inDistance="1.74" outRotation="-0.2212" outDistance="1.73"/>
+                                    <CubicDetachedVertex x="20.00" y="-29.00" inRotation="3.0907" inDistance="1.73" outRotation="-0.0509" outDistance="1.71"/>
+                                    <CubicDetachedVertex x="25.04" y="-28.82" inRotation="-3.0146" inDistance="1.71" outRotation="0.1270" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="29.92" y="-27.73" inRotation="-2.8297" inDistance="1.70" outRotation="0.3119" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="34.50" y="-25.76" inRotation="-2.6403" inDistance="1.70" outRotation="0.5013" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="38.64" y="-22.95" inRotation="-2.4503" inDistance="1.70" outRotation="0.6913" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="42.22" y="-19.38" inRotation="-2.2633" inDistance="1.72" outRotation="0.8783" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="45.11" y="-15.15" inRotation="-2.0819" inDistance="1.74" outRotation="1.0597" outDistance="1.77"/>
+                                    <CubicDetachedVertex x="47.25" y="-10.40" inRotation="-1.9070" inDistance="1.77" outRotation="1.2346" outDistance="1.79"/>
+                                    <CubicDetachedVertex x="48.56" y="-5.29" inRotation="-1.7374" inDistance="1.79" outRotation="1.4042" outDistance="1.81"/>
+                                </PointsPath>
+                                <Fill name="Base"><RadialGradient startX="9.0" startY="7.0" endX="51.4" endY="7.0" name="Gradient"><GradientStop colorValue="FFFDF4E4" position="0"/><GradientStop colorValue="FFF8EBD4" position="0.45"/><GradientStop colorValue="FFEFDBBB" position="0.8"/><GradientStop colorValue="FFE0C098" position="1"/></RadialGradient></Fill><Fill name="CoreShadow"><RadialGradient startX="50.5" startY="-19.4" endX="78.0" endY="-19.4" name="Gradient"><GradientStop colorValue="61C9A47C" position="0"/><GradientStop colorValue="2CC9A47C" position="0.5"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill><Fill name="Highlight"><RadialGradient startX="4.9" startY="9.6" endX="19.4" endY="9.6" name="Gradient"><GradientStop colorValue="66FEF9EF" position="0"/><GradientStop colorValue="00FEF9EF" position="1"/></RadialGradient></Fill>
+                            </Shape>
+                        </Node>
+                        <Node name="OpenPalm" id="0:218">
+                            <Shape x="46.00" y="-14.50" rotation="0.0000" scaleX="1.0000" scaleY="0.4571" name="Palm_Crease_R0"><Ellipse width="14.0" height="14.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="7.0" endY="0" name="Gradient"><GradientStop colorValue="80C9A47C" position="0"/><GradientStop colorValue="4CC9A47C" position="0.6"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill></Shape>
+                            <Shape x="46.00" y="0.00" rotation="0.0000" scaleX="1.0000" scaleY="0.4571" name="Palm_Crease_R1"><Ellipse width="14.0" height="14.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="7.0" endY="0" name="Gradient"><GradientStop colorValue="80C9A47C" position="0"/><GradientStop colorValue="4CC9A47C" position="0.6"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill></Shape>
+                            <Shape x="46.00" y="14.50" rotation="0.0000" scaleX="1.0000" scaleY="0.4571" name="Palm_Crease_R2"><Ellipse width="14.0" height="14.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="7.0" endY="0" name="Gradient"><GradientStop colorValue="80C9A47C" position="0"/><GradientStop colorValue="4CC9A47C" position="0.6"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill></Shape>
+                            <Shape name="OpenPalm_R">
+                                <PointsPath isClosed="true" name="Palm_Path">
+                                    <CubicDetachedVertex x="54.00" y="0.00" inRotation="-1.5708" inDistance="1.36" outRotation="1.5708" outDistance="1.36"/>
+                                    <CubicDetachedVertex x="56.18" y="3.36" inRotation="-1.9336" inDistance="1.36" outRotation="1.2080" outDistance="1.23"/>
+                                    <CubicDetachedVertex x="56.64" y="6.95" inRotation="-1.1592" inDistance="1.23" outRotation="1.9824" outDistance="1.44"/>
+                                    <CubicDetachedVertex x="53.42" y="9.69" inRotation="-0.6742" inDistance="1.44" outRotation="2.4674" outDistance="1.34"/>
+                                    <CubicDetachedVertex x="50.26" y="12.05" inRotation="-1.2003" inDistance="1.34" outRotation="1.9413" outDistance="1.50"/>
+                                    <CubicDetachedVertex x="50.80" y="16.44" inRotation="-1.3900" inDistance="1.50" outRotation="1.7516" outDistance="1.36"/>
+                                    <CubicDetachedVertex x="48.82" y="19.91" inRotation="-1.0917" inDistance="1.36" outRotation="2.0499" outDistance="1.54"/>
+                                    <CubicDetachedVertex x="46.87" y="24.00" inRotation="-1.2852" inDistance="1.54" outRotation="1.8564" outDistance="2.23"/>
+                                    <CubicDetachedVertex x="45.73" y="30.46" inRotation="-1.3535" inDistance="2.23" outRotation="1.7881" outDistance="2.84"/>
+                                    <CubicDetachedVertex x="43.66" y="38.54" inRotation="-1.0160" inDistance="2.84" outRotation="2.1256" outDistance="2.30"/>
+                                    <CubicDetachedVertex x="38.22" y="42.58" inRotation="-0.0543" inDistance="2.30" outRotation="3.0873" outDistance="2.73"/>
+                                    <CubicDetachedVertex x="30.93" y="39.24" inRotation="0.5997" inDistance="2.73" outRotation="-2.5419" outDistance="2.80"/>
+                                    <CubicDetachedVertex x="25.00" y="33.54" inRotation="0.7157" inDistance="2.80" outRotation="-2.4259" outDistance="1.90"/>
+                                    <CubicDetachedVertex x="20.52" y="30.18" inRotation="0.5124" inDistance="1.90" outRotation="-2.6292" outDistance="1.49"/>
+                                    <CubicDetachedVertex x="16.40" y="28.70" inRotation="0.3154" inDistance="1.49" outRotation="-2.8262" outDistance="1.43"/>
+                                    <CubicDetachedVertex x="12.36" y="27.52" inRotation="0.3317" inDistance="1.43" outRotation="-2.8099" outDistance="1.41"/>
+                                    <CubicDetachedVertex x="8.50" y="25.98" inRotation="0.4443" inDistance="1.41" outRotation="-2.6973" outDistance="1.40"/>
+                                    <CubicDetachedVertex x="4.91" y="23.97" inRotation="0.5799" inDistance="1.40" outRotation="-2.5617" outDistance="1.39"/>
+                                    <CubicDetachedVertex x="1.67" y="21.51" inRotation="0.7210" inDistance="1.39" outRotation="-2.4206" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-1.18" y="18.62" inRotation="0.8639" inDistance="1.38" outRotation="-2.2777" outDistance="1.37"/>
+                                    <CubicDetachedVertex x="-3.58" y="15.37" inRotation="1.0072" inDistance="1.37" outRotation="-2.1344" outDistance="1.37"/>
+                                    <CubicDetachedVertex x="-5.49" y="11.80" inRotation="1.1497" inDistance="1.37" outRotation="-1.9919" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-6.88" y="8.01" inRotation="1.2910" inDistance="1.38" outRotation="-1.8506" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-7.72" y="4.04" inRotation="1.4313" inDistance="1.38" outRotation="-1.7103" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-8.00" y="0.00" inRotation="1.5708" inDistance="1.38" outRotation="-1.5708" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-7.72" y="-4.04" inRotation="1.7103" inDistance="1.38" outRotation="-1.4313" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-6.88" y="-8.01" inRotation="1.8506" inDistance="1.38" outRotation="-1.2910" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="-5.49" y="-11.80" inRotation="1.9919" inDistance="1.38" outRotation="-1.1497" outDistance="1.37"/>
+                                    <CubicDetachedVertex x="-3.58" y="-15.37" inRotation="2.1344" inDistance="1.37" outRotation="-1.0072" outDistance="1.37"/>
+                                    <CubicDetachedVertex x="-1.18" y="-18.62" inRotation="2.2777" inDistance="1.37" outRotation="-0.8639" outDistance="1.38"/>
+                                    <CubicDetachedVertex x="1.67" y="-21.51" inRotation="2.4206" inDistance="1.38" outRotation="-0.7210" outDistance="1.39"/>
+                                    <CubicDetachedVertex x="4.91" y="-23.97" inRotation="2.5619" inDistance="1.39" outRotation="-0.5797" outDistance="1.40"/>
+                                    <CubicDetachedVertex x="8.50" y="-25.98" inRotation="2.7000" inDistance="1.40" outRotation="-0.4416" outDistance="1.41"/>
+                                    <CubicDetachedVertex x="12.37" y="-27.50" inRotation="2.8337" inDistance="1.41" outRotation="-0.3079" outDistance="1.43"/>
+                                    <CubicDetachedVertex x="16.46" y="-28.51" inRotation="2.9620" inDistance="1.43" outRotation="-0.1796" outDistance="1.45"/>
+                                    <CubicDetachedVertex x="20.69" y="-29.01" inRotation="3.0845" inDistance="1.45" outRotation="-0.0571" outDistance="1.46"/>
+                                    <CubicDetachedVertex x="25.00" y="-29.00" inRotation="-3.0816" inDistance="1.46" outRotation="0.0600" outDistance="1.47"/>
+                                    <CubicDetachedVertex x="29.31" y="-28.49" inRotation="-2.9691" inDistance="1.47" outRotation="0.1725" outDistance="1.48"/>
+                                    <CubicDetachedVertex x="33.54" y="-27.51" inRotation="-2.8599" inDistance="1.48" outRotation="0.2817" outDistance="1.47"/>
+                                    <CubicDetachedVertex x="37.63" y="-26.09" inRotation="-2.7525" inDistance="1.47" outRotation="0.3891" outDistance="1.46"/>
+                                    <CubicDetachedVertex x="41.50" y="-24.25" inRotation="-2.6449" inDistance="1.46" outRotation="0.4967" outDistance="1.43"/>
+                                    <CubicDetachedVertex x="45.09" y="-22.04" inRotation="-2.5343" inDistance="1.43" outRotation="0.6073" outDistance="1.40"/>
+                                    <CubicDetachedVertex x="48.33" y="-19.50" inRotation="-2.3518" inDistance="1.40" outRotation="0.7898" outDistance="1.33"/>
+                                    <CubicDetachedVertex x="50.70" y="-16.38" inRotation="-1.8223" inDistance="1.33" outRotation="1.3193" outDistance="1.48"/>
+                                    <CubicDetachedVertex x="50.25" y="-12.04" inRotation="-1.9567" inDistance="1.48" outRotation="1.1849" outDistance="1.34"/>
+                                    <CubicDetachedVertex x="53.42" y="-9.69" inRotation="-2.4691" inDistance="1.34" outRotation="0.6725" outDistance="1.44"/>
+                                    <CubicDetachedVertex x="56.64" y="-6.95" inRotation="-1.9827" inDistance="1.44" outRotation="1.1589" outDistance="1.23"/>
+                                    <CubicDetachedVertex x="56.18" y="-3.36" inRotation="-1.2081" inDistance="1.23" outRotation="1.9335" outDistance="1.36"/>
+                                </PointsPath>
+                                <Fill name="Base"><RadialGradient startX="12.1" startY="15.4" endX="62.4" endY="15.4" name="Gradient"><GradientStop colorValue="FFFDF4E4" position="0"/><GradientStop colorValue="FFF8EBD4" position="0.45"/><GradientStop colorValue="FFEFDBBB" position="0.8"/><GradientStop colorValue="FFE0C098" position="1"/></RadialGradient></Fill><Fill name="CoreShadow"><RadialGradient startX="58.3" startY="-17.2" endX="92.3" endY="-17.2" name="Gradient"><GradientStop colorValue="61C9A47C" position="0"/><GradientStop colorValue="2CC9A47C" position="0.5"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill><Fill name="Highlight"><RadialGradient startX="7.5" startY="18.7" endX="25.4" endY="18.7" name="Gradient"><GradientStop colorValue="66FEF9EF" position="0"/><GradientStop colorValue="00FEF9EF" position="1"/></RadialGradient></Fill>
+                            </Shape>
+                        </Node>
+                        <Node name="ThumbUp" id="0:219">
+                            <Shape x="36.00" y="16.00" rotation="1.1000" scaleX="1.0000" scaleY="0.4000" name="ThumbUp_Crease_R"><Ellipse width="16.0" height="16.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="8.0" endY="0" name="Gradient"><GradientStop colorValue="80C9A47C" position="0"/><GradientStop colorValue="4CC9A47C" position="0.6"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill></Shape>
+                            <Shape name="ThumbUp_R">
+                                <PointsPath isClosed="true" name="Fist_Path">
+                                    <CubicDetachedVertex x="49.00" y="0.00" inRotation="-1.5708" inDistance="1.81" outRotation="1.5708" outDistance="1.81"/>
+                                    <CubicDetachedVertex x="48.56" y="5.29" inRotation="-1.4042" inDistance="1.81" outRotation="1.7374" outDistance="1.79"/>
+                                    <CubicDetachedVertex x="47.25" y="10.40" inRotation="-1.2346" inDistance="1.79" outRotation="1.9070" outDistance="1.77"/>
+                                    <CubicDetachedVertex x="45.11" y="15.15" inRotation="-1.0597" inDistance="1.77" outRotation="2.0819" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="42.22" y="19.38" inRotation="-0.8783" inDistance="1.74" outRotation="2.2633" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="38.64" y="22.95" inRotation="-0.6913" inDistance="1.72" outRotation="2.4503" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="34.50" y="25.76" inRotation="-0.5013" inDistance="1.70" outRotation="2.6403" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="29.92" y="27.73" inRotation="-0.3119" inDistance="1.70" outRotation="2.8297" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="25.04" y="28.82" inRotation="-0.1270" inDistance="1.70" outRotation="3.0146" outDistance="1.71"/>
+                                    <CubicDetachedVertex x="20.00" y="29.00" inRotation="0.0509" inDistance="1.71" outRotation="-3.0907" outDistance="1.73"/>
+                                    <CubicDetachedVertex x="14.96" y="28.30" inRotation="0.2212" inDistance="1.73" outRotation="-2.9203" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="10.08" y="26.77" inRotation="0.3852" inDistance="1.74" outRotation="-2.7564" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="5.50" y="24.47" inRotation="0.5454" inDistance="1.74" outRotation="-2.5962" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="1.36" y="21.48" inRotation="0.7049" inDistance="1.74" outRotation="-2.4367" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="-2.22" y="17.90" inRotation="0.8669" inDistance="1.72" outRotation="-2.2747" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="-5.11" y="13.85" inRotation="1.0342" inDistance="1.69" outRotation="-2.1074" outDistance="1.67"/>
+                                    <CubicDetachedVertex x="-7.25" y="9.44" inRotation="1.2079" inDistance="1.67" outRotation="-1.9337" outDistance="1.64"/>
+                                    <CubicDetachedVertex x="-8.56" y="4.78" inRotation="1.3875" inDistance="1.64" outRotation="-1.7541" outDistance="1.63"/>
+                                    <CubicDetachedVertex x="-9.00" y="0.00" inRotation="1.5708" inDistance="1.63" outRotation="-1.5708" outDistance="1.63"/>
+                                    <CubicDetachedVertex x="-8.56" y="-4.78" inRotation="1.7541" inDistance="1.63" outRotation="-1.3875" outDistance="1.64"/>
+                                    <CubicDetachedVertex x="-7.25" y="-9.44" inRotation="1.9337" inDistance="1.64" outRotation="-1.2079" outDistance="1.67"/>
+                                    <CubicDetachedVertex x="-5.11" y="-13.85" inRotation="2.1074" inDistance="1.67" outRotation="-1.0342" outDistance="1.69"/>
+                                    <CubicDetachedVertex x="-2.22" y="-17.90" inRotation="2.2747" inDistance="1.69" outRotation="-0.8669" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="1.36" y="-21.48" inRotation="2.4367" inDistance="1.72" outRotation="-0.7049" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="5.50" y="-24.47" inRotation="2.5962" inDistance="1.74" outRotation="-0.5454" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="10.08" y="-26.77" inRotation="2.7564" inDistance="1.74" outRotation="-0.3852" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="14.96" y="-28.30" inRotation="2.9203" inDistance="1.74" outRotation="-0.2212" outDistance="1.73"/>
+                                    <CubicDetachedVertex x="20.00" y="-29.00" inRotation="3.0907" inDistance="1.73" outRotation="-0.0509" outDistance="1.71"/>
+                                    <CubicDetachedVertex x="25.04" y="-28.82" inRotation="-3.0146" inDistance="1.71" outRotation="0.1270" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="29.92" y="-27.73" inRotation="-2.8297" inDistance="1.70" outRotation="0.3119" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="34.50" y="-25.76" inRotation="-2.6403" inDistance="1.70" outRotation="0.5013" outDistance="1.70"/>
+                                    <CubicDetachedVertex x="38.64" y="-22.95" inRotation="-2.4503" inDistance="1.70" outRotation="0.6913" outDistance="1.72"/>
+                                    <CubicDetachedVertex x="42.22" y="-19.38" inRotation="-2.2633" inDistance="1.72" outRotation="0.8783" outDistance="1.74"/>
+                                    <CubicDetachedVertex x="45.11" y="-15.15" inRotation="-2.0819" inDistance="1.74" outRotation="1.0597" outDistance="1.77"/>
+                                    <CubicDetachedVertex x="47.25" y="-10.40" inRotation="-1.9070" inDistance="1.77" outRotation="1.2346" outDistance="1.79"/>
+                                    <CubicDetachedVertex x="48.56" y="-5.29" inRotation="-1.7374" inDistance="1.79" outRotation="1.4042" outDistance="1.81"/>
+                                </PointsPath>
+                                <PointsPath isClosed="true" name="Thumb_Path">
+                                    <CubicDetachedVertex x="64.97" y="-6.95" inRotation="3.0872" inDistance="10.93" outRotation="-0.0543" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="70.59" y="-6.00" inRotation="-2.7115" inDistance="1.94" outRotation="0.4301" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="74.97" y="-2.37" inRotation="-2.1879" inDistance="1.94" outRotation="0.9537" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="76.95" y="2.97" inRotation="-1.6643" inDistance="1.94" outRotation="1.4773" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="76.00" y="8.59" inRotation="-1.1407" inDistance="1.94" outRotation="2.0009" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="72.37" y="12.97" inRotation="-0.6171" inDistance="1.94" outRotation="2.5245" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="67.03" y="14.95" inRotation="-0.1326" inDistance="1.94" outRotation="3.0090" outDistance="10.93"/>
+                                    <CubicDetachedVertex x="35.03" y="17.95" inRotation="-0.0543" inDistance="10.93" outRotation="3.0872" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="29.41" y="17.00" inRotation="0.4301" inDistance="1.94" outRotation="-2.7115" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="25.03" y="13.37" inRotation="0.9537" inDistance="1.94" outRotation="-2.1879" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="23.05" y="8.03" inRotation="1.4773" inDistance="1.94" outRotation="-1.6643" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="24.00" y="2.41" inRotation="2.0009" inDistance="1.94" outRotation="-1.1407" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="27.63" y="-1.97" inRotation="2.5245" inDistance="1.94" outRotation="-0.6171" outDistance="1.94"/>
+                                    <CubicDetachedVertex x="32.97" y="-3.95" inRotation="3.0090" inDistance="1.94" outRotation="-0.1326" outDistance="10.93"/>
+                                </PointsPath>
+                                <Fill name="Base"><RadialGradient startX="17.7" startY="7.0" endX="77.1" endY="7.0" name="Gradient"><GradientStop colorValue="FFFDF4E4" position="0"/><GradientStop colorValue="FFF8EBD4" position="0.45"/><GradientStop colorValue="FFEFDBBB" position="0.8"/><GradientStop colorValue="FFE0C098" position="1"/></RadialGradient></Fill><Fill name="CoreShadow"><RadialGradient startX="79.1" startY="-19.4" endX="120.0" endY="-19.4" name="Gradient"><GradientStop colorValue="61C9A47C" position="0"/><GradientStop colorValue="2CC9A47C" position="0.5"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill><Fill name="Highlight"><RadialGradient startX="11.6" startY="9.6" endX="33.1" endY="9.6" name="Gradient"><GradientStop colorValue="66FEF9EF" position="0"/><GradientStop colorValue="00FEF9EF" position="1"/></RadialGradient></Fill>
+                            </Shape>
+                        </Node>
+                    </Solo>
+                    </Bone>
+                </Bone>
+                <Shape x="6.00" y="-0.00" rotation="0.0000" scaleX="1.0000" scaleY="0.6897" name="ShoulderAO_R"><Ellipse width="58.0" height="58.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="29.0" endY="0" name="Gradient"><GradientStop colorValue="858A6646" position="0"/><GradientStop colorValue="568A6646" position="0.55"/><GradientStop colorValue="008A6646" position="1"/></RadialGradient></Fill><ClippingShape sourceId="0:215" name="Clip"/></Shape>
+                <Shape name="Arm_R" id="0:215">
+                    <PointsPath isClosed="true" name="Arm_R_Path">
+                        <CubicDetachedVertex x="-0.00" y="-23.50" inRotation="2.9525" inDistance="6.12" outRotation="-0.1891" outDistance="5.44"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="16.00" y="-22.86" inRotation="-3.1016" inDistance="5.44" outRotation="0.0400" outDistance="5.44"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="32.00" y="-22.22" inRotation="-3.1016" inDistance="5.44" outRotation="0.0400" outDistance="5.44"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="48.00" y="-21.58" inRotation="-3.1018" inDistance="5.44" outRotation="0.0398" outDistance="5.94"><CubicWeight values="11220" indices="513" inValues="11220" inIndices="513" outValues="11220" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="65.46" y="-20.89" inRotation="-3.0351" inDistance="5.94" outRotation="0.1064" outDistance="5.94"><CubicWeight values="32640" indices="513" inValues="32640" inIndices="513" outValues="32640" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="82.67" y="-17.88" inRotation="-2.9649" inDistance="5.94" outRotation="0.1767" outDistance="6.81"><CubicWeight values="54570" indices="513" inValues="54570" inIndices="513" outValues="54570" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="102.36" y="-14.30" inRotation="-2.8116" inDistance="6.81" outRotation="0.3300" outDistance="5.07"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="115.22" y="-6.73" inRotation="-2.2166" inDistance="5.07" outRotation="0.9250" outDistance="5.07"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="118.96" y="7.72" inRotation="-1.4312" inDistance="5.07" outRotation="1.7104" outDistance="5.07"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="111.39" y="20.58" inRotation="-0.6458" inDistance="5.07" outRotation="2.4958" outDistance="5.07"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="96.94" y="24.32" inRotation="-0.0508" inDistance="5.07" outRotation="3.0908" outDistance="6.81"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="77.02" y="22.33" inRotation="0.0994" inDistance="6.81" outRotation="-3.0422" outDistance="4.95"><CubicWeight values="54570" indices="513" inValues="54570" inIndices="513" outValues="54570" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="62.54" y="20.89" inRotation="0.0258" inDistance="4.95" outRotation="-3.1158" outDistance="4.95"><CubicWeight values="32640" indices="513" inValues="32640" inIndices="513" outValues="32640" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="48.00" y="21.58" inRotation="-0.0436" inDistance="4.95" outRotation="3.0980" outDistance="5.44"><CubicWeight values="11220" indices="513" inValues="11220" inIndices="513" outValues="11220" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="32.00" y="22.22" inRotation="-0.0400" inDistance="5.44" outRotation="3.1016" outDistance="5.44"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="16.00" y="22.86" inRotation="-0.0400" inDistance="5.44" outRotation="3.1016" outDistance="5.44"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="0.00" y="23.50" inRotation="0.1891" inDistance="5.44" outRotation="-2.9525" outDistance="6.12"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="-16.62" y="16.62" inRotation="0.7854" inDistance="6.12" outRotation="-2.3562" outDistance="6.12"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="-23.50" y="0.00" inRotation="1.5708" inDistance="6.12" outRotation="-1.5708" outDistance="6.12"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="-16.62" y="-16.62" inRotation="2.3562" inDistance="6.12" outRotation="-0.7854" outDistance="6.12"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <Skin xx="0.24192" xy="0.97030" yx="-0.97030" yy="0.24192" tx="406.68" ty="552.00" name="Skin">
+                            <Tendon boneId="0:212" xx="0.24192" xy="0.97030" yx="-0.97030" yy="0.24192" tx="406.68" ty="552.00" name="Shoulder_R"/>
+                            <Tendon boneId="0:213" xx="0.10453" xy="0.99452" yx="-0.99452" yy="0.10453" tx="422.16" ty="614.10" name="Elbow_R"/>
+                        </Skin>
+                    </PointsPath>
+                    <Fill name="Base"><RadialGradient startX="18.7" startY="4.9" endX="119.0" endY="4.9" name="Gradient"><GradientStop colorValue="FFFDF4E4" position="0"/><GradientStop colorValue="FFF8EBD4" position="0.45"/><GradientStop colorValue="FFEFDBBB" position="0.8"/><GradientStop colorValue="FFE0C098" position="1"/></RadialGradient></Fill><Fill name="CoreShadow"><RadialGradient startX="128.5" startY="-11.9" endX="196.1" endY="-11.9" name="Gradient"><GradientStop colorValue="73C9A47C" position="0"/><GradientStop colorValue="34C9A47C" position="0.5"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill><Fill name="Highlight"><RadialGradient startX="7.7" startY="6.5" endX="43.3" endY="6.5" name="Gradient"><GradientStop colorValue="8CFEF9EF" position="0"/><GradientStop colorValue="00FEF9EF" position="1"/></RadialGradient></Fill>
+                </Shape>
+            </RootBone>
+            <Shape name="ArmCast_L">
+                <PointsPath isClosed="true" name="ArmCast_L_Path">
+                    <CubicDetachedVertex x="-67.76" y="-193.28" inRotation="-0.4151" inDistance="6.80" outRotation="2.7265" outDistance="5.44"/>
+                    <CubicDetachedVertex x="-72.25" y="-177.91" inRotation="-1.2865" inDistance="5.44" outRotation="1.8551" outDistance="5.44"/>
+                    <CubicDetachedVertex x="-76.74" y="-162.54" inRotation="-1.2865" inDistance="5.44" outRotation="1.8551" outDistance="5.44"/>
+                    <CubicDetachedVertex x="-81.23" y="-147.17" inRotation="-1.2836" inDistance="5.44" outRotation="1.8580" outDistance="5.04"/>
+                    <CubicDetachedVertex x="-85.48" y="-132.96" inRotation="-1.3531" inDistance="5.04" outRotation="1.7885" outDistance="5.04"/>
+                    <CubicDetachedVertex x="-87.62" y="-118.28" inRotation="-1.4259" inDistance="5.04" outRotation="1.7157" outDistance="6.81"/>
+                    <CubicDetachedVertex x="-90.51" y="-98.48" inRotation="-1.6247" inDistance="6.81" outRotation="1.5169" outDistance="1.36"/>
+                    <CubicDetachedVertex x="-86.53" y="-98.06" inRotation="2.1073" inDistance="1.36" outRotation="-1.0343" outDistance="7.03"/>
+                    <CubicDetachedVertex x="-79.26" y="-117.41" inRotation="1.9184" inDistance="7.03" outRotation="-1.2231" outDistance="4.90"/>
+                    <CubicDetachedVertex x="-74.58" y="-131.04" inRotation="1.9675" inDistance="4.90" outRotation="-1.1741" outDistance="4.89"/>
+                    <CubicDetachedVertex x="-68.15" y="-143.91" inRotation="2.0134" inDistance="4.89" outRotation="-1.1282" outDistance="5.53"/>
+                    <CubicDetachedVertex x="-61.46" y="-158.73" inRotation="1.9919" inDistance="5.53" outRotation="-1.1497" outDistance="5.52"/>
+                    <CubicDetachedVertex x="-54.87" y="-173.58" inRotation="1.9862" inDistance="5.52" outRotation="-1.1554" outDistance="5.52"/>
+                    <CubicDetachedVertex x="-48.35" y="-188.44" inRotation="0.9914" inDistance="5.52" outRotation="-2.1502" outDistance="6.80"/>
+                </PointsPath>
+                <Fill name="Shadow"><LinearGradient startX="-81.2" startY="-147.2" endX="-68.2" endY="-143.9" name="Gradient"><GradientStop colorValue="4C8A6646" position="0"/><GradientStop colorValue="008A6646" position="1"/></LinearGradient></Fill><ClippingShape sourceId="0:201" name="Clip"/>
+            </Shape>
+            <Shape name="ArmCast_R">
+                <PointsPath isClosed="true" name="ArmCast_R_Path">
+                    <CubicDetachedVertex x="67.76" y="-193.28" inRotation="-2.4020" inDistance="3.40" outRotation="0.7396" outDistance="5.44"/>
+                    <CubicDetachedVertex x="72.25" y="-177.91" inRotation="-1.8551" inDistance="5.44" outRotation="1.2865" outDistance="5.44"/>
+                    <CubicDetachedVertex x="76.74" y="-162.54" inRotation="-1.8551" inDistance="5.44" outRotation="1.2865" outDistance="5.44"/>
+                    <CubicDetachedVertex x="81.23" y="-147.17" inRotation="-1.8580" inDistance="5.44" outRotation="1.2836" outDistance="5.04"/>
+                    <CubicDetachedVertex x="85.48" y="-132.96" inRotation="-1.7885" inDistance="5.04" outRotation="1.3531" outDistance="5.04"/>
+                    <CubicDetachedVertex x="87.62" y="-118.28" inRotation="-1.7157" inDistance="5.04" outRotation="1.4259" outDistance="6.81"/>
+                    <CubicDetachedVertex x="90.51" y="-98.48" inRotation="-1.5169" inDistance="6.81" outRotation="1.6247" outDistance="1.36"/>
+                    <CubicDetachedVertex x="86.53" y="-98.06" inRotation="1.1539" inDistance="1.36" outRotation="-1.9877" outDistance="6.85"/>
+                    <CubicDetachedVertex x="82.00" y="-117.69" inRotation="1.3492" inDistance="6.85" outRotation="-1.7924" outDistance="4.91"/>
+                    <CubicDetachedVertex x="78.93" y="-131.80" inRotation="1.2859" inDistance="4.91" outRotation="-1.8557" outDistance="4.91"/>
+                    <CubicDetachedVertex x="73.90" y="-145.34" inRotation="1.2248" inDistance="4.91" outRotation="-1.9168" outDistance="5.46"/>
+                    <CubicDetachedVertex x="68.59" y="-160.51" inRotation="1.2347" inDistance="5.46" outRotation="-1.9069" outDistance="5.46"/>
+                    <CubicDetachedVertex x="63.31" y="-175.68" inRotation="1.2369" inDistance="5.46" outRotation="-1.9047" outDistance="5.46"/>
+                    <CubicDetachedVertex x="58.06" y="-190.86" inRotation="1.8186" inDistance="5.46" outRotation="-1.3230" outDistance="3.40"/>
+                </PointsPath>
+                <Fill name="Shadow"><LinearGradient startX="81.2" startY="-147.2" endX="73.9" endY="-145.3" name="Gradient"><GradientStop colorValue="388A6646" position="0"/><GradientStop colorValue="008A6646" position="1"/></LinearGradient></Fill><ClippingShape sourceId="0:201" name="Clip"/>
+            </Shape>
+            <Shape x="0.00" y="-188.00" rotation="0.0000" scaleX="1.0000" scaleY="0.3680" name="HeadContact_AO"><Ellipse width="250.0" height="250.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="125.0" endY="0" name="Gradient"><GradientStop colorValue="6B8A6646" position="0"/><GradientStop colorValue="468A6646" position="0.55"/><GradientStop colorValue="008A6646" position="1"/></RadialGradient></Fill><ClippingShape sourceId="0:201" name="Clip"/></Shape>
+            <Shape name="Torso_Fill" id="0:201">
+                <PointsPath isClosed="true" name="Torso_Path">
+                    <CubicDetachedVertex x="-114.50" y="-72.00" inRotation="1.5866" inDistance="9.89" outRotation="-1.5550" outDistance="13.97"/>
+                    <CubicDetachedVertex x="-110.60" y="-112.89" inRotation="1.7626" inDistance="13.97" outRotation="-1.3790" outDistance="13.53"/>
+                    <CubicDetachedVertex x="-99.16" y="-151.00" inRotation="1.9671" inDistance="13.53" outRotation="-1.1745" outDistance="12.73"/>
+                    <CubicDetachedVertex x="-80.96" y="-183.72" inRotation="2.1979" inDistance="12.73" outRotation="-0.9437" outDistance="11.74"/>
+                    <CubicDetachedVertex x="-57.25" y="-208.83" inRotation="2.4689" inDistance="11.74" outRotation="-0.6727" outDistance="10.81"/>
+                    <CubicDetachedVertex x="-29.63" y="-224.62" inRotation="2.7874" inDistance="10.81" outRotation="-0.3542" outDistance="10.24"/>
+                    <CubicDetachedVertex x="0.00" y="-230.00" inRotation="3.1416" inDistance="10.24" outRotation="0.0000" outDistance="10.24"/>
+                    <CubicDetachedVertex x="29.63" y="-224.62" inRotation="-2.7874" inDistance="10.24" outRotation="0.3542" outDistance="10.81"/>
+                    <CubicDetachedVertex x="57.25" y="-208.83" inRotation="-2.4689" inDistance="10.81" outRotation="0.6727" outDistance="11.74"/>
+                    <CubicDetachedVertex x="80.96" y="-183.72" inRotation="-2.1979" inDistance="11.74" outRotation="0.9437" outDistance="12.73"/>
+                    <CubicDetachedVertex x="99.16" y="-151.00" inRotation="-1.9671" inDistance="12.73" outRotation="1.1745" outDistance="13.53"/>
+                    <CubicDetachedVertex x="110.60" y="-112.89" inRotation="-1.7626" inDistance="13.53" outRotation="1.3790" outDistance="13.97"/>
+                    <CubicDetachedVertex x="114.50" y="-72.00" inRotation="-1.5866" inDistance="13.97" outRotation="1.5550" outDistance="9.89"/>
+                    <CubicDetachedVertex x="111.70" y="-43.06" inRotation="-1.3340" inDistance="9.89" outRotation="1.8076" outDistance="6.56"/>
+                    <CubicDetachedVertex x="103.32" y="-25.68" inRotation="-0.9376" inDistance="6.56" outRotation="2.2040" outDistance="6.48"/>
+                    <CubicDetachedVertex x="89.39" y="-12.67" inRotation="-0.5860" inDistance="6.48" outRotation="2.5556" outDistance="7.37"/>
+                    <CubicDetachedVertex x="69.79" y="-3.42" inRotation="-0.3128" inDistance="7.37" outRotation="2.8288" outDistance="9.10"/>
+                    <CubicDetachedVertex x="43.60" y="2.14" inRotation="-0.1059" inDistance="9.10" outRotation="3.0357" outDistance="14.84"/>
+                    <CubicDetachedVertex x="0.00" y="4.00" inRotation="0.0000" inDistance="14.84" outRotation="3.1416" outDistance="14.84"/>
+                    <CubicDetachedVertex x="-43.60" y="2.14" inRotation="0.1059" inDistance="14.84" outRotation="-3.0357" outDistance="9.10"/>
+                    <CubicDetachedVertex x="-69.79" y="-3.42" inRotation="0.3128" inDistance="9.10" outRotation="-2.8288" outDistance="7.37"/>
+                    <CubicDetachedVertex x="-89.39" y="-12.67" inRotation="0.5860" inDistance="7.37" outRotation="-2.5556" outDistance="6.48"/>
+                    <CubicDetachedVertex x="-103.32" y="-25.68" inRotation="0.9376" inDistance="6.48" outRotation="-2.2040" outDistance="6.56"/>
+                    <CubicDetachedVertex x="-111.70" y="-43.06" inRotation="1.3340" inDistance="6.56" outRotation="-1.8076" outDistance="9.89"/>
+                </PointsPath>
+                <Fill name="Base"><RadialGradient startX="-31.9" startY="-154.1" endX="154.6" endY="-154.1" name="Gradient"><GradientStop colorValue="FFFDF4E4" position="0"/><GradientStop colorValue="FFF8EBD4" position="0.45"/><GradientStop colorValue="FFEFDBBB" position="0.8"/><GradientStop colorValue="FFE0C098" position="1"/></RadialGradient></Fill><Fill name="UnderBelly"><LinearGradient startX="0.0" startY="-44.0" endX="0.0" endY="4.0" name="Gradient"><GradientStop colorValue="00C9A47C" position="0"/><GradientStop colorValue="61C9A47C" position="1"/></LinearGradient></Fill><Fill name="CoreShadow"><RadialGradient startX="88.7" startY="1.1" endX="199.9" endY="1.1" name="Gradient"><GradientStop colorValue="80C9A47C" position="0"/><GradientStop colorValue="39C9A47C" position="0.5"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill><Fill name="Highlight"><RadialGradient startX="-44.0" startY="-169.6" endX="14.5" endY="-169.6" name="Gradient"><GradientStop colorValue="99FEF9EF" position="0"/><GradientStop colorValue="00FEF9EF" position="1"/></RadialGradient></Fill><Fill name="Bounce"><LinearGradient startX="0.0" startY="-6.0" endX="0.0" endY="4.0" name="Gradient"><GradientStop colorValue="00E9CDAA" position="0"/><GradientStop colorValue="1FE9CDAA" position="1"/></LinearGradient></Fill>
+            </Shape>
+        </Node>
+        <!-- Legs: chubby beans with rounded feet, each a 3-bone chain with IK to a foot target on the ground. -->
+        <Node x="-65.01" y="-105.00" name="Leg_L" id="0:226">
+            <RootBone x="0.00" y="0.00" rotation="1.57080" length="48.00" name="Hip_L" id="0:221">
+                <Bone rotation="0.00000" length="34.00" name="Knee_L" id="0:222">
+                    <Bone rotation="0.00000" length="20.00" name="Ankle_L" id="0:223">
+
+                    </Bone>
+                    <IKConstraint targetId="0:224" parentBoneCount="1" name="IK_L"/>
+                </Bone>
+                <Shape x="20.00" y="0.00" rotation="-1.5708" scaleX="1.0000" scaleY="0.3704" name="Belly_AO_L"><Ellipse width="108.0" height="108.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="54.0" endY="0" name="Gradient"><GradientStop colorValue="618A6646" position="0"/><GradientStop colorValue="3F8A6646" position="0.55"/><GradientStop colorValue="008A6646" position="1"/></RadialGradient></Fill><ClippingShape sourceId="0:225" name="Clip"/></Shape>
+                <Shape name="Leg_L" id="0:225">
+                    <PointsPath isClosed="true" name="Leg_L_Path">
+                        <CubicDetachedVertex x="-6.00" y="-0.00" inRotation="-1.5708" inDistance="8.04" outRotation="1.5708" outDistance="8.04"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="-3.00" y="23.47" inRotation="-1.7872" inDistance="8.04" outRotation="1.3544" outDistance="4.71"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="2.00" y="36.39" inRotation="-2.0623" inDistance="4.71" outRotation="1.0793" outDistance="4.01"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="9.00" y="45.88" inRotation="-2.4049" inDistance="4.01" outRotation="0.7366" outDistance="3.50"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="18.00" y="50.90" inRotation="-2.9173" inDistance="3.50" outRotation="0.2243" outDistance="3.41"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="28.00" y="50.22" inRotation="3.0312" inDistance="3.41" outRotation="-0.1103" outDistance="4.47"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="41.00" y="48.35" inRotation="2.9993" inDistance="4.47" outRotation="-0.1423" outDistance="5.15"><CubicWeight values="16575" indices="513" inValues="16575" inIndices="513" outValues="16575" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="56.00" y="46.21" inRotation="2.9993" inDistance="5.15" outRotation="-0.1423" outDistance="5.15"><CubicWeight values="51255" indices="513" inValues="51255" inIndices="513" outValues="51255" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="71.00" y="44.06" inRotation="-2.7377" inDistance="5.15" outRotation="0.4039" outDistance="4.90"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="79.00" y="56.04" inRotation="-2.3595" inDistance="4.90" outRotation="0.7821" outDistance="2.58"><CubicWeight values="20655" indices="770" inValues="20655" inIndices="770" outValues="20655" outIndices="770"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="86.00" y="58.96" inRotation="-2.9407" inDistance="2.58" outRotation="0.2009" outDistance="2.38"><CubicWeight values="48960" indices="770" inValues="48960" inIndices="770" outValues="48960" outIndices="770"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="93.00" y="58.89" inRotation="2.9204" inDistance="2.38" outRotation="-0.2211" outDistance="2.26"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="99.00" y="56.04" inRotation="2.2164" inDistance="2.26" outRotation="-0.9252" outDistance="4.07"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="103.50" y="44.95" inRotation="1.7545" inDistance="4.07" outRotation="-1.3871" outDistance="7.97"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="105.40" y="21.58" inRotation="1.6032" inDistance="7.97" outRotation="-1.5384" outDistance="11.96"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="105.40" y="-13.59" inRotation="1.5369" inDistance="11.96" outRotation="-1.6047" outDistance="7.12"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="103.50" y="-34.45" inRotation="1.3657" inDistance="7.12" outRotation="-1.7759" outDistance="3.70"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="99.00" y="-44.35" inRotation="0.8700" inDistance="3.70" outRotation="-2.2716" outDistance="2.22"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="93.00" y="-46.90" inRotation="0.1981" inDistance="2.22" outRotation="-2.9435" outDistance="2.38"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="86.00" y="-46.96" inRotation="-0.1799" inDistance="2.38" outRotation="2.9617" outDistance="2.54"><CubicWeight values="48960" indices="770" inValues="48960" inIndices="770" outValues="48960" outIndices="770"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="79.00" y="-44.35" inRotation="-0.1914" inDistance="2.54" outRotation="2.9502" outDistance="2.72"><CubicWeight values="20655" indices="770" inValues="20655" inIndices="770" outValues="20655" outIndices="770"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="71.00" y="-44.06" inRotation="0.0803" inDistance="2.72" outRotation="-3.0613" outDistance="5.15"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="56.00" y="-46.21" inRotation="0.1423" inDistance="5.15" outRotation="-2.9993" outDistance="5.15"><CubicWeight values="51255" indices="513" inValues="51255" inIndices="513" outValues="51255" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="41.00" y="-48.35" inRotation="0.1423" inDistance="5.15" outRotation="-2.9993" outDistance="4.47"><CubicWeight values="16575" indices="513" inValues="16575" inIndices="513" outValues="16575" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="28.00" y="-50.22" inRotation="0.1103" inDistance="4.47" outRotation="-3.0312" outDistance="3.41"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="18.00" y="-50.90" inRotation="-0.2243" inDistance="3.41" outRotation="2.9173" outDistance="3.50"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="9.00" y="-45.88" inRotation="-0.7366" inDistance="3.50" outRotation="2.4049" outDistance="4.01"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="2.00" y="-36.39" inRotation="-1.0793" inDistance="4.01" outRotation="2.0623" outDistance="4.71"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="-3.00" y="-23.47" inRotation="-1.3544" inDistance="4.71" outRotation="1.7872" outDistance="8.04"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <Skin xx="0.00000" xy="1.00000" yx="-1.00000" yy="0.00000" tx="254.99" ty="724.00" name="Skin">
+                            <Tendon boneId="0:221" xx="0.00000" xy="1.00000" yx="-1.00000" yy="0.00000" tx="254.99" ty="724.00" name="Hip_L"/>
+                            <Tendon boneId="0:222" xx="0.00000" xy="1.00000" yx="-1.00000" yy="0.00000" tx="254.99" ty="772.00" name="Knee_L"/>
+                            <Tendon boneId="0:223" xx="0.00000" xy="1.00000" yx="-1.00000" yy="0.00000" tx="254.99" ty="806.00" name="Ankle_L"/>
+                        </Skin>
+                    </PointsPath>
+                    <Fill name="Base"><RadialGradient startX="30.1" startY="19.4" endX="124.0" endY="19.4" name="Gradient"><GradientStop colorValue="FFFDF4E4" position="0"/><GradientStop colorValue="FFF8EBD4" position="0.45"/><GradientStop colorValue="FFEFDBBB" position="0.8"/><GradientStop colorValue="FFE0C098" position="1"/></RadialGradient></Fill><Fill name="InnerShade"><LinearGradient startX="0.0" startY="-51.2" endX="0.0" endY="-25.2" name="Gradient"><GradientStop colorValue="52C9A47C" position="0"/><GradientStop colorValue="00C9A47C" position="1"/></LinearGradient></Fill><Fill name="CoreShadow"><RadialGradient startX="104.0" startY="-38.5" endX="156.9" endY="-38.5" name="Gradient"><GradientStop colorValue="80C9A47C" position="0"/><GradientStop colorValue="39C9A47C" position="0.5"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill><Fill name="Highlight"><RadialGradient startX="22.8" startY="25.1" endX="50.6" endY="25.1" name="Gradient"><GradientStop colorValue="8CFEF9EF" position="0"/><GradientStop colorValue="00FEF9EF" position="1"/></RadialGradient></Fill>
+                </Shape>
+            </RootBone>
+        </Node>
+        <Node x="65.01" y="-105.00" name="Leg_R" id="0:232">
+            <RootBone x="0.00" y="0.00" rotation="1.57080" length="48.00" name="Hip_R" id="0:227">
+                <Bone rotation="0.00000" length="34.00" name="Knee_R" id="0:228">
+                    <Bone rotation="0.00000" length="20.00" name="Ankle_R" id="0:229">
+
+                    </Bone>
+                    <IKConstraint targetId="0:230" parentBoneCount="1" name="IK_R"/>
+                </Bone>
+                <Shape x="20.00" y="0.00" rotation="-1.5708" scaleX="1.0000" scaleY="0.3704" name="Belly_AO_R"><Ellipse width="108.0" height="108.0" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="54.0" endY="0" name="Gradient"><GradientStop colorValue="618A6646" position="0"/><GradientStop colorValue="3F8A6646" position="0.55"/><GradientStop colorValue="008A6646" position="1"/></RadialGradient></Fill><ClippingShape sourceId="0:231" name="Clip"/></Shape>
+                <Shape name="Leg_R" id="0:231">
+                    <PointsPath isClosed="true" name="Leg_R_Path">
+                        <CubicDetachedVertex x="-6.00" y="-0.00" inRotation="1.5708" inDistance="8.04" outRotation="-1.5708" outDistance="8.04"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="-3.00" y="-23.47" inRotation="1.7872" inDistance="8.04" outRotation="-1.3544" outDistance="4.71"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="2.00" y="-36.39" inRotation="2.0623" inDistance="4.71" outRotation="-1.0793" outDistance="4.01"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="9.00" y="-45.88" inRotation="2.4049" inDistance="4.01" outRotation="-0.7366" outDistance="3.50"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="18.00" y="-50.90" inRotation="2.9173" inDistance="3.50" outRotation="-0.2243" outDistance="3.41"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="28.00" y="-50.22" inRotation="-3.0312" inDistance="3.41" outRotation="0.1103" outDistance="4.47"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="41.00" y="-48.35" inRotation="-2.9993" inDistance="4.47" outRotation="0.1423" outDistance="5.15"><CubicWeight values="16575" indices="513" inValues="16575" inIndices="513" outValues="16575" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="56.00" y="-46.21" inRotation="-2.9993" inDistance="5.15" outRotation="0.1423" outDistance="5.15"><CubicWeight values="51255" indices="513" inValues="51255" inIndices="513" outValues="51255" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="71.00" y="-44.06" inRotation="2.7377" inDistance="5.15" outRotation="-0.4039" outDistance="4.90"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="79.00" y="-56.04" inRotation="2.3595" inDistance="4.90" outRotation="-0.7821" outDistance="2.58"><CubicWeight values="20655" indices="770" inValues="20655" inIndices="770" outValues="20655" outIndices="770"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="86.00" y="-58.96" inRotation="2.9407" inDistance="2.58" outRotation="-0.2009" outDistance="2.38"><CubicWeight values="48960" indices="770" inValues="48960" inIndices="770" outValues="48960" outIndices="770"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="93.00" y="-58.89" inRotation="-2.9204" inDistance="2.38" outRotation="0.2211" outDistance="2.26"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="99.00" y="-56.04" inRotation="-2.2164" inDistance="2.26" outRotation="0.9252" outDistance="4.07"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="103.50" y="-44.95" inRotation="-1.7545" inDistance="4.07" outRotation="1.3871" outDistance="7.97"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="105.40" y="-21.58" inRotation="-1.6032" inDistance="7.97" outRotation="1.5384" outDistance="11.96"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="105.40" y="13.59" inRotation="-1.5369" inDistance="11.96" outRotation="1.6047" outDistance="7.12"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="103.50" y="34.45" inRotation="-1.3657" inDistance="7.12" outRotation="1.7759" outDistance="3.70"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="99.00" y="44.35" inRotation="-0.8700" inDistance="3.70" outRotation="2.2716" outDistance="2.22"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="93.00" y="46.90" inRotation="-0.1981" inDistance="2.22" outRotation="2.9435" outDistance="2.38"><CubicWeight values="255" indices="3" inValues="255" inIndices="3" outValues="255" outIndices="3"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="86.00" y="46.96" inRotation="0.1799" inDistance="2.38" outRotation="-2.9617" outDistance="2.54"><CubicWeight values="48960" indices="770" inValues="48960" inIndices="770" outValues="48960" outIndices="770"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="79.00" y="44.35" inRotation="0.1914" inDistance="2.54" outRotation="-2.9502" outDistance="2.72"><CubicWeight values="20655" indices="770" inValues="20655" inIndices="770" outValues="20655" outIndices="770"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="71.00" y="44.06" inRotation="-0.0803" inDistance="2.72" outRotation="3.0613" outDistance="5.15"><CubicWeight values="255" indices="2" inValues="255" inIndices="2" outValues="255" outIndices="2"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="56.00" y="46.21" inRotation="-0.1423" inDistance="5.15" outRotation="2.9993" outDistance="5.15"><CubicWeight values="51255" indices="513" inValues="51255" inIndices="513" outValues="51255" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="41.00" y="48.35" inRotation="-0.1423" inDistance="5.15" outRotation="2.9993" outDistance="4.47"><CubicWeight values="16575" indices="513" inValues="16575" inIndices="513" outValues="16575" outIndices="513"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="28.00" y="50.22" inRotation="-0.1103" inDistance="4.47" outRotation="3.0312" outDistance="3.41"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="18.00" y="50.90" inRotation="0.2243" inDistance="3.41" outRotation="-2.9173" outDistance="3.50"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="9.00" y="45.88" inRotation="0.7366" inDistance="3.50" outRotation="-2.4049" outDistance="4.01"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="2.00" y="36.39" inRotation="1.0793" inDistance="4.01" outRotation="-2.0623" outDistance="4.71"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <CubicDetachedVertex x="-3.00" y="23.47" inRotation="1.3544" inDistance="4.71" outRotation="-1.7872" outDistance="8.04"><CubicWeight values="255" indices="1" inValues="255" inIndices="1" outValues="255" outIndices="1"/></CubicDetachedVertex>
+                        <Skin xx="0.00000" xy="1.00000" yx="-1.00000" yy="0.00000" tx="385.01" ty="724.00" name="Skin">
+                            <Tendon boneId="0:227" xx="0.00000" xy="1.00000" yx="-1.00000" yy="0.00000" tx="385.01" ty="724.00" name="Hip_R"/>
+                            <Tendon boneId="0:228" xx="0.00000" xy="1.00000" yx="-1.00000" yy="0.00000" tx="385.01" ty="772.00" name="Knee_R"/>
+                            <Tendon boneId="0:229" xx="0.00000" xy="1.00000" yx="-1.00000" yy="0.00000" tx="385.01" ty="806.00" name="Ankle_R"/>
+                        </Skin>
+                    </PointsPath>
+                    <Fill name="Base"><RadialGradient startX="30.1" startY="11.3" endX="126.5" endY="11.3" name="Gradient"><GradientStop colorValue="FFFDF4E4" position="0"/><GradientStop colorValue="FFF8EBD4" position="0.45"/><GradientStop colorValue="FFEFDBBB" position="0.8"/><GradientStop colorValue="FFE0C098" position="1"/></RadialGradient></Fill><Fill name="InnerShade"><LinearGradient startX="0.0" startY="51.2" endX="0.0" endY="25.2" name="Gradient"><GradientStop colorValue="52C9A47C" position="0"/><GradientStop colorValue="00C9A47C" position="1"/></LinearGradient></Fill><Fill name="CoreShadow"><RadialGradient startX="104.0" startY="-46.6" endX="156.9" endY="-46.6" name="Gradient"><GradientStop colorValue="80C9A47C" position="0"/><GradientStop colorValue="39C9A47C" position="0.5"/><GradientStop colorValue="00C9A47C" position="1"/></RadialGradient></Fill><Fill name="Highlight"><RadialGradient startX="22.8" startY="17.1" endX="50.6" endY="17.1" name="Gradient"><GradientStop colorValue="8CFEF9EF" position="0"/><GradientStop colorValue="00FEF9EF" position="1"/></RadialGradient></Fill>
+                </Shape>
+            </RootBone>
+        </Node>
+        <Node x="-65.01" y="-23.00" name="Foot_L_Target" id="0:224"/>
+        <Node x="65.01" y="-23.00" name="Foot_R_Target" id="0:230"/>
+        <!-- Ground: contact shadows under each foot, then the soft ground shadow. -->
+        <Shape x="-68.01" y="-2.00" rotation="0.0000" scaleX="1.0000" scaleY="0.0906" name="FootContact_L"><Ellipse width="110.3" height="110.3" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="55.2" endY="0" name="Gradient"><GradientStop colorValue="4C6B4E36" position="0"/><GradientStop colorValue="326B4E36" position="0.55"/><GradientStop colorValue="006B4E36" position="1"/></RadialGradient></Fill></Shape>
+        <Shape x="68.01" y="-2.00" rotation="0.0000" scaleX="1.0000" scaleY="0.0906" name="FootContact_R"><Ellipse width="110.3" height="110.3" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="55.2" endY="0" name="Gradient"><GradientStop colorValue="4C6B4E36" position="0"/><GradientStop colorValue="326B4E36" position="0.55"/><GradientStop colorValue="006B4E36" position="1"/></RadialGradient></Fill></Shape>
+        <Shape x="0.00" y="2.00" rotation="0.0000" scaleX="1.0000" scaleY="0.0698" name="GroundShadow"><Ellipse width="295.5" height="295.5" name="Path"/><Fill name="Fill"><RadialGradient startX="0" startY="0" endX="147.8" endY="0" name="Gradient"><GradientStop colorValue="2E6B4E36" position="0"/><GradientStop colorValue="1E6B4E36" position="0.55"/><GradientStop colorValue="006B4E36" position="1"/></RadialGradient></Fill></Shape>
+        <!-- BODY:END -->
+        </Node>
+
+        <!-- ANIM:BEGIN -->
+        <LinearAnimation loopValue="loop" fps="60" duration="144" name="Idle" id="0:6">
+            <KeyedObject objectId="0:202">
+            <KeyedProperty propertyKey="17"><KeyFrameDouble value="1.00000" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="1.02500" frame="72" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="1.00000" frame="144"/></KeyedProperty>
+            <KeyedProperty propertyKey="16"><KeyFrameDouble value="1.00000" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="0.99000" frame="72" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="1.00000" frame="144"/></KeyedProperty>
+            </KeyedObject>
+            <KeyedObject objectId="0:20">
+            <KeyedProperty propertyKey="14"><KeyFrameDouble value="-449.00000" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="-453.50000" frame="72" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="-449.00000" frame="144"/></KeyedProperty>
+            </KeyedObject>
+            <KeyedObject objectId="0:203">
+            <KeyedProperty propertyKey="15"><KeyFrameDouble value="1.81514" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="1.85005" frame="72" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="1.81514" frame="144"/></KeyedProperty>
+            </KeyedObject>
+            <KeyedObject objectId="0:212">
+            <KeyedProperty propertyKey="15"><KeyFrameDouble value="1.32645" frame="0" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="1.29154" frame="72" interpolationType="cubic"><CubicEaseInterpolator x1="0.42" y1="0" x2="0.58" y2="1"/></KeyFrameDouble><KeyFrameDouble value="1.32645" frame="144"/></KeyedProperty>
+            </KeyedObject>
+        </LinearAnimation>
+        <!-- ANIM:END -->
+
+        <StateMachine name="State Machine 1" id="0:7">
+            <StateMachineLayer name="Layer 1" id="0:8">
+                <AnyState x="200" y="-120"/>
+                <ExitState x="400" y="-120"/>
+                <EntryState>
+                    <StateTransition stateToId="0:12"/>
+                </EntryState>
+                <AnimationState x="200" animationId="0:6" id="0:12"/>
+            </StateMachineLayer>
+        </StateMachine>
+    </Artboard>
+</Rive>

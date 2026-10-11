@@ -1,0 +1,920 @@
+[
+  {
+    "slug": "attention-economy-explained",
+    "title": "The Attention Economy: How to Recognize What Competes for Your Time",
+    "description": "Understand the attention economy, distinguish useful recommendations from manipulative design, and choose practical boundaries for your feeds.",
+    "answer": "The attention economy describes competition for a limited resource: the time and focus people can give to information. In an advertising-supported feed, continued engagement creates more opportunities to show ads, while recommendations help decide what appears next. You can respond by choosing a purpose before opening an app, reducing unnecessary prompts, and giving browsing a clear endpoint. Being engaged by a feed does not, by itself, mean you have an addiction.",
+    "sections": [
+      {
+        "type": "section",
+        "label": "Separate your purpose from the feed’s purpose",
+        "anchor": "separate-your-purpose-from-the-feed-s-purpose",
+        "paragraphs": [
+          "You may open an app to answer a friend, learn a recipe, or check a train update. After that task, the same screen can offer a much larger stream of unrelated material. Write down the job you wanted the app to do. Finishing that job is a usable stopping point, even when the feed still contains interesting things.",
+          "As a practical example, “reply to the two messages from my sister” has an end. “See what is happening” does not. Neither is morally better, but only the first gives you a way to know when you are done."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Understand recommendations without assuming mind control",
+        "anchor": "understand-recommendations-without-assuming-mind-control",
+        "paragraphs": [
+          "[Meta’s explanation of ranking](https://about.fb.com/news/2023/06/how-ai-ranks-content-on-facebook-and-instagram/) describes systems that predict which content may be relevant using signals and user choices. A prediction about what you might engage with is not a promise that the result serves your present goal.",
+          "Try keeping a note of the first moment your session changes purpose. Perhaps a message leads to a profile, then a video, then recommendations. That transition is a useful place to add your own stopping rule."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Tell engaging design from deceptive design",
+        "anchor": "tell-engaging-design-from-deceptive-design",
+        "paragraphs": [
+          "An attractive interface is not automatically deceptive. The [FTC’s dark-pattern report](https://www.ftc.gov/news-events/news/press-releases/2022/09/ftc-report-shows-rise-sophisticated-dark-patterns-designed-trick-trap-consumers) concerns choices such as disguised advertising and hidden terms that can undermine informed decisions. This is a narrower claim than saying every popular app is a scam.",
+          "When evaluating a screen, ask whether you can identify advertising, understand what a button does, and find the option to leave. Be especially cautious about a supposedly urgent decision that cannot be explained clearly."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Give your next session an endpoint",
+        "anchor": "give-your-next-session-an-endpoint",
+        "paragraphs": [
+          "Choose one feed you regularly overrun and try a boundary for several ordinary days. Keep the enjoyable or useful part; remove the open-ended invitation to continue. The goal is a decision you can repeat, not a perfect dashboard."
+        ],
+        "steps": [
+          "Name one task before opening the feed, or choose a specific leisure window.",
+          "When it ends, close the app and move to a preselected activity such as making tea or starting a saved article.",
+          "Note whether you returned automatically. If so, change one cue next time; see the [guide to stopping repeated checking](/blog/how-to-stop-checking-phone)."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is the attention economy only about social media?",
+        "answer": "No. News, games, video, shopping, and other services also compete for attention. Look at the particular business model and interface instead of assuming every service uses the same incentives."
+      },
+      {
+        "question": "Do I need to stop using recommendations?",
+        "answer": "No. Recommendations can be useful. Judge a session by whether it helped you do what you wanted, and choose a stopping point when open-ended discovery stops being useful."
+      }
+    ],
+    "citations": [
+      {
+        "author": "Meta",
+        "year": 2023,
+        "title": "How AI Influences What You See on Facebook and Instagram",
+        "url": "https://about.fb.com/news/2023/06/how-ai-ranks-content-on-facebook-and-instagram/"
+      },
+      {
+        "author": "Federal Trade Commission",
+        "year": 2022,
+        "title": "FTC Report Shows Rise in Sophisticated Dark Patterns Designed to Trick and Trap Consumers",
+        "url": "https://www.ftc.gov/news-events/news/press-releases/2022/09/ftc-report-shows-rise-sophisticated-dark-patterns-designed-trick-trap-consumers"
+      }
+    ]
+  },
+  {
+    "slug": "how-to-stop-doomscrolling",
+    "title": "How to Stop Doomscrolling: A Practical News-Checking Plan",
+    "description": "Replace repeated distressing feed checks with a defined question, reliable sources, a stopping point, and an achievable offline transition.",
+    "answer": "To stop doomscrolling, decide what information you actually need, check a small set of reliable sources at planned times, and stop when that question is answered. Remove the feed from the places where you tend to scroll automatically, then plan what you will do immediately after checking. You do not have to avoid the news completely. If distress or disrupted daily life persists, support from a qualified professional can matter more than another app setting.",
+    "sections": [
+      {
+        "type": "section",
+        "label": "Identify the question beneath the refresh",
+        "anchor": "identify-the-question-beneath-the-refresh",
+        "paragraphs": [
+          "Before your next check, write a question that could have an answer: “Has my local transport authority changed tomorrow’s service?” is specific. “Is everything going to be okay?” cannot be resolved by refreshing a feed. When the question is unanswerable, more posts may simply repeat the uncertainty.",
+          "For actionable local information, use the organization responsible for the situation. For broader news, choose a source you can read directly rather than entering through a stream of reactions."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Build a small news route",
+        "anchor": "build-a-small-news-route",
+        "paragraphs": [
+          "Create a bookmark folder with the few sources you intend to check. Include an official alert source when your safety or travel plans depend on updates. Keep necessary alerts available; a leisure limit should not prevent you from receiving urgent information.",
+          "Choose a checking window that fits your responsibilities. This is a personal experiment, not a clinically proven dosage. A short, defined visit is easier to evaluate than a vague intention to “scroll less.”"
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Make an exit you can actually use",
+        "anchor": "make-an-exit-you-can-actually-use",
+        "paragraphs": [
+          "A closing action works best when you can do it immediately. If you finish checking while sitting in bed, “go on a long hike” is not a realistic next step. Putting the phone on its charger and opening a book already beside you is much more concrete.",
+          "You can also write one sentence about what changed since the previous check. If there is no meaningful update and no action to take, that is a reason to close the session."
+        ],
+        "steps": [
+          "Finish the information task you chose before opening.",
+          "Write any action you need to take, including when you will take it.",
+          "Close the source, put the device down, and begin the next activity before opening another feed."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Review the pattern without self-blame",
+        "anchor": "review-the-pattern-without-self-blame",
+        "paragraphs": [
+          "After several days, compare how often you checked and whether the information was useful. If you keep reopening one app, adjust the entry point: remove its shortcut, reduce optional alerts, or use an [Android app timer](/blog/screen-time-limits-android).",
+          "[NIMH guidance](https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health) recommends professional help for severe or distressing symptoms that persist. A clinician can help assess problems with sleep, concentration, or daily functioning; a scrolling guide cannot diagnose their cause."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Should I stop reading all bad news?",
+        "answer": "You can stay informed without reading every reaction. Keep information that changes your decisions, and set a boundary around repeated commentary that adds nothing useful."
+      },
+      {
+        "question": "What if I break the plan tonight?",
+        "answer": "Resume at the next checking window. Note what prompted the extra session and change that one part of the plan instead of turning one difficult evening into a reason to abandon it."
+      }
+    ],
+    "citations": [
+      {
+        "author": "National Institute of Mental Health",
+        "year": 2026,
+        "title": "Caring for Your Mental Health",
+        "url": "https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health"
+      }
+    ]
+  },
+  {
+    "slug": "best-screen-time-app-android-2026",
+    "title": "How to Choose a Screen Time App for Android in 2026",
+    "description": "Choose an Android screen time tool by its controls, permissions, compatibility, and results in your own routine, without unsupported rankings.",
+    "answer": "The best Android screen time app for you depends on the problem you want to change: awareness, a daily allowance, interruptions during work, or repeated unplanned openings. Start with the controls already on your phone, then consider an additional app only if it adds a useful behavior. Compare permissions, essential-app access, current pricing, and performance on your device. This is a selection guide, not a tested ranking of products or a claim that one app works for everyone.",
+    "sections": [
+      {
+        "type": "section",
+        "label": "Define the job before comparing products",
+        "anchor": "define-the-job-before-comparing-products",
+        "paragraphs": [
+          "Write a sentence such as “I want fewer feed checks while writing” or “I want to stop spending my entire lunch break on videos.” A large feature list cannot tell you whether a tool fits that situation. Your goal can also include what must remain easy, such as answering a caregiver or opening a work authentication app.",
+          "For awareness, a usage report may be enough. For a specific daily budget, look for an allowance. For one uninterrupted task, look for a timed pause or an environment where the phone is out of reach."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Check the tools you already have",
+        "anchor": "check-the-tools-you-already-have",
+        "paragraphs": [
+          "[Google’s Digital Wellbeing documentation](https://support.google.com/android/answer/9346420?hl=en) covers usage information, app timers, and Focus mode; availability and menus vary by device. Find out which controls your phone actually offers before installing an overlapping service.",
+          "Take a screenshot of your starting settings and try one relevant control. You should be able to explain its purpose and reverse it when necessary. If a basic tool solves your problem comfortably, additional complexity may not help."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Evaluate additional apps with the same checklist",
+        "anchor": "evaluate-additional-apps-with-the-same-checklist",
+        "paragraphs": [
+          "MOZY’s [Google Play listing](https://play.google.com/store/apps/details?id=com.moxstudio.mozy) describes earning time for selected apps through walking. That is a different approach to try if movement fits your life, rather than proof of superior results. MOZY publishes this journal, so this mention is not an independent endorsement.",
+          "For every candidate, read the current store listing and permission explanations. Avoid assuming a feature exists because a comparison article mentions it. Record the version, device, and any subscription conditions shown to you."
+        ],
+        "steps": [
+          "Check that essential calls, messages, accessibility tools, and work tasks remain usable.",
+          "Try the intended limit during an ordinary session and observe what happens.",
+          "Confirm you understand how to change settings and contact support before depending on the app."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Run a modest comparison of your own",
+        "anchor": "run-a-modest-comparison-of-your-own",
+        "paragraphs": [
+          "Use the same target app and roughly comparable days for each setup. Record unplanned openings, time spent on the target activity, and any legitimate tasks interrupted. A lower total alone is not success if you missed something important or moved the same habit to a tablet.",
+          "Choose the least burdensome tool that supports your goal. The [Digital Wellbeing comparison](/blog/digital-wellbeing-vs-mozy) explains how a fixed allowance differs from a walking-based balance without assigning an unsupported winner."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is a paid app necessarily more effective?",
+        "answer": "No. Price does not establish effectiveness for your routine. Check current terms, try the relevant behavior, and judge the result against your goal before paying."
+      },
+      {
+        "question": "Can I trust a “best app” list?",
+        "answer": "Look for disclosed ownership, current versions, a reproducible test method, and specific limitations. Without those details, treat the list as discovery material rather than evidence of comparative performance."
+      }
+    ],
+    "citations": [
+      {
+        "author": "Google",
+        "year": 2026,
+        "title": "Manage how you spend time on your Android phone with Digital Wellbeing",
+        "url": "https://support.google.com/android/answer/9346420?hl=en"
+      },
+      {
+        "author": "mcrudra",
+        "year": 2026,
+        "title": "Mozy: Walk to Unlock Apps — Google Play listing",
+        "url": "https://play.google.com/store/apps/details?id=com.moxstudio.mozy"
+      }
+    ]
+  },
+  {
+    "slug": "digital-wellbeing-vs-mozy",
+    "title": "Digital Wellbeing vs MOZY: Fixed Limits or Walking-Based Screen Time?",
+    "description": "Compare Android Digital Wellbeing with MOZY’s walking-based balance by goal, setup, practical limits, and daily fit.",
+    "answer": "Digital Wellbeing and MOZY offer different ways to structure phone use. Digital Wellbeing includes built-in Android controls such as app timers and Focus mode on supported devices. MOZY’s store listing describes earning screen time for selected apps by walking. Start with Digital Wellbeing if a conventional limit meets your needs; consider the walking approach if you want movement connected to leisure use. Neither approach guarantees lasting behavior change, and this comparison is published by MOZY.",
+    "sections": [
+      {
+        "type": "section",
+        "label": "Compare the rule, not the marketing language",
+        "anchor": "compare-the-rule-not-the-marketing-language",
+        "paragraphs": [
+          "A fixed time allowance answers “How much of this app do I want today?” A movement-based balance asks “Do I want walking to come before more time in these selected apps?” Those are different decisions. One person may prefer predictable leisure time; another may enjoy a reminder to get moving.",
+          "Write down the behavior you hope to change. If the issue is late-night news, tying access to steps may not address the timing. If the issue is spending every break seated, the movement connection may be more relevant."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Know what the documentation actually establishes",
+        "anchor": "know-what-the-documentation-actually-establishes",
+        "paragraphs": [
+          "[Google documents](https://support.google.com/android/answer/9346420?hl=en) daily app timers and temporary pauses through Focus mode, with device-dependent availability. [MOZY’s listing](https://play.google.com/store/apps/details?id=com.moxstudio.mozy) describes walking, earning minutes, and spending them on selected apps. These descriptions establish intended behavior, not a head-to-head efficacy test.",
+          "Check the features visible in the versions you install. Do not assume the same settings, permissions, costs, or experience across every Android phone. We are not claiming either product is impossible to bypass."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Use a practical decision checklist",
+        "anchor": "use-a-practical-decision-checklist",
+        "paragraphs": [
+          "Before trying either approach, list the apps that must remain available for work, safety, communication, or accessibility. Only put optional activities into your experiment. A rule that prevents an important task is poorly matched even if it produces a lower usage number."
+        ],
+        "steps": [
+          "Choose one distracting app and one measurable goal for the week.",
+          "Try a fixed allowance if you want a predictable daily budget.",
+          "Try walking-based access only if walking is suitable, safe, and convenient for you.",
+          "Keep notes on useful interruptions, unwanted interruptions, and whether you moved the same activity elsewhere."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Decide what counts as a better fit",
+        "anchor": "decide-what-counts-as-a-better-fit",
+        "paragraphs": [
+          "At the end of the experiment, review the moments that mattered. Did you finish lunch without losing track of time? Did you get outside when you intended? Did the setup add frustration without changing the pattern? Include those answers alongside any usage total.",
+          "A walking rule can be a poor fit during illness, limited mobility, unsafe weather, or work that requires sitting. A fixed timer can also be too blunt for an app that combines essential messages and entertainment. See the [screen time app evaluation guide](/blog/screen-time-app-that-actually-works) for a structured way to assess those tradeoffs."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Which one should I try first?",
+        "answer": "Try the simplest available control that matches your goal. Digital Wellbeing is a useful starting point when you need an ordinary app limit; walking-based access is a separate preference to evaluate."
+      },
+      {
+        "question": "Does MOZY replace parental controls?",
+        "answer": "This comparison concerns voluntary personal use. It does not establish MOZY as a supervised parental-control product. For a child’s device, use age-appropriate supervision tools and a shared family plan."
+      }
+    ],
+    "citations": [
+      {
+        "author": "Google",
+        "year": 2026,
+        "title": "Manage how you spend time on your Android phone with Digital Wellbeing",
+        "url": "https://support.google.com/android/answer/9346420?hl=en"
+      },
+      {
+        "author": "mcrudra",
+        "year": 2026,
+        "title": "Mozy: Walk to Unlock Apps — Google Play listing",
+        "url": "https://play.google.com/store/apps/details?id=com.moxstudio.mozy"
+      }
+    ]
+  },
+  {
+    "slug": "instagram-time-limit-android",
+    "title": "How to Limit Instagram Time on Android",
+    "description": "Set a useful Instagram boundary on Android, understand reminders and Sleep mode, and keep essential messages in your plan.",
+    "answer": "To limit Instagram on Android, choose a daily allowance in your phone’s Digital Wellbeing controls where available, then decide how you will handle messages and leisure browsing within that allowance. Instagram’s own time reminders and Sleep mode serve different purposes: a reminder prompts you, while Sleep mode manages notifications. Neither should be confused with a guaranteed lock on every way to access Instagram. Test the setup on your device and make your stopping action explicit.",
+    "sections": [
+      {
+        "type": "section",
+        "label": "Choose whether you need a limit or fewer interruptions",
+        "anchor": "choose-whether-you-need-a-limit-or-fewer-interruptions",
+        "paragraphs": [
+          "An app-wide limit can affect the useful parts of Instagram as well as the feed. If you coordinate work through DMs, make a plan for those conversations before restricting the whole app. You could agree on another channel for time-sensitive messages or reserve a specific checking window.",
+          "If the main problem is notifications pulling you away, start with notification settings rather than an extremely small allowance. If the problem is continuing after a planned visit, a daily boundary may fit better."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Set an allowance in Android",
+        "anchor": "set-an-allowance-in-android",
+        "paragraphs": [
+          "In supported Android settings, open Digital Wellbeing, find App timers, select Instagram, and choose an allowance. [Google’s instructions](https://support.google.com/android/answer/9346420?hl=en) explain that timers reset at midnight. Menu labels vary, and some work or school accounts may behave differently.",
+          "Treat the first setting as a trial. Pick an amount that leaves room for the tasks you deliberately want to do. An allowance chosen only to look impressively low is unlikely to tell you what a sustainable routine looks like."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Use Instagram’s tools for the right purpose",
+        "anchor": "use-instagram-s-tools-for-the-right-purpose",
+        "paragraphs": [
+          "Meta describes a [daily reminder](https://about.fb.com/news/2018/08/manage-your-time/) as a notification when a chosen amount of use is reached. Its [Sleep mode documentation](https://about.fb.com/news/2023/01/instagram-quiet-mode-manage-your-time-and-focus/) describes scheduled notification silencing and a DM auto-reply; the feature was previously named Quiet mode.",
+          "Sleep mode is useful for communicating that you are unavailable. Do not assume silenced notifications prevent you from opening the feed yourself. Look at the controls in your installed version and distinguish an alert, a quiet period, and an app-wide restriction."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Test the boundary in an ordinary session",
+        "anchor": "test-the-boundary-in-an-ordinary-session",
+        "paragraphs": [
+          "Use a short trial when you are not expecting an important message. Observe the limit, then restore your intended allowance. Check your other access routes, including a browser or another device; decide whether they belong in the same personal rule.",
+          "When you reach the end, move to a specific next task rather than another feed. If repeated opening is the bigger issue, use the [phone-checking plan](/blog/how-to-stop-checking-phone)."
+        ],
+        "steps": [
+          "List the Instagram tasks you want to keep, such as replying to specific people.",
+          "Complete those tasks before optional browsing.",
+          "Close the app when the planned session ends and record any necessary exception for later review."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can this limit only Reels and leave DMs untouched?",
+        "answer": "An Android app timer generally targets the app as a whole. Do not assume it isolates Reels. Check any tool’s current documentation before relying on feature-specific blocking."
+      },
+      {
+        "question": "What if Instagram is part of my work?",
+        "answer": "Separate planned work sessions from optional browsing, and review your boundary after a normal workday. Keep an alternative route for genuinely urgent communication."
+      }
+    ],
+    "citations": [
+      {
+        "author": "Google",
+        "year": 2026,
+        "title": "Manage how you spend time on your Android phone with Digital Wellbeing",
+        "url": "https://support.google.com/android/answer/9346420?hl=en"
+      },
+      {
+        "author": "Meta",
+        "year": 2025,
+        "title": "Instagram Sleep Mode (Quiet Mode): Manage Your Time & Focus",
+        "url": "https://about.fb.com/news/2023/01/instagram-quiet-mode-manage-your-time-and-focus/"
+      },
+      {
+        "author": "Meta",
+        "year": 2018,
+        "title": "New Tools to Manage Your Time on Facebook and Instagram",
+        "url": "https://about.fb.com/news/2018/08/manage-your-time/"
+      }
+    ]
+  },
+  {
+    "slug": "tiktok-screen-time-limit-android",
+    "title": "How to Set a TikTok Screen Time Boundary on Android",
+    "description": "Use TikTok’s screen time tools and Android settings thoughtfully, with a clear session endpoint and a practical review routine.",
+    "answer": "To manage TikTok time on Android, combine a deliberate viewing window with the screen time controls available in your TikTok account or phone settings. TikTok offers tools for daily time management and breaks, while an Android app timer can apply to the whole app. Start with one rule, test what the control actually does on your device, and decide what happens when the viewing window ends. Account age, region, and app version can affect the available options.",
+    "sections": [
+      {
+        "type": "section",
+        "label": "Start with the type of session you want",
+        "anchor": "start-with-the-type-of-session-you-want",
+        "paragraphs": [
+          "A recipe search, posting a video, and browsing the For You feed are different activities. Before setting a number, identify which one tends to run longer than you intended. You may want a boundary around browsing while leaving enough time for creating or responding to people.",
+          "Write your rule in terms you can observe: “After finding the saved recipe, I close TikTok” or “I watch during my planned break, then put the phone away.” A specific purpose makes the setting easier to evaluate."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Explore TikTok’s own screen time controls",
+        "anchor": "explore-tiktok-s-own-screen-time-controls",
+        "paragraphs": [
+          "[TikTok’s official announcement](https://newsroom.tiktok.com/investing-in-our-communitys-digital-well-being?lang=en) describes break prompts and a dashboard covering time spent and app openings. Look for Screen time in your installed app’s settings and review the daily and session options shown to you.",
+          "Follow the current in-app instructions rather than assuming an older menu screenshot still matches. A prompt gives you an opportunity to decide; it does not guarantee you will stop. Test the prompt once so that you know what it looks like before depending on it."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Consider a whole-app Android boundary",
+        "anchor": "consider-a-whole-app-android-boundary",
+        "paragraphs": [
+          "If you want a phone-level allowance, find TikTok in your device’s Digital Wellbeing app timers. On Galaxy devices, [Samsung documents](https://www.samsung.com/us/support/answer/ANS10001357/) selecting apps and adding a timer schedule. Check your own model because the layout can differ.",
+          "An app-wide allowance includes more than scrolling. If you need TikTok for a planned task, budget for it or choose a different session rule. Also account for a tablet or browser if you tend to move viewing there once the phone limit appears."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Review what happened after the prompt",
+        "anchor": "review-what-happened-after-the-prompt",
+        "paragraphs": [
+          "The most useful note may be the first action after a break prompt. Did you close the app, dismiss the prompt, or open another video service? That observation tells you whether the next adjustment belongs in the timer, the environment, or your plan for the break.",
+          "For recurring distressing content, the [doomscrolling guide](/blog/how-to-stop-doomscrolling) offers a more specific news-checking approach. For ordinary entertainment, keeping a deliberate, enjoyable window may be enough."
+        ],
+        "steps": [
+          "Choose an immediate follow-up activity before watching.",
+          "When the window ends, set the phone down before deciding whether to extend.",
+          "At the end of the week, keep the rule only if it supported the routine you wanted."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is a screen time break the same as a daily limit?",
+        "answer": "No. A break concerns a continuous session, while a daily allowance concerns accumulated use. Read the explanation beside each setting to understand its behavior."
+      },
+      {
+        "question": "What if the setting is missing?",
+        "answer": "Check your app version and account settings, then consult TikTok’s current help. Your phone’s supported app timer may provide an alternative whole-app boundary."
+      }
+    ],
+    "citations": [
+      {
+        "author": "TikTok",
+        "year": 2022,
+        "title": "Investing in our community’s digital well-being",
+        "url": "https://newsroom.tiktok.com/investing-in-our-communitys-digital-well-being?lang=en"
+      },
+      {
+        "author": "Samsung",
+        "year": 2026,
+        "title": "Use Digital Wellbeing features on your Galaxy phone or tablet",
+        "url": "https://www.samsung.com/us/support/answer/ANS10001357/"
+      }
+    ]
+  },
+  {
+    "slug": "why-apps-are-addictive",
+    "title": "Why Apps Can Be Hard to Put Down",
+    "description": "Understand personalized feeds, endless sessions, and everyday checking cues without diagnosing addiction or making brain-damage claims.",
+    "answer": "Apps can be hard to put down because they make more content easy to reach, recommend material likely to interest you, and provide frequent reasons to return. Your own routines also matter: opening an app during every pause can become an automatic choice. These patterns do not establish a medical diagnosis or prove that your brain is damaged. A useful response is to identify the specific cue, give the session an endpoint, and make another action easy.",
+    "sections": [
+      {
+        "type": "section",
+        "label": "Notice the invitation to continue",
+        "anchor": "notice-the-invitation-to-continue",
+        "paragraphs": [
+          "Compare a single saved article with a feed. The article has an obvious end; the feed offers another item. When the next item appears without a deliberate search, you may continue before asking whether it is what you came for. This is a practical design difference you can observe without measuring brain chemistry.",
+          "For your next session, notice the point at which a task becomes browsing. You might finish a reply and then tap a recommended video. Naming that transition gives you a possible exit."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Personalization explains relevance, not destiny",
+        "anchor": "personalization-explains-relevance-not-destiny",
+        "paragraphs": [
+          "[Meta’s account of feed ranking](https://about.fb.com/news/2023/06/how-ai-ranks-content-on-facebook-and-instagram/) describes predictions about relevant content and user controls. Recommendations may fit your interests while still arriving at an inconvenient moment. Interesting content and a good use of your present time are not the same thing.",
+          "Try opening the specific page, conversation, or saved item you intended to use. If the service offers a less expansive view, experiment with it. Judge whether it helps you complete your task, rather than assuming a particular view will work for everyone."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Map the routine around the app",
+        "anchor": "map-the-routine-around-the-app",
+        "paragraphs": [
+          "Consider where you are when checking begins: waiting for coffee, avoiding a difficult paragraph, sitting on a bus, or finishing a meeting. The app may be supplying entertainment, connection, a task break, or relief from uncertainty. Removing it without considering that purpose can leave the same opening for a different feed.",
+          "Choose an alternative that fits the moment. A short wait might suit looking around or listening to music. A difficult work task might need a smaller first step or an actual rest break."
+        ],
+        "steps": [
+          "Record one repeated cue and the app you open afterward.",
+          "Write what you wanted from that session.",
+          "Choose a different action that could meet the same need, and put it within reach."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Use the impact to decide your next step",
+        "anchor": "use-the-impact-to-decide-your-next-step",
+        "paragraphs": [
+          "Hours alone do not explain how phone use affects your life. Look for missed plans, lost sleep, interrupted conversations, or tasks that repeatedly remain undone. The [phone-use reflection checklist](/blog/phone-addiction-test) can help you describe those patterns without assigning a diagnosis.",
+          "If difficulties persist or cause significant distress, discuss them with a qualified professional. [NIMH’s guidance](https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health) points to daily functioning and persistent symptoms when considering help. A blocker is a practical tool, not proof that a health problem has been treated."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does enjoying an app mean I am addicted?",
+        "answer": "No. Enjoyment, frequent use, and a clinical diagnosis are different things. Consider whether use conflicts with your intentions and responsibilities, and seek qualified assessment when concerns persist."
+      },
+      {
+        "question": "Is dopamine the whole explanation?",
+        "answer": "No. A single chemical is not a complete explanation for a person’s habits. Content, context, social needs, interface choices, and routine all deserve attention when planning a change."
+      }
+    ],
+    "citations": [
+      {
+        "author": "Meta",
+        "year": 2023,
+        "title": "How AI Influences What You See on Facebook and Instagram",
+        "url": "https://about.fb.com/news/2023/06/how-ai-ranks-content-on-facebook-and-instagram/"
+      },
+      {
+        "author": "National Institute of Mental Health",
+        "year": 2026,
+        "title": "Caring for Your Mental Health",
+        "url": "https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health"
+      }
+    ]
+  },
+  {
+    "slug": "screen-time-statistics-2026",
+    "title": "Screen Time Statistics: How to Read the Numbers in 2026",
+    "description": "Learn what screen time statistics measure, check survey dates and populations, and build a meaningful personal baseline without misleading averages.",
+    "answer": "Screen time statistics are only useful when you know who was measured, when the data was collected, and what counted as screen time. A survey about being online frequently is not the same as device-recorded hours, and a study of U.S. teenagers is not a worldwide adult average. This guide uses a clearly dated example and explains how to compare your own usage. It does not present older survey findings as newly measured 2026 statistics.",
+    "sections": [
+      {
+        "type": "section",
+        "label": "Read the population and the collection date",
+        "anchor": "read-the-population-and-the-collection-date",
+        "paragraphs": [
+          "[Pew Research Center’s 2024 report](https://www.pewresearch.org/internet/2024/12/12/teens-social-media-and-technology-2024/) surveyed 1,391 U.S. teens aged 13–17 between September 18 and October 10, 2024. It reported that 96% used the internet daily. That describes the sampled population and period; it is not an estimate of daily hours or a result collected in 2026.",
+          "When sharing a number, keep the denominator and date in the same sentence. “People spend…” removes information that could completely change how a reader understands the finding."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Do not interchange different measurements",
+        "anchor": "do-not-interchange-different-measurements",
+        "paragraphs": [
+          "A phone’s on-screen app time, a self-reported estimate, and a question about frequency answer different questions. Time on a laptop may be absent from a phone report. Background audio may not be treated like on-screen viewing. Work and entertainment may appear under the same app name.",
+          "Before comparing two sources, make a small note with five fields: population, collection period, device coverage, definition, and measurement method. If those fields differ, explain the difference instead of presenting a clean but misleading ranking."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Build a baseline for your own decision",
+        "anchor": "build-a-baseline-for-your-own-decision",
+        "paragraphs": [
+          "For personal planning, an ordinary week of your own observations is often more relevant than matching an international average. Record which activities you want to keep and which repeatedly displace something important. A family video call and an unwanted late-night feed session should not automatically receive the same judgment.",
+          "An example worksheet could have one row per day with target-app minutes, unplanned openings, context, and one activity you wanted to protect. The worksheet is a planning tool, not a validated health assessment."
+        ],
+        "steps": [
+          "Use the same device report and definition throughout your comparison.",
+          "Label unusual days such as travel, illness, or a major deadline.",
+          "Compare like-for-like days and review the context before crediting a setting with a change."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Report your result honestly",
+        "anchor": "report-your-result-honestly",
+        "paragraphs": [
+          "If a target app falls from an illustrative 100 minutes to 80, that is a 20-minute reduction and a 20% reduction for that example. It does not prove that your overall screen time fell, that an app caused the difference, or that the same change will happen for someone else.",
+          "Include the period, starting point, exceptions, and any change in other devices. If you want a simple experiment rather than population comparisons, use the [screen time tool evaluation guide](/blog/screen-time-app-that-actually-works). The useful outcome is an accurate description of your routine, not a dramatic number."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the correct daily screen time average?",
+        "answer": "There is no single number that covers every population, activity, and device. Use a source whose sample and definition match the question you are asking, and state its collection date."
+      },
+      {
+        "question": "Does being above an average mean my use is unhealthy?",
+        "answer": "An average is descriptive, not a diagnosis or an individual limit. Consider what the activity is, why you use it, and whether it interferes with responsibilities, rest, or relationships."
+      }
+    ],
+    "citations": [
+      {
+        "author": "Michelle Faverio and Olivia Sidoti, Pew Research Center",
+        "year": 2024,
+        "title": "Teens, Social Media and Technology 2024",
+        "url": "https://www.pewresearch.org/internet/2024/12/12/teens-social-media-and-technology-2024/"
+      }
+    ]
+  },
+  {
+    "slug": "dopamine-detox",
+    "title": "A Practical Phone Break Without “Dopamine Detox” Claims",
+    "description": "Take a manageable break from automatic phone use without claiming to reset dopamine, avoiding everyday pleasures, or following an extreme detox.",
+    "answer": "A “dopamine detox” does not literally remove dopamine or establish that your brain has reset. If your real goal is less automatic scrolling, try a defined break from a particular app or cue while keeping essential communication and enjoyable offline activities. Choose what you will do instead, then evaluate the behavior you can observe. There is no need to eliminate food, music, friendship, or other ordinary pleasures to make a practical change to phone use.",
+    "sections": [
+      {
+        "type": "section",
+        "label": "Name the behavior you want to change",
+        "anchor": "name-the-behavior-you-want-to-change",
+        "paragraphs": [
+          "Replace “I need to detox my brain” with a description such as “I open videos whenever a work task gets difficult.” That description identifies a setting you can change. It also makes success more observable than trying to infer neurotransmitter levels from how productive a day felt.",
+          "[Harvard Health’s explanation](https://www.health.harvard.edu/blog/dopamine-fasting-misunderstanding-science-spawns-a-maladaptive-fad-2020022618917) rejects the literal dopamine-fasting interpretation and warns against giving up healthy activities because of it. A phone break can be a practical experiment without a biochemical story."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Choose a limited, workable experiment",
+        "anchor": "choose-a-limited-workable-experiment",
+        "paragraphs": [
+          "Pick one app, one situation, and a start and finish time. For example, leave a feed closed during the first work block while retaining calls and messages you genuinely need. Avoid turning the experiment into a contest about enduring discomfort or achieving the longest possible abstinence.",
+          "Write the exceptions in advance. Navigation, care responsibilities, authentication, and contact with important people may need to stay available. Clear exceptions help distinguish purposeful use from abandoning the whole experiment."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Prepare a replacement before the break begins",
+        "anchor": "prepare-a-replacement-before-the-break-begins",
+        "paragraphs": [
+          "If scrolling normally supplies a pause, plan an actual pause. You might step outside, have water, sketch, stretch within your comfort, or speak to someone. If it provides connection, removing all communication may work against what you need.",
+          "Put the alternative where you can start it easily. A book on the desk or shoes by the door is more actionable than “be less online.” Keep the activity modest enough for an ordinary busy day."
+        ],
+        "steps": [
+          "Write the cue you expect to encounter and the response you will try.",
+          "Close or move the target app before the chosen window begins.",
+          "When the cue appears, try the replacement once and note what happened without assigning yourself a score."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Review the break and keep the useful part",
+        "anchor": "review-the-break-and-keep-the-useful-part",
+        "paragraphs": [
+          "At the end, ask whether you completed the task you meant to protect, how often you reached for the phone, and whether the rule created avoidable problems. You may decide to keep a short daily boundary instead of repeating an all-day challenge.",
+          "If the same loop keeps returning, the [phone-checking guide](/blog/how-to-stop-checking-phone) can help separate a notification cue from boredom or uncertainty. Persistent distress or significant difficulty functioning deserves qualified help; a challenge should not become a substitute for that support."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How many days does a dopamine reset take?",
+        "answer": "This guide does not claim that a set number of days resets dopamine. Choose a practical observation period and judge changes in your routine rather than assuming a biological reset."
+      },
+      {
+        "question": "Do I have to give up every pleasurable activity?",
+        "answer": "No. Keep ordinary sources of enjoyment, connection, nourishment, and rest. The experiment is about one unwanted digital pattern, not denying yourself a full and enjoyable life."
+      }
+    ],
+    "citations": [
+      {
+        "author": "Peter Grinspoon, Harvard Health Publishing",
+        "year": 2020,
+        "title": "Dopamine fasting: Misunderstanding science spawns a maladaptive fad",
+        "url": "https://www.health.harvard.edu/blog/dopamine-fasting-misunderstanding-science-spawns-a-maladaptive-fad-2020022618917"
+      }
+    ]
+  },
+  {
+    "slug": "parents-guide-screen-time-kids",
+    "title": "A Parent’s Guide to a Workable Family Media Plan",
+    "description": "Build a shared family media plan around sleep, school, play, communication, and age-appropriate supervision rather than a single timer.",
+    "answer": "A useful family screen time plan explains what media is for, which routines need protection, and how adults and children will handle exceptions. Start with a conversation about sleep, school, play, friendship, and necessary device use, then choose a small number of clear rules together. Use age-appropriate parental controls as support, not as the entire plan. Review the arrangement as the child’s needs change, and ask a pediatrician for guidance when you have developmental or health concerns.",
+    "sections": [
+      {
+        "type": "section",
+        "label": "Begin with the child’s actual media day",
+        "anchor": "begin-with-the-child-s-actual-media-day",
+        "paragraphs": [
+          "Ask what your child does on each device before negotiating a number. Schoolwork, creating a video, gaming with friends, and watching alone can have different purposes. Let the child show you the activities and explain which ones matter. Adults should describe their own use too, including the work tasks children may mistake for leisure.",
+          "Write down one routine the whole family wants to improve. “We want dinner conversations without interruptions” is easier to discuss than “Everyone uses screens too much.”"
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Make a short plan everyone can understand",
+        "anchor": "make-a-short-plan-everyone-can-understand",
+        "paragraphs": [
+          "The [American Academy of Pediatrics’ family media plan guidance](https://www.healthychildren.org/English/family-life/Media/Pages/How-to-Make-a-Family-Media-Use-Plan.aspx) recommends rules suited to a family’s routines, adult participation, and regular revision. It includes options such as screen-free spaces and room for other activities. Those are starting points to adapt, not evidence that every household needs identical rules.",
+          "Write the plan in everyday language and make it visible. A rule should say when it applies, what is still allowed, and whom to ask about an exception. Avoid changing the agreement unexpectedly in the middle of an argument."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Match supervision to the device and the child",
+        "anchor": "match-supervision-to-the-device-and-the-child",
+        "paragraphs": [
+          "Check which parental controls are appropriate for your child’s age, account, and devices. Test them together: downloads, purchases, contacts, and content access may need different controls from a time allowance. Explain what you can see and why rather than surprising a child with undisclosed monitoring.",
+          "This article does not establish MOZY as a parental-control system. A voluntary personal app blocker should not be assumed to provide account supervision or age-appropriate protection."
+        ],
+        "steps": [
+          "List essential school and communication tasks before limiting access.",
+          "Agree on a respectful way to request additional time for a real need.",
+          "Test what happens at the boundary while you are both available to troubleshoot."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Review the plan instead of only counting minutes",
+        "anchor": "review-the-plan-instead-of-only-counting-minutes",
+        "paragraphs": [
+          "At a regular family check-in, ask which rule helped and which created problems. Look at bedtime routines, homework completion, time with friends, and the child’s own experience. A lower device total is not automatically progress if it interfered with learning or valuable connection.",
+          "Adjust for holidays, illness, and new responsibilities. For general ways to interpret a dashboard without treating it as a diagnosis, see [how to read screen time numbers](/blog/screen-time-statistics-2026). Keep the conversation about solving a shared problem rather than proving who has the strongest willpower."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Should I use the same rules for every age?",
+        "answer": "Children’s needs and independence change. Adapt the plan to development, activities, and family context, and discuss specific concerns with a pediatrician rather than using this general guide as an age-based prescription."
+      },
+      {
+        "question": "What if parents need phones during a screen-free period?",
+        "answer": "Explain the necessary task, complete it as briefly as practical, and return to the shared activity. Make work or care exceptions explicit so the rule remains understandable and fair."
+      }
+    ],
+    "citations": [
+      {
+        "author": "American Academy of Pediatrics",
+        "year": 2026,
+        "title": "How to Make a Family Media Plan",
+        "url": "https://www.healthychildren.org/English/family-life/Media/Pages/How-to-Make-a-Family-Media-Use-Plan.aspx"
+      }
+    ]
+  },
+  {
+    "slug": "screen-addiction-behavioral-science",
+    "title": "Phone Habits and Behavioral Science: What You Can Observe",
+    "description": "Use cues, actions, and consequences to understand unwanted phone habits while keeping clinical diagnoses and unsupported neuroscience claims separate.",
+    "answer": "Behavioral science offers a useful way to examine phone habits: identify the situation before an action, the action itself, and what follows it. You can use that sequence to test a small change, such as moving a distracting shortcut or planning a different break. It does not diagnose “screen addiction,” measure your dopamine, or establish that an app is treatment. Focus first on the specific behavior and the consequences that matter in your daily life.",
+    "sections": [
+      {
+        "type": "section",
+        "label": "Describe one sequence rather than your whole personality",
+        "anchor": "describe-one-sequence-rather-than-your-whole-personality",
+        "paragraphs": [
+          "An example sequence is: a difficult email arrives, you open a feed, and the email is postponed. Another is: a message alert appears, you reply, and then you keep browsing. The first may call for help getting started on the email; the second may call for a boundary after the reply.",
+          "Use neutral descriptions. “I opened the app six times during this task” is information you can work with. “I have no self-control” is a broad judgment that does not identify the next change."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Keep neuroscience claims within their evidence",
+        "anchor": "keep-neuroscience-claims-within-their-evidence",
+        "paragraphs": [
+          "[NIDA describes dopamine’s role in reinforcement](https://irp.nida.nih.gov/wp-content/uploads/2019/12/NIDA_DrugsBrainsAddiction_2018.pdf) in a report about drugs and addiction. That does not establish that using a social app is equivalent to taking a drug, or that a phone blocker repairs a receptor system. Similar terminology is not a substitute for a study of the actual behavior and intervention.",
+          "When reading a claim, ask what was measured, in whom, and whether the proposed product was studied. A general account of learning cannot validate a specific commercial app’s effectiveness."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Change one part of the sequence",
+        "anchor": "change-one-part-of-the-sequence",
+        "paragraphs": [
+          "Choose the easiest point to alter. You might remove an unnecessary alert before the action, put the phone farther away during the task, or prepare a different break afterward. Keep other parts of the routine stable enough that you can tell what you changed.",
+          "This is a personal trial, not a controlled clinical experiment. A helpful week is useful feedback for you, but it cannot establish that the method will produce the same result for everyone."
+        ],
+        "steps": [
+          "Write one cue, one action, and one immediate consequence from a recent session.",
+          "Choose a single adjustment and the situation in which you will try it.",
+          "Observe the result, including any unintended inconvenience or transfer to another app."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Use support when a settings change is not enough",
+        "anchor": "use-support-when-a-settings-change-is-not-enough",
+        "paragraphs": [
+          "A pattern can matter even when you cannot name a diagnosis. If it repeatedly disrupts sleep, important responsibilities, or relationships, describing it to a qualified professional may be more useful than searching for a stronger blocker. [NIMH](https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health) provides guidance on persistent distress and seeking help.",
+          "For a concrete next step, the [phone-use reflection checklist](/blog/phone-addiction-test) helps organize examples. Bring those observations, along with what you have tried, to a conversation about support."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can I diagnose addiction from my screen time report?",
+        "answer": "No. A usage report describes activity, not a clinical assessment. It also leaves out context such as work, accessibility needs, and meaningful social contact."
+      },
+      {
+        "question": "Does a habit loop prove that an app was designed to addict me?",
+        "answer": "No. A repeated cue and response describe your pattern. Establishing a company’s intent or a clinical effect requires different evidence; neither follows automatically from the pattern."
+      }
+    ],
+    "citations": [
+      {
+        "author": "National Institute on Drug Abuse",
+        "year": 2018,
+        "title": "Drugs, Brains, and Behavior: The Science of Addiction",
+        "url": "https://irp.nida.nih.gov/wp-content/uploads/2019/12/NIDA_DrugsBrainsAddiction_2018.pdf"
+      },
+      {
+        "author": "National Institute of Mental Health",
+        "year": 2026,
+        "title": "Caring for Your Mental Health",
+        "url": "https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health"
+      }
+    ]
+  },
+  {
+    "slug": "doomscrolling-addiction-help",
+    "title": "When Doomscrolling Feels Hard to Stop: A Support Plan",
+    "description": "Create a calm next step for distressing scrolling, protect essential information, and prepare a useful conversation about support.",
+    "answer": "If doomscrolling feels hard to stop, begin by closing the current feed, identifying the information you actually need, and choosing one manageable action away from the stream. Ask someone you trust for practical support if that helps you follow through. Repeated scrolling is not enough to diagnose an addiction, but ongoing distress or difficulty with everyday responsibilities is a reason to seek qualified help. You do not need to solve the entire habit before asking for support.",
+    "sections": [
+      {
+        "type": "section",
+        "label": "Make the next few minutes simpler",
+        "anchor": "make-the-next-few-minutes-simpler",
+        "paragraphs": [
+          "Choose a place to put the phone where you will not keep seeing the feed. If you are waiting for important news, keep a reliable alert source available rather than relying on continuous reactions. The immediate goal is to reduce the number of decisions you are trying to make while upset.",
+          "Pick one small action you can complete: get a drink, sit somewhere else, or contact a trusted person. You are creating a transition, not trying to prove that a particular activity treats anxiety."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Separate information from reassurance-seeking",
+        "anchor": "separate-information-from-reassurance-seeking",
+        "paragraphs": [
+          "Write the question you are trying to answer. If a local warning, deadline, or travel change affects you, check the responsible source and record the action required. If you are searching for certainty about an unpredictable situation, another hour of posts may not provide the answer you want.",
+          "For future checking, keep a short list of sources and a chosen window. The [practical doomscrolling plan](/blog/how-to-stop-doomscrolling) walks through that setup. You can remain informed while deciding when information is no longer helping you act."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Ask for a specific kind of support",
+        "anchor": "ask-for-a-specific-kind-of-support",
+        "paragraphs": [
+          "A clear request is easier for another person to respond to than “make me stop.” You might ask for company during dinner without phones, a walk at an agreed time, or a reminder of a planned activity. Keep the arrangement voluntary and explain which information you still need to receive.",
+          "If you want to discuss the pattern with a clinician, concrete examples can help. Write what happens, how often it occurs, and what it interferes with. Include changes in sleep, concentration, or mood without deciding on the cause yourself."
+        ],
+        "steps": [
+          "Identify one person or professional you could contact.",
+          "Describe one recent example and the help you would find useful.",
+          "Choose a time to follow up instead of leaving the request open-ended."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Know when a self-help plan is insufficient",
+        "anchor": "know-when-a-self-help-plan-is-insufficient",
+        "paragraphs": [
+          "[NIMH’s help guide](https://www.nimh.nih.gov/sites/default/files/health/publications/my-mental-health-do-i-need-help/my-mental-health-do-i-need-help.pdf) emphasizes symptom severity, duration, and interference with daily life. Seek professional advice for persistent or worsening difficulties; you do not need a phone-use score to justify the conversation.",
+          "A screen time tool can support a boundary, but it cannot assess your circumstances or replace care. If you are in immediate danger, use your local emergency or crisis service. The priority is getting appropriate help, not completing a digital challenge."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do I need an addiction diagnosis to ask for help?",
+        "answer": "No. You can ask for help with distress, sleep problems, or difficulties following your intentions without having a diagnostic label."
+      },
+      {
+        "question": "Should someone else take my phone away?",
+        "answer": "A voluntary arrangement may help some people, but essential communication and safety needs still matter. Agree on the purpose and limits together rather than relying on surprise confiscation."
+      }
+    ],
+    "citations": [
+      {
+        "author": "National Institute of Mental Health",
+        "year": 2022,
+        "title": "My Mental Health: Do I Need Help?",
+        "url": "https://www.nimh.nih.gov/sites/default/files/health/publications/my-mental-health-do-i-need-help/my-mental-health-do-i-need-help.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "screen-time-app-that-actually-works",
+    "title": "How to Tell Whether a Screen Time App Works for You",
+    "description": "Run a clear personal evaluation of a screen time app using a baseline, one target behavior, practical checks, and an honest review.",
+    "answer": "A screen time app works for you when it helps change the behavior you care about without creating unacceptable problems. Define that behavior, record a short baseline, test one setup during ordinary days, and compare both benefits and friction. Do not judge effectiveness from a download count, a dramatic testimonial, or a lower total alone. This guide provides an evaluation method; it does not claim that we tested seven apps for months or proved a universal winner.",
+    "sections": [
+      {
+        "type": "section",
+        "label": "Choose a result that matters outside the dashboard",
+        "anchor": "choose-a-result-that-matters-outside-the-dashboard",
+        "paragraphs": [
+          "Useful goals include finishing a reading session without checking a feed, keeping a planned bedtime routine, or spending a break the way you intended. “Use my phone less” is broad enough to make almost any result look like success or failure. Name the moment you want to improve.",
+          "Also state what must not change. You may need access to calls, transport, authentication, or assistive software. A reduction produced by making necessary tasks difficult is not the outcome you were seeking."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Record a simple baseline",
+        "anchor": "record-a-simple-baseline",
+        "paragraphs": [
+          "Observe a few ordinary days before changing several settings at once. Note your target behavior, the situations around it, and any unusual obligations. Use the same report or note-taking method throughout the trial. Avoid comparing a busy working week to a quiet holiday without acknowledging the difference.",
+          "Keep the record small enough to maintain: planned session, unplanned openings, missed intention, and necessary exceptions. You do not need to create a detailed surveillance log of every minute."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Test one intervention and its failure cases",
+        "anchor": "test-one-intervention-and-its-failure-cases",
+        "paragraphs": [
+          "The [MOZY store listing](https://play.google.com/store/apps/details?id=com.moxstudio.mozy) describes a walking-based balance for selected apps. If you try it, evaluate that rule as you would any other tool. This journal is published by MOZY; this is not an independent product trial.",
+          "Check what happens during the actual situation you care about. Does the interruption appear when expected? Can you complete necessary tasks? What happens after you dismiss or change a limit? Honest failure notes are more useful than pretending any tool is impossible to avoid."
+        ],
+        "steps": [
+          "Write down the app version, relevant setting, and device.",
+          "Keep the target behavior and comparison period similar to your baseline.",
+          "Record whether time moved to a browser, another device, or a different feed."
+        ]
+      },
+      {
+        "type": "section",
+        "label": "Keep, adjust, or stop using the setup",
+        "anchor": "keep-adjust-or-stop-using-the-setup",
+        "paragraphs": [
+          "At review time, compare the real-life goal, the usage pattern, and the inconvenience. A tool might reduce repeated checking but make work messages difficult; that calls for an adjustment. It might add setup work without improving anything you care about; stopping is also a valid result.",
+          "If you publish your experience, explain the dates, method, exceptions, and ownership or sponsorship. Avoid turning one personal result into a percentage promised to everyone. The [Android selection guide](/blog/best-screen-time-app-android-2026) helps narrow the next option if you need a different approach."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How long should I test an app?",
+        "answer": "Choose enough ordinary days to encounter the routine you want to change. There is no universal duration that proves effectiveness, and a personal trial is not a clinical study."
+      },
+      {
+        "question": "What if total screen time stays the same?",
+        "answer": "You may still have improved the specific behavior, such as fewer interruptions during work. Check where the time went and whether your original goal was met before deciding."
+      }
+    ],
+    "citations": [
+      {
+        "author": "mcrudra",
+        "year": 2026,
+        "title": "Mozy: Walk to Unlock Apps — Google Play listing",
+        "url": "https://play.google.com/store/apps/details?id=com.moxstudio.mozy"
+      }
+    ]
+  }
+]

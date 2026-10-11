@@ -1,0 +1,46 @@
+{
+  "tool": "Built-in image_gen",
+  "note": "High-resolution identity-preserving redraws. Initial checkerboard outputs discarded; final white matte images composited using CSS multiply on light site surfaces. WebP quality 90, original resolution retained.",
+  "prompts": [
+    {
+      "name": "02_winking_thumbs_up",
+      "prompt": "Identity-preserving high-resolution restoration of supplied MOZY mascot. Render this EXACT character and pose as a polished crisp 3D clay illustration. Preserve warm cream round body, two green sprout leaves, green backpack, facial expression and every pose-specific prop. Remove jagged outlines and pixelation; clean smooth detailed edges, soft lighting. Full character on PURE SOLID WHITE #FFFFFF background. No checkerboard, no texture, no gradient, no floor, NO shadows outside the character. Not transparency. White to all four corners. Entire character centered with 8% white padding, 1024x1024 square. Pose 02 winking thumbs up. No text, no new props. Asset for CSS multiply compositing.",
+      "asset": "public/assets/mascots-hd/02_winking_thumbs_up.webp"
+    },
+    {
+      "name": "01_stop_stern",
+      "prompt": "Precise background edit. Keep this exact high-resolution mascot, pose, face, props, colors and sharpness unchanged. Replace ALL checkerboard background with perfectly uniform solid pure white #FFFFFF. No checkerboard anywhere. No shadow, no floor, no gradients, no texture. White must extend all the way to all four edges. Entire character visible with 6% white margin. This is an isolated product character asset for CSS multiply compositing, NOT a transparent image.",
+      "asset": "public/assets/mascots-hd/01_stop_stern.webp"
+    },
+    {
+      "name": "08_focused_phone",
+      "prompt": "Precise background edit. Keep this exact high-resolution mascot, pose, face, props, colors and sharpness unchanged. Replace ALL checkerboard background with perfectly uniform solid pure white #FFFFFF. No checkerboard anywhere. No shadow, no floor, no gradients, no texture. White must extend all the way to all four edges. Entire character visible with 6% white margin. This is an isolated product character asset for CSS multiply compositing, NOT a transparent image.",
+      "asset": "public/assets/mascots-hd/08_focused_phone.webp"
+    },
+    {
+      "name": "14_jogging_running",
+      "prompt": "Identity-preserving high-resolution restoration of supplied MOZY mascot. Render this EXACT character and pose as a polished crisp 3D clay illustration. Preserve warm cream round body, two green sprout leaves, green backpack, facial expression and every pose-specific prop. Remove jagged outlines and pixelation; clean smooth detailed edges, soft lighting. Full character on PURE SOLID WHITE #FFFFFF background. No checkerboard, no texture, no gradient, no floor, NO shadows outside the character. Not transparency. White to all four corners. Entire character centered with 8% white padding, 1024x1024 square. Pose 14 jogging running. No text, no new props. Asset for CSS multiply compositing.",
+      "asset": "public/assets/mascots-hd/14_jogging_running.webp"
+    },
+    {
+      "name": "27_celebrating_confetti",
+      "prompt": "Identity-preserving high-resolution restoration of supplied MOZY mascot. Render this EXACT character and pose as a polished crisp 3D clay illustration. Preserve warm cream round body, two green sprout leaves, green backpack, facial expression and every pose-specific prop. Remove jagged outlines and pixelation; clean smooth detailed edges, soft lighting. Full character on PURE SOLID WHITE #FFFFFF background. No checkerboard, no texture, no gradient, no floor, NO shadows outside the character. Not transparency. White to all four corners. Entire character centered with 8% white padding, 1024x1024 square. Pose 27 celebrating confetti. No text, no new props. Asset for CSS multiply compositing.",
+      "asset": "public/assets/mascots-hd/27_celebrating_confetti.webp"
+    },
+    {
+      "name": "12_thinking_confused",
+      "prompt": "Identity-preserving high-resolution restoration of supplied MOZY mascot. Render this EXACT character and pose as a polished crisp 3D clay illustration. Preserve warm cream round body, two green sprout leaves, green backpack, facial expression and every pose-specific prop. Remove jagged outlines and pixelation; clean smooth detailed edges, soft lighting. Full character on PURE SOLID WHITE #FFFFFF background. No checkerboard, no texture, no gradient, no floor, NO shadows outside the character. Not transparency. White to all four corners. Entire character centered with 8% white padding, 1024x1024 square. Pose 12 thinking confused. No text, no new props. Asset for CSS multiply compositing.",
+      "asset": "public/assets/mascots-hd/12_thinking_confused.webp"
+    },
+    {
+      "name": "34_waving_goodbye_backpack",
+      "prompt": "Identity-preserving high-resolution restoration of supplied MOZY mascot. Render this EXACT character and pose as a polished crisp 3D clay illustration. Preserve warm cream round body, two green sprout leaves, green backpack, facial expression and every pose-specific prop. Remove jagged outlines and pixelation; clean smooth detailed edges, soft lighting. Full character on PURE SOLID WHITE #FFFFFF background. No checkerboard, no texture, no gradient, no floor, NO shadows outside the character. Not transparency. White to all four corners. Entire character centered with 8% white padding, 1024x1024 square. Pose 34 waving goodbye backpack. No text, no new props. Asset for CSS multiply compositing.",
+      "asset": "public/assets/mascots-hd/34_waving_goodbye_backpack.webp"
+    },
+    {
+      "name": "03_excited_cheer",
+      "prompt": "Identity-preserving high-resolution restoration of supplied MOZY mascot. Render this EXACT character and pose as a polished crisp 3D clay illustration. Preserve warm cream round body, two green sprout leaves, green backpack, facial expression and every pose-specific prop. Remove jagged outlines and pixelation; clean smooth detailed edges, soft lighting. Full character on PURE SOLID WHITE #FFFFFF background. No checkerboard, no texture, no gradient, no floor, NO shadows outside the character. Not transparency. White to all four corners. Entire character centered with 8% white padding, 1024x1024 square. Pose 03 excited cheer. No text, no new props. Asset for CSS multiply compositing.",
+      "asset": "public/assets/mascots-hd/03_excited_cheer.webp"
+    }
+  ]
+}

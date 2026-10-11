@@ -1,0 +1,105 @@
+/* Hero phone motion graphic (DoomscrollScreen). Screen is 278 x 618; the default is the feed's first frame. */
+.st-doom { position: absolute; inset: 0; overflow: hidden; background: #000; color: #fff; font-family: 'Nunito', system-ui, sans-serif; }
+.st-doom-track { position: absolute; left: 0; top: 0; width: 100%; height: 600%; will-change: transform; }
+.st-reel { position: relative; height: calc(100% / 6); overflow: hidden; }
+.st-reel-art { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* Reels chrome */
+.st-reel-ui { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, transparent 18%, transparent 58%, rgba(0, 0, 0, 0.6) 100%); }
+.st-reel-rail { position: absolute; right: 10px; bottom: 104px; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+.st-reel-rail > span { position: relative; display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 10.5px; font-weight: 800; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+.st-reel-rail svg { width: 27px; height: 27px; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45)); }
+.st-reel-like { min-width: 34px; }
+.st-reel-heart { display: block; height: 27px; }
+.st-reel-heart.is-on { position: absolute; top: 0; left: 50%; translate: -50% 0; opacity: 0; }
+.st-reel-like b.is-on { position: absolute; bottom: 0; left: 50%; translate: -50% 0; opacity: 0; white-space: nowrap; }
+.st-reel-meta { position: absolute; left: 14px; right: 62px; bottom: 34px; font-size: 12.5px; line-height: 1.3; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45); }
+.st-reel-user { display: flex; align-items: center; gap: 7px; font-weight: 800; }
+.st-reel-avatar { flex: none; width: 26px; height: 26px; border-radius: 50%; border: 2px solid #fff; }
+.st-reel-follow { padding: 1px 8px; border: 1.4px solid rgba(255, 255, 255, 0.85); border-radius: 7px; font-size: 10.5px; }
+.st-reel-caption { margin-top: 7px; font-weight: 600; }
+.st-reel-audio { margin-top: 6px; display: flex; align-items: center; gap: 5px; font-size: 10.5px; font-weight: 700; opacity: 0.9; }
+.st-reel-progress { position: absolute; left: 0; right: 0; bottom: 20px; height: 2px; background: rgba(255, 255, 255, 0.25); }
+.st-reel-progress i { display: block; height: 100%; width: 100%; background: #fff; transform-origin: left; animation: doom-progress 5s linear infinite; }
+
+.st-doom-top { position: absolute; z-index: 3; top: 54px; left: 16px; right: 14px; display: flex; align-items: center; justify-content: space-between; font-family: var(--st-display); font-weight: 700; font-size: 21px; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45); pointer-events: none; }
+.st-doom-chip { position: absolute; z-index: 4; top: 56px; left: 50%; display: flex; align-items: center; gap: 5px; padding: 4px 10px 4px 7px; border-radius: 999px; background: rgba(16, 20, 38, 0.72); border: 1px solid rgba(255, 255, 255, 0.18); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font-size: 11.5px; font-weight: 800; white-space: nowrap; translate: -50% 0; }
+.st-doom-chip b { font-variant-numeric: tabular-nums; color: #7ee08f; }
+.st-doom-chip .is-zero { display: none; }
+
+.st-doom-heart { position: absolute; z-index: 4; left: 50%; top: 38%; width: 96px; margin-left: -48px; opacity: 0; filter: drop-shadow(0 8px 18px rgba(255, 45, 85, 0.45)); pointer-events: none; }
+.st-doom-heart svg { display: block; width: 100%; }
+.st-doom-dim { position: absolute; z-index: 5; inset: 0; background: rgba(10, 12, 30, 0.7); -webkit-backdrop-filter: blur(6px) saturate(0.25) brightness(0.8); backdrop-filter: blur(6px) saturate(0.25) brightness(0.8); opacity: 0; }
+.st-doom-lock { position: absolute; z-index: 6; left: 50%; top: 40%; width: 96px; height: 96px; margin: -48px 0 0 -48px; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ff8589, #e5484d 72%); box-shadow: 0 18px 40px rgba(229, 72, 77, 0.45), inset 0 -5px 12px rgba(0, 0, 0, 0.18); opacity: 0; }
+.st-doom-ring { position: absolute; inset: 0; border-radius: 50%; border: 3px solid #ff9a9d; opacity: 0; }
+.st-doom-sheet { z-index: 7; transform: translateY(115%); }
+.st-doom-moz { transform-origin: 50% 100%; opacity: 0; }
+.st-doom-in { opacity: 0; }
+.st-doom-button { position: relative; }
+.st-doom-label { display: inline-flex; align-items: center; gap: 8px; }
+.st-doom-label.is-go { position: absolute; inset: 0; justify-content: center; opacity: 0; }
+.st-doom-steps { animation: doom-steps 0.5s steps(2) infinite; }
+.st-doom-touch { position: absolute; z-index: 9; left: 50%; top: 0; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; background: rgba(255, 255, 255, 0.34); border: 2px solid rgba(255, 255, 255, 0.8); box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.12), 0 6px 18px rgba(0, 0, 0, 0.35); opacity: 0; pointer-events: none; }
+.st-doom-fade { position: absolute; z-index: 10; inset: 0; background: #000; opacity: 0; pointer-events: none; }
+
+/* Clip scenes */
+.st-doom-sun { transform-box: fill-box; transform-origin: center; animation: doom-sun 3.6s ease-in-out infinite alternate; }
+.st-doom-glint { animation: doom-glint 1.4s ease-in-out infinite alternate; }
+.st-doom-waves { animation: doom-wave 2.8s linear infinite; }
+.st-doom-waves.is-1 { animation-duration: 3.6s; }
+.st-doom-waves.is-2 { animation-duration: 4.6s; }
+.st-doom-gull { animation: doom-gull 0.9s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+.st-doom-gull.is-two { animation-delay: -0.4s; }
+.st-reel-art.is-party { overflow: hidden; background: radial-gradient(circle at 50% 22%, #8b3bff 0%, #3a0f7a 45%, #12062e 100%); }
+.st-doom-beam { position: absolute; left: 50%; top: 14%; width: 900px; height: 900px; margin: -450px 0 0 -450px; background: conic-gradient(from 0deg, transparent 0 14deg, rgba(255, 111, 181, 0.4) 14deg 24deg, transparent 24deg 110deg, rgba(110, 231, 255, 0.35) 110deg 120deg, transparent 120deg 230deg, rgba(255, 214, 102, 0.35) 230deg 240deg, transparent 240deg); animation: doom-spin 5s linear infinite; }
+.st-doom-beam.is-two { animation-duration: 7s; animation-direction: reverse; opacity: 0.7; }
+.st-doom-ball { position: absolute; left: 50%; top: 14%; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.9) 0 5px, rgba(180, 190, 220, 0.85) 5px 7px), #ccd; background-blend-mode: multiply; box-shadow: 0 0 30px rgba(255, 255, 255, 0.6); }
+.st-doom-crowd { position: absolute; left: -10%; right: -10%; bottom: 150px; height: 120px; background: radial-gradient(circle at 10% 100%, #12062e 26px, transparent 27px), radial-gradient(circle at 26% 100%, #12062e 32px, transparent 33px), radial-gradient(circle at 44% 100%, #12062e 28px, transparent 29px), radial-gradient(circle at 62% 100%, #12062e 34px, transparent 35px), radial-gradient(circle at 80% 100%, #12062e 27px, transparent 28px), radial-gradient(circle at 95% 100%, #12062e 30px, transparent 31px); animation: doom-crowd 0.45s ease-in-out infinite alternate; }
+.st-doom-eq { position: absolute; left: 0; right: 0; bottom: 0; height: 150px; display: flex; align-items: flex-end; justify-content: center; gap: 6px; padding-bottom: 0; background: #12062e; }
+.st-doom-eq i { width: 16px; height: calc(30px + var(--i) * 6px); border-radius: 6px 6px 0 0; background: linear-gradient(#ff6fb5, #ffd166); transform-origin: bottom; animation: doom-eq 0.42s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -0.09s); }
+.st-doom-steam path { animation: doom-steam 2.2s ease-out infinite; }
+.st-doom-steam .is-1 { animation-delay: -0.7s; }
+.st-doom-steam .is-2 { animation-delay: -1.4s; }
+.st-doom-sticks { transform-box: view-box; transform-origin: 190px 330px; animation: doom-slurp 1.6s ease-in-out infinite; }
+.st-doom-cat { transform-box: view-box; transform-origin: 139px 460px; animation: doom-cat 1.8s ease-in-out infinite; }
+.st-doom-cat-eyes { transform-box: fill-box; transform-origin: center; animation: doom-blink 2.6s infinite; }
+.st-doom-yarn { transform-box: fill-box; transform-origin: center; animation: doom-yarn 0.9s ease-in-out infinite alternate; }
+.st-doom-paw { animation: doom-paw 0.9s ease-in-out infinite alternate; }
+.st-reel-art.is-meme { display: grid; place-content: center; justify-items: center; gap: 18px; padding: 0 22px; background: #ffd84d; color: #1d1d1b; text-align: center; }
+.st-doom-meme { font-family: var(--st-display); font-weight: 700; font-size: 34px; line-height: 1.05; letter-spacing: -0.02em; animation: doom-zoom 1.6s ease-in-out infinite alternate; }
+.st-doom-meme span { display: block; font-size: 22px; opacity: 0.7; }
+.st-doom-meme-face { width: 70px; height: 70px; animation: doom-wobble 1.2s ease-in-out infinite alternate; }
+.st-doom-traffic { animation: doom-traffic 1.6s linear infinite; }
+
+/* Paused off screen, frozen when locked. */
+.st-doom.is-paused *, .st-doom.is-frozen .st-doom-track * { animation-play-state: paused !important; }
+
+@keyframes doom-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes doom-sun { from { transform: translateY(6px) scale(0.97); } to { transform: translateY(-6px) scale(1.03); } }
+@keyframes doom-glint { from { opacity: 0.35; } to { opacity: 0.7; } }
+@keyframes doom-wave { from { transform: translateX(0); } to { transform: translateX(-44px); } }
+@keyframes doom-gull { from { transform: translateY(0) scaleY(1); } to { transform: translateY(-4px) scaleY(0.6); } }
+@keyframes doom-spin { to { transform: rotate(360deg); } }
+@keyframes doom-crowd { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+@keyframes doom-eq { from { transform: scaleY(0.35); } to { transform: scaleY(1.25); } }
+@keyframes doom-steam { 0% { transform: translateY(20px); opacity: 0; } 30% { opacity: 0.6; } 100% { transform: translateY(-50px); opacity: 0; } }
+@keyframes doom-slurp { 0%, 100% { transform: rotate(0deg) translateY(0); } 50% { transform: rotate(-6deg) translateY(-26px); } }
+@keyframes doom-cat { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes doom-blink { 0%, 90%, 100% { transform: scaleY(1); } 94% { transform: scaleY(0.1); } }
+@keyframes doom-yarn { from { transform: translateY(0) rotate(0deg); } to { transform: translateY(-16px) rotate(40deg); } }
+@keyframes doom-paw { from { transform: translate(0, 0); } to { transform: translate(14px, -14px); } }
+@keyframes doom-zoom { from { transform: scale(1); } to { transform: scale(1.06); } }
+@keyframes doom-wobble { from { transform: rotate(-8deg); } to { transform: rotate(8deg); } }
+@keyframes doom-traffic { from { transform: translateX(0); } to { transform: translateX(-120px); } }
+@keyframes doom-steps { 0% { transform: translateY(0); } 100% { transform: translateY(-2px); } }
+
+/* Reduced motion: no movement; show the locked frame. */
+@media (prefers-reduced-motion: reduce) {
+  .st-doom-track { transform: translateY(calc(-100% / 6 * 4)); }
+  .st-doom-dim { opacity: 1; }
+  .st-doom-sheet { transform: none; }
+  .st-doom-moz, .st-doom-in { opacity: 1; }
+  .st-doom-chip { color: #ffb3b5; border-color: rgba(255, 90, 95, 0.8); background: rgba(120, 20, 30, 0.78); }
+  .st-doom-chip .is-live { display: none; }
+  .st-doom-chip .is-zero { display: inline; color: #ffb3b5; }
+}

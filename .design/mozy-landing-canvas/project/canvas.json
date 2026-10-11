@@ -1,0 +1,17 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-10-10T10:20:00Z" },
+  "title": "Mozy Landing Redesign",
+  "launch": { "view": "canvas" },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": { "x": 1520, "y": 0, "w": 1440, "h": 8000, "title": "2 · Proposed scroll-story landing page (press Play, then scroll)", "expand": "fill", "is_interactive": true },
+    "Audit.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 3900, "title": "1 · Audit: what the current page is missing", "expand": "fill" },
+    "Storyboard.dc.html": { "x": 3040, "y": 0, "w": 2900, "h": 1420, "title": "3 · Mobile: what each scroll stop looks like" }
+  },
+  "order": ["Main.dc.html", "Audit.dc.html", "Storyboard.dc.html"],
+  "notes": {
+    "rowtitle": { "x": 0, "y": -300, "text": "Mozy landing page: what's missing, and a scroll story that fixes it", "kind": "title1", "maxW": 5940 }
+  },
+  "designSystems": []
+}

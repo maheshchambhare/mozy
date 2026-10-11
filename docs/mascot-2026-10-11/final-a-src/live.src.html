@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moz live · final-a</title>
+<style>
+  :root { color-scheme: light; --ink: #141413; --paper: #FAF9F5; --navy: #0b0e1a; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--paper); color: var(--ink); font: 15px/1.45 -apple-system, "Helvetica Neue", Arial, sans-serif; }
+  header { max-width: 1180px; margin: 0 auto; padding: 22px 20px 6px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
+  header h1 { margin: 0; font-size: 24px; letter-spacing: -0.01em; }
+  header p { margin: 0; color: #6b665c; font-size: 13px; }
+  section { max-width: 1180px; margin: 14px auto; padding: 0 20px; }
+  .card { border-radius: 22px; overflow: hidden; position: relative; }
+  h2 { margin: 0; position: absolute; top: 14px; left: 18px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; opacity: .7; z-index: 3; }
+
+  /* hero: happy 360 idling, pupils follow the pointer */
+  .hero { background: radial-gradient(120% 90% at 30% 20%, #fffaf0 0%, #f3ecdf 60%, #e9dfcd 100%); display: grid; grid-template-columns: minmax(0, 1fr) 260px; align-items: end; gap: 10px; padding: 40px 24px 24px; min-height: 470px; }
+  .hero .stage { display: flex; justify-content: center; }
+  .hero .stage > div { width: 360px; max-width: 100%; }
+  .moods { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-end; padding-bottom: 20px; }
+  .moods p { width: 100%; margin: 0 0 4px; font-size: 13px; color: #6b665c; }
+  .moods button { font: inherit; font-size: 13px; padding: 7px 12px; border-radius: 999px; border: 1px solid #d8cfbf; background: #fffdf8; color: var(--ink); cursor: pointer; }
+  .moods button[aria-pressed="true"] { background: #22C55E; border-color: #1a9e4a; color: #fff; }
+
+  /* walking strip */
+  .strip { height: 400px; background: linear-gradient(#bfe6f8 0 58%, #9ad57a 58% 61%, #7cc35a 61% 100%); }
+  .strip .hill { position: absolute; bottom: 39%; width: 70%; height: 120px; border-radius: 50% 50% 0 0; background: #a8dc8a; left: -10%; }
+  .strip .hill.b { left: 45%; width: 80%; height: 90px; background: #b4e397; }
+  .strip .path { position: absolute; left: -5%; right: -5%; bottom: 12%; height: 62px; border-radius: 50%; background: radial-gradient(ellipse at 50% 40%, #f0dcb0, #ddc08a 70%, #d2b27a); }
+  .strip .tufts { position: absolute; left: 0; right: 0; bottom: 4%; height: 18px; background: radial-gradient(circle at 10px 18px, #5fae3f 6px, transparent 7px) 0 0 / 46px 18px repeat-x; opacity: .7; }
+  .strip .walker { position: absolute; left: 0; bottom: 12%; width: 260px; will-change: transform; animation: across var(--dur, 9s) linear infinite; }
+  .strip.inplace .walker { animation: none; left: calc(50% - 130px); }
+  .strip.inplace .ground-scroll { animation: scroll var(--scrolldur, 1s) linear infinite; }
+  .strip .ground-scroll { position: absolute; left: 0; right: 0; bottom: 14%; height: 6px; background: repeating-linear-gradient(90deg, rgba(150,110,60,.28) 0 14px, transparent 14px 64px); }
+  @keyframes across { from { transform: translateX(-280px); } to { transform: translateX(var(--to, 1200px)); } }
+  @keyframes scroll { from { background-position: 0 0; } to { background-position: -64px 0; } }
+  .strip .ctl { position: absolute; right: 14px; bottom: 10px; z-index: 3; display: flex; gap: 6px; }
+  .strip .ctl button { font: inherit; font-size: 12px; padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(0,0,0,.15); background: rgba(255,255,255,.8); cursor: pointer; }
+
+  /* night trio */
+  .night { background: radial-gradient(90% 120% at 50% 0%, #182040 0%, var(--navy) 70%); color: #dfe5f5; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; padding: 46px 20px 22px; }
+  .night figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .night figure > div { width: 180px; }
+  .night figcaption { font-size: 12px; font-weight: 600; letter-spacing: .04em; opacity: .85; }
+  footer { max-width: 1180px; margin: 6px auto 30px; padding: 0 20px; color: #8a8478; font-size: 12px; }
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; }
+    .moods { padding-bottom: 0; }
+  }
+  /*KIT_CSS*/
+</style>
+</head>
+<body>
+<header><h1>Moz · final-a · live</h1><p>Idle loop (breathing, blink, leaf sway, arm drift), walk cycle and mood loops, all CSS on one SVG rig.</p></header>
+
+<section><div class="card hero"><h2>Happy · 360 px · idle (eyes follow your pointer)</h2>
+  <div class="stage"><div id="hero"></div></div>
+  <div class="moods" id="moods"><p>Switch the big one:</p></div>
+</div></section>
+
+<section><div class="card strip" id="strip"><h2>walkSide · 260 px · .is-walking</h2>
+  <div class="hill"></div><div class="hill b"></div><div class="path"></div><div class="ground-scroll"></div><div class="tufts"></div>
+  <div class="ctl"><button id="mode" type="button">Walk in place</button><button id="slow" type="button">Slow motion</button></div>
+  <div class="walker is-walking" id="walker"></div>
+</div></section>
+
+<section><div class="card night"><h2>Night · 180 px</h2>
+  <figure><div id="m-stern"></div><figcaption>stern</figcaption></figure>
+  <figure><div id="m-cheer"></div><figcaption>cheer</figcaption></figure>
+  <figure><div id="m-wave"></div><figcaption>wave</figcaption></figure>
+</div></section>
+<footer>Mascot lab file. Moz kit: moz(mood, opts) in this page's script; moods: happy, stern, cheer, wave, walk, walkSide, wink, surprised.</footer>
+
+<script>
+/*KIT_JS*/
+(function () {
+  const hero = document.getElementById('hero');
+  let heroMood = 'happy';
+  const drawHero = () => { hero.innerHTML = moz(heroMood, { prefix: 'hero', title: 'Moz, ' + heroMood }); };
+  drawHero();
+  const moods = document.getElementById('moods');
+  moz.MOODS.forEach(m => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.textContent = m; b.setAttribute('aria-pressed', String(m === heroMood));
+    b.onclick = () => { heroMood = m; drawHero(); moods.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); };
+    moods.appendChild(b);
+  });
+  // pupils follow the pointer (the rig exposes .moz-pupil; CSS transform overrides its gaze attribute)
+  window.addEventListener('pointermove', e => {
+    const svg = hero.querySelector('svg'); if (!svg) return;
+    const r = svg.getBoundingClientRect();
+    const cx = r.left + r.width / 2, cy = r.top + r.height * 0.57;
+    const dx = Math.max(-1, Math.min(1, (e.clientX - cx) / 400)), dy = Math.max(-1, Math.min(1, (e.clientY - cy) / 400));
+    svg.querySelectorAll('.moz-pupil').forEach(p => { p.style.transform = `translate(${(dx * 4.5).toFixed(2)}px, ${(dy * 3.5).toFixed(2)}px)`; });
+  });
+
+  // walker: ground speed matched to the stance phase so the planted foot does not slide
+  const strip = document.getElementById('strip'), walker = document.getElementById('walker');
+  walker.innerHTML = moz('walkSide', { prefix: 'walker', title: 'Moz walking' });
+  let slow = 1;
+  const tune = () => {
+    const cycle = 0.72 * slow;
+    walker.style.setProperty('--moz-cycle', cycle + 's');
+    const pxPerUnit = walker.getBoundingClientRect().width / 240;
+    const speed = 58 * pxPerUnit / (cycle / 2);            // px per second (foot travels 58 units per stance)
+    const to = strip.clientWidth + 20, dist = to + 280;
+    strip.style.setProperty('--to', to + 'px');
+    strip.style.setProperty('--dur', (dist / speed).toFixed(2) + 's');
+    strip.style.setProperty('--scrolldur', (64 / speed).toFixed(3) + 's');
+  };
+  tune(); window.addEventListener('resize', tune);
+  document.getElementById('mode').onclick = e => { strip.classList.toggle('inplace'); e.target.textContent = strip.classList.contains('inplace') ? 'Walk across' : 'Walk in place'; };
+  document.getElementById('slow').onclick = e => { slow = slow === 1 ? 4 : 1; e.target.textContent = slow === 1 ? 'Slow motion' : 'Normal speed'; tune(); };
+
+  document.getElementById('m-stern').innerHTML = moz('stern', { prefix: 'ms', title: 'Moz, stern' });
+  document.getElementById('m-cheer').innerHTML = moz('cheer', { prefix: 'mc', title: 'Moz, cheering' });
+  document.getElementById('m-wave').innerHTML = moz('wave', { prefix: 'mw', title: 'Moz, waving' });
+})();
+</script>
+</body>
+</html>

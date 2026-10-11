@@ -1,0 +1,238 @@
+{
+  "saved": "2026-10-11",
+  "mcs_version": "0.1.0",
+  "pages": {
+    "/": {
+      "html_bytes": 480580,
+      "html_gzip_bytes": 109777,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 3180
+    },
+    "/blog": {
+      "html_bytes": 21248,
+      "html_gzip_bytes": 5688,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 341
+    },
+    "/blog/algorithmic-variable-reward-schedules-infinite-scroll-dopamine": {
+      "html_bytes": 21451,
+      "html_gzip_bytes": 7163,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 269
+    },
+    "/blog/attention-economy-explained": {
+      "html_bytes": 14042,
+      "html_gzip_bytes": 4590,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 195
+    },
+    "/blog/bedtime-revenge-procrastination-limbic-prefrontal-exhaustion": {
+      "html_bytes": 20408,
+      "html_gzip_bytes": 6626,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 264
+    },
+    "/blog/breathwork-interventions-vagus-nerve-digital-compulsion": {
+      "html_bytes": 21072,
+      "html_gzip_bytes": 6913,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 275
+    },
+    "/blog/continuous-partial-attention-cpa-prefrontal-cortex-fragmentation": {
+      "html_bytes": 21824,
+      "html_gzip_bytes": 7206,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 271
+    },
+    "/blog/digital-wellbeing-vs-mozy": {
+      "html_bytes": 14452,
+      "html_gzip_bytes": 4584,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 223
+    },
+    "/blog/doomscrolling-addiction-help": {
+      "html_bytes": 14207,
+      "html_gzip_bytes": 4613,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 191
+    },
+    "/blog/dopamine-depletion-vs-tonic-baseline-screen-fatigue": {
+      "html_bytes": 21385,
+      "html_gzip_bytes": 7128,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 262
+    },
+    "/blog/dopamine-detox": {
+      "html_bytes": 16710,
+      "html_gzip_bytes": 5847,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 202
+    },
+    "/blog/frictionless-ui-dark-patterns-bottomless-feeds": {
+      "html_bytes": 20160,
+      "html_gzip_bytes": 6540,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 265
+    },
+    "/blog/how-to-reduce-screen-time-android": {
+      "html_bytes": 14155,
+      "html_gzip_bytes": 4640,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 190
+    },
+    "/blog/how-to-stop-checking-phone": {
+      "html_bytes": 14258,
+      "html_gzip_bytes": 4669,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 188
+    },
+    "/blog/how-to-stop-doomscrolling": {
+      "html_bytes": 15868,
+      "html_gzip_bytes": 5186,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 217
+    },
+    "/blog/instagram-time-limit-android": {
+      "html_bytes": 14754,
+      "html_gzip_bytes": 4784,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 189
+    },
+    "/blog/interoception-insula-activation-somatic-craving-delay": {
+      "html_bytes": 20258,
+      "html_gzip_bytes": 6611,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 269
+    },
+    "/blog/neurobiology-of-screen-addiction-somatic-friction-protocol": {
+      "html_bytes": 22119,
+      "html_gzip_bytes": 7323,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 279
+    },
+    "/blog/parents-guide-screen-time-kids": {
+      "html_bytes": 18342,
+      "html_gzip_bytes": 6396,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 232
+    },
+    "/blog/phantom-vibration-syndrome-thalamocortical-hypervigilance": {
+      "html_bytes": 20137,
+      "html_gzip_bytes": 6521,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 255
+    },
+    "/blog/phone-addiction-test": {
+      "html_bytes": 13278,
+      "html_gzip_bytes": 4451,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 175
+    },
+    "/blog/pop-up-dismissal-reflex-system-1-cognitive-bypass": {
+      "html_bytes": 19691,
+      "html_gzip_bytes": 6352,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 260
+    },
+    "/blog/screen-addiction-behavioral-science": {
+      "html_bytes": 15500,
+      "html_gzip_bytes": 5275,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 183
+    },
+    "/blog/screen-time-limits-android": {
+      "html_bytes": 14507,
+      "html_gzip_bytes": 4727,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 190
+    },
+    "/blog/screen-time-statistics-2026": {
+      "html_bytes": 15908,
+      "html_gzip_bytes": 5267,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 227
+    },
+    "/blog/scroll-addiction-test": {
+      "html_bytes": 14106,
+      "html_gzip_bytes": 4703,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 181
+    },
+    "/blog/short-form-video-brain-atrophy-micro-content-cognitive-decay": {
+      "html_bytes": 21377,
+      "html_gzip_bytes": 7133,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 274
+    },
+    "/blog/somatic-friction-vs-binary-app-blockers-habit-loops": {
+      "html_bytes": 22239,
+      "html_gzip_bytes": 7398,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 289
+    },
+    "/blog/tiktok-screen-time-limit-android": {
+      "html_bytes": 14469,
+      "html_gzip_bytes": 4825,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 182
+    },
+    "/blog/walk-to-earn-screen-time": {
+      "html_bytes": 14526,
+      "html_gzip_bytes": 4670,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 190
+    },
+    "/blog/why-apps-are-addictive": {
+      "html_bytes": 15423,
+      "html_gzip_bytes": 5153,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 196
+    },
+    "/pricing": {
+      "html_bytes": 16415,
+      "html_gzip_bytes": 4332,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 197
+    },
+    "/privacy": {
+      "html_bytes": 64160,
+      "html_gzip_bytes": 10974,
+      "js_gzip_bytes": 168093,
+      "css_gzip_bytes": 36874,
+      "dom_elements": 905
+    }
+  },
+  "build_bytes": 20970695
+}

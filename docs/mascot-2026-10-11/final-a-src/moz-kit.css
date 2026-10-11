@@ -1,0 +1,92 @@
+/* ===================== Moz kit · final-a · CSS =====================
+   Every animated group carries its own transform-origin (inline, in viewBox units) and NO transform
+   attribute, so CSS animations never fight the static pose (static poses live on inner groups). */
+.moz { display: block; overflow: visible; }
+.moz * { transform-box: view-box; }
+
+/* ---------- idle loop ---------- */
+.moz .moz-bob    { transform-origin: 120px 238px; animation: moz-breathe 3.4s ease-in-out infinite; }
+.moz .moz-shadow { transform-origin: 120px 247px; animation: moz-shadow 3.4s ease-in-out infinite; }
+.moz .moz-sprout { animation: moz-sway 3.4s ease-in-out -0.5s infinite; }
+.moz .moz-leaf-l { animation: moz-leaf 2.7s ease-in-out infinite; }
+.moz .moz-leaf-r { animation: moz-leaf 2.7s ease-in-out -1.35s infinite; }
+.moz .moz-eyes   { animation: moz-blink 5.2s linear infinite; }
+.moz .moz-arm-l  { animation: moz-arm-idle 3.4s ease-in-out infinite; }
+.moz .moz-arm-r  { animation: moz-arm-idle 3.4s ease-in-out -1.7s infinite; }
+.moz .moz-brow-l, .moz .moz-brow-r, .moz .moz-mouth, .moz .moz-pupil, .moz .moz-lid-l, .moz .moz-lid-r { transition: transform .25s ease, opacity .25s ease; }
+
+@keyframes moz-breathe { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.022, 1.026); } }
+@keyframes moz-shadow  { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.035, 1); } }
+@keyframes moz-sway    { 0%, 100% { transform: rotate(-2.5deg); } 50% { transform: rotate(2.5deg); } }
+@keyframes moz-leaf    { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2.5deg); } }
+@keyframes moz-blink   { 0%, 92%, 100% { transform: scaleY(1); } 94.5% { transform: scaleY(0.07); } 97% { transform: scaleY(1); } }
+@keyframes moz-arm-idle { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-4deg); } }
+
+/* ---------- mood loops ---------- */
+.moz.is-wave .moz-arm-r { animation: moz-wave 0.95s ease-in-out infinite; }
+.moz.is-cheer .moz-bob { animation: moz-hop 1.3s cubic-bezier(.3,0,.4,1) infinite; }
+.moz.is-cheer .moz-shadow { animation: moz-hop-shadow 1.3s cubic-bezier(.3,0,.4,1) infinite; }
+.moz.is-cheer .moz-arm-l, .moz.is-cheer .moz-arm-r { animation: moz-cheer-arm 0.65s ease-in-out infinite; }
+.moz.is-cheer .moz-arm-r { animation-delay: -0.325s; }
+.moz.is-stern .moz-arm-r { animation: moz-stop 2.6s ease-in-out infinite; }
+.moz.is-surprised .moz-bob { animation: moz-startle 2.8s ease-in-out infinite; }
+@keyframes moz-wave { 0%, 100% { transform: rotate(-14deg); } 50% { transform: rotate(16deg); } }
+@keyframes moz-hop {
+  0%, 100% { transform: translateY(0) scale(1.04, .95); }
+  18%      { transform: translateY(0) scale(.97, 1.04); }
+  42%      { transform: translateY(-22px) scale(.98, 1.03); }
+  66%      { transform: translateY(0) scale(1.05, .94); }
+  80%      { transform: translateY(0) scale(.99, 1.01); }
+}
+@keyframes moz-hop-shadow { 0%, 18%, 66%, 100% { transform: scale(1); opacity: 1; } 42% { transform: scale(.78); opacity: .55; } }
+@keyframes moz-cheer-arm { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+@keyframes moz-stop { 0%, 70%, 100% { transform: rotate(0deg) scale(1); } 80% { transform: rotate(-5deg) scale(1.05); } 90% { transform: rotate(2deg) scale(1); } }
+@keyframes moz-startle { 0%, 60%, 100% { transform: scale(1); } 66% { transform: translateY(-6px) scale(.97, 1.05); } 74% { transform: scale(1.03, .97); } 82% { transform: scale(1); } }
+
+/* ---------- walk cycle: put .is-walking on any ancestor ----------
+   --phase offsets the whole cycle (negative delay = later frame); .is-paused freezes it.
+   Static stride offsets live on .moz-stance groups and are reset while walking, so the cycle starts from neutral. */
+.is-walking { --phase: 0s; --moz-cycle: 0.72s; }
+.is-walking .moz-stance { transform: none; }
+.is-walking .moz .moz-bob    { animation: moz-waddle var(--moz-cycle) ease-in-out infinite; animation-delay: var(--phase); }
+.is-walking .moz .moz-leg-l  { animation: moz-step var(--moz-cycle) ease-in-out infinite; animation-delay: var(--phase); }
+.is-walking .moz .moz-leg-r  { animation: moz-step var(--moz-cycle) ease-in-out infinite; animation-delay: calc(var(--phase) - var(--moz-cycle) / 2); }
+.is-walking .moz .moz-arm-l  { animation: moz-swing var(--moz-cycle) ease-in-out infinite; animation-delay: calc(var(--phase) - var(--moz-cycle) / 2); }
+.is-walking .moz .moz-arm-r  { animation: moz-swing var(--moz-cycle) ease-in-out infinite; animation-delay: var(--phase); }
+.is-walking .moz .moz-sprout { animation: moz-sway-walk var(--moz-cycle) ease-in-out infinite; animation-delay: var(--phase); }
+.is-walking .moz .moz-shadow { animation: moz-shadow-walk calc(var(--moz-cycle) / 2) ease-in-out infinite; animation-delay: var(--phase); }
+.is-walking .moz .moz-eyes   { animation-delay: var(--phase); }
+@keyframes moz-waddle { 0%, 100% { transform: rotate(-3deg) translateY(0); } 25% { transform: rotate(0deg) translateY(-4px); } 50% { transform: rotate(3deg) translateY(0); } 75% { transform: rotate(0deg) translateY(-4px); } }
+@keyframes moz-step { 0%, 100% { transform: translate(-8px, 0); } 25% { transform: translate(0, -8px); } 50% { transform: translate(8px, 0); } }
+@keyframes moz-swing { 0%, 100% { transform: rotate(-20deg); } 50% { transform: rotate(20deg); } }
+@keyframes moz-sway-walk { 0%, 100% { transform: rotate(5deg); } 50% { transform: rotate(-5deg); } }
+@keyframes moz-shadow-walk { 0%, 100% { transform: scale(1); } 50% { transform: scale(.92, 1); } }
+
+/* walkSide (3/4 profile facing right): forward stride with squash on contact, feet roll heel-to-toe, arms counter-swing */
+.is-walking .moz.is-walkSide .moz-bob    { animation-name: moz-stride; animation-duration: calc(var(--moz-cycle) / 2); }
+.is-walking .moz.is-walkSide .moz-leg-l,
+.is-walking .moz.is-walkSide .moz-leg-r  { animation-name: moz-step-side; animation-timing-function: linear; }
+.is-walking .moz.is-walkSide .moz-arm-l,
+.is-walking .moz.is-walkSide .moz-arm-r  { animation-name: moz-swing-side; }
+.is-walking .moz.is-walkSide .moz-sprout { animation-name: moz-sprout-side; animation-duration: calc(var(--moz-cycle) / 2); }
+@keyframes moz-stride {
+  0%, 100% { transform: translateY(0.5px) scale(1.022, .978); }
+  50%      { transform: translateY(-5px) scale(.988, 1.016); }
+}
+@keyframes moz-step-side {
+  0%   { transform: translate(29px, 0) rotate(-9deg); }
+  8%   { transform: translate(19.7px, 0) rotate(0deg); }
+  50%  { transform: translate(-29px, 0) rotate(0deg); }
+  58%  { transform: translate(-27px, -3px) rotate(11deg); }
+  74%  { transform: translate(-6px, -12px) rotate(2deg); }
+  90%  { transform: translate(21px, -6px) rotate(-10deg); }
+  100% { transform: translate(29px, 0) rotate(-9deg); }
+}
+@keyframes moz-swing-side { 0%, 100% { transform: rotate(-28deg); } 50% { transform: rotate(28deg); } }
+@keyframes moz-sprout-side { 0%, 100% { transform: rotate(2deg); } 50% { transform: rotate(-4deg); } }
+
+.is-walking.is-paused .moz, .is-walking.is-paused .moz * { animation-play-state: paused !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .moz *, .is-walking .moz * { animation: none !important; }
+}

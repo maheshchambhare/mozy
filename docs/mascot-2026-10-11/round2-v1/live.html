@@ -1,0 +1,11 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Moz · variation 1</title><link rel="stylesheet" href="moz.css"><script src="moz.js"></script>
+<style>body{margin:0;background:#f6f3ee;font:600 15px -apple-system,sans-serif;color:#555;padding:24px}h1{margin:0 0 4px;color:#222}p{margin:0 0 18px}
+.row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end}.c{text-align:center}.night{background:#0b0e1a;border-radius:18px;padding:10px;color:#aab}</style></head>
+<body><h1>Moz · variation 1</h1><p>Store-screenshot mascot, idle animations on. Nothing on the site has been replaced.</p>
+<div class="row"><div class="c" style="width:360px" id="hero"></div><div class="c night" style="width:300px" id="nightStern"></div></div>
+<div class="row" style="margin-top:16px" id="moods"></div>
+<script>
+hero.innerHTML = moz('happy',{id:'h'}) + '<div>happy</div>';
+nightStern.innerHTML = moz('stern',{id:'ns'}) + '<div>stern, on the night hero</div>';
+moods.innerHTML = ['happy','stern','cheer','wave'].map((m,i)=>'<div class="c" style="width:190px">'+moz(m,{id:'m'+i})+'<div>'+m+'</div></div>').join('');
+</script></body></html>

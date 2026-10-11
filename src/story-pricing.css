@@ -1,0 +1,203 @@
+/* Pricing page (/pricing): the landing page's night sky with a "receipt" (dollars on top, steps below), plan cards
+   rising out of a cloud bank, feature and permission cards on cream, the landing page's FAQ cards and its park finale.
+   Classes are prefixed st-pr-; `.st-pr .x` selectors outrank the global `.lp p` / `.lp h1 span` rules. */
+.st-pr { --pr-ink: #1e251c; --pr-soft: #4f574a; --pr-line: #ebe4d3; background: var(--st-cream); }
+.st-pr [id] { scroll-margin-top: 100px; }
+.st-pr-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ── Hero ─────────────────────────────────────────────────────────────── */
+.st-pr-hero { position: relative; isolation: isolate; overflow: clip; margin-top: -92px; padding: 150px 0 190px; color: #fbf3e6;
+  background:
+    radial-gradient(36% 46% at 76% 46%, rgba(255, 154, 77, 0.16), transparent 70%),
+    radial-gradient(30% 40% at 18% 30%, rgba(99, 213, 134, 0.08), transparent 70%),
+    linear-gradient(180deg, #0b0e1a 0%, #141a38 58%, #262c57 100%); }
+.st-pr-sky { position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image:
+    radial-gradient(1.6px 1.6px at 5% 16%, #fff 50%, transparent 55%), radial-gradient(1.2px 1.2px at 16% 42%, rgba(255, 255, 255, 0.7) 50%, transparent 55%),
+    radial-gradient(1.8px 1.8px at 29% 10%, #fff 50%, transparent 55%), radial-gradient(1.1px 1.1px at 42% 30%, rgba(255, 255, 255, 0.6) 50%, transparent 55%),
+    radial-gradient(1.5px 1.5px at 55% 8%, #fff 50%, transparent 55%), radial-gradient(1.2px 1.2px at 67% 28%, rgba(255, 255, 255, 0.7) 50%, transparent 55%),
+    radial-gradient(1.4px 1.4px at 91% 38%, rgba(255, 255, 255, 0.6) 50%, transparent 55%), radial-gradient(1.2px 1.2px at 10% 72%, rgba(255, 255, 255, 0.45) 50%, transparent 55%),
+    radial-gradient(1.3px 1.3px at 48% 60%, rgba(255, 255, 255, 0.4) 50%, transparent 55%);
+  background-size: 760px 560px; }
+.st-pr-hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); align-items: center; gap: clamp(28px, 5vw, 72px); }
+.st-pr-hero-copy { position: relative; z-index: 2; }
+.st-pr .st-clock { color: #d9ddea; line-height: 1.4; white-space: nowrap; }
+.st-pr .st-clock svg { color: var(--st-sprout); }
+.st-pr .st-pr-hero h1 { margin-top: 26px; font-family: var(--st-display); font-weight: 700; font-size: clamp(42px, 5.6vw, 80px); line-height: 1; letter-spacing: -0.035em; color: #fbf3e6; text-wrap: balance; }
+.st-pr .st-pr-accent { position: relative; display: inline-block; white-space: nowrap; color: var(--st-sprout); }
+.st-pr .st-pr-accent svg { position: absolute; left: 2%; bottom: -10px; width: 96%; height: 14px; fill: none; stroke: var(--st-sprout); stroke-width: 4; stroke-linecap: round; }
+.st-pr .st-pr-lede { max-width: 560px; margin-top: 30px; font-size: clamp(17px, 1.45vw, 19px); line-height: 1.65; color: #c9cede; }
+.st-pr-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 32px; }
+.st-pr-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 22px; border-radius: 999px; background: var(--st-green); color: #fff; font-weight: 800; font-size: 16px; box-shadow: 0 12px 28px rgba(40, 118, 62, 0.35); transition: transform 0.2s var(--st-ease), background 0.2s; }
+.st-pr-button:hover { transform: translateY(-2px); background: #1f7a3f; }
+.st-pr-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.22); color: #e9ecf5; font-weight: 800; transition: background 0.2s, border-color 0.2s; }
+.st-pr-ghost:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.4); }
+
+/* The receipt, with Moz winking beside it */
+.st-pr-art { position: relative; height: 600px; display: grid; place-items: center; }
+.st-pr-glow { position: absolute; width: 440px; height: 440px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 154, 77, 0.26), rgba(255, 154, 77, 0) 66%); filter: blur(10px); }
+.st-pr-moon { position: absolute; top: -96px; right: -70px; z-index: -1; width: 220px; height: 220px; pointer-events: none; }
+.st-pr-receipt { --zig: 22px; position: relative; z-index: 2; width: min(340px, 88%); padding: 24px 24px calc(30px + var(--zig) / 2); border-radius: 20px 20px 0 0; background: linear-gradient(180deg, #fffdf8 0%, #fbf6ea 100%); color: #2a2f27; rotate: 4deg; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.45));
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--zig) 100%;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--zig) 100%; }
+.st-pr-receipt-head { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 2px dashed #e3dac6; }
+.st-pr-receipt-head img { width: 44px; height: 44px; border-radius: 12px; }
+.st-pr .st-pr-receipt-brand { font-family: var(--st-logo); font-weight: 800; font-size: 22px; line-height: 1; color: #1e251c; }
+.st-pr .st-pr-receipt-meta { margin-top: 3px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8a8f80; }
+.st-pr-receipt-stamp { margin-left: auto; padding: 5px 10px; border: 2px solid #d97757; border-radius: 8px; font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #d97757; rotate: -8deg; }
+.st-pr-receipt-rows { display: flex; flex-direction: column; gap: 12px; padding: 16px 0; }
+.st-pr-receipt-rows > div { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.st-pr-receipt-rows dt { font-weight: 800; font-size: 15px; color: #1e251c; }
+.st-pr-receipt-rows dt small { display: block; margin-top: 1px; font-size: 12.5px; font-weight: 600; color: #8a8f80; }
+.st-pr-receipt-rows dd { font-family: var(--st-display); font-weight: 700; font-size: 18px; font-variant-numeric: tabular-nums; color: #1e251c; white-space: nowrap; }
+.st-pr .st-pr-receipt-cut { position: relative; margin: 2px 0 14px; text-align: center; font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #c26a46; }
+.st-pr-receipt-cut::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; border-top: 2px dashed #e3dac6; }
+.st-pr-receipt-cut span { position: relative; padding: 0 10px; background: #fcf8ee; }
+.st-pr-receipt-steps { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: #fff1e4; }
+.st-pr-receipt-steps svg { flex: none; }
+.st-pr .st-pr-receipt-steps p { font-size: 15px; line-height: 1.3; color: #3b3326; }
+.st-pr-receipt-steps strong { font-family: var(--st-display); font-weight: 700; font-size: 20px; color: #c2541f; }
+.st-pr-receipt-steps small { display: block; font-size: 12px; font-weight: 700; color: #a57a5c; }
+.st-pr-receipt-total { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 14px; padding-top: 12px; border-top: 2px solid #1e251c; font-weight: 800; font-size: 14px; color: #1e251c; }
+.st-pr-receipt-total strong { font-family: var(--st-display); font-size: 20px; color: #2b8a4a; font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* Moz stands just left of the receipt, so he never covers its text. */
+.st-pr-moz { position: absolute; z-index: 3; left: -5%; bottom: 3%; width: 140px; rotate: -10deg; }
+.st-pr-mozart { display: block; width: 100%; height: auto; }
+.st-pr-float { position: absolute; z-index: 4; display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; background: rgba(20, 26, 56, 0.72); border: 1px solid rgba(255, 255, 255, 0.16); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); font-size: 14px; font-weight: 800; color: #f2f4fa; white-space: nowrap; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3); animation: st-pr-float var(--float, 6s) ease-in-out infinite; }
+.st-pr-float svg { color: var(--st-sprout); }
+.st-pr-float.is-a { top: 7%; left: 0; }
+.st-pr-float.is-b { top: 30%; right: -2%; }
+.st-pr-float.is-c { bottom: -1%; right: 6%; }
+@keyframes st-pr-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+.st-pr-bank { position: absolute; left: 0; bottom: -1px; z-index: 1; width: 100%; height: clamp(70px, 8vw, 120px); }
+.st-pr-bank .is-back { fill: #fbf9f2; opacity: 0.55; }
+.st-pr-bank .is-front { fill: var(--st-cream); }
+
+/* ── Plans ────────────────────────────────────────────────────────────── */
+.st-pr-plans { position: relative; z-index: 2; margin-top: -120px; }
+.st-pr-plan-grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr); gap: 20px; align-items: stretch; }
+.st-pr-plan { position: relative; display: flex; flex-direction: column; padding: clamp(24px, 3vw, 36px); border-radius: 30px; background: #fff; border: 1px solid var(--pr-line); box-shadow: 0 24px 50px rgba(60, 50, 30, 0.1); color: var(--pr-soft); }
+.st-pr-plan.is-ios { border-color: rgba(255, 255, 255, 0.08); color: #c9cede; box-shadow: 0 30px 60px rgba(20, 26, 56, 0.28);
+  background: radial-gradient(70% 70% at 92% 0%, rgba(99, 213, 134, 0.2), transparent 62%), linear-gradient(160deg, #1b2350 0%, #121734 100%); }
+.st-pr-plan-head { display: flex; align-items: center; gap: 14px; }
+.st-pr-plan-icon { display: grid; place-items: center; flex: none; width: 46px; height: 46px; border-radius: 14px; background: #eef5ea; color: #2b8a4a; }
+.st-pr-plan.is-ios .st-pr-plan-icon { background: rgba(99, 213, 134, 0.16); color: var(--st-sprout); }
+.st-pr .st-pr-plan-platform { font-family: var(--st-display); font-weight: 700; font-size: 26px; line-height: 1.1; letter-spacing: -0.015em; color: var(--pr-ink); }
+.st-pr .st-pr-plan.is-ios .st-pr-plan-platform { color: #fbf3e6; }
+.st-pr .st-pr-plan-os { margin-top: 2px; font-size: 14px; color: #7a8072; }
+.st-pr .st-pr-plan.is-ios .st-pr-plan-os { color: #9aa1bb; }
+.st-pr-plan-tag { margin-left: auto; padding: 6px 12px; border-radius: 999px; background: #eef5ea; color: #1f6b3a; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+.st-pr-plan.is-ios .st-pr-plan-tag { background: rgba(99, 213, 134, 0.16); color: #9ff0bb; }
+.st-pr .st-pr-plan-lede { margin-top: 22px; font-size: 16px; font-weight: 700; color: var(--pr-ink); }
+.st-pr .st-pr-plan.is-ios .st-pr-plan-lede { color: #e9ecf5; }
+.st-pr-prices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+.st-pr-prices.is-single { grid-template-columns: minmax(0, 1fr); }
+.st-pr-price { display: flex; flex-direction: column; gap: 2px; padding: 16px 18px 18px; border-radius: 20px; background: #f7f2e7; border: 1px solid #ece4d0; }
+.st-pr-plan.is-ios .st-pr-price { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.12); }
+.st-pr-plan.is-ios .st-pr-price.is-yearly { background: rgba(99, 213, 134, 0.12); border-color: rgba(99, 213, 134, 0.4); }
+.st-pr-price > span { font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #8a8f80; }
+.st-pr-plan.is-ios .st-pr-price > span { color: #aab1c9; }
+.st-pr-price strong { font-family: var(--st-display); font-weight: 700; font-size: clamp(32px, 3.2vw, 42px); line-height: 1.05; letter-spacing: -0.02em; color: var(--pr-ink); font-variant-numeric: tabular-nums; }
+.st-pr-plan.is-ios .st-pr-price strong { color: #fbf3e6; }
+.st-pr-plan.is-ios .st-pr-price.is-yearly strong { color: #9ff0bb; }
+.st-pr-price small { font-size: 14px; line-height: 1.4; color: #7a8072; }
+.st-pr-plan.is-ios .st-pr-price small { color: #aab1c9; }
+.st-pr .st-pr-plan-note { margin-top: 16px; font-size: 14.5px; line-height: 1.6; color: inherit; }
+.st-pr-plan-cta { align-self: flex-start; margin-top: auto; padding-top: 22px; border-radius: 10px; transition: transform 0.2s var(--st-ease); }
+.st-pr-plan-cta:hover { transform: translateY(-2px); }
+.st-pr-plan-cta img { display: block; width: auto; height: 52px; }
+.st-pr .st-pr-note { margin-top: 18px; text-align: center; font-size: 14px; line-height: 1.6; color: #7a8072; }
+
+/* ── What Mozy does ───────────────────────────────────────────────────── */
+.st-pr-features { padding: clamp(88px, 10vw, 128px) 0 clamp(40px, 5vw, 64px); }
+.st-pr-features-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
+.st-pr .st-pr-h2 { font-family: var(--st-display); font-weight: 700; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.04; letter-spacing: -0.03em; color: var(--pr-ink); text-wrap: balance; }
+.st-pr .st-pr-h2 span { color: var(--st-green); }
+.st-pr .st-pr-sub { max-width: 600px; margin-top: 14px; font-size: clamp(16px, 1.3vw, 18px); line-height: 1.6; color: var(--pr-soft); }
+.st-pr-inline-link { font-weight: 800; color: var(--st-green); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; white-space: nowrap; }
+.st-pr-walker { position: relative; flex: none; width: 150px; margin-right: clamp(0px, 3vw, 40px); }
+.st-pr-walker-moz { position: relative; z-index: 1; display: block; width: 100%; height: auto; }
+.st-pr-walker-trail { position: absolute; left: -90px; bottom: 6px; width: 110px; height: 16px; opacity: 0.55;
+  background: radial-gradient(circle at 8px 5px, #d97757 0 3px, transparent 3.5px) 0 0 / 30px 16px, radial-gradient(circle at 22px 11px, #d97757 0 3px, transparent 3.5px) 0 0 / 30px 16px;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 70%); mask: linear-gradient(90deg, transparent, #000 70%); }
+.st-pr-feature-grid { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
+.st-pr-feature { padding: 24px; border-radius: 24px; background: #fff; border: 1px solid var(--pr-line); box-shadow: 0 10px 26px rgba(80, 60, 30, 0.05); transition: transform 0.25s var(--st-ease), box-shadow 0.25s; }
+.st-pr-feature:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(80, 60, 30, 0.09); }
+.st-pr-feature-icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 15px; }
+.st-pr-feature.is-sky .st-pr-feature-icon { background: #e6f0fb; color: #2f6db3; }
+.st-pr-feature.is-sun .st-pr-feature-icon { background: #fff0dc; color: #c96a18; }
+.st-pr-feature.is-rose .st-pr-feature-icon { background: #fde8e6; color: #c4424a; }
+.st-pr-feature.is-leaf .st-pr-feature-icon { background: #e4f4e6; color: #2b8a4a; }
+.st-pr .st-pr-feature h3 { margin-top: 18px; font-family: var(--st-display); font-weight: 600; font-size: 21px; line-height: 1.2; letter-spacing: -0.01em; color: var(--pr-ink); }
+.st-pr .st-pr-feature p { margin-top: 8px; font-size: 15.5px; line-height: 1.6; color: var(--pr-soft); }
+
+/* ── Permissions ──────────────────────────────────────────────────────── */
+.st-pr-perms { padding: clamp(40px, 5vw, 64px) 0 clamp(16px, 2vw, 28px); }
+.st-pr-perm-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 32px; }
+.st-pr-perm-card { padding: clamp(22px, 2.6vw, 30px); border-radius: 26px; background: #fff; border: 1px solid var(--pr-line); }
+.st-pr-perm-card header { display: flex; align-items: center; gap: 14px; padding-bottom: 18px; border-bottom: 1px solid #f0eadb; }
+.st-pr-perm-icon { display: grid; place-items: center; flex: none; width: 46px; height: 46px; border-radius: 14px; background: #1b2350; color: var(--st-sprout); }
+.st-pr .st-pr-perm-card h3 { font-family: var(--st-display); font-weight: 600; font-size: 22px; line-height: 1.15; color: var(--pr-ink); }
+.st-pr .st-pr-perm-card header p { margin-top: 2px; font-size: 14px; color: #7a8072; }
+.st-pr-perm-card ul { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-top: 18px; }
+.st-pr-perm-card li { display: flex; align-items: flex-start; gap: 14px; }
+.st-pr-perm-row-icon { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 11px; background: #f4efe3; color: #4f574a; }
+.st-pr-perm-card li div > strong { display: block; font-weight: 800; font-size: 15.5px; color: var(--pr-ink); }
+.st-pr-perm-card li div > span { display: block; margin-top: 2px; font-size: 15px; line-height: 1.55; color: var(--pr-soft); }
+
+/* ── FAQ (the landing page's cards) and finale ─────────────────────────── */
+.st-pr-faq { padding-top: clamp(64px, 7vw, 96px); }
+
+/* Mid-size screens: the art column is narrow, so two chips move above the receipt instead of over its prices. */
+@media (min-width: 961px) and (max-width: 1240px) {
+  .st-pr-float.is-a { top: -3%; left: 0; }
+  .st-pr-float.is-b { top: -3%; right: 0; }
+  .st-pr-moz { width: 112px; left: -13%; }
+}
+@media (max-width: 960px) {
+  .st-pr-hero { padding: 132px 0 170px; }
+  .st-pr-art { width: min(100%, 540px); justify-self: center; }
+  .st-pr-float.is-a { top: 4%; left: -4%; }
+  .st-pr-hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .st-pr-art { height: 610px; margin-top: 8px; }
+  .st-pr-moz { width: 120px; left: -7%; bottom: 3%; }
+  .st-pr-float.is-c { bottom: -1%; right: 2%; }
+  .st-pr-moon { top: -40px; right: -10px; width: 170px; height: 170px; }
+  .st-pr-plan-grid, .st-pr-perm-grid { grid-template-columns: minmax(0, 1fr); }
+  .st-pr-feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .st-pr-clock-long { display: none; }
+  .st-pr .st-pr-hero h1 { font-size: clamp(40px, 11vw, 52px); }
+  .st-pr .st-pr-lede { margin-top: 24px; }
+  .st-pr-hero-actions > a { flex: 1 1 100%; }
+  .st-pr-hero { padding-bottom: 150px; }
+  /* Phones: Moz peeks over the receipt's top edge and the three chips line up below it, so nothing covers the prices. */
+  .st-pr-art { height: auto; display: flex; flex-wrap: wrap; justify-content: center; align-content: flex-start; gap: 10px; padding: 64px 0 8px; }
+  .st-pr-receipt { flex: 0 0 auto; width: min(320px, 92%); margin-bottom: 18px; padding: 20px 18px calc(24px + var(--zig) / 2); rotate: 2deg; }
+  .st-pr-receipt-rows dt { font-size: 14px; }
+  .st-pr-receipt-rows dd { font-size: 16px; }
+  .st-pr-moz { z-index: 1; left: auto; right: 8%; top: -8px; bottom: auto; width: 96px; rotate: 8deg; }
+  .st-pr-glow { top: 60px; width: 300px; height: 300px; }
+  .st-pr-float { position: static; padding: 8px 13px; font-size: 13px; animation: none; }
+  .st-pr-moon { top: -20px; right: auto; left: -30px; width: 120px; height: 120px; }
+  .st-pr-plans { margin-top: -100px; }
+  .st-pr-plan { border-radius: 26px; }
+  .st-pr-plan-head { flex-wrap: wrap; }
+  .st-pr-plan-tag { margin-left: 0; }
+  .st-pr-features-head { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .st-pr-walker { width: 110px; margin: 0 0 0 auto; }
+  .st-pr-feature-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 28px; }
+  .st-pr-feature { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; padding: 20px; border-radius: 22px; }
+  .st-pr-feature-icon { grid-row: span 2; width: 46px; height: 46px; }
+  .st-pr .st-pr-feature h3 { margin-top: 0; font-size: 19px; }
+  .st-pr .st-pr-feature p { margin-top: 4px; font-size: 15px; }
+}
+/* The narrowest phones: the two price tiles stack, so the yearly note stays readable. */
+@media (max-width: 360px) {
+  .st-pr-prices { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .st-pr-float { animation: none; }
+  .st-pr-button, .st-pr-feature, .st-pr-plan-cta { transition: none; }
+}

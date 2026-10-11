@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Moz · final-a</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: #f4f1ea; color: #141413; font: 14px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; width: 1500px; padding: 0 0 24px; }
+  header { display: flex; align-items: baseline; gap: 16px; padding: 18px 24px 12px; }
+  header h1 { margin: 0; font-size: 26px; letter-spacing: -0.01em; }
+  header p { margin: 0; color: #6b665c; font-size: 13px; }
+  .row { margin: 0 16px 12px; border-radius: 18px; padding: 14px 12px 10px; }
+  .row h2 { margin: 0 0 4px 6px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
+  .cells { display: flex; gap: 8px; align-items: flex-end; }
+  figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  figcaption { font-size: 12px; font-weight: 600; letter-spacing: .03em; }
+  .c170 { width: 170px; }
+  .night { background: #0b0e1a; color: #dfe5f5; }
+  .day { background: linear-gradient(#b9e3f7 0 150px, #7cc35a 150px 100%); color: #12320d; }
+  .scale { background: #faf9f5; }
+  .scale .cells { gap: 26px; }
+  .tile { border-radius: 10px; padding: 8px; display: flex; align-items: flex-end; }
+  .tile.n { background: #0b0e1a; } .tile.d { background: linear-gradient(#b9e3f7 0 55%, #7cc35a 55%); }
+  .walkrow { background: linear-gradient(#cfeaf8 0 250px, #8fcf6a 250px 100%); position: relative; overflow: hidden; padding-top: 14px; }
+  .walkrow h2 { margin-bottom: 26px; }
+  .walkrow::after { content: ""; position: absolute; left: 0; right: 0; top: 326px; height: 34px; background: linear-gradient(#e8d3a6, #d9be8a); border-radius: 50%/30%; opacity: .9; }
+  .walkrow .cells { position: relative; z-index: 1; gap: 30px; }
+  .w280 { width: 280px; }
+  .still .moz, .still .moz * { animation: none !important; }
+  /*KIT_CSS*/
+</style>
+</head>
+<body>
+<header><h1>Moz · final-a</h1><p>v2-blob body + sprout, expressive-rig face/arms, icon-mochi fur halo · viewBox 240×260 · 8 moods</p></header>
+<section class="row night still"><h2>Night navy #0b0e1a</h2><div class="cells" id="r1"></div></section>
+<section class="row day still"><h2>Daytime meadow</h2><div class="cells" id="r2"></div></section>
+<section class="row scale still"><h2>Scale · happy at 40 / 96 / 400 px</h2><div class="cells" id="r3"></div></section>
+<section class="row walkrow"><h2>walkSide inside div.is-walking · paused at three phases (negative animation-delay)</h2><div class="cells" id="r4"></div></section>
+<script>
+/*KIT_JS*/
+const MOODS = ['happy', 'stern', 'cheer', 'wave', 'walk', 'walkSide', 'wink', 'surprised'];
+const row = (id, pre) => document.getElementById(id).innerHTML = MOODS.map(m =>
+  `<figure><div class="c170">${moz(m, { prefix: pre + m })}</div><figcaption>${m}</figcaption></figure>`).join('');
+row('r1', 'n'); row('r2', 'd');
+document.getElementById('r3').innerHTML =
+  `<figure><div style="width:40px">${moz('happy', { prefix: 's40' })}</div><figcaption>40 px</figcaption></figure>` +
+  `<figure><div class="tile n"><div style="width:40px">${moz('happy', { prefix: 's40n' })}</div></div><figcaption>40 on navy</figcaption></figure>` +
+  `<figure><div class="tile d"><div style="width:40px">${moz('stern', { prefix: 's40d' })}</div></div><figcaption>40 stern</figcaption></figure>` +
+  `<figure><div style="width:96px">${moz('happy', { prefix: 's96' })}</div><figcaption>96 px</figcaption></figure>` +
+  `<figure><div class="tile n"><div style="width:96px">${moz('stern', { prefix: 's96n' })}</div></div><figcaption>96 stern</figcaption></figure>` +
+  `<figure><div style="width:400px">${moz('happy', { prefix: 's400' })}</div><figcaption>400 px</figcaption></figure>` +
+  `<figure><div style="width:300px">${moz('walkSide', { prefix: 's300' })}</div><figcaption>walkSide static pose</figcaption></figure>`;
+document.getElementById('r4').innerHTML = [['0s', 'phase 0 · contact'], ['-0.18s', 'phase 25% · passing'], ['-0.45s', 'phase 62% · push-off']]
+  .map(([d, label], i) => `<figure><div class="is-walking is-paused w280" style="--phase:${d}">${moz('walkSide', { prefix: 'w' + i })}</div><figcaption>${label}</figcaption></figure>`).join('') +
+  `<figure><div class="is-walking is-paused w280" style="--phase:-0.36s">${moz('walk', { prefix: 'wf' })}</div><figcaption>frontal walk · 50%</figcaption></figure>`;
+</script>
+</body>
+</html>

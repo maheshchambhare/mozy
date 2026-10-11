@@ -1,0 +1,281 @@
+/* ==========================================================================
+   MOZY scroll story: "Your world" (#worlds) and the download finale (#get).
+   Both scenes are inline SVG; WorldChapter.tsx and FinalCta.tsx drive them with useScene.
+   Classes are prefixed st-world- / st-final- because every stylesheet ships in one bundle.
+   ========================================================================== */
+
+/* ── Your world: a sticky stage over a tall track ─────────────────────── */
+.st-world {
+  --st-world-top: clamp(84px, 13vh, 116px);
+  --st-world-bottom: clamp(84px, 12vh, 104px);
+  --st-world-hud: 58px;
+  position: relative;
+  padding: 0;
+  overflow: clip;
+  background: #cfe7f7;
+}
+.st-world-stage { position: relative; height: 100vh; height: 100svh; min-height: 560px; overflow: hidden; }
+@media (prefers-reduced-motion: no-preference) and (min-height: 520px) {
+  .st-world { height: 220vh; }
+  .st-world-stage { position: sticky; top: 0; min-height: 0; }
+}
+
+/* Sky layers cross-fade from desert haze to lilac ruins to a clear morning (the park layer is the resting state). */
+.st-world-bg { position: absolute; inset: 0; pointer-events: none; }
+.st-world-sky { position: absolute; inset: 0; }
+.st-world-sky.is-desert { background: linear-gradient(180deg, #cfe7f7 0%, #ecebe2 30%, #fbe5c9 62%, #f6cd9f 100%); }
+.st-world-sky.is-city { background: linear-gradient(180deg, #d6e4f6 0%, #e7e4f3 34%, #e3dcef 64%, #d6cce6 100%); }
+.st-world-sky.is-park { background: linear-gradient(180deg, #cde8fb 0%, #e0f1fc 52%, #f1f9f1 100%); }
+.st-world-cloud { position: absolute; fill: #fff; }
+.st-world-cloud.is-0 { left: 40%; top: 84%; width: clamp(110px, 11vw, 180px); }
+.st-world-cloud.is-1 { left: 45%; top: 74%; width: clamp(80px, 7vw, 120px); }
+.st-world-cloud.is-2 { right: 3%; top: 52%; width: clamp(100px, 9vw, 150px); }
+.st-world-bank { position: absolute; left: 0; bottom: 0; width: 100%; height: 22%; }
+.st-world-bank .is-back { fill: #fff; opacity: 0.55; }
+.st-world-bank .is-front { fill: var(--st-cream); }
+/* The walk's meadow ends in a grassy ledge with an earthy underside, so the two chapters read as one landscape. */
+.st-world-ledge { position: absolute; z-index: 2; top: -1px; left: 0; display: block; width: 100%; height: auto; aspect-ratio: 1440 / 150; min-height: 84px; pointer-events: none; }
+
+/* Copy and chips on the left, the island on the right; stacked on phones. */
+.st-world-inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  grid-template-rows: minmax(0, 1fr);
+  align-items: center;
+  column-gap: clamp(28px, 4vw, 64px);
+  padding: var(--st-world-top) 0 var(--st-world-bottom);
+}
+.st-world-text { min-width: 0; display: flex; flex-direction: column; gap: clamp(22px, 4vh, 38px); }
+.st-world-copy { display: flex; flex-direction: column; align-items: flex-start; }
+.st-world-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 11px; border-radius: 999px; background: rgba(255, 255, 255, 0.62); border: 1px solid rgba(255, 255, 255, 0.9); font-size: 12px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #14304a; }
+.st-world-eyebrow svg { width: 16px; height: 16px; color: #2f8f4e; }
+.st-world-title { margin-top: clamp(14px, 2.2vh, 20px); font-family: var(--st-display); font-weight: 700; font-size: clamp(32px, min(3.7vw, 5.8vh), 54px); line-height: 1.06; letter-spacing: -0.028em; color: #14304a; text-wrap: balance; }
+.st-world-accent { position: relative; display: inline-block; white-space: nowrap; color: #2b8a4a; }
+.st-world-accent svg { position: absolute; left: 2%; bottom: -0.12em; width: 96%; height: 0.3em; overflow: visible; }
+.st-world-accent path { fill: none; stroke: currentColor; stroke-width: 5; stroke-linecap: round; opacity: 0.5; }
+.st-world-lede { max-width: 470px; margin-top: clamp(12px, 2vh, 18px); font-size: clamp(15.5px, min(1.3vw, 2.3vh), 17.5px); line-height: 1.6; color: rgba(20, 48, 74, 0.74); }
+
+/* Showcase: the home-screen widget in front, the analytics card tucked behind it. */
+.st-world-showcase { position: relative; width: min(100%, 520px); height: calc(var(--wd) * 0.86 + 20px); --wd: clamp(290px, 24vw, 350px); }
+.st-wd { position: absolute; z-index: 2; left: 0; top: 14px; width: var(--wd); margin: 0; padding: 1.15em 1.3em 1em; font-size: calc(var(--wd) / 25.3); border-radius: 1.9em; background: linear-gradient(160deg, #eef4ec 0%, #dce8d9 100%); border: 1px solid rgba(255, 255, 255, 0.85); box-shadow: 0 1.5em 3em rgba(40, 70, 50, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.9); rotate: -2deg; }
+.st-wd-tag { position: absolute; top: -0.95em; left: 1.3em; padding: 0.38em 0.85em; border-radius: 999px; background: #14304a; color: #fff; font-size: 0.68em; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; box-shadow: 0 6px 14px rgba(20, 48, 74, 0.2); }
+.st-wd-head { display: flex; align-items: center; justify-content: space-between; gap: 0.6em; }
+.st-wd-world { font-size: 0.8em; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #3a7a52; }
+.st-wd-streak { display: inline-flex; align-items: center; gap: 0.25em; font-size: 0.82em; font-weight: 700; color: #3f4f44; }
+.st-wd-streak svg { width: 1.2em; height: 1.2em; }
+.st-wd-body { display: flex; align-items: center; gap: 0.75em; margin: 0.55em 0 0.6em; }
+/* Moz stands in the widget as himself (no backing circle), like the round face in the store art; the crown sits on his head. */
+.st-wd-avatar { position: relative; flex: none; width: 5.3em; aspect-ratio: 300 / 340; margin: -0.5em 0 -0.35em -0.3em; }
+.st-wd-avatar .st-moz { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 0.25em 0.35em rgba(50, 80, 55, 0.18)); }
+.st-wd-crown { position: absolute; left: 63%; top: 24%; width: 1.55em; height: auto; rotate: 22deg; transform-origin: 30% 100%; opacity: 0; scale: 0.3; transition: opacity 0.3s, scale 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.st-world:is([data-phase='park'], [data-phase='done']) .st-wd-crown { opacity: 1; scale: 1; }
+.st-wd-bubble { position: relative; flex: 1; min-width: 0; padding: 0.72em 0.95em; border-radius: 1em; background: #fff; font-size: 0.92em; font-weight: 600; line-height: 1.32; color: #2b3a31; box-shadow: 0 0.3em 0.8em rgba(60, 80, 60, 0.08); }
+.st-wd-bubble::before { content: ''; position: absolute; left: -0.45em; top: 50%; width: 0.9em; height: 0.9em; background: #fff; border-radius: 0.15em; transform: translateY(-50%) rotate(45deg); }
+.st-wd-bubble b { display: block; font-weight: 700; color: #1e2b23; }
+.st-wd-inline-crown { width: 1.15em; height: auto; margin-left: 0.3em; vertical-align: -0.12em; }
+.st-wd-foot { display: flex; align-items: center; font-size: 0.82em; font-weight: 700; color: #3d6b4f; }
+.st-wd-foot span { display: none; align-items: center; gap: 0.35em; }
+.st-wd-foot i { font-style: normal; color: #9db3a4; margin: 0 0.2em; }
+.st-wd-foot svg { width: 1.1em; height: 1.1em; }
+.st-world [data-phase-of] { display: none; }
+.st-world[data-phase='desert'] [data-phase-of='desert'], .st-world[data-phase='city'] [data-phase-of='city'], .st-world:is([data-phase='park'], [data-phase='done']) [data-phase-of='park'] { display: inline; }
+.st-world[data-phase='desert'] .st-wd-foot [data-phase-of='desert'], .st-world[data-phase='city'] .st-wd-foot [data-phase-of='city'], .st-world:is([data-phase='park'], [data-phase='done']) .st-wd-foot [data-phase-of='park'] { display: inline-flex; }
+.st-world [data-phase-of] { animation: st-world-pop 0.45s var(--st-ease); }
+.st-wa { position: absolute; z-index: 3; left: calc(var(--wd) - 64px); top: calc(var(--wd) * 0.4); width: calc(var(--wd) * 0.58); margin: 0; padding: 18px 14px 10px; border-radius: 22px; background: #fff; border: 1px solid rgba(30, 37, 28, 0.06); box-shadow: 0 18px 36px rgba(60, 60, 40, 0.14); rotate: 3deg; }
+.st-wa .st-wd-tag { font-size: 10px; top: -10px; left: 14px; background: #2b8a4a; }
+.st-wa-head { display: flex; align-items: center; justify-content: space-between; }
+.st-wa-head b { font-family: var(--st-display); font-weight: 600; font-size: 15px; color: #14304a; }
+.st-wa-seg { display: inline-flex; padding: 2px; border-radius: 99px; background: #f1ede4; }
+.st-wa-seg i { font-style: normal; padding: 1px 7px; border-radius: 99px; font-size: 10px; font-weight: 800; color: #9a937f; }
+.st-wa-seg i.is-on { background: #14304a; color: #fff; }
+.st-wa-chart { display: block; width: 100%; height: auto; margin-top: 8px; }
+.st-wa-day { font-size: 9px; font-weight: 700; fill: #9a937f; }
+.st-wa-legend { display: flex; gap: 12px; margin-top: 4px; font-size: 10.5px; font-weight: 700; color: #5d665a; }
+.st-wa-legend span::before { content: ''; display: inline-block; width: 8px; height: 8px; margin-right: 5px; border-radius: 50%; background: #2f9a58; }
+.st-wa-legend .is-spent::before { background: #f59a4a; }
+
+/* The art column is a size container, so the island fits whatever height the stage has. */
+.st-world-art { position: relative; height: 100%; min-width: 0; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(6px, 1.2vh, 12px); container-type: size; }
+/* The 100% fallback keeps the island visible in browsers without container units. */
+.st-world-hud, .st-world-box { width: 100%; width: min(100cqw, (100cqh - var(--st-world-hud)) * 1.40625); }
+
+/* Level badge and the three-stop track. Only the current world's label is displayed. */
+.st-world-hud { position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; gap: 10px 16px; }
+.st-world-badge { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 18px 6px 7px; border-radius: 999px; background: #fff; box-shadow: 0 12px 28px rgba(70, 55, 30, 0.12); font-family: var(--st-display); font-weight: 600; font-size: 17px; line-height: 1.1; color: var(--st-ink); white-space: nowrap; }
+.st-world-label { display: none; align-items: center; gap: 10px; }
+.st-world-label .st-world-glyph { width: 30px; height: 30px; padding: 6px; border-radius: 50%; background: var(--st-green); color: #fff; }
+.st-world[data-phase='desert'] .st-world-label[data-label='desert'],
+.st-world[data-phase='city'] .st-world-label[data-label='city'],
+.st-world[data-phase='park'] .st-world-label[data-label='park'],
+.st-world[data-phase='done'] .st-world-label[data-label='park'] { display: inline-flex; }
+.st-world-track { position: relative; flex: none; display: flex; justify-content: space-between; width: 196px; }
+.st-world-track-line { position: absolute; left: 17px; right: 17px; top: 15px; height: 4px; overflow: hidden; border-radius: 4px; background: rgba(30, 37, 28, 0.14); }
+.st-world-track-fill { position: absolute; inset: 0; border-radius: inherit; background: var(--st-green); transform-origin: left center; }
+.st-world-stop { position: relative; display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 11px; font-weight: 800; letter-spacing: 0.02em; color: #3f4a3b; }
+.st-world-stop .st-world-glyph { width: 34px; height: 34px; padding: 8px; border-radius: 50%; background: #fff; color: #9aa094; box-shadow: 0 4px 12px rgba(70, 55, 30, 0.12); transition: background 0.3s, color 0.3s, transform 0.3s var(--st-ease); }
+.st-world[data-phase='desert'] .st-world-stop[data-stop='desert'] .st-world-glyph,
+.st-world[data-phase='city'] .st-world-stop:is([data-stop='desert'], [data-stop='city']) .st-world-glyph,
+.st-world:is([data-phase='park'], [data-phase='done']) .st-world-stop .st-world-glyph { background: var(--st-green); color: #fff; }
+
+/* The island box keeps the SVG's 900 x 640 ratio, so Moz is placed in plain percentages of it. */
+.st-world-box { position: relative; flex: none; aspect-ratio: 900 / 640; }
+.st-world-float { position: absolute; inset: 0; }
+/* Suns sit behind the island: a big warm disc over the desert, a bright small one over the park. */
+.st-world-glow { position: absolute; left: 36%; top: -6%; width: 50%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #ffe6b8 0 36%, rgba(255, 202, 136, 0.6) 44%, rgba(255, 196, 120, 0.22) 58%, rgba(255, 196, 120, 0) 72%); opacity: 0; }
+.st-world-sun { position: absolute; left: 74%; top: -2%; width: 21%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fffdf2 0 32%, #fff0bb 44%, rgba(255, 234, 166, 0.5) 56%, rgba(255, 234, 166, 0) 72%); }
+.st-world-island { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.st-world-walker { position: absolute; inset: 0; pointer-events: none; }
+.st-world-moz { position: absolute; left: 52.22%; top: 58.75%; width: 13.5%; transform: translate(-50%, -95%); }
+.st-world-moz .st-moz { width: 100%; height: auto; }
+.st-world .st-moz.st-world-moz-cheer { display: none; }
+.st-world[data-phase='done'] .st-moz.st-world-moz-walk { display: none; }
+.st-world[data-phase='done'] .st-moz.st-world-moz-cheer { display: block; }
+.st-world-shadow { position: absolute; left: 32%; right: 26%; bottom: -4%; height: 6%; border-radius: 50%; background: radial-gradient(closest-side, rgba(90, 64, 40, 0.26), rgba(90, 64, 40, 0)); }
+
+/* Desert-only pieces rest hidden: the finished park is the markup's natural state. */
+.st-world-shimmer, .st-world-tumble, .st-world-cactus, .st-world-dust { opacity: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .st-world-float { animation: st-world-float 7s ease-in-out infinite; }
+  .st-world-shadow { animation: st-world-shadow 7s ease-in-out infinite; }
+  .st-world-cloud { animation: st-world-drift 28s ease-in-out infinite alternate; }
+  .st-world-cloud.is-1 { animation-duration: 36s; animation-delay: -9s; }
+  .st-world-cloud.is-2 { animation-duration: 32s; animation-delay: -15s; }
+  .st-world-label { animation: st-world-pop 0.5s var(--st-ease); }
+  .st-world-bob { animation: st-world-bob 5.2s ease-in-out infinite; }
+  .st-world-bob.is-b { animation-duration: 6.4s; animation-delay: -2s; }
+  .st-world-bob.is-c { animation-duration: 4.6s; animation-delay: -1s; }
+  .st-world-shimmer path { animation: st-world-shimmer 2.6s ease-in-out infinite; }
+  .st-world-stream { animation: st-world-stream 0.8s linear infinite; }
+  .st-world-flutter { transform-box: fill-box; transform-origin: center; animation: st-world-flutter 4.2s ease-in-out infinite; }
+  .st-world-flutter.is-b { animation-duration: 5.2s; animation-delay: -1.7s; }
+  .st-world-wings { transform-box: fill-box; transform-origin: center; animation: st-world-flap 0.28s ease-in-out infinite alternate; }
+  .st-world-bird { transform-box: fill-box; transform-origin: center; animation: st-world-flap-bird 0.5s ease-in-out infinite alternate; }
+  .st-world-bird.is-b { animation-delay: -0.2s; }
+  .st-world-bird.is-c { animation-delay: -0.35s; }
+}
+@keyframes st-world-float { 50% { transform: translateY(-10px); } }
+@keyframes st-world-shadow { 50% { transform: scaleX(0.9); opacity: 0.7; } }
+@keyframes st-world-drift { from { transform: translateX(-26px); } to { transform: translateX(30px); } }
+@keyframes st-world-pop { from { opacity: 0; transform: translateY(6px) scale(0.96); } }
+@keyframes st-world-bob { 50% { transform: translateY(-8px); } }
+@keyframes st-world-shimmer { 0%, 100% { transform: translateY(4px); opacity: 0; } 50% { transform: translateY(-4px); opacity: 0.9; } }
+@keyframes st-world-stream { to { stroke-dashoffset: -38; } }
+@keyframes st-world-flutter { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(10px, -8px); } 50% { transform: translate(18px, 2px); } 75% { transform: translate(6px, 8px); } }
+@keyframes st-world-flap { to { transform: scaleX(0.35); } }
+@keyframes st-world-flap-bird { to { transform: scaleY(0.5); } }
+
+@media (max-width: 860px) {
+  .st-world { --st-world-top: 82px; --st-world-bottom: 90px; --st-world-hud: 44px; }
+  .st-world-inner { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; row-gap: 12px; align-items: stretch; }
+  .st-world-text { display: contents; }
+  .st-world-copy { grid-row: 1; }
+  .st-world-art { grid-row: 2; }
+  .st-world-showcase { grid-row: 3; justify-self: center; width: var(--wd); height: auto; --wd: min(92vw, 330px); }
+  .st-wd { position: relative; top: 0; rotate: 0deg; }
+  .st-wa { display: none; }
+  .st-world-eyebrow { font-size: 11px; padding: 5px 12px 5px 9px; }
+  .st-world-title { margin-top: 10px; font-size: clamp(26px, 7.2vw, 38px); }
+  .st-world-lede { margin-top: 8px; font-size: 15px; line-height: 1.5; }
+  .st-world-ledge { min-height: 60px; }
+  .st-world-hud { width: 100%; }
+  .st-world-badge { min-height: 38px; padding: 4px 14px 4px 5px; font-size: 15px; }
+  .st-world-label { gap: 8px; }
+  .st-world-label .st-world-glyph { width: 28px; height: 28px; }
+  .st-world-track { width: 124px; }
+  .st-world-track-line { top: 13px; left: 14px; right: 14px; }
+  .st-world-stop .st-world-glyph { width: 30px; height: 30px; padding: 7px; }
+  .st-world-stop-level { display: none; }
+}
+/* Short laptop screens: the widget stays, the analytics card steps out so the copy keeps its room. */
+@media (min-width: 861px) and (max-height: 820px) {
+  .st-world-showcase { height: calc(var(--wd) * 0.52 + 20px); --wd: clamp(280px, 23vw, 330px); }
+  .st-wa { display: none; }
+}
+/* Short phones: tighter copy and text-only chips leave the island room to breathe. */
+@media (max-width: 860px) and (max-height: 760px) {
+  .st-world { --st-world-top: 76px; --st-world-bottom: 84px; }
+  .st-world-inner { row-gap: 10px; }
+  .st-world-title { font-size: clamp(24px, 6.8vw, 32px); }
+  .st-world-lede { font-size: 14.5px; line-height: 1.45; }
+  .st-world-showcase { --wd: min(88vw, 290px); }
+}
+
+/* ── Download finale on a bright day ──────────────────────────────────── */
+.st-final { position: relative; overflow: clip; padding: clamp(160px, 18vh, 200px) 0 0; text-align: center; background: linear-gradient(180deg, #d6ecfa 0%, #dcf0fb 30%, #d3ebfa 56%, #e2f2f2 80%, #e9f5e5 100%); }
+.st-final .st-anchor { position: absolute; top: 0; left: 0; }
+.st-final-sky { position: absolute; inset: 0; pointer-events: none; }
+/* The sun rises behind the far hills; phones, which only see the middle of the landscape, get it in the top corner. */
+.st-final-sun { position: absolute; left: 79%; top: -7%; width: 11%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fffdf0 0 30%, #ffeaa0 44%, rgba(255, 226, 140, 0.45) 56%, rgba(255, 226, 140, 0) 72%); }
+/* The cream cloud bank hangs from the questions section into the sky, so the two read as one page. */
+.st-final-bank { position: absolute; top: -1px; left: 0; display: block; width: 100%; height: clamp(70px, 9vw, 130px); }
+.st-final-bank .is-back { fill: #fff; opacity: 0.75; }
+.st-final-bank .is-front { fill: var(--st-cream); }
+/* Phones see the sky sun instead of the one behind the hills; it sits fully inside the section so its glow is never cut. */
+.st-final-sun.is-sky { display: none; left: auto; right: 14px; top: 84px; width: 104px; }
+/* Two small floating islands from Moz's world drift in the sky. */
+.st-final-isle { position: absolute; height: auto; filter: drop-shadow(0 14px 16px rgba(60, 90, 110, 0.14)); }
+.st-final-isle.is-a { left: 6.5%; top: 34%; width: clamp(120px, 10.5vw, 170px); }
+.st-final-isle.is-b { right: 9%; top: 19%; width: clamp(72px, 6vw, 104px); }
+.st-final-cloud { position: absolute; fill: #fff; }
+.st-final-cloud.is-0 { left: 3%; top: 21%; width: clamp(120px, 13vw, 210px); opacity: 0.95; }
+.st-final-cloud.is-1 { right: 19%; top: 13%; width: clamp(80px, 8vw, 130px); opacity: 0.85; }
+.st-final-cloud.is-2 { right: 4%; top: 37%; width: clamp(110px, 11vw, 170px); opacity: 0.9; }
+.st-final-birds { position: absolute; left: clamp(16px, 16vw, 260px); top: clamp(120px, 11vw, 170px); width: clamp(64px, 6.5vw, 104px); fill: none; stroke: #3f4a5c; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+.st-final-inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
+.st-final .st-final-eyebrow { color: var(--st-green-deep); }
+.st-final-title { max-width: 900px; font-family: var(--st-display); font-weight: 700; font-size: clamp(40px, 5.6vw, 84px); line-height: 1; letter-spacing: -0.035em; color: var(--st-ink); text-wrap: balance; }
+.st-final-lede { max-width: 560px; margin-top: 20px; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.6; color: #3f4a3b; }
+.st-final .st-final-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px 28px; margin-top: clamp(26px, 4vh, 38px); }
+.st-final-qr { display: none; align-items: center; gap: 14px; padding: 12px 18px 12px 12px; border-radius: 22px; background: #fff; text-align: left; box-shadow: 0 16px 40px rgba(40, 80, 50, 0.12); }
+.st-final-qr img { width: 112px; height: 112px; }
+.st-final-qr p { max-width: 150px; font-size: 14px; line-height: 1.4; color: #4f574a; }
+.st-final-qr strong { display: block; font-family: var(--st-display); font-weight: 600; font-size: 18px; color: var(--st-ink); }
+@media (hover: hover) and (pointer: fine) { .st-final-qr { display: flex; } }
+.st-final-price { max-width: 600px; margin-top: 22px; font-size: 14px; font-weight: 600; line-height: 1.6; color: #3f4a3b; text-wrap: balance; }
+.st-final-link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 15px; font-weight: 800; color: var(--st-green-deep); text-decoration: underline; text-underline-offset: 4px; }
+
+/* The landscape keeps the viewBox ratio and is never narrower than 860px, so phones see its middle. */
+.st-final-scene { position: relative; z-index: 1; left: 50%; width: max(100%, 860px); aspect-ratio: 1440 / 420; margin-top: calc(max(100vw, 860px) * -0.1); transform: translateX(-50%); }
+.st-final-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.st-final-layer { position: absolute; inset: 0; }
+/* Hill paths run 10 units past the bottom edge, so parallax and rounding never open a gap above the footer. */
+svg.st-final-layer, .st-final-layer > svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.st-final-moz { position: absolute; left: 61.8%; bottom: 24.3%; width: 10.5%; transform: translate(-50%, 5%); }
+.st-final-moz .st-moz { width: 100%; height: auto; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .st-final-cloud { animation: st-world-drift 30s ease-in-out infinite alternate; }
+  .st-final-isle { animation: st-world-bob 6s ease-in-out infinite; }
+  .st-final-isle.is-b { animation-duration: 4.8s; animation-delay: -2s; }
+  .st-final-cloud.is-1 { animation-duration: 38s; animation-delay: -12s; }
+  .st-final-cloud.is-2 { animation-duration: 34s; animation-delay: -6s; }
+  .st-final-bird { transform-box: fill-box; transform-origin: center; animation: st-world-flap-bird 0.55s ease-in-out infinite alternate; }
+  .st-final-bird.is-b { animation-delay: -0.15s; }
+  .st-final-bird.is-c { animation-delay: -0.3s; }
+  .st-final-bird.is-d { animation-delay: -0.42s; }
+  .st-final-flutter { transform-box: fill-box; transform-origin: center; animation: st-world-flutter 4.6s ease-in-out infinite; }
+  .st-final-flutter.is-b { animation-duration: 5.6s; animation-delay: -2.2s; }
+  .st-final-wings { transform-box: fill-box; transform-origin: center; animation: st-world-flap 0.3s ease-in-out infinite alternate; }
+}
+
+@media (max-width: 560px) {
+  .st-final { padding-top: 178px; }
+  .st-final-bank { height: 58px; }
+  .st-final-title { font-size: clamp(36px, 10vw, 46px); }
+  .st-final-lede { font-size: 17px; }
+  .st-final-price { font-size: 13.5px; }
+  .st-final-scene .st-final-sun { display: none; }
+  .st-final-sun.is-sky { display: block; }
+  .st-final-isle.is-a { left: 12px; top: 74px; width: 92px; }
+  .st-final-isle.is-b { display: none; }
+  .st-final-cloud.is-0 { left: -14%; top: 44%; width: 120px; }
+  .st-final-cloud.is-1 { display: none; }
+  .st-final-cloud.is-2 { top: 52%; right: -10%; width: 120px; }
+  .st-final-birds { left: 40%; top: 92px; width: 66px; }
+  .st-final-moz { width: 12.5%; }
+}

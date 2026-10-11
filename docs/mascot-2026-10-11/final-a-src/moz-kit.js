@@ -1,0 +1,354 @@
+/* ===================== Moz kit · final-a · JS =====================
+ * moz(mood, opts) -> SVG markup string (viewBox 0 0 240 260; feet on y~248, sprout on the crown).
+ * moods: happy | stern | cheer | wave | walk | walkSide | wink | surprised
+ * opts.prefix  prefix for every gradient / clipPath id (required when several instances share a page)
+ * opts.title   accessible <title> (otherwise the SVG is aria-hidden)
+ * opts.gaze    [dx, dy] pupil offset in viewBox units (keep |dx| <= 5, |dy| <= 4)
+ * Rig hooks: .moz-bob .moz-shadow .moz-sprout .moz-leaf-l/.moz-leaf-r .moz-face .moz-eyes .moz-eye-l/.moz-eye-r
+ *            .moz-pupil .moz-lid-l/.moz-lid-r .moz-brow-l/.moz-brow-r .moz-mouth .moz-arm-l/.moz-arm-r
+ *            .moz-leg-l/.moz-leg-r .moz-stance (static stride offsets, reset by .is-walking)
+ * Animated groups never carry a transform attribute; their transform-origin is inline (viewBox units).
+ */
+var moz = (function () {
+  'use strict';
+  var MOODS = ['happy', 'stern', 'cheer', 'wave', 'walk', 'walkSide', 'wink', 'surprised'];
+  var r2 = function (n) { return Math.round(n * 100) / 100; };
+  var D2R = Math.PI / 180;
+
+  // Catmull-Rom through points -> cubic Bezier path
+  function smooth(pts, closed) {
+    var n = pts.length;
+    var at = function (i) { return pts[closed ? (i + n) % n : Math.max(0, Math.min(n - 1, i))]; };
+    var s = function (q) { return r2(q[0]) + ' ' + r2(q[1]); };
+    var d = 'M' + s(pts[0]);
+    var segs = closed ? n : n - 1;
+    for (var i = 0; i < segs; i++) {
+      var p0 = at(i - 1), p1 = at(i), p2 = at(i + 1), p3 = at(i + 2);
+      d += ' C' + s([p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6]) + ' ' +
+        s([p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6]) + ' ' + s(p2);
+    }
+    return closed ? d + ' Z' : d;
+  }
+
+  // Fat crescent leaf around a quadratic centreline P0 (inside the bud) -> P1 -> P2 (drooping tip).
+  // Thick right from the bud, near-uniform belly, round cap; top edge fuller than the underside.
+  function makeLeaf(P0, P1, P2, hwMax) {
+    var q = function (t) { var a = (1 - t) * (1 - t), b = 2 * (1 - t) * t, c = t * t; return [a * P0[0] + b * P1[0] + c * P2[0], a * P0[1] + b * P1[1] + c * P2[1]]; };
+    var dq = function (t) { return [2 * (1 - t) * (P1[0] - P0[0]) + 2 * t * (P2[0] - P1[0]), 2 * (1 - t) * (P1[1] - P0[1]) + 2 * t * (P2[1] - P1[1])]; };
+    var prof = function (t) {
+      var w = t < 0.3 ? 0.66 + 0.34 * Math.sin(t / 0.3 * Math.PI / 2) : 1 - 0.07 * (t - 0.3) / 0.7;
+      var c0 = 0.7;
+      if (t > c0) { var k = (t - c0) / (1 - c0); w *= Math.sqrt(Math.max(0, 1 - k * k)); }
+      return w * hwMax;
+    };
+    var N = 30, top = [], bot = [], crease = [];
+    for (var i = 0; i <= N; i++) {
+      var t = i / N, c = q(t), d = dq(t), L = Math.hypot(d[0], d[1]), nx = -d[1] / L, ny = d[0] / L, w = prof(t);
+      top.push([c[0] + nx * w * 1.1, c[1] + ny * w * 1.1]);
+      bot.push([c[0] - nx * w * 0.86, c[1] - ny * w * 0.86]);
+      if (t >= 0.12 && t <= 0.74) crease.push([c[0] + nx * w * 0.12, c[1] + ny * w * 0.12]);
+    }
+    var pts = top.slice(0, N).concat([q(1)], bot.slice(0, N).reverse());
+    var th = 0.42, ch = q(th), dh = dq(th), Lh = Math.hypot(dh[0], dh[1]), wh = prof(th);
+    var hi = { x: ch[0] + (-dh[1] / Lh) * wh * 0.48, y: ch[1] + (dh[0] / Lh) * wh * 0.48, a: Math.atan2(dh[1], dh[0]) / D2R };
+    return { d: smooth(pts, true), crease: smooth(crease, false), hi: hi };
+  }
+
+  // ellipse as a path (no transform attribute, so userSpace gradients stay in world space)
+  function ellipsePath(cx, cy, rx, ry, rot) {
+    var k = 0.5523, c = Math.cos(rot * D2R), s = Math.sin(rot * D2R);
+    var P = function (x, y) { return r2(cx + x * c - y * s) + ' ' + r2(cy + x * s + y * c); };
+    return 'M' + P(rx, 0) + ' C' + P(rx, ry * k) + ' ' + P(rx * k, ry) + ' ' + P(0, ry) +
+      ' C' + P(-rx * k, ry) + ' ' + P(-rx, ry * k) + ' ' + P(-rx, 0) +
+      ' C' + P(-rx, -ry * k) + ' ' + P(-rx * k, -ry) + ' ' + P(0, -ry) +
+      ' C' + P(rx * k, -ry) + ' ' + P(rx, -ry * k) + ' ' + P(rx, 0) + ' Z';
+  }
+
+  // two circles joined by their outer tangents (a club-shaped capsule): shoulder r1 -> mitten r2
+  function capsule(x1, y1, ra, x2, y2, rb) {
+    var dx = x2 - x1, dy = y2 - y1, d = Math.hypot(dx, dy), a = Math.atan2(dy, dx);
+    var ph = Math.acos(Math.max(-1, Math.min(1, (ra - rb) / d)));
+    var pt = function (x, y, r, ang) { return r2(x + r * Math.cos(ang)) + ' ' + r2(y + r * Math.sin(ang)); };
+    var big2 = 2 * ph > Math.PI ? 1 : 0, big1 = (2 * Math.PI - 2 * ph) > Math.PI ? 1 : 0;
+    return 'M' + pt(x1, y1, ra, a + ph) + ' L' + pt(x2, y2, rb, a + ph) +
+      ' A' + rb + ' ' + rb + ' 0 ' + big2 + ' 0 ' + pt(x2, y2, rb, a - ph) +
+      ' L' + pt(x1, y1, ra, a - ph) +
+      ' A' + ra + ' ' + ra + ' 0 ' + big1 + ' 0 ' + pt(x1, y1, ra, a + ph) + ' Z';
+  }
+
+  var LEAF = makeLeaf([2, 1], [-25, -44], [-63, -20], 19);
+
+  var C = {
+    skin0: '#FFFDF9', skin1: '#FBF4E8', skin2: '#F3E6D0', skin3: '#E8D3B4',
+    limbHi: '#FFFCF6', limb: '#F5E9D6', limbLo: '#E0C6A0',
+    warm: '#D9B88C', bounce: '#FFF5E4',
+    leafHi: '#BDE35F', leafMid: '#86C23C', leafLo: '#5A9628',
+    eye0: '#0D0703', eye1: '#1A100A', eye2: '#4E2D16',
+    glint: '#FF9A3D', blush: '#F79A9A', cavity: '#5A2216', cavityTop: '#3A120B', tongue: '#F2737E',
+    ink: '#2E1A10', flat: '#3B2416', pad: '#F2AE9E'
+  };
+
+  //            eyes       brows      mouth    arms [kind, angle]                   extras
+  var POSE = {
+    happy:     { eyes: 'open',   brows: 'none',   mouth: 'smile', armL: ['nub', 70],   armR: ['nub', 70] },
+    stern:     { eyes: 'stern',  brows: 'stern',  mouth: 'flat',  armL: ['nub', 64],   armR: ['stop'], lean: -2 },
+    cheer:     { eyes: 'closed', brows: 'none',   mouth: 'big',   armL: ['stub', -54, 40], armR: ['stub', -54, 40], stretch: true },
+    wave:      { eyes: 'open',   brows: 'none',   mouth: 'smile', armL: ['nub', 64],   armR: ['stub', -46, 40] },
+    walk:      { eyes: 'open',   brows: 'none',   mouth: 'smile', armL: ['stub', 28, 32], armR: ['stub', 48, 32], face: 6, lean: 4, feet: 'stride' },
+    walkSide:  { eyes: 'side',   brows: 'none',   mouth: 'smile', armL: ['near'],      armR: ['far'], lean: 5, lift: 4, feet: 'side' },
+    wink:      { eyes: 'wink',   brows: 'none',   mouth: 'big',   armL: ['nub', 64],   armR: ['nub', 34] },
+    surprised: { eyes: 'wide',   brows: 'raised', mouth: 'o',     armL: ['stub', -30, 34], armR: ['stub', -30, 34], lean: -1.5 }
+  };
+
+  function moz(mood, opts) {
+    mood = MOODS.indexOf(mood) >= 0 ? mood : 'happy';
+    opts = opts || {};
+    var p = (opts.prefix || 'moz') + '-';
+    var u = function (n) { return 'url(#' + p + n + ')'; };
+    var gaze = opts.gaze || (mood === 'walkSide' ? [2.5, 0] : [0, 0]);
+    var S = POSE[mood];
+    var side = mood === 'walkSide';
+    var defsExtra = '';
+
+    // ---------------- body ----------------
+    var BODY = 'M120 66 C170 66 208 104 208 154 C208 202 178 236 120 236 C62 236 32 202 32 154 C32 104 70 66 120 66 Z';
+
+    // ---------------- face layout ----------------
+    var EY = 148, R = 17;
+    var F = { el: 88, er: 152, sl: [1, 1], sr: [1, 1], mx: 120, mws: 1, bl: [66, 16, 10], br: [174, 16, 10], by: 168 };
+    if (S.face) { F.el += S.face; F.er += S.face; F.mx += S.face; F.bl[0] += S.face * 0.8; F.br[0] += S.face * 1.2; }
+    if (side) F = { el: 112, er: 172, sl: [1, 1], sr: [0.8, 0.93], mx: 145, mws: 0.9, bl: [89, 15.5, 10], br: [191, 8.5, 9], by: 168 };
+
+    // ---------------- sprout ----------------
+    var BUD = [120, 50];
+    var leaf = function (cls, tf) {
+      return '<g class="' + cls + '" style="transform-origin:' + BUD[0] + 'px ' + BUD[1] + 'px"><g transform="' + tf + '">' +
+        '<path d="' + LEAF.d + '" fill="none" stroke="' + C.leafMid + '" stroke-width="2.4" stroke-opacity=".2" stroke-linejoin="round"/>' +
+        '<path d="' + LEAF.d + '" fill="' + u('leaf') + '"/>' +
+        '<ellipse cx="' + r2(LEAF.hi.x) + '" cy="' + r2(LEAF.hi.y) + '" rx="19" ry="7" transform="rotate(' + r2(LEAF.hi.a) + ' ' + r2(LEAF.hi.x) + ' ' + r2(LEAF.hi.y) + ')" fill="' + u('leafHi') + '"/>' +
+        '<path d="' + LEAF.crease + '" stroke="' + C.leafLo + '" stroke-opacity=".22" stroke-width="1.7" stroke-linecap="round" fill="none"/>' +
+        '</g></g>';
+    };
+    var sproutPose = side ? ' transform="rotate(-9 120 66) translate(3 0)"' : (mood === 'cheer' ? ' transform="rotate(-3 120 66)"' : '');
+    var sprout = '<g class="moz-sprout" style="transform-origin:120px 66px"><g' + sproutPose + '>' +
+      '<path d="' + capsule(120, 70, 5.2, 120.5, 53, 4.4) + '" fill="' + u('stem') + '"/>' +
+      leaf('moz-leaf-l', 'translate(' + BUD[0] + ' ' + BUD[1] + ') rotate(5) scale(1.06)') +
+      leaf('moz-leaf-r', 'translate(' + BUD[0] + ' ' + BUD[1] + ') scale(-0.9 0.9) rotate(-3)') +
+      '<ellipse cx="120" cy="55.5" rx="14" ry="6.5" fill="' + u('leafAO') + '"/>' +
+      '<circle cx="120" cy="50" r="10" fill="none" stroke="' + C.leafMid + '" stroke-width="3" stroke-opacity=".3"/>' +
+      '<circle cx="120" cy="50" r="10" fill="' + u('bud') + '"/>' +
+      '<ellipse cx="116.4" cy="46" rx="3.6" ry="2.6" fill="#EAF8BE" opacity=".8" transform="rotate(-30 116.4 46)"/>' +
+      '</g></g>';
+
+    // ---------------- arms ----------------
+    // angle: degrees from "straight out sideways", positive = down. sideSign: -1 left, +1 right.
+    var armGrad = function (gid, ax, ay, bx, by) {
+      // perpendicular light: the normal that faces the upper-left gets the light
+      var dx = bx - ax, dy = by - ay, L = Math.hypot(dx, dy), nx = -dy / L, ny = dx / L;
+      if (nx + ny > 0) { nx = -nx; ny = -ny; }
+      var mx = (ax + bx) / 2, my = (ay + by) / 2, h = 13;
+      defsExtra += '<linearGradient id="' + p + gid + '" gradientUnits="userSpaceOnUse" x1="' + r2(mx + nx * h) + '" y1="' + r2(my + ny * h) + '" x2="' + r2(mx - nx * h) + '" y2="' + r2(my - ny * h) + '">' +
+        '<stop offset="0" stop-color="' + C.limbHi + '"/><stop offset=".5" stop-color="' + C.limb + '"/><stop offset="1" stop-color="' + C.limbLo + '"/></linearGradient>';
+      return { nx: nx, ny: ny };
+    };
+    var nubGrad = function (gid, cx, cy) {
+      defsExtra += '<radialGradient id="' + p + gid + '" gradientUnits="userSpaceOnUse" cx="' + r2(cx - 4) + '" cy="' + r2(cy - 6) + '" r="19">' +
+        '<stop offset="0" stop-color="' + C.limbHi + '"/><stop offset=".55" stop-color="' + C.limb + '"/><stop offset="1" stop-color="' + C.limbLo + '"/></radialGradient>';
+    };
+    var contact = '';  // contact shadows painted on the body (clipped)
+    var armSvg = function (s, spec) {
+      var cls = s < 0 ? 'moz-arm-l' : 'moz-arm-r', kind = spec[0], ang = spec[1], kindLen = spec[2] || 38;
+      var gid = s < 0 ? 'armL' : 'armR';
+      var sx, sy, body = '', front = false, stance = '';
+      if (kind === 'nub') {
+        sx = 120 + s * 79; sy = 172;
+        var cx = sx + s * Math.cos(ang * D2R) * 8.5, cy = sy + Math.sin(ang * D2R) * 8.5;
+        var rot = s > 0 ? ang : 180 - ang;
+        nubGrad(gid, cx, cy);
+        body = '<path d="' + ellipsePath(cx, cy, 13.4, 9.9, rot) + '" fill="' + u(gid) + '"/>' +
+          '<ellipse cx="' + r2(cx - 3 - s * 1.5) + '" cy="' + r2(cy - 5) + '" rx="4.2" ry="2.6" fill="#fff" opacity=".5"/>';
+        contact += '<ellipse cx="' + r2(cx - s * 9) + '" cy="' + r2(cy + 3) + '" rx="10" ry="15" fill="' + u('contact') + '"/>';
+        front = true;
+      } else if (kind === 'stub') {
+        sx = 120 + s * 74; sy = 162;
+        var L = kindLen, hx = sx + s * Math.cos(ang * D2R) * L, hy = sy + Math.sin(ang * D2R) * L;
+        var n = armGrad(gid, sx, sy, hx, hy);
+        body = '<path d="' + capsule(sx, sy, 11.5, hx, hy, 14) + '" fill="' + u(gid) + '"/>' +
+          '<ellipse cx="' + r2(hx + n.nx * 5) + '" cy="' + r2(hy + n.ny * 5) + '" rx="5.5" ry="3.4" fill="#fff" opacity=".5"/>';
+      } else if (kind === 'stop') {
+        // palm-out "stop" mitten in front of the body (stern: "not yet, go walk"): tall round palm with a soft pad,
+        // thumb in front of the palm pointing up toward the face, short thick forearm
+        sx = 195; sy = 178;
+        var hx2 = 212, hy2 = 124;
+        armGrad(gid, sx, sy, hx2, hy2 + 16);
+        nubGrad(gid + 'h', hx2, hy2);
+        nubGrad(gid + 't', hx2 - 19, hy2 + 4);
+        body = '<path d="' + capsule(sx, sy, 12.5, hx2 - 1, hy2 + 15, 13) + '" fill="' + u(gid) + '"/>' +
+          '<path d="' + ellipsePath(hx2, hy2, 17.5, 20, 0) + '" fill="' + u(gid + 'h') + '"/>' +
+          '<ellipse cx="' + (hx2 + 1) + '" cy="' + (hy2 + 2) + '" rx="10.5" ry="10" fill="' + u('pad') + '"/>' +
+          '<ellipse cx="' + (hx2 - 13) + '" cy="' + (hy2 + 9) + '" rx="6" ry="10" transform="rotate(-35 ' + (hx2 - 13) + ' ' + (hy2 + 9) + ')" fill="' + u('contact') + '"/>' +
+          '<path d="' + ellipsePath(hx2 - 19, hy2 + 4, 7.4, 11.5, -36) + '" fill="' + u(gid + 't') + '"/>' +
+          '<ellipse cx="' + (hx2 - 21.5) + '" cy="' + (hy2 - 1) + '" rx="2.6" ry="3.6" transform="rotate(-36 ' + (hx2 - 21.5) + ' ' + (hy2 - 1) + ')" fill="#fff" opacity=".5"/>' +
+          '<ellipse cx="' + (hx2 - 5) + '" cy="' + (hy2 - 12) + '" rx="5.5" ry="3.4" fill="#fff" opacity=".55"/>';
+        contact += '<ellipse cx="193" cy="146" rx="18" ry="30" fill="' + u('contact') + '"/>';
+        front = true;
+      } else if (kind === 'near') {
+        // walkSide near arm: in front of the body at the left flank, hangs from the shoulder; static pose swung back
+        sx = 50; sy = 168;
+        var nhx = sx, nhy = sy + 25;
+        armGrad(gid, sx, sy, nhx, nhy);
+        body = '<path d="' + capsule(sx, sy, 9.5, nhx, nhy, 11.5) + '" fill="' + u(gid) + '"/>' +
+          '<ellipse cx="' + (nhx - 4) + '" cy="' + (nhy - 2) + '" rx="3.2" ry="4.6" fill="#fff" opacity=".45"/>' +
+          '<ellipse cx="' + (sx + 7) + '" cy="' + (sy + 4) + '" rx="6" ry="12" fill="' + u('contact') + '" opacity=".7"/>';
+        stance = 'rotate(26 ' + sx + ' ' + sy + ')';
+        front = true;
+      } else if (kind === 'far') {
+        // walkSide far arm: behind the body on the right flank; static pose swung forward so the mitten peeks out
+        sx = 192; sy = 166;
+        var fhx = sx, fhy = sy + 27;
+        armGrad(gid, sx, sy, fhx, fhy);
+        body = '<path d="' + capsule(sx, sy, 9.5, fhx, fhy, 11.5) + '" fill="' + u(gid) + '"/>';
+        stance = 'rotate(-26 ' + sx + ' ' + sy + ')';
+      }
+      var inner = stance ? '<g class="moz-stance" transform="' + stance + '">' + body + '</g>' : body;
+      return { svg: '<g class="' + cls + '" style="transform-origin:' + sx + 'px ' + sy + 'px">' + inner + '</g>', front: front };
+    };
+    var aL = armSvg(-1, S.armL), aR = armSvg(1, S.armR);
+    var armsBack = (aL.front ? '' : aL.svg) + (aR.front ? '' : aR.svg);
+    var armsFront = (aL.front ? aL.svg : '') + (aR.front ? aR.svg : '');
+
+    // ---------------- feet ----------------
+    var foot = function (cls, x, y, rx, ry, grad, stance) {
+      var e = '<ellipse cx="' + x + '" cy="' + y + '" rx="' + rx + '" ry="' + ry + '" fill="' + u(grad) + '"/>' +
+        '<ellipse cx="' + r2(x - rx * 0.32) + '" cy="' + r2(y + ry * 0.28) + '" rx="' + r2(rx * 0.38) + '" ry="' + r2(ry * 0.26) + '" fill="#fff" opacity=".38"/>';
+      return '<g class="' + cls + '" style="transform-origin:' + x + 'px ' + y + 'px">' +
+        (stance ? '<g class="moz-stance" transform="' + stance + '">' + e + '</g>' : e) + '</g>';
+    };
+    var legs;
+    if (S.feet === 'side') {
+      legs = foot('moz-leg-r', 124, 240.5, 14, 9.6, 'footFar', 'translate(-29 -1)') +
+             foot('moz-leg-l', 116, 244, 15.5, 10.6, 'foot', 'translate(29 0) rotate(-8 116 244)');
+    } else if (S.feet === 'stride') {
+      legs = foot('moz-leg-l', 92, 238, 13.5, 9, 'foot', 'translate(-3 -3)') +
+             foot('moz-leg-r', 148, 239, 15, 10, 'foot', 'translate(6 2)');
+    } else {
+      legs = foot('moz-leg-l', 92, 239, 14, 9.6, 'foot') + foot('moz-leg-r', 148, 239, 14, 9.6, 'foot');
+    }
+
+    // ---------------- eyes, lids, brows ----------------
+    var openEye = function (out, kind) {
+      var Rr = kind === 'wide' ? R * 1.1 : R;
+      return '<g class="moz-pupil" transform="translate(' + gaze[0] + ' ' + gaze[1] + ')">' +
+        '<circle r="' + r2(Rr) + '" fill="' + u('eye') + '"/>' +
+        '<ellipse cx="' + r2(out * 0.2 * Rr) + '" cy="' + r2(0.7 * Rr) + '" rx="' + r2(0.27 * Rr) + '" ry="' + r2(0.13 * Rr) + '" fill="' + C.glint + '" opacity=".85"/>' +
+        '<ellipse cx="' + r2(out * 0.22 * Rr) + '" cy="' + r2(-0.36 * Rr) + '" rx="' + r2(0.43 * Rr) + '" ry="' + r2(0.4 * Rr) + '" fill="#fff"/>' +
+        '<circle cx="' + r2(-out * 0.5 * Rr) + '" cy="' + r2(0.3 * Rr) + '" r="' + r2(0.15 * Rr) + '" fill="#fff"/>' +
+        '</g>';
+    };
+    var closedArc = function () {
+      return '<path d="M-13.5 3.5 Q0 -13.5 13.5 3.5" stroke="' + C.ink + '" stroke-width="5" stroke-linecap="round" fill="none"/>';
+    };
+    var lid = function (s, cx, show) {
+      // stern lid: covers the inner-top of the eye (inner corner lower). Filled with the world-space skin gradient.
+      var out = s, x0 = cx + out * (R + 3), x1 = cx - out * (R + 3), top = EY - R - 3;
+      var yO = EY - 0.6 * R, yI = EY + 0.06 * R;
+      return '<path class="' + (s < 0 ? 'moz-lid-l' : 'moz-lid-r') + '" d="M' + r2(x0) + ' ' + r2(top) + ' L' + r2(x1) + ' ' + r2(top) +
+        ' L' + r2(x1) + ' ' + r2(yI) + ' Q' + r2(cx) + ' ' + r2(EY - 0.44 * R) + ' ' + r2(x0) + ' ' + r2(yO) + ' Z" fill="' + u('skin') + '"' + (show ? '' : ' opacity="0"') + '/>';
+    };
+    var eye = function (s) {
+      var cls = s < 0 ? 'moz-eye-l' : 'moz-eye-r';
+      var cx = s < 0 ? F.el : F.er, sc = s < 0 ? F.sl : F.sr;
+      var k = S.eyes, inner;
+      if (k === 'closed' || (k === 'wink' && s < 0)) inner = openEye(s, 'open').replace('<g class="moz-pupil"', '<g class="moz-pupil" opacity="0"') + closedArc();  // hidden pupil keeps the hook
+      else inner = openEye(s, k);
+      return '<g class="' + cls + '"><g transform="translate(' + cx + ' ' + EY + ')' + (sc[0] !== 1 || sc[1] !== 1 ? ' scale(' + sc[0] + ' ' + sc[1] + ')' : '') + '">' + inner + '</g>' +
+        lid(s, cx, k === 'stern') + '</g>';
+    };
+    var eyes = '<g class="moz-eyes" style="transform-origin:120px ' + EY + 'px">' + eye(-1) + eye(1) + '</g>';
+
+    var brow = function (s) {
+      var cls = s < 0 ? 'moz-brow-l' : 'moz-brow-r', cx = s < 0 ? F.el : F.er, d, op = 1;
+      if (S.brows === 'stern') d = 'M' + r2(cx + s * 18) + ' ' + (EY - 28) + ' Q' + r2(cx + s * 3) + ' ' + (EY - 25) + ' ' + r2(cx - s * 10) + ' ' + (EY - 15);
+      else if (S.brows === 'raised') d = 'M' + r2(cx - s * 13) + ' ' + (EY - 32) + ' Q' + r2(cx + s * 1) + ' ' + (EY - 43) + ' ' + r2(cx + s * 15) + ' ' + (EY - 33);
+      else { d = 'M' + r2(cx - s * 13) + ' ' + (EY - 30) + ' Q' + cx + ' ' + (EY - 36) + ' ' + r2(cx + s * 13) + ' ' + (EY - 30); op = 0; }
+      return '<path class="' + cls + '" d="' + d + '" stroke="' + C.flat + '" stroke-width="' + (S.brows === 'stern' ? 6.6 : 5.6) + '" stroke-linecap="round" fill="none"' + (op ? '' : ' opacity="0"') + '/>';
+    };
+    var brows = brow(-1) + brow(1);
+
+    // ---------------- mouth (every variant shares one M-Q-C-C-Z skeleton so `d` can be tweened) ----------------
+    var mouthD = function (cx, top, w, h, k) {
+      var l = cx - w / 2, r = cx + w / 2;
+      return 'M' + r2(l) + ' ' + r2(top) + ' Q' + r2(cx) + ' ' + r2(top + k) + ' ' + r2(r) + ' ' + r2(top) +
+        ' C' + r2(r) + ' ' + r2(top + 0.72 * h) + ' ' + r2(cx + 0.3 * w) + ' ' + r2(top + h) + ' ' + r2(cx) + ' ' + r2(top + h) +
+        ' C' + r2(cx - 0.3 * w) + ' ' + r2(top + h) + ' ' + r2(l) + ' ' + r2(top + 0.72 * h) + ' ' + r2(l) + ' ' + r2(top) + ' Z';
+    };
+    var MW = F.mws, mx = F.mx, md, tongue = null, fillM = C.cavity;
+    if (S.mouth === 'big') { md = mouthD(mx, 162, 40 * MW, 28, 4.5); tongue = [mx, 162 + 27, 14 * MW, 10.5]; }
+    else if (S.mouth === 'o') { md = mouthD(mx, 172, 20, 19, -15); tongue = [mx, 172 + 18.5, 6.5, 4.6]; }
+    else if (S.mouth === 'flat') { md = mouthD(mx, 175, 24, 5, -3.5); fillM = C.flat; }
+    else { md = mouthD(mx, 164, 34 * MW, 22.5, 4); tongue = [mx, 164 + 22, 11.8 * MW, 8.4]; }
+    defsExtra += '<clipPath id="' + p + 'mouth"><path d="' + md + '"/></clipPath>';
+    var mouth = '<g class="moz-mouth"><path d="' + md + '" fill="' + fillM + '"/>' +
+      (tongue ? '<g clip-path="' + u('mouth') + '"><ellipse cx="' + r2(mx) + '" cy="' + (S.mouth === 'o' ? 165 : 162) + '" rx="' + r2(19 * MW) + '" ry="5" fill="' + C.cavityTop + '" opacity=".55"/>' +
+        '<ellipse cx="' + r2(tongue[0]) + '" cy="' + r2(tongue[1]) + '" rx="' + r2(tongue[2]) + '" ry="' + r2(tongue[3]) + '" fill="' + C.tongue + '"/>' +
+        '<ellipse cx="' + r2(tongue[0] - tongue[2] * 0.25) + '" cy="' + r2(tongue[1] - tongue[3] * 0.55) + '" rx="' + r2(tongue[2] * 0.42) + '" ry="1.8" fill="#FFA7AF" opacity=".55"/></g>' : '') +
+      '</g>';
+
+    var blush = '<ellipse cx="' + r2(F.bl[0]) + '" cy="' + F.by + '" rx="' + F.bl[1] + '" ry="' + F.bl[2] + '" fill="' + u('blush') + '"/>' +
+      '<ellipse cx="' + r2(F.br[0]) + '" cy="' + F.by + '" rx="' + F.br[1] + '" ry="' + F.br[2] + '" fill="' + u('blush') + '"/>';
+
+    // ---------------- body shading (all soft radial ellipses that fade to 0 at their own edge: no tone steps) ----------------
+    var bodyFill = '<path d="' + BODY + '" transform="translate(120 151) scale(1.045) translate(-120 -151)" fill="' + u('fuzz') + '"/>' +
+      '<path d="' + BODY + '" fill="' + u('skin') + '"/>' +
+      '<g clip-path="' + u('clip') + '">' +
+      '<ellipse cx="212" cy="160" rx="46" ry="92" fill="' + u('shade') + '" opacity=".55"/>' +
+      '<ellipse cx="134" cy="214" rx="104" ry="54" fill="' + u('shade') + '"/>' +
+      '<ellipse cx="118" cy="247" rx="86" ry="27" fill="' + u('bounce') + '"/>' +
+      '<ellipse cx="86" cy="104" rx="44" ry="28" transform="rotate(-30 86 104)" fill="' + u('shine') + '"/>' +
+      '<ellipse cx="121" cy="70" rx="19" ry="6" fill="' + u('crownAO') + '"/>' +
+      contact +
+      '</g>';
+
+    // ---------------- pose ----------------
+    var tf = [];
+    if (S.lift) tf.push('translate(0 ' + (-S.lift) + ')');
+    if (S.lean) tf.push('rotate(' + S.lean + ' 120 236)');
+    if (S.stretch) tf.push('translate(120 236) scale(.98 1.03) translate(-120 -236)');
+    var pose = tf.length ? ' transform="' + tf.join(' ') + '"' : '';
+
+    var title = opts.title ? '<title>' + opts.title + '</title>' : '';
+    return '<svg viewBox="0 0 240 260" xmlns="http://www.w3.org/2000/svg" class="moz is-' + mood + '" ' + (opts.title ? 'role="img"' : 'aria-hidden="true"') + '>' + title +
+      '<defs>' +
+      '<radialGradient id="' + p + 'skin" gradientUnits="userSpaceOnUse" cx="99" cy="117" r="135"><stop offset="0" stop-color="' + C.skin0 + '"/><stop offset=".45" stop-color="' + C.skin1 + '"/><stop offset=".76" stop-color="' + C.skin2 + '"/><stop offset="1" stop-color="' + C.skin3 + '"/></radialGradient>' +
+      '<radialGradient id="' + p + 'fuzz"><stop offset=".94" stop-color="#EBDCC4" stop-opacity=".8"/><stop offset=".972" stop-color="#EBDCC4" stop-opacity=".32"/><stop offset="1" stop-color="#EBDCC4" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="' + p + 'shade"><stop offset="0" stop-color="' + C.warm + '" stop-opacity=".36"/><stop offset=".45" stop-color="' + C.warm + '" stop-opacity=".24"/><stop offset=".78" stop-color="' + C.warm + '" stop-opacity=".08"/><stop offset="1" stop-color="' + C.warm + '" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="' + p + 'bounce"><stop offset="0" stop-color="' + C.bounce + '" stop-opacity=".9"/><stop offset=".5" stop-color="' + C.bounce + '" stop-opacity=".45"/><stop offset="1" stop-color="' + C.bounce + '" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="' + p + 'shine"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset=".5" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="' + p + 'crownAO"><stop offset="0" stop-color="#B8925E" stop-opacity=".42"/><stop offset="1" stop-color="#B8925E" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="' + p + 'pad"><stop offset="0" stop-color="' + C.pad + '" stop-opacity=".7"/><stop offset=".65" stop-color="' + C.pad + '" stop-opacity=".45"/><stop offset="1" stop-color="' + C.pad + '" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="' + p + 'contact"><stop offset="0" stop-color="#C29E6E" stop-opacity=".44"/><stop offset=".6" stop-color="#C29E6E" stop-opacity=".17"/><stop offset="1" stop-color="#C29E6E" stop-opacity="0"/></radialGradient>' +
+      '<linearGradient id="' + p + 'foot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CFAF85"/><stop offset=".5" stop-color="#EEDDC4"/><stop offset="1" stop-color="#F8EEDD"/></linearGradient>' +
+      '<linearGradient id="' + p + 'footFar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C4A276"/><stop offset=".55" stop-color="#E2CBA8"/><stop offset="1" stop-color="#EBDABF"/></linearGradient>' +
+      '<linearGradient id="' + p + 'leaf" gradientUnits="userSpaceOnUse" x1="0" y1="-46" x2="0" y2="-2"><stop offset="0" stop-color="' + C.leafHi + '"/><stop offset=".5" stop-color="' + C.leafMid + '"/><stop offset="1" stop-color="' + C.leafLo + '"/></linearGradient>' +
+      '<radialGradient id="' + p + 'leafHi"><stop offset="0" stop-color="#E8F8B0" stop-opacity=".62"/><stop offset="1" stop-color="#E8F8B0" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="' + p + 'leafAO"><stop offset="0" stop-color="#2F6410" stop-opacity=".45"/><stop offset="1" stop-color="#2F6410" stop-opacity="0"/></radialGradient>' +
+      '<linearGradient id="' + p + 'stem" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9CCF45"/><stop offset="1" stop-color="#5A9628"/></linearGradient>' +
+      '<radialGradient id="' + p + 'bud" cx=".36" cy=".3" r=".78"><stop offset="0" stop-color="#CBE971"/><stop offset=".6" stop-color="#8CC63C"/><stop offset="1" stop-color="#5A9628"/></radialGradient>' +
+      '<radialGradient id="' + p + 'eye" cx=".5" cy=".36" r=".68"><stop offset="0" stop-color="' + C.eye0 + '"/><stop offset=".62" stop-color="' + C.eye1 + '"/><stop offset="1" stop-color="' + C.eye2 + '"/></radialGradient>' +
+      '<radialGradient id="' + p + 'blush"><stop offset="0" stop-color="' + C.blush + '" stop-opacity=".85"/><stop offset=".6" stop-color="' + C.blush + '" stop-opacity=".55"/><stop offset="1" stop-color="' + C.blush + '" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="' + p + 'gGlow"><stop offset="0" stop-color="#FFF6E6" stop-opacity=".26"/><stop offset=".55" stop-color="#FFF6E6" stop-opacity=".12"/><stop offset="1" stop-color="#FFF6E6" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="' + p + 'gCore"><stop offset="0" stop-color="#140A02" stop-opacity=".5"/><stop offset=".6" stop-color="#140A02" stop-opacity=".22"/><stop offset="1" stop-color="#140A02" stop-opacity="0"/></radialGradient>' +
+      '<clipPath id="' + p + 'clip"><path d="' + BODY + '"/></clipPath>' +
+      defsExtra +
+      '</defs>' +
+      '<g class="moz-shadow"><ellipse cx="120" cy="247" rx="86" ry="13" fill="' + u('gGlow') + '"/><ellipse cx="120" cy="247" rx="64" ry="7.5" fill="' + u('gCore') + '"/></g>' +
+      legs +
+      '<g class="moz-bob"><g class="moz-pose"' + pose + '>' +
+      armsBack + bodyFill + sprout +
+      '<g class="moz-face">' + blush + eyes + brows + mouth + '</g>' +
+      armsFront +
+      '</g></g></svg>';
+  }
+  moz.MOODS = MOODS;
+  return moz;
+})();

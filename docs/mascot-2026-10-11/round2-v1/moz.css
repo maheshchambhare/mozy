@@ -1,0 +1,17 @@
+.moz { display: block; overflow: visible; }
+.moz .moz-bob { transform-box: view-box; transform-origin: 150px 272px; animation: moz-breathe 2.8s ease-in-out infinite; }
+.moz .moz-sprout { transform-box: view-box; transform-origin: 151px 52px; animation: moz-sway 3.4s ease-in-out infinite; }
+.moz .moz-eyes { transform-box: fill-box; transform-origin: center; animation: moz-blink 5s infinite; }
+.moz .moz-arm.is-raised { transform-box: view-box; }
+.moz.is-wave .moz-arm-r { animation: moz-wave 1.3s ease-in-out infinite; }
+.moz.is-cheer .moz-bob { animation: moz-hop 0.9s ease-in-out infinite; }
+.moz.is-cheer .moz-arm { animation: moz-flap 0.45s ease-in-out infinite alternate; }
+.moz.is-stern .moz-arm-l { animation: moz-push 1.6s ease-in-out infinite; }
+@keyframes moz-breathe { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.015, 0.985); } }
+@keyframes moz-sway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(4deg); } }
+@keyframes moz-blink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
+@keyframes moz-wave { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-16deg); } }
+@keyframes moz-hop { 0%, 100% { transform: translateY(0) scale(1, 1); } 15% { transform: translateY(0) scale(1.04, 0.95); } 50% { transform: translateY(-14px) scale(0.98, 1.03); } }
+@keyframes moz-flap { from { transform: rotate(0deg); } to { transform: rotate(-8deg); } }
+@keyframes moz-push { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(5deg); } }
+@media (prefers-reduced-motion: reduce) { .moz * { animation: none !important; } }
