@@ -27,7 +27,7 @@ export function playDoomscroll(screen: HTMLElement, hero: HTMLElement, buzz?: HT
     .set([sheet], { yPercent: 115, y: 0 }, 0)
     .set([mozWrap], { opacity: 0, scale: 0.3, y: 70, rotation: 0, transformOrigin: '50% 100%' }, 0)
     .set(q('.st-doom-in'), { opacity: 0, y: 12 }, 0)
-    .set(q('.st-doom-dim'), { opacity: 0 }, 0)
+    .set(q('.st-doom-dim'), { autoAlpha: 0 }, 0)
     .set(lock, { opacity: 0, scale: 0.2, y: 0 }, 0)
     .set(chip, { x: 0, color: '#fff', borderColor: 'rgba(255,255,255,0.18)', backgroundColor: 'rgba(16,20,38,0.72)' }, 0)
     .set(q('.st-doom-label.is-start'), { opacity: 1 }, 0)
@@ -70,7 +70,7 @@ export function playDoomscroll(screen: HTMLElement, hero: HTMLElement, buzz?: HT
 
   // Freeze, dim, and the padlock snaps shut.
   tl.call(() => screen.classList.add('is-frozen'), [], 4.95)
-    .to(q('.st-doom-dim'), { opacity: 1, duration: 0.35, ease: 'power1.out' }, 4.95)
+    .to(q('.st-doom-dim'), { autoAlpha: 1, duration: 0.35, ease: 'power1.out' }, 4.95)
     .to(lock, { opacity: 1, scale: 1, duration: 0.42, ease: 'back.out(2.6)' }, 5.05)
     .fromTo(q('.st-doom-shackle'), { y: -7 }, { y: 0, duration: 0.16, ease: 'power4.in' }, 5.45)
     .to(lock, { scale: 0.9, duration: 0.08, yoyo: true, repeat: 1, ease: 'power1.inOut' }, 5.6)

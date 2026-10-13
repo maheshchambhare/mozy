@@ -85,8 +85,11 @@ function Paw({ id, side, angle, pad }: { id: Ids; side: 1 | -1; angle: number; p
   );
 }
 
-const blur = (id: string, deviation: number, pad = 60) => (
-  <filter id={id} filterUnits="userSpaceOnUse" x={-pad} y={-pad - 40} width={300 + pad * 2} height={340 + pad * 2}><feGaussianBlur stdDeviation={deviation} /></filter>
+// Each blur's region hugs the shape it softens: a margin of `reach` times the shape's own size on every side, set so the
+// smallest shape using that blur still gets about 3.2 deviations (plus half its stroke) of room. A region the size of
+// the whole drawing made every small highlight blur a full Moz-sized area on each repaint, which phones felt.
+const blur = (id: string, deviation: number, reach: number) => (
+  <filter id={id} x={`${-reach * 100}%`} y={`${-reach * 100}%`} width={`${100 + reach * 200}%`} height={`${100 + reach * 200}%`}><feGaussianBlur stdDeviation={deviation} /></filter>
 );
 
 /**
@@ -140,11 +143,11 @@ export function Moz({ mood = 'happy', className = '', title, rim = false, still 
     >
       {title ? <title>{title}</title> : null}
       <defs>
-        {blur(id('b1'), 1)}
-        {blur(id('b2'), 2.2)}
-        {blur(id('b3'), 3.5)}
-        {blur(id('b6'), 6, 120)}
-        {blur(id('b14'), 14)}
+        {blur(id('b1'), 1, 1.2)}
+        {blur(id('b2'), 2.2, 0.7)}
+        {blur(id('b3'), 3.5, 0.9)}
+        {blur(id('b6'), 6, 0.9)}
+        {blur(id('b14'), 14, 0.75)}
         <radialGradient id={id('body')} gradientUnits="userSpaceOnUse" cx="122" cy="122" r="185">
           <stop offset="0" stopColor="#fffdfa" /><stop offset="0.45" stopColor="#fbf5ef" /><stop offset="0.78" stopColor="#f1e4db" /><stop offset="1" stopColor="#e2cdc0" />
         </radialGradient>

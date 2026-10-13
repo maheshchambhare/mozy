@@ -56,6 +56,9 @@ async function load() {
     person_profiles: 'identified_only',
     capture_pageview: 'history_change',
     capture_pageleave: true,
+    // Replays leave out the decorative art (every scene is aria-hidden). GSAP restyles those layers on every frame of a
+    // scroll, and recording each change cost a phone about 3 s of script per 10 s of scrolling.
+    session_recording: { blockSelector: '[aria-hidden="true"]' },
     loaded: instance => {
       instance.register({ site: 'mozy-landing', visitor_platform: visitorPlatform() });
       if (attribution) {

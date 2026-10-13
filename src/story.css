@@ -91,9 +91,13 @@ body { background-color: #141a12; }
 .st-tile-lock { position: absolute; right: -14%; bottom: -14%; width: max(18px, 42%); height: max(18px, 42%); border-radius: 50%; display: grid; place-items: center; background: var(--st-coral); border: 2px solid var(--lock-ring, #f7f5ee); color: #fff; }
 
 /* ── Moz (SVG mascot) ─────────────────────────────────────────────────── */
-.st-moz { display: block; overflow: visible; }
+/* Breathing squashes the whole drawing from the feet. It runs on the <svg> itself with scale and translate, which the GPU
+   animates without repainting, so the blurred shading inside isn't redrawn every frame; translate keeps the feet planted
+   (scaling about the centre would lift them by 1.5% of the half-height). Hopping and walking bob the body instead. */
+.st-moz { display: block; overflow: visible; animation: moz-breathe 2.8s ease-in-out infinite; }
+.st-moz.is-cheer, .is-walking .st-moz.is-walk { animation: none; }
 .st-moz .moz-bob, .st-moz .moz-sprout, .st-moz .moz-arm, .st-moz .moz-leg { transform-box: view-box; }
-.st-moz .moz-bob { transform-origin: 150px 272px; animation: moz-breathe 2.8s ease-in-out infinite; }
+.st-moz .moz-bob { transform-origin: 150px 272px; }
 .st-moz .moz-sprout { transform-origin: 151px 52px; animation: moz-sway 3.4s ease-in-out infinite; }
 .st-moz .moz-eyes { transform-box: fill-box; transform-origin: center; animation: moz-blink 5.2s infinite; }
 .st-moz .moz-arm-l.is-near { transform-origin: 84px 212px; }
@@ -109,8 +113,8 @@ body { background-color: #141a12; }
 .is-walking .st-moz.is-walk .moz-arm.is-near { animation: moz-armswing 0.56s ease-in-out infinite; }
 .is-walking .st-moz.is-walk .moz-sprout { animation: moz-leafbob 0.28s ease-in-out infinite; }
 .is-walking .st-moz.is-walk .moz-shadow { animation: moz-shadow 0.28s ease-in-out infinite; }
-.st-moz.is-still * { animation: none !important; }
-@keyframes moz-breathe { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.015, 0.985); } }
+.st-moz.is-still, .st-moz.is-still * { animation: none !important; }
+@keyframes moz-breathe { 0%, 100% { scale: 1 1; translate: 0 0; } 50% { scale: 1.015 0.985; translate: 0 0.626%; } }
 @keyframes moz-sway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(4deg); } }
 @keyframes moz-blink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
 @keyframes moz-wave { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-16deg); } }
@@ -400,6 +404,12 @@ body { background-color: #141a12; }
 @media (prefers-reduced-motion: reduce) {
   .st *, .st *::before, .st *::after { animation: none !important; transition: none !important; }
 }
+/* Off-screen chapters rest (useOffscreenRest): their loops pause, and once the page has rendered in full the browser may
+   skip them entirely. contain-intrinsic-size remembers each chapter's real height from that first render. The footer
+   only pauses: its scene's negative top margin overlaps the meadow, which the containment would stop. */
+.st > main > * { contain-intrinsic-size: auto 900px; }
+.st.is-settled > main > * { content-visibility: auto; }
+.st .is-offscreen, .st .is-offscreen * { animation-play-state: paused !important; }
 @media (max-width: 860px) {
   /* On one column the skyline runs behind the art, not the copy, so show it fully. */
   .st-skyline { mask: none; }

@@ -43,6 +43,8 @@
 .st-how-step button:hover .st-how-step-title { color: var(--how-ink); }
 .st-how-step-body { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 0.5s var(--st-ease), opacity 0.4s; }
 .st-how-step-body > span { overflow: hidden; font-size: 16px; line-height: 1.6; color: var(--how-soft); transition: padding 0.5s var(--st-ease); }
+/* The How scene's height reservation flips through the steps in one go; nothing may start a transition meanwhile. */
+.st-how.is-measuring, .st-how.is-measuring * { transition: none !important; }
 .st-how-bar { position: absolute; left: 74px; right: 0; bottom: -1px; height: 2px; overflow: hidden; pointer-events: none; }
 .st-how-bar i { display: block; width: 100%; height: 100%; background: linear-gradient(90deg, var(--how-orange), var(--how-amber)); transform: scaleX(0); transform-origin: left center; }
 :is(.st-how[data-step='0'] [data-index='0'], .st-how[data-step='1'] [data-index='1'], .st-how[data-step='2'] [data-index='2']) .st-how-num { color: var(--how-orange); -webkit-text-stroke-color: transparent; }

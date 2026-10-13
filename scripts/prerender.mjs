@@ -1,6 +1,6 @@
 import { createServer } from 'vite';
 import { renderToString } from 'react-dom/server';
-import { createElement as h } from 'react';
+import { StrictMode, createElement as h } from 'react';
 import { Router } from 'wouter';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
@@ -17,6 +17,7 @@ try {
   const { default: NotFoundPage } = await server.ssrLoadModule('/src/pages/NotFoundPage.tsx');
   const { SiteHeader, SiteFooter } = await server.ssrLoadModule('/src/components/SiteChrome.tsx');
   const { pageMeta, siteUrl } = await server.ssrLoadModule('/src/data/metadata.ts');
+  const { default: App } = await server.ssrLoadModule('/src/App.tsx');
   // Articles on editorial hold stay out of the build and the sitemap until the owner confirms them.
   const articles=JSON.parse(await readFile('src/data/mozy-articles.json','utf8')).filter(article=>!article.editorial?.hold);
   const routes=[
@@ -39,7 +40,8 @@ try {
       const tag=`<meta ${attribute}="${name}" content="${escape(value)}" />`;
       html=pattern.test(html)?html.replace(pattern,tag):html.replace('</head>',`${tag}\n</head>`);
     }
-    const content=route.path==='/'?h(route.component):h('div',{className:'lp'},h(SiteHeader),h(route.component,route.props),h(SiteFooter));
+    // The home page renders the client's own tree (src/main.tsx hydrates it); other pages are rendered fresh on the client.
+    const content=route.path==='/'?h(StrictMode,null,h(App)):h('div',{className:'lp'},h(SiteHeader),h(route.component,route.props),h(SiteFooter));
     html=html.replace('<div id="root"></div>',`<div id="root">${renderToString(h(Router, { ssrPath: route.path }, content))}</div>`);
     // Cloudflare serves dist/pricing.html at /pricing (the canonical, no trailing slash); a pricing/index.html would
     // instead be redirected to /pricing/.

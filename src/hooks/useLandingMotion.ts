@@ -72,19 +72,28 @@ export function useLandingMotion(root: RefObject<HTMLDivElement | null>) {
     }, element);
     // Fonts and opening FAQ answers change section heights; never refresh after unmount.
     document.fonts.ready.then(() => { if (!disposed) ScrollTrigger.refresh(); });
-    let refreshFrame = 0;
+    // A refresh re-measures every trigger and lays out the whole page, so it waits until the height has stopped
+    // changing and ignores sub-pixel jitter (a looping demo resizing by a pixel used to refresh every frame).
+    let refreshTimer = 0;
+    let measuredHeight = -1;
     const refresh = () => {
-      cancelAnimationFrame(refreshFrame);
-      refreshFrame = requestAnimationFrame(() => { if (!disposed) ScrollTrigger.refresh(); });
+      window.clearTimeout(refreshTimer);
+      refreshTimer = window.setTimeout(() => { if (!disposed) ScrollTrigger.refresh(); }, 150);
     };
-    const observer = new ResizeObserver(refresh);
+    const observer = new ResizeObserver(([entry]) => {
+      const height = Math.round(entry.contentRect.height);
+      if (measuredHeight >= 0 && Math.abs(height - measuredHeight) < 2) return;
+      const first = measuredHeight < 0;
+      measuredHeight = height;
+      if (!first) refresh();
+    });
     observer.observe(element);
     element.addEventListener('toggle', refresh, true);
     return () => {
       disposed = true;
       element.removeEventListener('toggle', refresh, true);
       observer.disconnect();
-      cancelAnimationFrame(refreshFrame);
+      window.clearTimeout(refreshTimer);
       media.revert();
     };
   }, [root]);

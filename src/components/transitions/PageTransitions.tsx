@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import gsap from 'gsap';
 import { createPortal } from 'react-dom';
 import { useLocation } from 'wouter';
@@ -22,7 +22,11 @@ function focusMain() {
  * set, then the curtain opens from the middle like a spreading ripple. In-page anchors (contents lists, skip
  * links), external links, store links and modified clicks behave normally.
  */
+const noSubscribe = () => () => {};
+
 export function PageTransitions() {
+  // False on the server and while the prerendered home page hydrates, true right after: the curtain is not in that HTML.
+  const mounted = useSyncExternalStore(noSubscribe, () => true, () => false);
   const [, navigate] = useLocation();
   const [label, setLabel] = useState('');
   const curtain = useRef<HTMLDivElement>(null);
@@ -108,8 +112,7 @@ export function PageTransitions() {
     };
   }, []);
 
-  // Client only (the app is rendered with createRoot; the prerender script renders pages without this).
-  if (typeof document === 'undefined') return null;
+  if (!mounted) return null;
   return createPortal(
     <>
       <div className="st-curtain" ref={curtain} aria-hidden="true">

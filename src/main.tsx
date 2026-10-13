@@ -1,5 +1,5 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { initAnalytics } from './lib/analytics'
@@ -11,8 +11,14 @@ getAttribution()
 installInteractionTracking()
 initAnalytics()
 
-createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root')!
+const app = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
+// The home page is prerendered from this same tree (scripts/prerender.mjs), so React adopts that HTML instead of
+// throwing it away and building all ~3,400 elements again, which kept phones busy for a long moment on load.
+// Other pages prerender without the router's lazy boundaries, so they still render fresh.
+if (window.location.pathname === '/' && root.firstElementChild) hydrateRoot(root, app)
+else createRoot(root).render(app)

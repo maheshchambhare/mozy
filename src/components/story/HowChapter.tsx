@@ -51,6 +51,23 @@ function howScene({ root, first, select, motion }: SceneContext) {
   const buttons = select('.st-how-step button');
   if (!screen || !touch || !count || !done || !pick || !meter || !lock || !arc || !clockText || !spent || !left || !usePill) return;
   root.classList.add('is-animated');
+  // The open step's copy differs in length, so the list (and the page) changed height every few seconds; each change
+  // re-measured every ScrollTrigger. The list now keeps the height of its tallest state.
+  const list = first('.st-how-steps');
+  const reserve = () => {
+    if (!list) return;
+    const current = root.dataset.step ?? '0';
+    list.style.minHeight = '';
+    root.classList.add('is-measuring');
+    let tallest = 0;
+    for (const index of ['0', '1', '2']) { root.dataset.step = index; tallest = Math.max(tallest, list.offsetHeight); }
+    root.dataset.step = current;
+    void list.offsetHeight;
+    root.classList.remove('is-measuring');
+    list.style.minHeight = `${tallest}px`;
+  };
+  reserve();
+  ScrollTrigger.addEventListener('refreshInit', reserve);
   const drain = { p: 0 };
   const ringColor = gsap.utils.interpolate(['#5cb83f', '#8cc63f', '#ffb03a', '#ff7a45', '#ff5a5f']);
   let step = -1;
@@ -147,20 +164,20 @@ function howScene({ root, first, select, motion }: SceneContext) {
     tl.play(STEP_AT[index] + (index ? 0.001 : 0));
   };
   root.addEventListener('how-jump', onJump);
-  // Only play while the section is on screen.
-  ScrollTrigger.create({
-    trigger: root,
-    start: 'top bottom',
-    end: 'bottom top',
-    onToggle: self => {
-      screen.classList.toggle('is-paused', !self.isActive);
-      if (self.isActive) tl.resume();
-      else tl.pause();
-    },
-  });
+  // Only play while the section is on screen. onToggle only fires on a change, so the starting state is set here too:
+  // the section starts below the fold, and the loop used to run (and resize the list) from the moment the page opened.
+  const setPlaying = (playing: boolean) => {
+    screen.classList.toggle('is-paused', !playing);
+    if (playing) tl.resume();
+    else tl.pause();
+  };
+  const visibility = ScrollTrigger.create({ trigger: root, start: 'top bottom', end: 'bottom top', onToggle: self => setPlaying(self.isActive) });
+  setPlaying(visibility.isActive);
   return () => {
     root.removeEventListener('how-jump', onJump);
-    root.classList.remove('is-animated');
+    ScrollTrigger.removeEventListener('refreshInit', reserve);
+    if (list) list.style.minHeight = '';
+    root.classList.remove('is-animated', 'is-measuring');
   };
 }
 
