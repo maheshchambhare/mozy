@@ -5,6 +5,7 @@ export const pageLoaders = {
   privacy: () => import('./pages/PrivacyPage'),
   pricing: () => import('./pages/PricingPage'),
   get: () => import('./pages/GetPage'),
+  leaderboard: () => import('./pages/LeaderboardPage'),
 };
 
 /** Starts downloading a page's code as soon as a visitor shows intent (hover, focus, tap), so transitions don't wait. */
@@ -14,6 +15,7 @@ export function prefetchRoute(pathname: string) {
     : pathname === '/blog' ? pageLoaders.blog
     : pathname.startsWith('/blog/') ? pageLoaders.post
     : pathname === '/get' ? pageLoaders.get
+    : pathname === '/leaderboard' || pathname.startsWith('/leaderboard/') ? pageLoaders.leaderboard
     : null;
   load?.().catch(() => { /* the router retries on navigation */ });
 }

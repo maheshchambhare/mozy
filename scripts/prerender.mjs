@@ -14,6 +14,7 @@ try {
   const { default: PrivacyPage } = await server.ssrLoadModule('/src/pages/PrivacyPage.tsx');
   const { default: PricingPage } = await server.ssrLoadModule('/src/pages/PricingPage.tsx');
   const { default: GetPage } = await server.ssrLoadModule('/src/pages/GetPage.tsx');
+  const { default: LeaderboardPage } = await server.ssrLoadModule('/src/pages/LeaderboardPage.tsx');
   const { default: NotFoundPage } = await server.ssrLoadModule('/src/pages/NotFoundPage.tsx');
   const { SiteHeader, SiteFooter } = await server.ssrLoadModule('/src/components/SiteChrome.tsx');
   const { pageMeta, siteUrl } = await server.ssrLoadModule('/src/data/metadata.ts');
@@ -26,6 +27,8 @@ try {
     {path:'/blog',component:BlogIndex},
     {path:'/privacy',component:PrivacyPage},
     {path:'/get',component:GetPage,unlisted:true},
+    // Mozy Race preview: noindex and out of the sitemap while it runs on dummy data.
+    {path:'/leaderboard',component:LeaderboardPage,unlisted:true},
     ...articles.map(article=>({path:`/blog/${article.slug}`,component:BlogPost,props:{slug:article.slug},article})),
     // Hosts serve dist/404.html for unknown addresses. It is noindex, has no canonical URL or og:url, and stays out of the sitemap.
     {path:'/404',component:NotFoundPage,unlisted:true,file:'dist/404.html'}

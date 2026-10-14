@@ -16,16 +16,23 @@
     "mcs:gate": "python3 \"${MCS_HOME:-$HOME/.claude/skills/mcs}/scripts/mcs.py\" gate --site ."
   },
   "dependencies": {
+    "flag-icons": "^7.5.0",
     "gsap": "^3.15.0",
+    "h3-js": "^4.5.0",
     "posthog-js": "^1.438.7",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "three": "^0.186.1",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2",
     "wouter": "^3.11.0"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
+    "@types/three": "^0.186.0",
+    "@types/topojson-client": "^3.1.5",
     "@vitejs/plugin-react": "^6.1.1",
     "oxlint": "^1.81.0",
     "typescript": "~6.0.2",

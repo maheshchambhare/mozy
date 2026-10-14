@@ -14,9 +14,12 @@ const BlogPost = lazy(pageLoaders.post);
 const PrivacyPage = lazy(pageLoaders.privacy);
 const PricingPage = lazy(pageLoaders.pricing);
 const GetPage = lazy(pageLoaders.get);
+const LeaderboardPage = lazy(pageLoaders.leaderboard);
 
 export default function App() {
   const [location] = useLocation();
+  // The race globe fills the screen, so it has no footer.
+  const race = location === "/leaderboard" || location.startsWith("/leaderboard/");
 
   // Set the scroll position for route changes the page transition didn't handle (first load, back and forward):
   // the top of the page, or the #section in the address. (Scrolling to the top unconditionally used to throw away
@@ -53,10 +56,11 @@ export default function App() {
           <Route path="/blog/:slug"><BlogPost /></Route>
           <Route path="/privacy" component={PrivacyPage} />
           <Route path="/get" component={GetPage} />
+          <Route path="/leaderboard/:country?/:city?" component={LeaderboardPage} />
           <Route><NotFoundPage /></Route>
         </Switch>
       </Suspense>
-      {location !== "/" && <SiteFooter />}
+      {location !== "/" && !race && <SiteFooter />}
       <PageTransitions />
     </div>
   );
