@@ -1,0 +1,1492 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mozy Race Plan</title>
+<meta name="description" content="Research and plan for Mozy step competitions: crews, family, country and world boards, share cards, awards, and a low-cost Cloudflare backend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+  :root {
+    --bg: #FAF9F5; --surface: #FFFFFF; --surface-2: #F3F1EA; --ink: #141413; --ink-2: #4A4740; --ink-3: #77736A;
+    --line: #E4E0D5; --accent: #D97757; --accent-ink: #A9502F; --accent-soft: #F6E3DA;
+    --good: #2F7D4F; --good-soft: #DDEFE3; --warn: #9A6A00; --warn-soft: #F5EACB; --risk: #B23B2E; --risk-soft: #F5DCD8;
+    --muted-soft: #ECEAE3; --grid: #E9E5DB;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161513; --surface: #1F1E1B; --surface-2: #26241F; --ink: #F1EEE6; --ink-2: #C9C4B8; --ink-3: #9A958A;
+      --line: #35322B; --accent: #E38B6C; --accent-ink: #F0A487; --accent-soft: #3A251C;
+      --good: #6CC08E; --good-soft: #1E3326; --warn: #E1B54D; --warn-soft: #362C14; --risk: #EE8A7E; --risk-soft: #3B1F1B;
+      --muted-soft: #2A2823; --grid: #2C2A25;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161513; --surface: #1F1E1B; --surface-2: #26241F; --ink: #F1EEE6; --ink-2: #C9C4B8; --ink-3: #9A958A;
+    --line: #35322B; --accent: #E38B6C; --accent-ink: #F0A487; --accent-soft: #3A251C;
+    --good: #6CC08E; --good-soft: #1E3326; --warn: #E1B54D; --warn-soft: #362C14; --risk: #EE8A7E; --risk-soft: #3B1F1B;
+    --muted-soft: #2A2823; --grid: #2C2A25;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  .page { max-width: 1080px; margin: 0 auto; padding: 48px 16px 80px; display: grid; gap: 64px; }
+  h1, h2, h3 { font-family: "Fraunces", ui-serif, Georgia, "Times New Roman", serif; font-weight: 650; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); line-height: 1.02; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2.05rem); line-height: 1.15; }
+  h3 { font-size: 1.15rem; line-height: 1.3; }
+  p { margin: 0; max-width: 70ch; color: var(--ink-2); }
+  a { color: var(--accent-ink); text-underline-offset: 3px; }
+  code { font: 0.86em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--muted-soft); padding: 1px 5px; border-radius: 5px; color: var(--ink); overflow-wrap: anywhere; }
+  pre { margin: 0; background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 16px; overflow-x: auto; font: 0.82rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink); }
+  .label { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); }
+  section { display: grid; gap: 20px; scroll-margin-top: 20px; }
+  .page > *, section, .sub, .calc > *, .mk-item { min-width: 0; }
+  .lede { font-size: 1.14rem; color: var(--ink-2); }
+  .sub { display: grid; gap: 14px; margin-top: 8px; }
+
+  header.hero { display: grid; gap: 18px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 0.86rem; color: var(--ink-3); }
+  .meta span { overflow-wrap: anywhere; }
+  header.hero > * { min-width: 0; }
+  nav.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+  nav.toc a { font-size: 0.82rem; font-weight: 600; text-decoration: none; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line); padding: 5px 12px; border-radius: 999px; }
+  nav.toc a:hover { border-color: var(--accent); color: var(--accent-ink); }
+
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 16px; }
+  .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 14px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+  .card.accent { border-color: var(--accent); box-shadow: inset 4px 0 0 var(--accent); }
+  .card.risk { border-color: var(--risk); box-shadow: inset 4px 0 0 var(--risk); }
+  .card ul, .card ol { margin: 0; padding-left: 1.1em; color: var(--ink-2); display: grid; gap: 6px; }
+  .card .num { font-family: "Fraunces", ui-serif, Georgia, serif; font-size: 1.6rem; line-height: 1; color: var(--accent-ink); }
+  .card .ev { font-size: 0.84rem; color: var(--ink-3); }
+  .card .ev strong { color: var(--ink-2); }
+
+  .chip { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 9px; border-radius: 999px; white-space: nowrap; vertical-align: 1px; }
+  .chip.good { background: var(--good-soft); color: var(--good); }
+  .chip.warn { background: var(--warn-soft); color: var(--warn); }
+  .chip.risk { background: var(--risk-soft); color: var(--risk); }
+  .chip.muted { background: var(--muted-soft); color: var(--ink-2); }
+  .chip.accent { background: var(--accent-soft); color: var(--accent-ink); }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 640px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; background: var(--surface-2); }
+  tr:last-child td { border-bottom: 0; }
+  td { color: var(--ink-2); }
+  td strong { color: var(--ink); }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.c { text-align: center; }
+  tr.pick td { background: var(--accent-soft); }
+
+  .timeline { list-style: none; margin: 0; padding: 0; display: grid; }
+  .timeline li { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid var(--line); }
+  .timeline li:first-child { border-top: 0; }
+  .timeline .when { font-weight: 700; color: var(--ink); font-size: 0.92rem; }
+  .timeline .when small { display: block; font-weight: 500; color: var(--ink-3); }
+  .timeline .what { display: grid; gap: 6px; min-width: 0; }
+  @media (max-width: 560px) { .timeline li { grid-template-columns: 1fr; gap: 6px; } }
+
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; counter-reset: s; }
+  .steps li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; color: var(--ink-2); counter-increment: s; }
+  .steps li::before { content: counter(s); width: 28px; height: 28px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--line); display: grid; place-items: center; font-size: 0.8rem; font-weight: 700; color: var(--ink-2); }
+
+  details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
+  details summary { cursor: pointer; font-weight: 700; color: var(--ink); }
+  details[open] summary { margin-bottom: 12px; }
+
+  .diagram { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px; overflow-x: auto; }
+  .diagram svg { display: block; width: 100%; min-width: 680px; height: auto; }
+  .diagram text { font: 600 13px/1 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; fill: var(--ink); }
+  .diagram text.small { font-weight: 500; font-size: 11.5px; fill: var(--ink-3); }
+  .diagram .box { fill: var(--surface-2); stroke: var(--line); stroke-width: 1.2; }
+  .diagram .box.hot { fill: var(--accent-soft); stroke: var(--accent); }
+  .diagram .box.safe { fill: var(--good-soft); stroke: var(--good); }
+  .diagram .arrow { stroke: var(--ink-3); stroke-width: 1.6; fill: none; }
+  .diagram .arrow.hot { stroke: var(--accent); stroke-width: 2; }
+  .diagram .head { fill: var(--ink-3); }
+  .diagram .head.hot { fill: var(--accent); }
+
+  /* calculator */
+  .calc { display: grid; grid-template-columns: minmax(260px, 1fr) minmax(280px, 1.2fr); gap: 16px; }
+  @media (max-width: 720px) { .calc { grid-template-columns: 1fr; } }
+  .ctl { display: grid; gap: 6px; }
+  .ctl label { font-size: 0.86rem; font-weight: 700; color: var(--ink); display: flex; justify-content: space-between; gap: 10px; }
+  .ctl label output { font-variant-numeric: tabular-nums; color: var(--accent-ink); }
+  .ctl input[type=range] { width: 100%; accent-color: var(--accent); }
+  .ctl small { color: var(--ink-3); font-size: 0.8rem; }
+  .meter { display: grid; gap: 6px; }
+  .meter .top { display: flex; justify-content: space-between; gap: 10px; font-size: 0.86rem; color: var(--ink-2); }
+  .meter .top b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .meter .track { height: 10px; border-radius: 99px; background: var(--accent-soft); overflow: hidden; }
+  .meter .fill { height: 100%; width: 0; border-radius: 99px; background: var(--accent); transition: width .25s ease; }
+  .meter .fill.warn { background: var(--warn); }
+  .meter .fill.risk { background: var(--risk); }
+  .verdict { font-weight: 700; color: var(--ink); }
+  .hero-fig { font: 700 3.2rem/1 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--ink); letter-spacing: -0.02em; }
+  .hero-fig small { font-size: 1rem; font-weight: 600; color: var(--ink-3); letter-spacing: 0; }
+
+  /* column chart */
+  figure.chart { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 12px; display: grid; gap: 8px; position: relative; }
+  figure.chart figcaption { display: grid; gap: 2px; }
+  figure.chart figcaption b { color: var(--ink); }
+  figure.chart figcaption span { font-size: 0.86rem; color: var(--ink-3); }
+  #costChart { width: 100%; height: auto; display: block; overflow: visible; }
+  #costChart .gridline { stroke: var(--grid); stroke-width: 1; }
+  #costChart .tick { font: 500 11px ui-sans-serif, -apple-system, sans-serif; fill: var(--ink-3); font-variant-numeric: tabular-nums; }
+  #costChart .val { font: 700 11.5px ui-sans-serif, -apple-system, sans-serif; fill: var(--ink-2); }
+  #costChart .bar { fill: var(--accent); }
+  #costChart .hit { fill: transparent; cursor: default; }
+  #costChart g.col:hover .bar, #costChart g.col:focus .bar { fill: var(--accent-ink); }
+  #costChart g.col:focus { outline: none; }
+  .tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); border-radius: 8px; padding: 6px 10px; font-size: 0.8rem; line-height: 1.35; opacity: 0; transition: opacity .12s; white-space: nowrap; }
+  .tip b { font-size: 0.95rem; }
+
+  .note { font-size: 0.86rem; color: var(--ink-3); }
+  .quote { border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; color: var(--ink-2); }
+  footer { border-top: 1px solid var(--line); padding-top: 20px; display: grid; gap: 10px; font-size: 0.86rem; color: var(--ink-3); }
+  footer ol { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
+  footer a { overflow-wrap: anywhere; }
+
+  /* mockup board (fixed-colour screens, the same in light and dark) */
+  .mk-board { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 26px 18px; justify-items: center; background: var(--surface-2); border: 1px solid var(--line); border-radius: 16px; padding: 24px 12px; }
+  .mk-board .mk-item { display: grid; gap: 10px; justify-items: center; }
+  .mk-board .cap2 { font-size: 0.82rem; color: var(--ink-2); max-width: 300px; text-align: center; }
+  .mk-wide { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 22px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 16px; padding: 22px 14px; justify-items: center; }
+  .mk-wide .mk-item { display: grid; gap: 10px; justify-items: center; width: 100%; }
+  .mk-wide .web { width: 100%; max-width: 560px; }
+  .mk-wide .cap2 { font-size: 0.82rem; color: var(--ink-2); max-width: 520px; text-align: center; }
+  .mk * { box-sizing: content-box; }
+  .mk .ph {
+    --bg: #FAF9F7; --ink: #121212; --muted: #6B7280; --line: #ECE7DF;
+    --or: #FF8A00; --or-deep: #B85F00; --or-soft: #FFF1E0; --green: #10B981; --red: #EF4444;
+    width: 300px; height: 640px; border-radius: 40px; background: var(--bg); color: var(--ink);
+    border: 9px solid #141413; box-shadow: 0 18px 40px rgba(20,20,19,.18);
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif; overflow: hidden; position: relative;
+    display: flex; flex-direction: column;
+  }
+  .mk .ph .notch { height: 26px; display: flex; justify-content: center; align-items: center; }
+  .mk .ph .notch::before { content: ""; width: 86px; height: 22px; background: #141413; border-radius: 0 0 14px 14px; margin-top: -8px; }
+  .mk .ph .top { display: flex; align-items: center; justify-content: space-between; padding: 4px 18px 8px; }
+  .mk .ph .top h4 { margin: 0; font-size: 19px; font-weight: 800; letter-spacing: -0.02em; }
+  .mk .ph .ico { width: 32px; height: 32px; border-radius: 11px; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; font-size: 14px; color: var(--muted); }
+  .mk .seg { margin: 0 16px; background: #F1EEE8; border-radius: 14px; padding: 3px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+  .mk .seg span { text-align: center; font-size: 12px; font-weight: 700; padding: 7px 0; border-radius: 11px; color: var(--muted); }
+  .mk .seg span.on { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .mk .chips { display: flex; gap: 6px; padding: 10px 16px 4px; align-items: center; }
+  .mk .chips span { font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--muted); }
+  .mk .chips span.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .mk .chips .crew { margin-left: auto; border: 0; background: transparent; color: var(--ink); padding-right: 0; }
+  .mk .hero { margin: 10px 16px 6px; border-radius: 22px; padding: 14px 16px 15px; color: #fff;
+    background: radial-gradient(120% 140% at 85% 0%, #FFB15C 0%, #FF8A00 45%, #F27200 100%);
+    box-shadow: 0 6px 0 var(--or-deep); position: relative; overflow: hidden; }
+  .mk .hero .k { font-size: 11px; font-weight: 700; opacity: .9; letter-spacing: .02em; }
+  .mk .hero .big { font-size: 34px; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-top: 2px; }
+  .mk .hero .big small { font-size: 15px; font-weight: 700; opacity: .9; }
+  .mk .hero .sub { font-size: 12px; font-weight: 600; margin-top: 6px; }
+  .mk .bar { height: 7px; border-radius: 99px; background: rgba(255,255,255,.35); margin-top: 9px; overflow: hidden; }
+  .mk .bar i { display: block; height: 100%; width: 72%; background: #fff; border-radius: 99px; animation: grow 2.4s ease-in-out infinite alternate; }
+  @keyframes grow { from { width: 64%; } to { width: 78%; } }
+  .mk .rows { padding: 2px 12px; display: grid; gap: 4px; }
+  .mk .row { display: grid; grid-template-columns: 22px 38px 1fr auto; align-items: center; gap: 8px; padding: 7px 8px; border-radius: 14px; }
+  .mk .row.me { background: var(--or-soft); box-shadow: inset 0 0 0 1.5px #FFD3A1; }
+  .mk .row .r { font-size: 12px; font-weight: 800; color: var(--muted); text-align: center; }
+  .mk .row .n { font-size: 13px; font-weight: 700; line-height: 1.15; }
+  .mk .row .n small { display: block; font-size: 10.5px; font-weight: 600; color: var(--muted); }
+  .mk .row .s { font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; text-align: right; }
+  .mk .row .s small { display: block; font-size: 10px; font-weight: 700; }
+  .mk .up { color: var(--green); }
+  .mk .down { color: var(--red); }
+  .mk .pet { --fur: #FFF4DE; --edge: #EAD7B3; width: 34px; height: 30px; margin-top: 6px; border-radius: 50% 50% 44% 44%;
+    background: radial-gradient(circle at 34% 48%, #1C1917 0 2.2px, transparent 2.6px), radial-gradient(circle at 66% 48%, #1C1917 0 2.2px, transparent 2.6px),
+                radial-gradient(circle at 50% 66%, #F7A9A0 0 2.2px, transparent 2.8px), var(--fur);
+    border: 1.5px solid var(--edge); position: relative; justify-self: center; display: inline-block; box-sizing: border-box; }
+  .mk .pet::before { content: ""; position: absolute; width: 11px; height: 8px; background: #34C46A; border-radius: 0 100% 0 100%; top: -7px; left: 14px; transform: rotate(-18deg); }
+  .mk .pet::after { content: ""; position: absolute; width: 8px; height: 6px; background: #2BA65A; border-radius: 100% 0 100% 0; top: -5px; left: 8px; transform: rotate(14deg); }
+  .mk .pet.peach { --fur: #FFE1D2; --edge: #F2C1A8; }
+  .mk .pet.mint { --fur: #DDF5E8; --edge: #B5E2C8; }
+  .mk .pet.lilac { --fur: #ECE6FF; --edge: #CFC4F5; }
+  .mk .pet.sky { --fur: #DFF0FF; --edge: #B9D9F5; }
+  .mk .crown { position: relative; }
+  .mk .crown::after { content: "👑"; position: absolute; top: -9px; left: 50%; transform: translateX(-50%) rotate(-8deg); font-size: 13px; animation: bob 1.8s ease-in-out infinite; }
+  @keyframes bob { 50% { transform: translateX(-50%) translateY(-2px) rotate(6deg); } }
+  .mk .cta { margin: auto 16px 18px; background: var(--or); color: #fff; font-weight: 800; font-size: 15px; text-align: center; padding: 14px; border-radius: 18px; box-shadow: 0 5px 0 var(--or-deep); letter-spacing: -0.01em; }
+  .mk .ghost { margin: 0 16px 16px; text-align: center; font-size: 12px; font-weight: 700; color: var(--muted); }
+  .mk .tag { display: inline-block; font-size: 9.5px; font-weight: 800; padding: 2px 7px; border-radius: 99px; background: #F1EEE8; color: var(--muted); vertical-align: 1px; }
+  .mk .pct { margin: 10px 16px 6px; background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 14px; display: grid; grid-template-columns: 92px 1fr; gap: 12px; align-items: center; }
+  .mk .ring { width: 92px; height: 92px; border-radius: 50%; display: grid; place-items: center;
+    background: conic-gradient(var(--or) 0 82%, #F1EEE8 82% 100%); }
+  .mk .ring div { width: 70px; height: 70px; border-radius: 50%; background: #fff; display: grid; place-items: center; text-align: center; font-weight: 800; font-size: 18px; line-height: 1; }
+  .mk .ring small { display: block; font-size: 9px; font-weight: 700; color: var(--muted); margin-top: 3px; }
+  .mk .pct .t { font-size: 15px; font-weight: 800; line-height: 1.2; }
+  .mk .pct .d { font-size: 11.5px; color: var(--muted); font-weight: 600; margin-top: 4px; }
+  .mk .sect { padding: 8px 20px 2px; font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .mk .podium { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 4px 16px 4px; align-items: end; }
+  .mk .podium div { background: #fff; border: 1px solid var(--line); border-radius: 14px; text-align: center; padding: 8px 4px 7px; font-size: 10.5px; font-weight: 700; }
+  .mk .podium div b { display: block; font-size: 12px; }
+  .mk .podium .p1 { padding-top: 14px; border-color: #FFD3A1; background: var(--or-soft); }
+  .mk .podium .pet { display: block; margin: 8px auto 5px; }
+  .mk .dots { text-align: center; color: var(--muted); font-weight: 800; letter-spacing: 3px; font-size: 12px; margin: -2px 0; }
+  .mk .league { margin: 8px 16px 6px; border-radius: 22px; padding: 13px 15px; background: linear-gradient(135deg, #10B981, #0E9F6E); color: #fff; box-shadow: 0 6px 0 #0B7F58; display: grid; grid-template-columns: 50px 1fr; gap: 12px; align-items: center; }
+  .mk .badge { width: 50px; height: 50px; border-radius: 16px; background: rgba(255,255,255,.18); display: grid; place-items: center; font-size: 26px; animation: wiggle 3s ease-in-out infinite; }
+  @keyframes wiggle { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-6deg) scale(1.04); } }
+  .mk .league .t { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+  .mk .league .d { font-size: 11.5px; font-weight: 600; opacity: .92; }
+  .mk .zone { margin: 4px 16px 0; font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
+  .mk .zone::after { content: ""; flex: 1; height: 1.5px; background: currentColor; opacity: .35; border-radius: 2px; }
+  .mk .zone.promo { color: var(--green); }
+  .mk .zone.demo { color: var(--red); }
+  .mk .row.compact { padding: 5px 8px; }
+  .mk .row.compact .pet { transform: scale(.82); margin-top: 3px; }
+  .mk .card916 { width: 270px; height: 480px; border-radius: 26px; position: relative; overflow: hidden; color: #fff; font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    background: radial-gradient(120% 70% at 50% 108%, #E59A3A 0 30%, transparent 31%), radial-gradient(90% 50% at 15% 100%, #F2B35A 0 40%, transparent 41%),
+                linear-gradient(180deg, #FF9B3D 0%, #FFB761 46%, #FFD59A 100%);
+    box-shadow: 0 18px 40px rgba(20,20,19,.2); }
+  .mk .card916 .sun { position: absolute; width: 120px; height: 120px; border-radius: 50%; background: #FFF3D6; opacity: .55; top: 34px; right: -26px; }
+  .mk .card916 .brand { position: absolute; top: 18px; left: 18px; font-size: 13px; font-weight: 800; letter-spacing: -0.01em; }
+  .mk .card916 .date { position: absolute; top: 19px; right: 18px; font-size: 11px; font-weight: 700; opacity: .9; }
+  .mk .card916 .head { position: absolute; top: 74px; left: 18px; right: 18px; font-size: 30px; font-weight: 800; line-height: 1.02; letter-spacing: -0.035em; text-shadow: 0 2px 0 rgba(184,95,0,.35); }
+  .mk .card916 .head em { font-style: normal; color: #1C1917; text-shadow: none; background: #fff; padding: 0 6px; border-radius: 8px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .mk .card916 .bigpet { position: absolute; left: 50%; top: 210px; transform: translateX(-50%); width: 104px; height: 92px; margin: 0; border-width: 2.5px;
+    background: radial-gradient(circle at 34% 46%, #1C1917 0 5px, transparent 5.6px), radial-gradient(circle at 66% 46%, #1C1917 0 5px, transparent 5.6px),
+                radial-gradient(ellipse at 50% 68%, #E8735F 0 6px, transparent 6.6px), radial-gradient(circle at 22% 62%, #FFB8A8 0 8px, transparent 8.6px), radial-gradient(circle at 78% 62%, #FFB8A8 0 8px, transparent 8.6px), #FFF4DE; }
+  .mk .card916 .bigpet::before { width: 30px; height: 22px; top: -20px; left: 46px; }
+  .mk .card916 .bigpet::after { width: 22px; height: 16px; top: -14px; left: 28px; }
+  .mk .card916 .bigcrown { position: absolute; left: 63%; top: 176px; transform: translateX(-50%) rotate(-8deg); font-size: 40px; animation: bob 2s ease-in-out infinite; }
+  .mk .card916 .stat { position: absolute; left: 18px; right: 18px; top: 322px; background: rgba(255,255,255,.92); color: #1C1917; border-radius: 18px; padding: 10px 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 10px; }
+  .mk .card916 .stat b { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+  .mk .card916 .stat span { font-size: 10px; font-weight: 700; color: #6B7280; }
+  .mk .card916 .foot { position: absolute; left: 18px; right: 18px; bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .mk .card916 .qr { width: 46px; height: 46px; border-radius: 9px; background: #fff; display: grid; place-items: center; color: #1C1917; font-size: 9px; font-weight: 800; }
+  .mk .card916 .foot div { font-size: 11px; font-weight: 700; line-height: 1.3; }
+  .mk .card916 .foot div b { display: block; font-size: 12.5px; }
+  .mk .web { --night: #0b0e1a; --moon: #f6f3ea; --wink: #1e251c; --green: #28763e; --sprout: #63d586; --orange: #ff9a4d;
+    width: 560px; border-radius: 16px; overflow: hidden; background: var(--night); color: var(--moon); font-family: Nunito, system-ui, sans-serif; box-shadow: 0 18px 40px rgba(20,20,19,.25); }
+  .mk .web .chrome { height: 30px; background: #1b1f2e; display: flex; align-items: center; gap: 6px; padding: 0 12px; }
+  .mk .web .chrome i { width: 10px; height: 10px; border-radius: 50%; background: #3a3f52; }
+  .mk .web .chrome span { margin-left: 10px; font-size: 11px; color: #9aa0b4; background: #0f1220; padding: 3px 10px; border-radius: 6px; flex: 1; }
+  .mk .web .wrap { padding: 22px 26px 26px; }
+  .mk .web h5 { margin: 0; font-family: Fredoka, Nunito, sans-serif; font-size: 30px; font-weight: 600; line-height: 1.05; }
+  .mk .web h5 em { font-style: normal; color: var(--sprout); }
+  .mk .web .lead { margin: 8px 0 0; color: #c9c6bd; font-size: 14px; }
+  .mk .web .ticker { margin-top: 14px; display: inline-flex; align-items: baseline; gap: 8px; background: rgba(99,213,134,.12); border: 1px solid rgba(99,213,134,.35); padding: 8px 14px; border-radius: 14px; }
+  .mk .web .ticker b { font-family: Fredoka, sans-serif; font-size: 24px; color: var(--sprout); font-variant-numeric: tabular-nums; }
+  .mk .web .ticker span { font-size: 12px; color: #c9c6bd; }
+  .mk .web .tabs { display: flex; gap: 6px; margin-top: 16px; flex-wrap: wrap; }
+  .mk .web .tabs span { font-size: 12px; font-weight: 800; padding: 6px 12px; border-radius: 99px; background: #161a2a; color: #9aa0b4; }
+  .mk .web .tabs span.on { background: var(--moon); color: var(--night); }
+  .mk .web .list { margin-top: 12px; display: grid; gap: 6px; }
+  .mk .web .li { display: grid; grid-template-columns: 26px 34px 1fr auto; gap: 10px; align-items: center; background: #121627; border-radius: 12px; padding: 8px 12px; }
+  .mk .web .li .r { font-family: Fredoka, sans-serif; font-size: 15px; color: #9aa0b4; text-align: center; }
+  .mk .web .li .n { font-weight: 800; font-size: 14px; }
+  .mk .web .li .n small { font-weight: 600; color: #9aa0b4; font-size: 11.5px; margin-left: 4px; }
+  .mk .web .li .s { font-family: Fredoka, sans-serif; font-size: 16px; font-variant-numeric: tabular-nums; }
+  .mk .web .li.gold { background: linear-gradient(90deg, rgba(255,154,77,.22), #121627 70%); }
+  .mk .web .li .pet { margin-top: 4px; transform: scale(.85); }
+  .mk .web .hist { margin-top: 16px; background: #121627; border-radius: 14px; padding: 12px 14px 10px; }
+  .mk .web .hist .cap { font-size: 12px; color: #c9c6bd; font-weight: 700; }
+  .mk .web .bars { display: flex; align-items: flex-end; gap: 3px; height: 70px; margin-top: 8px; }
+  .mk .web .bars i { flex: 1; background: #2b3550; border-radius: 3px 3px 0 0; }
+  .mk .web .bars i.you { background: var(--orange); }
+  .mk .web .axis { display: flex; justify-content: space-between; font-size: 10px; color: #7d8398; margin-top: 4px; }
+  .mk .web .cta2 { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .mk .web .cta2 span { font-weight: 800; font-size: 13px; padding: 10px 16px; border-radius: 12px; background: var(--moon); color: var(--night); }
+  .mk .web .cta2 span.alt { background: transparent; color: var(--moon); border: 1px solid #3a3f52; }
+  .mk .web.join .wrap { text-align: center; padding: 28px 28px 30px; }
+  .mk .web.join .inv { display: inline-flex; gap: -6px; margin: 4px 0 10px; }
+  .mk .web.join .inv .pet { margin: 0 -4px; transform: scale(1.25); }
+  .mk .web.join .meta { margin-top: 10px; font-size: 13px; color: #c9c6bd; }
+  .mk .web.join .code { display: inline-block; margin-top: 14px; font-family: Fredoka, sans-serif; font-size: 22px; letter-spacing: .12em; background: #121627; border: 1px dashed #3a3f52; border-radius: 12px; padding: 8px 16px; }
+  .mk .web.join .cta2 { justify-content: center; }
+  .mk .web.join .fine { margin-top: 12px; font-size: 11px; color: #7d8398; }
+  .mk .cap2 { font: 600 12px/1.4 system-ui, sans-serif; color: #4A4740; max-width: 300px; margin-top: 8px; }
+  .mk.mk-wide .web { width: 100%; max-width: 560px; box-sizing: border-box; }
+
+  .mk.mk-board .cap2, .mk.mk-wide .cap2 { color: var(--ink-2); font: 500 0.82rem/1.45 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; text-align: center; margin-top: 0; }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="hero">
+    <div class="label">Mozy · step competitions · research and plan</div>
+    <h1>Mozy Race</h1>
+    <p class="lede">Race your crew, your family, your country and the world on steps, with your Mozy as your racer. This report covers how competition motivates people, how the big apps run step contests, what makes Gen Z share, the store and privacy rules, and a Cloudflare backend that costs nothing to start and about $5 a month at launch.</p>
+    <div class="meta">
+      <span>14 October 2026</span>
+      <span>Research and planning only: no app or website code changed</span>
+      <span>App branch <code>step-challenges</code> at <code>42a5291</code></span>
+      <span>Website branch <code>step-challenges</code> at <code>ef5809a</code></span>
+      <span>Start here: <a href="README.md">README.md</a> · full plan: <a href="PLAN.md">PLAN.md</a> · what to build: <a href="FEATURES.md">FEATURES.md</a></span>
+    </div>
+    <nav class="toc" aria-label="Sections">
+      <a href="#short">In short</a><a href="#loop">The loop</a><a href="#research">Research</a><a href="#product">The product</a><a href="#flows">Flows</a><a href="#data">What leaves the phone</a><a href="#build">How it's built</a><a href="#cost">Cost</a><a href="#ideas">Idea bank</a><a href="#roadmap">Roadmap</a><a href="#measure">Measuring</a><a href="#risks">Risks</a><a href="#decisions">Your decisions</a>
+    </nav>
+  </header>
+
+  <section id="short">
+    <div class="label">In short</div>
+    <h2>Eight things that decide whether this works</h2>
+    <div class="grid3">
+<div class="card accent"><div class="label">1</div><h3>Small groups first, the world second</h3><p>People try much harder against 10 rivals than 10,000. In STEP UP, groups of 3 with a weekly leaderboard walked 920 more steps a day. Crews and family are the heart; country and world are the backdrop.</p></div>
+<div class="card accent"><div class="label">2</div><h3>Show the gap, not just the rank</h3><p>"312 steps to pass papa" beats "#2". On big boards show "top 18%", never a bare "#48,201"; percentiles are also what people share most.</p></div>
+<div class="card risk"><div class="label">3</div><h3>Open the iPhone door</h3><p>Today an invited iPhone friend lands on a paywall they can't close. Unless the race works without paying, every iPhone invite dies there (D6).</p></div>
+<div class="card"><div class="label">4</div><h3>Every invite works without the app</h3><p>A short link to a web page, WhatsApp first, QR on story cards. Android carries the code through the install; iPhone gets a paste button. No paid link service.</p></div>
+<div class="card"><div class="label">5</div><h3>A name and one number per day</h3><p>Only the race name, pet look, optional country and one daily total leave the phone, after an explicit yes. Re-login comes from a secure backup of a random token, not a device ID.</p></div>
+<div class="card"><div class="label">6</div><h3>Rules that come with it</h3><p>A 13+ rating, report and block, in-app deletion, new privacy labels, parental approval for minors in some places, and no marketing use of anyone's steps.</p></div>
+<div class="card"><div class="label">7</div><h3>$0 to start, $5 a month at launch</h3><p>Cloudflare's Free plan covers the beta; Workers Paid ($5) removes the daily cliff and lasts to roughly 30,000–50,000 daily racers. About $11 a month at 100,000.</p></div>
+<div class="card risk"><div class="label">8</div><h3>Rivals are already racing</h3><p>Stroll added global and country step boards in September; Lockt runs leagues with vouchers; WeWard now locks apps until a step goal. A leaderboard alone won't stand out. Mozy's edge is families, the pet, fairness and privacy.</p></div>
+
+    </div>
+  </section>
+
+  <section id="loop">
+    <div class="label">The growth loop</div>
+    <h2>How one walk turns into a new user</h2>
+    <p>The race is worth building only if it pulls new people in. Every step of this loop must work without paid ads and without the friend having Mozy yet.</p>
+    <div class="diagram" role="img" aria-label="Growth loop: walk, rank moves, nudge, share or invite, friend opens the invite page, installs and joins the crew, the crew grows, back to walking.">
+      <svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="head"/></marker>
+          <marker id="ahh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="head hot"/></marker>
+        </defs>
+        <rect class="box" x="20" y="30" width="200" height="74" rx="14"/>
+        <text x="40" y="60">1 · walk</text><text class="small" x="40" y="82">steps counted on the phone</text>
+        <rect class="box" x="270" y="30" width="200" height="74" rx="14"/>
+        <text x="290" y="60">2 · rank moves</text><text class="small" x="290" y="82">"312 steps to pass papa"</text>
+        <rect class="box" x="520" y="30" width="200" height="74" rx="14"/>
+        <text x="540" y="60">3 · nudge</text><text class="small" x="540" y="82">"papa passed you" (max 2/day)</text>
+        <rect class="box hot" x="770" y="30" width="210" height="74" rx="14"/>
+        <text x="790" y="60">4 · share or invite</text><text class="small" x="790" y="82">card, WhatsApp text, QR</text>
+        <rect class="box hot" x="770" y="196" width="210" height="74" rx="14"/>
+        <text x="790" y="226">5 · friend opens link</text><text class="small" x="790" y="248">mozy.mcrudra.com/j/SHRM7Q</text>
+        <rect class="box" x="520" y="196" width="200" height="74" rx="14"/>
+        <text x="540" y="226">6 · installs, joins</text><text class="small" x="540" y="248">Play referrer / paste code</text>
+        <rect class="box safe" x="270" y="196" width="200" height="74" rx="14"/>
+        <text x="290" y="226">7 · crew grows</text><text class="small" x="290" y="248">more people to beat</text>
+        <rect class="box" x="20" y="196" width="200" height="74" rx="14"/>
+        <text x="40" y="226">weekly reset</text><text class="small" x="40" y="248">fresh start every Monday</text>
+        <path class="arrow" d="M220 67 H262" marker-end="url(#ah)"/>
+        <path class="arrow" d="M470 67 H512" marker-end="url(#ah)"/>
+        <path class="arrow" d="M720 67 H762" marker-end="url(#ah)"/>
+        <path class="arrow hot" d="M875 104 V188" marker-end="url(#ahh)"/>
+        <path class="arrow" d="M770 233 H728" marker-end="url(#ah)"/>
+        <path class="arrow" d="M520 233 H478" marker-end="url(#ah)"/>
+        <path class="arrow" d="M270 233 H228" marker-end="url(#ah)"/>
+        <path class="arrow" d="M120 196 V112" marker-end="url(#ah)"/>
+        <text class="small" x="900" y="152">the step that</text><text class="small" x="900" y="167">brings new users</text>
+        <text class="small" x="132" y="158">loop again</text>
+      </svg>
+    </div>
+    <p class="note">Steps 5–6 are where most loops leak. On iPhone today an invited friend hits a paywall they can't close (decision D6), and iPhones can't carry an invite code through the App Store install, so the code must be pasted.</p>
+  </section>
+
+  <section id="research">
+    <div class="label">Research</div>
+    <h2>What the evidence says</h2>
+<div class="sub" id="r-psych">
+  <h3>1 · Why competition works, and when it backfires</h3>
+  <p>Findings from social psychology, behavioural economics and step-count trials, ranked by how much they should shape Mozy Race. The first five decide its structure.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>STEP UP trial (602 adults, 24 weeks)</th><th class="num">Extra steps a day vs control</th><th class="num">12 weeks after it ended</th></tr></thead>
+      <tbody>
+        <tr class="pick"><td><strong>Competition</strong>: groups of 3, weekly leaderboard</td><td class="num">+920</td><td class="num">+569</td></tr>
+        <tr><td>Support</td><td class="num">+689</td><td class="num">+428</td></tr>
+        <tr><td>Collaboration</td><td class="num">+637</td><td class="num">+126 (not significant)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Patel et al., JAMA Internal Medicine, 2019. Competition was the only arm that clearly lasted.</p>
+  <div class="grid3">
+    <div class="card accent"><div class="label">1 · small groups first</div><h3>Fewer rivals, more effort</h3><p>Told they faced 10 rivals, people finished a quiz in 28.95 s; told 100, in 33.15 s. Motivation to compete was 4.07 vs 2.00 (of 7) for 10 vs 10,000 rivals. Rank in a small local group outweighs standing in a big pool.</p><p class="ev"><strong>Mozy:</strong> crews, family and leagues are home; the world board is the backdrop. <em>Garcia & Tor 2009; Zell & Alicke 2010</em></p></div>
+    <div class="card accent"><div class="label">2 · compare, don't just cheer</div><h3>Comparison beats support</h3><p>Students in groups of 6 who could compare themselves went to ~90% more exercise classes than groups who couldn't; support-only groups did worst (16.8 vs 20.3 for control).</p><p class="ev"><strong>Mozy:</strong> ranked weekly groups are the engine; reactions are extras. <em>Zhang et al. 2016; STEP UP 2019</em></p></div>
+    <div class="card accent"><div class="label">3 · keep rivals reachable</div><h3>Match people on ability</h3><p>A star whose success looks reachable inspires; an unreachable one deflates. In 26 countries (103,558 students), people surrounded by stronger peers rated themselves lower.</p><p class="ev"><strong>Mozy:</strong> leagues by 2–4-week step average and time zone. <em>Lockwood & Kunda 1997; Marsh & Hau 2003</em></p></div>
+    <div class="card accent"><div class="label">4 · show the gap</div><h3>Effort rises near the goal</h3><p>Café customers bought coffee ~20% more often as a free one got closer; a 12-stamp card with 2 stamps pre-filled was finished faster (12.7 days) than a plain 10-stamp card (15.6).</p><p class="ev"><strong>Mozy:</strong> ±3 ranks and "418 steps to pass riya". <em>Kivetz, Urminsky & Zheng 2006</em></p></div>
+    <div class="card accent"><div class="label">5 · lines near everyone</div><h3>Competition peaks at a cut-off</h3><p>Competitiveness was 6.05 at #100 vs #101 (a bonus line) but 4.29 at #50 vs #51. Effort is U-shaped: people try hardest after finishing first or last.</p><p class="ev"><strong>Mozy:</strong> promotion and drop zones, a top 3 in every group, daily crowns. <em>Garcia, Tor & Gonzalez 2006; Gill et al. 2019</em></p></div>
+    <div class="card"><div class="label">6 · fresh starts</div><h3>Reset on Mondays</h3><p>Among 11,912 students, gym visits rose 33.4% at the start of a week, 14.4% at the start of a month and 47.1% at the start of a semester.</p><p class="ev"><strong>Mozy:</strong> Monday resets, monthly awards, festival weeks, New Year. <em>Dai, Milkman & Riis 2014</em></p></div>
+    <div class="card"><div class="label">7 · teams and families</div><h3>Compete together, against others</h3><p>Family game BE FIT: goals met on 53% vs 32% of days, +953 steps a day, still +494 after it ended. A meta-analysis found competition combined with collaboration worked best for behaviour.</p><p class="ev"><strong>Mozy:</strong> family crews with a shared goal, crew-vs-crew weeks. <em>Patel 2017; Sailer & Homner 2020</em></p></div>
+    <div class="card"><div class="label">8 · loss framing, sparingly</div><h3>"You'll lose it" works, pressure doesn't</h3><p>Rewards framed as something to lose: goal met on 45% of days vs 30% (control); gain or lottery framing changed nothing. Pressure weakens people's own wish to take part.</p><p class="ev"><strong>Mozy:</strong> at most one "you were passed" alert a day, always with the gap. <em>Patel 2016; Reeve & Deci 1996</em></p></div>
+    <div class="card"><div class="label">9 · streaks need repair</div><h3>A broken streak is the danger</h3><p>93% carried on after an intact streak, 69% after a broken one, 85% when it could be repaired. In a 61,293-person megastudy, the best idea rewarded coming back after a miss.</p><p class="ev"><strong>Mozy:</strong> streak freezes earned by walking, a "welcome back" crown. <em>Silverman & Barasch 2022; Milkman 2021</em></p></div>
+    <div class="card"><div class="label">10 · protect the bottom</div><h3>Nobody wants last place</h3><p>People dislike last place more than any other rank; losing lowers drive by making people feel less capable. Fitness is where users rate leaderboards most favourably.</p><p class="ev"><strong>Mozy:</strong> percentiles on big boards, "most improved", an option to hide your rank, never a "last" label. <em>Kuziemko 2014; Reeve & Deci 1996; Jia et al., CHI 2017</em></p></div>
+    <div class="card"><div class="label">11 · score healthy behaviour</div><h3>Cap what shouldn't be maxed</h3><p>Duolingo changed league points to reward the lessons that teach best. Tracking an activity makes people do more of it but enjoy it less.</p><p class="ev"><strong>Mozy:</strong> leagues count steps up to a daily cap (D16). <em>Duolingo 2024; Etkin 2016</em></p></div>
+    <div class="card"><div class="label">12 · effects fade</div><h3>Plan seasons, not a one-off</h3><p>Gamification's effect on activity fell from g=0.42 to 0.15 at follow-up; one review called the average +489 steps a day "trivial"; only 8% of 54 gym interventions kept working after they ended.</p><p class="ev"><strong>Mozy:</strong> seasons, re-matching, events; never promise health outcomes. <em>Mazeas 2022; Nishi 2024; Milkman 2021</em></p></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>Gen Z: movement is social life</h3><ul><li>Strava's Year in Sport 2025 (30,000+ people): Gen Z were 75% more likely to name a race or event as their main motivation, and 39% more likely than Gen X to use fitness to meet people. Clubs grew about 4× in 2025.</li><li>Its headline: "Doomscrolling Is Out, Movement Is In", which is Mozy's whole pitch.</li><li>55% of Gen Z say social connection is their top reason to join a fitness group; twice as many Gen Z as Gen X find starting a new sport intimidating, so a gentle "rookie week" helps.</li></ul></div>
+    <div class="card"><h3>Duolingo leagues, for reference</h3><ul><li>Tested in 2018, modelled on FarmVille 2's leagues; now 10 tiers; a new league each week, matched on similar habits and time zone; private profiles can opt out.</li><li>Its S-1 filing says leaderboards raised learning time by "almost 20%"; its former product chief reported +17% and three times as many highly engaged learners.</li><li>League size (~30) and promotion counts come from third-party guides only (unverified).</li></ul></div>
+  </div>
+</div>
+
+<div class="sub" id="r-cases">
+  <h3>2 · How the big apps run step competitions</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Product</th><th>Who competes</th><th>Scoring</th><th>Reset</th><th>What stands out</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Apple Fitness</strong></td><td>1v1 with a sharing friend</td><td>1 point per 1% of your own rings, capped at 600 a day</td><td>7 days</td><td>Fair across fitness levels; ahead/behind alerts; a tie means both win</td></tr>
+        <tr><td><strong>Fitbit → Google Health</strong></td><td>Invited friends</td><td>Raw steps; "Goal Day": everyone who hits their own goal wins</td><td>Day, workweek, weekend</td><td>Challenges, Adventures and Open Groups were removed on 27 Mar 2023 ("limited number of active users"), with a backlash; Google Health (May 2026) keeps only a weekly friends board</td></tr>
+        <tr><td><strong>Samsung Health</strong></td><td>1v1 or teams up to 10; monthly global challenge</td><td>Raw steps</td><td>Custom; monthly</td><td>Global top 10 plus top-10% and top-30% lines; visibility Anyone / Friends / No one; Together turned off for under-18s outside Korea (Sep 2026)</td></tr>
+        <tr><td><strong>Strava</strong></td><td>Segments, clubs, group challenges</td><td>Time, distance</td><td>Clubs weekly</td><td>"Local Legend" = most efforts in 90 days; "you lost your KOM" emails; removed 4.45M suspicious activities (May 2025)</td></tr>
+        <tr><td><strong>Peloton</strong></td><td>Everyone in a class</td><td>Output</td><td>Per class</td><td>"Following" and tag filters make a board of tens of thousands feel small; high fives</td></tr>
+        <tr><td><strong>Duolingo</strong></td><td>Auto-matched cohorts</td><td>Weekly XP</td><td>Weekly, local time</td><td>10 leagues; matched by last week's activity and time zone; +17% learning time</td></tr>
+        <tr><td><strong>StepUp</strong></td><td>Friends; groups up to 15,000</td><td>Raw steps, no manual entry</td><td>Daily and weekly at local midnight</td><td>Country top 100; private by default; bots give everyone a beatable rival; free with ads; 4.8★ from 144K ratings</td></tr>
+        <tr><td><strong>Pacer</strong></td><td>Individual, team and team-average challenges</td><td>Steps or goal days, optional cap</td><td>Local midnight, 1–4 weeks</td><td>Free challenges; joins by link, code or QR</td></tr>
+        <tr><td><strong>Pikmin Bloom</strong></td><td>Co-op groups of up to 5</td><td>Shared target</td><td>Monday</td><td>No friends leaderboard, partly because shakers make competition unfair</td></tr>
+        <tr><td><strong>Corporate platforms</strong></td><td>Teams ranked by average</td><td>Caps of 20,000–50,000 a day</td><td>Local days, 24–72 h grace</td><td>"If only first place wins, most people quit by week two" (YuMuuv)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="grid2">
+    <div class="card risk"><h3>Mozy's direct rivals are already racing</h3><ul><li><strong>Stroll</strong> (steps to screen time) added global and country boards for day, week and month on 21 Sep 2026.</li><li><strong>Lockt</strong> (walk to unlock) added monthly leagues with Amazon vouchers on 28 Jun 2026.</li><li><strong>WalkLock</strong> and <strong>Steppin</strong> have friend challenges.</li><li><strong>WeWard</strong>'s Walking Mode (iOS, Jul 2026) now locks apps until a step goal, Mozy's core idea.</li><li>So a leaderboard alone won't stand out. Mozy's edge has to be <strong>families, the pet, fairness and privacy</strong>.</li></ul></div>
+    <div class="card"><h3>What to copy</h3><ul><li><strong>Weekly is the main clock</strong> (Apple, Duolingo, Strava clubs, STEP UP); daily is a side view, monthly is for awards.</li><li><strong>Score families against their own goals</strong> (Apple's % of goal, Fitbit's Goal Day), so a grandmother can beat a college student (D17).</li><li><strong>Leagues and percentiles</strong>, not one giant board (Duolingo, Samsung's top-10%/30% lines).</li><li><strong>A beatable rival for everyone</strong>: StepUp uses bots; Mozy can use the pet itself, clearly labelled as your Mozy, never a fake person.</li><li><strong>Private by default, global opt-in, minors gated</strong> (StepUp, Samsung, Stroll).</li><li><strong>Friend streaks</strong>: Duolingo's Friend Streak made a daily lesson 22% more likely.</li><li><strong>Ship only what you can keep running</strong>: Fitbit's removal of its community features angered users.</li></ul></div>
+  </div>
+</div>
+
+<div class="sub" id="r-share">
+  <h3>3 · What makes people share and invite</h3>
+  <div class="grid3">
+    <div class="card"><div class="num">Rank &gt; stat</div><p>Duolingo added the learner's XP percentile to its year-in-review card and share rates rose; the top 10% of learners made over half of all shares. "Top 6%!" and "Top 1%!" were the most shared posts.</p><p class="ev"><strong>For Mozy:</strong> percentile cards ("top 9% in india"), offered only to the top half.</p></div>
+    <div class="card"><div class="num">India shares</div><p>In Duolingo's data, India and Brazil had below-average open rates but the <strong>highest share rates</strong>.</p><p class="ev"><strong>For Mozy:</strong> design for WhatsApp first: text grids, Status-sized cards, Hindi-friendly titles later.</p></div>
+    <div class="card"><div class="num">Everyone gets one</div><p>Spotify Wrapped 2025: 200M+ engaged users in 24 hours and 500M+ shares. Duolingo's second card, "learner styles", raised sharing for people who weren't at the top.</p><p class="ev"><strong>For Mozy:</strong> identity labels worked out on the phone ("weekend warrior") so the bottom half has a card too.</p></div>
+    <div class="card"><div class="num">90 → 2M</div><p>Wordle went from 90 players (1 Nov 2021) to 2M+ in early January 2022, after the spoiler-free emoji grid that players invented.</p><p class="ev"><strong>For Mozy:</strong> the week grid as copyable text: 🟩🟩🟨🟩⬜🟩🟩.</p></div>
+    <div class="card"><div class="num">Fads fade</div><p>BeReal's daily window took it from 21.6M to 73.5M users in a month (2022), then daily users fell from about 15M to about 6M. Gas hit #1 and shut down within about a year.</p><p class="ev"><strong>For Mozy:</strong> novelty mechanics are experiments, not the core.</p></div>
+    <div class="card"><div class="num">Never paywall it</div><p>Strava made Year in Sport subscribers-only in December 2025 and got a backlash.</p><p class="ev"><strong>For Mozy:</strong> race, cards and invites free for everyone, on both platforms.</p></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Channel</th><th>What works in 2026</th><th>Plan</th></tr></thead>
+      <tbody>
+        <tr><td><strong>WhatsApp</strong></td><td>Pre-filled text via the share sheet or <code>wa.me/?text=</code>. No API posts straight to Status. Link previews need non-empty <code>og:title</code>, <code>og:description</code>, <code>og:url</code>, the head within the first 300 KB, and an image under 600 KB, at least 300 px wide</td><td>Main invite channel</td></tr>
+        <tr><td><strong>Instagram Stories</strong></td><td>Needs a Facebook App ID (since Jan 2023). Background image at least 720×1280, 9:16. Links in shared stories can't be tapped</td><td>Story card with QR and short link</td></tr>
+        <tr><td><strong>iMessage</strong></td><td>No JavaScript runs on previews; images at least 900 px wide</td><td>Share sheet with the link</td></tr>
+        <tr><td><strong>Snapchat, TikTok</strong></td><td>Snapchat needs app review for links and calls "direct app downloads" abuse; TikTok shares images or video only, no links</td><td>Skip in v1; system share sheet only</td></tr>
+        <tr><td><strong>Deep links</strong></td><td>Firebase Dynamic Links shut down on 25 Aug 2025. Paid attribution SDKs cost money and would end iOS "Data Not Collected". Android's Play Install Referrer is free and exact; iOS has no free deferred link, but a paste button (UIPasteControl) avoids the paste alert</td><td>Own links on mozy.mcrudra.com + referrer + paste code; no SDK</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>Realistic virality</h3><ul><li>Andrew Chen calls a viral factor above 1 "unrealistic"; around 0.5 is a good product. Plan for 0.1–0.3.</li><li>Extole health & wellness medians (Mar 2026): 28% of people who tap "refer" share; 14.7% of clicks sign up; 3.4% convert.</li><li>Duolingo: learners who add friends are 5.6× more likely to finish a course; Friend Streaks added 22% to daily lessons; sending the first invite is the biggest hurdle.</li></ul></div>
+    <div class="card"><h3>Copy that fits Mozy (drafts)</h3><ul><li>"pickle is locked in. 52,140 steps this week."</li><li>"side quest cleared: 10,000 steps."</li><li>"step-off? 3 days, most steps wins. loser buys the chai."</li><li>Keep slang light and check it's still current at launch ("aura" was 2025's word); never aim "NPC" at friends; never name other apps.</li></ul></div>
+  </div>
+</div>
+
+<div class="sub" id="r-rules">
+  <h3>4 · The rules we have to follow</h3>
+  <p>Checked against Apple's guidelines (updated 8 Jun 2026), Google Play's policy pages, GDPR, India's DPDP Rules, COPPA and Australia's under-16 law. Not legal advice; items marked "unverified" need a second look before launch.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Requirement</th><th>Source</th><th>What Mozy Race does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Race names, crew names and reactions are user-generated content</strong>: filter before posting, in-app report, block, published contact info, and timely responses</td><td>Apple 1.2; Play UGC policy (also: terms accepted before posting, a definition of objectionable content)</td><td>Name filter, report, block, contact address in the app and on the site, short race rules accepted at joining</td></tr>
+        <tr><td><strong>Automatic "guest" accounts must be deletable in the app</strong>, including what others could see. Deactivating isn't enough. Play also needs a web deletion link in Play Console</td><td>Apple 5.1.1(v); Play account deletion</td><td>"Delete my race profile" in the app and a web form on mozy.mcrudra.com; deletes every row</td></tr>
+        <tr><td><strong>Ask before uploading, for this new purpose.</strong> Steps were collected to earn minutes, so sharing them is a new use. Play wants a prominent in-app disclosure and an affirmative tap; the core app must work without joining</td><td>Apple 5.1.1(ii), 5.1.2(i–ii); Play User Data</td><td>The 3-screen join flow; update the Motion permission text; Mozy works the same without the race</td></tr>
+        <tr><td><strong>Motion & Fitness data</strong> may not be used for advertising or marketing, and must never be stored in iCloud</td><td>Apple 5.1.3(i–ii)</td><td>Steps live only on Cloudflare. <strong>MCX posts never feature a person's steps</strong> without separate permission; totals for everyone combined are fine</td></tr>
+        <tr><td><strong>Privacy label</strong> stops being "Data Not Collected": Fitness, User ID (screen name), Other User Content, Coarse Location (if country is stored), Device ID only if attestation key ids are kept; all linked to the user, for App Functionality</td><td>Apple App Privacy details; Play Data safety (Name incl. nickname, User IDs, Fitness info, other UGC, "other actions" for reactions, deletion URL)</td><td>Update both forms in the same release as the race</td></tr>
+        <tr><td><strong>Age rating:</strong> "contests" for rankings that run all the time are 13+. "Social media" (interacting with user content through a feed or similar discovery) is 13+, 16+ in Australia</td><td>Apple age ratings (answers mandatory since 31 Jan 2026; social-media answers from Sept 2026)</td><td>Accept 13+. No feed; reactions only inside invite-only crews. Whether a board with names counts as "discovery" is unverified</td></tr>
+        <tr><td><strong>US state age laws</strong> (Texas from 4 Jun 2026, Utah, Louisiana): a feature that changes the data collected or the rating is a "significant change" that a minor's parent must approve</td><td>Texas SB 2420; Apple Declared Age Range and PermissionKit</td><td>Race behind a flag for minors in those states until a parent approves; handle consent being withdrawn</td></tr>
+        <tr><td><strong>GDPR:</strong> step totals tracked over time are likely health data, so explicit, withdrawable consent; public visibility must be the user's own choice (privacy by default); breaches reported within 72 h; possibly an EU representative</td><td>GDPR Art. 9, 25, 27, 33; WP29 2015 annex; ICO</td><td>Explicit consent screen, nothing public by default, short retention</td></tr>
+        <tr><td><strong>India DPDP:</strong> itemised notice, specific consent, erasure on withdrawal, breach notice within 72 h, grievances within 90 days; <strong>verifiable parental consent for anyone under 18</strong> and no behavioural monitoring of children. Most of this applies from 13 May 2027</td><td>DPDP Act 2023; DPDP Rules notified 13 Nov 2025</td><td>Notice and consent from day one; under-18s in India need a parental-consent path by May 2027 or stay out of the race</td></tr>
+        <tr><td><strong>COPPA:</strong> screen names and persistent ids are personal information; children can't post them publicly without parental consent; use a neutral age screen</td><td>FTC amended rule (compliance from 22 Apr 2026)</td><td>Birth month and year at joining; under-13s keep Mozy fully local</td></tr>
+        <tr><td><strong>Australia:</strong> services whose main purpose is supporting users' health are excluded from the under-16 ban; Mozy is probably excluded (unverified)</td><td>Online Safety (Age-Restricted Social Media Platforms) Rules 2025</td><td>Write a short self-assessment and keep it on file</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>Device ids: what the rules allow</h3><ul><li>Google calls <code>ANDROID_ID</code> a persistent device identifier that may not be linked to other personal data, so it must not be the account key or be stored next to names and steps.</li><li>iPhone's vendor id changes when all your apps are removed, and the app can't rely on it.</li><li>So "automatic re-login" comes from secure backups of a random token instead (see "How it's built").</li></ul></div>
+    <div class="card"><h3>Still to check (unverified)</h3><ul><li>Whether App Review asks an individual seller account to become an organisation for apps handling sensitive data (Apple 5.1.1(ix)).</li><li>India's IT Rules 2021 duties for apps that host user content (for example a grievance officer).</li><li>Whether a names-and-ranks board counts as "social media" in Apple's questionnaire.</li></ul></div>
+  </div>
+</div>
+
+  </section>
+
+  <section id="product">
+    <div class="label">The product</div>
+    <h2>Mozy Race: crews, family, country, world</h2>
+    <p>Small groups are the heart of it; the big boards are the backdrop. Every board answers three questions at a glance: where am I, who is just ahead, and how far is that?</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Arena</th><th>Who</th><th class="num">Size</th><th>Opens on</th><th>Why it exists</th><th>Phase</th></tr></thead>
+        <tbody>
+          <tr class="pick"><td><strong>Crews</strong></td><td>Friends, college, office, gym</td><td class="num">2–50</td><td>This week</td><td>People try hardest against people they know. Also the invite engine</td><td><span class="chip good">1</span></td></tr>
+          <tr class="pick"><td><strong>Family</strong></td><td>A crew of type "family"</td><td class="num">2–50</td><td>This week</td><td>WhatsApp-native parents and grandparents; a shared family goal bar later</td><td><span class="chip good">1</span></td></tr>
+          <tr><td><strong>Country</strong></td><td>Everyone public with that flag</td><td class="num">any</td><td>Today</td><td>National pride: "top 9% in India"</td><td><span class="chip good">1</span></td></tr>
+          <tr><td><strong>World</strong></td><td>Everyone public</td><td class="num">any</td><td>This week</td><td>The global board, percentile first, never a bare "#48,201"</td><td><span class="chip good">1</span></td></tr>
+          <tr><td><strong>Leagues</strong></td><td>30 similar walkers, matched weekly</td><td class="num">30</td><td>Week</td><td>Makes the world winnable for everyone (the Duolingo pattern)</td><td><span class="chip warn">2</span></td></tr>
+          <tr><td><strong>Step-offs</strong></td><td>1v1</td><td class="num">2</td><td>1, 3 or 7 days</td><td>The most direct invite there is: "beat me"</td><td><span class="chip warn">2</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub">
+      <h3>The screens (concept)</h3>
+      <p>Built from Mozy's own theme: <code>#FAF9F7</code> background, <code>#121212</code> text, <code>#FF8A00</code> with white text, Plus Jakarta Sans, lowercase copy, pets as avatars (no photos). The website screens use the site's own night-and-sprout look. Names and numbers are made up for the mockup.</p>
+      <div class="mk mk-board">
+<div class="mk-item">
+<div class="ph" id="m-crew">
+  <div class="notch"></div>
+  <div class="top"><span class="ico">‹</span><h4>race</h4><span class="ico">↗</span></div>
+  <div class="seg"><span class="on">crews</span><span>india 🇮🇳</span><span>world 🌍</span></div>
+  <div class="chips"><span class="on">today</span><span>week</span><span>month</span><span class="crew">sharma fam ▾</span></div>
+  <div class="hero">
+    <div class="k">you're</div>
+    <div class="big">#2 <small>of 6 today</small></div>
+    <div class="sub">312 steps to pass papa 👀</div>
+    <div class="bar"><i></i></div>
+  </div>
+  <div class="rows">
+    <div class="row"><span class="r">1</span><span class="pet peach crown"></span><span class="n">papa<small>synced 4 min ago</small></span><span class="s">9,214<small class="up">▲ 1</small></span></div>
+    <div class="row me"><span class="r">2</span><span class="pet"></span><span class="n">you<small>synced now</small></span><span class="s">8,902<small class="down">▼ 1</small></span></div>
+    <div class="row"><span class="r">3</span><span class="pet mint"></span><span class="n">riya<small>synced 12 min ago</small></span><span class="s">7,450<small>–</small></span></div>
+    <div class="row"><span class="r">4</span><span class="pet lilac"></span><span class="n">mom<small>synced 1 h ago</small></span><span class="s">5,120<small class="up">▲ 1</small></span></div>
+    <div class="row"><span class="r">5</span><span class="pet sky"></span><span class="n">arjun <span class="tag">resting</span><small>synced 3 h ago</small></span><span class="s">2,033<small>–</small></span></div>
+  </div>
+  <div class="cta">invite to race</div>
+  <div class="ghost">poke · 👏 🔥 👀 😤</div>
+</div>
+<div class="cap2">A · race, crews tab: a small group, today, "steps to pass" nudge</div>
+</div>
+<div class="mk-item">
+<div class="ph" id="m-world">
+  <div class="notch"></div>
+  <div class="top"><span class="ico">‹</span><h4>race</h4><span class="ico">↗</span></div>
+  <div class="seg"><span>crews</span><span>india 🇮🇳</span><span class="on">world 🌍</span></div>
+  <div class="chips"><span>today</span><span class="on">week</span><span>month</span></div>
+  <div class="pct">
+    <div class="ring"><div>top<br>18%<small>this week</small></div></div>
+    <div><div class="t">you out-walked 82% of mozy walkers</div><div class="d">#1,204 of 6,690 · 61,880 steps</div></div>
+  </div>
+  <div class="sect">top 3</div>
+  <div class="podium">
+    <div><span class="pet mint"></span><b>kai 🇯🇵</b>141,002</div>
+    <div class="p1"><span class="pet peach crown"></span><b>ana 🇧🇷</b>152,310</div>
+    <div><span class="pet sky"></span><b>dev 🇮🇳</b>139,876</div>
+  </div>
+  <div class="sect">around you</div>
+  <div class="rows">
+    <div class="row compact"><span class="r">1,203</span><span class="pet lilac"></span><span class="n">lena 🇩🇪</span><span class="s">61,912</span></div>
+    <div class="row compact me"><span class="r">1,204</span><span class="pet"></span><span class="n">you 🇮🇳</span><span class="s">61,880</span></div>
+    <div class="row compact"><span class="r">1,205</span><span class="pet mint"></span><span class="n">sam 🇬🇧</span><span class="s">61,844</span></div>
+  </div>
+  <div class="ghost" style="margin-top:auto">32 steps to pass lena · resets monday</div>
+</div>
+<div class="cap2">B · world tab: percentile first, top 3, and the people just around you</div>
+</div>
+<div class="mk-item">
+<div class="ph" id="m-league">
+  <div class="notch"></div>
+  <div class="top"><span class="ico">‹</span><h4>league</h4><span class="ico">ⓘ</span></div>
+  <div class="league"><div class="badge">🌱</div><div><div class="t">sprout league</div><div class="d">30 walkers · ends in 2d 4h<br>top 7 move up to bloom 🌸</div></div></div>
+  <div class="zone promo">promotion zone</div>
+  <div class="rows">
+    <div class="row compact"><span class="r">6</span><span class="pet peach"></span><span class="n">noah</span><span class="s">48,210</span></div>
+    <div class="row compact"><span class="r">7</span><span class="pet mint"></span><span class="n">ishita</span><span class="s">47,002</span></div>
+  </div>
+  <div class="zone" style="color:#B85F00">you're 1,840 steps from moving up</div>
+  <div class="rows">
+    <div class="row compact"><span class="r">8</span><span class="pet sky"></span><span class="n">leo</span><span class="s">45,960</span></div>
+    <div class="row compact me"><span class="r">9</span><span class="pet"></span><span class="n">you</span><span class="s">45,162</span></div>
+    <div class="row compact"><span class="r">10</span><span class="pet lilac"></span><span class="n">zara</span><span class="s">44,031</span></div>
+  </div>
+  <div class="dots">···</div>
+  <div class="zone demo">drop zone</div>
+  <div class="rows">
+    <div class="row compact"><span class="r">26</span><span class="pet peach"></span><span class="n">omar</span><span class="s">9,870</span></div>
+  </div>
+  <div class="cta" style="margin-top:auto">go for a walk</div>
+</div>
+<div class="cap2">C · weekly league (phase 2): 30 similar walkers, move up or drop</div>
+</div>
+<div class="mk-item">
+<div class="card916" id="m-card">
+  <div class="sun"></div>
+  <div class="brand">mozy 🌱</div>
+  <div class="date">tue 14 oct</div>
+  <div class="head">#1 in <em>sharma fam</em> today</div>
+  <div class="bigcrown">👑</div>
+  <div class="pet bigpet"></div>
+  <div class="stat"><b>12,431</b><b>#1 of 6</b><span>steps today</span><span>in the crew</span></div>
+  <div class="foot"><div class="qr">QR</div><div><b>race me on mozy</b>mozy.mcrudra.com/j/SHRM7Q</div></div>
+</div>
+<div class="cap2">D · share card, 9:16 for stories and WhatsApp status. Only recorded numbers.</div>
+</div>
+      </div>
+      <div class="mk mk-wide">
+<div class="mk-item">
+<div class="web" id="m-web">
+  <div class="chrome"><i></i><i></i><i></i><span>mozy.mcrudra.com/leaderboard</span></div>
+  <div class="wrap">
+    <h5>who walked <em>the most</em> this week?</h5>
+    <p class="lead">Mozy walkers who chose to be on the public board. Updated every 10 minutes.</p>
+    <div class="ticker"><b>41,882,310</b><span>steps walked by mozy walkers this week</span></div>
+    <div class="tabs"><span class="on">this week</span><span>today</span><span>this month</span><span>🌍 world ▾</span></div>
+    <div class="list">
+      <div class="li gold"><span class="r">1</span><span class="pet peach crown"></span><span class="n">ana<small>🇧🇷 brazil</small></span><span class="s">152,310</span></div>
+      <div class="li"><span class="r">2</span><span class="pet mint"></span><span class="n">kai<small>🇯🇵 japan</small></span><span class="s">141,002</span></div>
+      <div class="li"><span class="r">3</span><span class="pet sky"></span><span class="n">dev<small>🇮🇳 india</small></span><span class="s">139,876</span></div>
+    </div>
+    <div class="hist"><div class="cap">how the world walked this week</div>
+      <div class="bars"><i style="height:22%"></i><i style="height:48%"></i><i style="height:80%"></i><i style="height:100%"></i><i style="height:86%"></i><i style="height:62%"></i><i class="you" style="height:44%"></i><i style="height:28%"></i><i style="height:17%"></i><i style="height:10%"></i><i style="height:6%"></i><i style="height:3%"></i></div>
+      <div class="axis"><span>0</span><span>35k</span><span>70k</span><span>105k+ steps</span></div></div>
+    <div class="cta2"><span>get mozy</span><span class="alt">see the hall of fame →</span></div>
+  </div>
+</div>
+<div class="cap2">E · public web board on mozy.mcrudra.com: top list, a world histogram, live weekly total</div>
+</div>
+<div class="mk-item">
+<div class="web join" id="m-join">
+  <div class="chrome"><i></i><i></i><i></i><span>mozy.mcrudra.com/j/SHRM7Q</span></div>
+  <div class="wrap">
+    <div class="inv"><span class="pet peach"></span><span class="pet"></span><span class="pet mint"></span><span class="pet lilac"></span></div>
+    <h5>riya invited you to <em>sharma fam</em></h5>
+    <p class="lead">6 walkers · the weekly race resets monday</p>
+    <div class="code">SHRM7Q</div>
+    <div class="cta2"><span>open in mozy</span><span class="alt">app store</span><span class="alt">google play</span></div>
+    <p class="fine">Steps and names in a crew are visible only to its members. Install Mozy, then this code joins you automatically on Android, or paste it on iPhone.</p>
+  </div>
+</div>
+<div class="cap2">F · invite page: no member totals shown to people outside the crew</div>
+</div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>What every board shows</h3>
+        <ul>
+          <li><strong>Today · week · month</strong> on every arena. All-time totals only as personal bests: an all-time board is unwinnable for anyone who joins late.</li>
+          <li>A hero card with your place and <strong>the gap to the next person</strong>.</li>
+          <li><strong>Percentile</strong> on country and world boards. Below the median, lead with your own progress ("+2,140 on last week").</li>
+          <li><strong>Top 3 + the people around you</strong> on big boards, so the next target is always reachable.</li>
+          <li>"synced 12 min ago" on every row and a <strong>resting</strong> tag, so nobody looks lazy because their phone was asleep.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Ways to win that aren't just "most steps"</h3>
+        <ul>
+          <li><strong>Crowns 👑</strong> for the day's and the week's top walker in each crew, worn by the pet until the next result.</li>
+          <li><strong>Most improved</strong> against your own last 4 weeks (phase 2).</li>
+          <li><strong>Most consistent</strong>: days at or above 8,000 steps (phase 2).</li>
+          <li><strong>League move-ups</strong> every Monday (phase 2).</li>
+          <li>Rewards are <strong>cosmetic only</strong>: crowns, leaf colours, hats. Never minutes, never money.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Awards and the hall of fame</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Award</th><th>Who wins</th><th>How often</th><th>Where it shows</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Crew crown 👑</strong></td><td>Top walker of the day and of the week in each crew</td><td>Daily, weekly</td><td>On the pet in boards and cards; later the widget</td></tr>
+          <tr><td><strong>League move-up</strong></td><td>Top 7 of each league</td><td>Weekly</td><td>Card, tier badge</td></tr>
+          <tr><td><strong>Walker of the month</strong></td><td>#1 in the world, and #1 in each country with ≥50 public walkers</td><td>Monthly</td><td>Website hall of fame, card, badge</td></tr>
+          <tr><td><strong>Most improved</strong></td><td>Biggest gain on one's own previous month (≥100,000 steps that month)</td><td>Monthly</td><td>Hall of fame</td></tr>
+          <tr><td><strong>Iron walker</strong></td><td>Most days ≥8,000 steps in the month</td><td>Monthly</td><td>Hall of fame</td></tr>
+          <tr><td><strong>Top crew</strong></td><td>Highest average per member (crews of ≥4)</td><td>Monthly</td><td>Hall of fame, crew name only with the owner's OK</td></tr>
+          <tr><td><strong>Personal bests</strong></td><td>Your best day and best week</td><td>Any time</td><td>Profile, cards</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Share cards</h3>
+    <p>Rendered on the phone, from recorded numbers only, as a 9:16 story card, a square card and a WhatsApp text version. Every card carries a QR code and the short link, because links in Instagram Stories can't be tapped.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Card</th><th>When it's offered</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Today in my crew</strong></td><td>Any time; offered once after passing someone</td><td>"#1 in sharma fam today · 12,431 steps"</td></tr>
+          <tr><td><strong>Week result</strong></td><td>Monday, when the crew week closes</td><td>"riya won sharma fam, week 42 👑"</td></tr>
+          <tr><td><strong>Percentile</strong></td><td>Weekly, only for the top half</td><td>"top 9% in india this week 🇮🇳"</td></tr>
+          <tr><td><strong>Week grid (text)</strong></td><td>Any time</td><td><code>🟩🟩🟨🟩⬜🟩🟩 · 52,140 steps · #2 in sharma fam</code></td></tr>
+          <tr><td><strong>League move-up</strong> (phase 2)</td><td>Monday</td><td>"moved up to bloom league 🌸"</td></tr>
+          <tr><td><strong>Step-off result</strong> (phase 2)</td><td>End of a step-off</td><td>"step-off won: 9,120 vs 8,432 😤 rematch?"</td></tr>
+          <tr><td><strong>Award</strong></td><td>When won</td><td>"walker of the month · india · october 2026"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>Names (to decide, D12)</h3>
+        <ul>
+          <li>Feature: <strong>Mozy Race</strong>, tabs <em>crews · india · world</em>. It continues the name from the growth study.</li>
+          <li>Leagues follow the sprout on Mozy's head: <strong>seed → sprout → sapling → bloom → grove</strong>, later forest, canopy, summit, sky, legend.</li>
+          <li>1v1: <strong>step-off</strong>.</li>
+          <li>Avoid "touch grass" as a name: a rival app is called touch grass.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Where it lives in the app</h3>
+        <ul>
+          <li>A fourth Home header button (trophy) next to Freedom Pass, Stats and Settings (<code>CommandCenter.tsx:603-628</code>).</li>
+          <li>A one-time Home card after the first goal day: "race your friends on steps".</li>
+          <li>One new stack screen; the app uses a single native stack (<code>RootNavigator.tsx:11</code>).</li>
+          <li>Onboarding and the paywall stay as they are, except the iPhone paywall question in D6.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="flows">
+    <div class="label">Flows</div>
+    <h2>How it feels, step by step</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Joining the race (3 screens)</h3>
+        <ol class="steps">
+          <li><span><strong>Intro.</strong> "race your friends on steps" · crews, your country, the world · "Only your race name and one step total per day leave your phone."</span></li>
+          <li><span><strong>Profile.</strong> Race name (pre-filled from the onboarding name), pet colour, country flag (pre-filled from the phone's region, with "hide my flag").</span></li>
+          <li><span><strong>Who sees you.</strong> Two equal buttons, nothing pre-selected: "everyone" (world, country, crews, website) or "only my crews". Age confirmation and consent, then the boards.</span></li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>Starting a crew</h3>
+        <ol class="steps">
+          <li><span>Race → crews → "start a crew" → name, friends or family.</span></li>
+          <li><span>The share sheet opens: "race me on mozy this week 🏁 I'm on 8,902 steps today. join sharma fam: mozy.mcrudra.com/j/SHRM7Q"</span></li>
+          <li><span>"Show QR" for people in the same room.</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>The friend's phone</th><th>What happens after they tap the invite</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Mozy installed</strong></td><td>The link opens Mozy directly (Universal Link / App Link) → "join sharma fam?" → quick race profile if needed → the crew board.</td></tr>
+          <tr><td><strong>Android, no Mozy</strong></td><td>The <code>/j/</code> page → Google Play with the code as the install referrer → install and onboarding → "you were invited to sharma fam · join?" The code arrives by itself.</td></tr>
+          <tr><td><strong>iPhone, no Mozy</strong></td><td>The <code>/j/</code> page shows the code and "copy code & get mozy" → App Store → onboarding → <span class="chip risk">paywall can't be closed today</span> → race screen with a paste button (no permission alert) and code entry.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ol class="timeline">
+      <li><div class="when">Every day<small>the daily loop</small></div><div class="what"><p>Walk → the phone syncs → the rank moves → "papa passed you · 140 steps behind" (at most 2 race notifications a day, never 22:00–08:00) → walk → pass him → a card is offered once → share.</p></div></li>
+      <li><div class="when">Every week<small>the weekly loop</small></div><div class="what"><p>Sunday evening "final hours" (phase 2) → Monday 4 AM the week closes → crown to the winner and a result card → a fresh week for everyone, so last week's loser starts level.</p></div></li>
+      <li><div class="when">Every month<small>awards</small></div><div class="what"><p>Awards on the 1st → the website hall of fame updates → winners get a card and a badge.</p></div></li>
+      <li><div class="when">Any time<small>leaving</small></div><div class="what"><p>Race profile → "delete my race profile" → everything on the server is deleted at once. Mozy itself keeps working exactly as before.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="data">
+    <div class="label">What leaves the phone</div>
+    <h2>A race name and one number per day</h2>
+    <p>Your rule from 12 October was that only a name and step totals may leave the phone. The race keeps it, plus the minimum an account needs. The only new user-visible item is an optional country code (D2), taken from the phone's region setting, never from GPS or IP.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Field</th><th>Example</th><th>Why</th><th>Who can see it</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Race name</strong></td><td>mahesh</td><td>Show who is who</td><td>Crews; public boards if "everyone"</td></tr>
+          <tr><td><strong>Pet look</strong></td><td>peach</td><td>An avatar without photos</td><td>Same as the name</td></tr>
+          <tr><td><strong>Country</strong> (optional)</td><td>IN</td><td>Country boards</td><td>Public boards</td></tr>
+          <tr><td><strong>One step total per race day</strong></td><td>8,432</td><td>The race</td><td>Same as the name</td></tr>
+          <tr><td>Visibility choice</td><td>everyone / crews only</td><td>Consent</td><td>Server only</td></tr>
+          <tr><td>UTC offset</td><td>+330 min</td><td>Know when your day ends</td><td>Server only</td></tr>
+          <tr><td>Random profile id, token hash</td><td>–</td><td>The account (no device ID is stored)</td><td>Server only</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card accent">
+      <h3>Never leaves the phone</h3>
+      <p>Hourly or per-walk steps, minutes earned or spent, which apps are blocked, Screen Time data, GPS, contacts. IP addresses are never stored. The wallet and the blocker stay fully offline, so a server outage can never lock or unlock anything.</p>
+    </div>
+  </section>
+
+  <section id="build">
+    <div class="label">How it's built</div>
+    <h2>One small Worker, one database, everything else static</h2>
+    <div class="diagram" role="img" aria-label="Architecture: the Mozy app sends one step total per day to the mozy-race Worker, which stores it in D1 and rebuilds boards every 10 minutes. The static website reads cached board data. A friend opens an invite link on the website and installs the app.">
+      <svg viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg">
+        <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="head"/></marker>
+        <marker id="ah2h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="head hot"/></marker></defs>
+        <rect class="box safe" x="20" y="40" width="250" height="190" rx="16"/>
+        <text x="40" y="70">Mozy app (your phone)</text>
+        <text class="small" x="40" y="96">race module: profile, sync,</text>
+        <text class="small" x="40" y="113">boards, crews, share cards</text>
+        <text class="small" x="40" y="146">stays here: hourly steps,</text>
+        <text class="small" x="40" y="163">wallet, blocker, apps,</text>
+        <text class="small" x="40" y="180">Screen Time</text>
+        <text class="small" x="40" y="212">token in Keychain / Block Store</text>
+        <rect class="box hot" x="370" y="40" width="260" height="190" rx="16"/>
+        <text x="390" y="70">mozy-race Worker</text>
+        <text class="small" x="390" y="96">API on its own hostname</text>
+        <text class="small" x="390" y="113">Cron every 10 min: boards</text>
+        <text class="small" x="390" y="130">Cron daily, Monday, 1st:</text>
+        <text class="small" x="390" y="147">close periods, crowns, awards</text>
+        <rect class="box" x="390" y="166" width="220" height="48" rx="10"/>
+        <text x="408" y="188">D1 "mozy-race"</text>
+        <text class="small" x="408" y="205">profiles, day_steps, crews</text>
+        <rect class="box" x="730" y="40" width="250" height="120" rx="16"/>
+        <text x="750" y="70">mozy.mcrudra.com</text>
+        <text class="small" x="750" y="96">/leaderboard, /awards (static)</text>
+        <text class="small" x="750" y="113">/j/{code} invite pages</text>
+        <text class="small" x="750" y="130">edge-cached board JSON</text>
+        <rect class="box" x="730" y="240" width="250" height="90" rx="16"/>
+        <text x="750" y="270">A friend's phone</text>
+        <text class="small" x="750" y="296">opens the invite, installs,</text>
+        <text class="small" x="750" y="313">joins the crew</text>
+        <path class="arrow hot" d="M270 120 H362" marker-end="url(#ah2h)"/>
+        <text class="small" x="316" y="100" text-anchor="middle">name +</text><text class="small" x="316" y="114" text-anchor="middle">1 total a day</text>
+        <path class="arrow" d="M362 160 H278" marker-end="url(#ah2)"/>
+        <text class="small" x="318" y="178" text-anchor="middle">my ranks</text>
+        <path class="arrow" d="M722 100 H638" marker-end="url(#ah2)"/>
+        <text class="small" x="650" y="90">cached JSON</text>
+        <path class="arrow" d="M855 240 V168" marker-end="url(#ah2)"/>
+        <path class="arrow" d="M730 300 C 500 300, 300 300, 160 238" marker-end="url(#ah2)"/>
+        <text class="small" x="420" y="318">store install → app joins with the code</text>
+      </svg>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>"No sign-up" accounts</h3>
+        <p>Apps can't read a permanent hardware ID any more, and Google's rules say device IDs must not be tied to names or step data. So Mozy makes a random account token and keeps it in each platform's own secure backup. That gives the "it just knows me" feeling without a device ID.</p>
+        <ul>
+          <li><strong>iPhone:</strong> the token sits in the Keychain, synced by iCloud Keychain, so a reinstall or a new iPhone signs straight back in. Apple's DeviceCheck remembers "this phone had a race profile", so a fresh install offers <em>restore</em> instead of a duplicate.</li>
+          <li><strong>Android:</strong> the token sits in Google's Block Store, which survives uninstalling (with backup on) and moves to a new phone; Auto Backup is a second layer.</li>
+          <li><strong>Anyone else:</strong> a "Mozy ID" recovery code in the race profile.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>The race day</h3>
+        <p>A fixed <strong>4 AM to 4 AM local</strong> day, the same as Mozy's default day, so for most people the race number equals the Home number. Night-owl walks at 1 AM count for "tonight".</p>
+        <ul>
+          <li>Users who moved their reset hour (Settings offers 12–9 AM) get a separate race count, so nobody can stretch a day by changing the setting.</li>
+          <li>Week: Monday 4 AM. Month: the 1st, 4 AM.</li>
+          <li>Android uploads walked steps after the ride filter; iPhone uploads CMPedometer steps.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>The whole upload</h3>
+<pre>{ "days": [
+    { "day": "2026-10-14",
+      "steps": 8432 },
+    { "day": "2026-10-13",
+      "steps": 11020 } ],
+  "tz_min": 330 }</pre>
+        <p class="note">Sent on opening Mozy, then at most every 5 minutes while it's open and steps grew by 250; Android's step service syncs in the background at most every 30 minutes. One written row per change.</p>
+      </div>
+      <div class="card">
+        <h3>Ranks without big bills</h3>
+        <ol class="steps">
+          <li><span>Every 10 minutes a Cron reads each live day once and builds every world and country board.</span></li>
+          <li><span>Week and month boards add only the live days on top of a once-a-day total, never re-reading 30 days.</span></li>
+          <li><span>Each board keeps the top 100 and a sorted list of all totals; your rank is a binary search, your percentile is 1 − (rank − 1) / n.</span></li>
+          <li><span>Crew boards are tiny, so they're read live and cached for 60 seconds.</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <details>
+      <summary>Data model (D1) and API</summary>
+<pre>-- One row per opted-in phone
+CREATE TABLE profiles (
+  id TEXT PRIMARY KEY,                 -- random 128-bit id
+  token_hash BLOB NOT NULL,            -- sha256(bearer token); no device id is stored
+  recovery_hash BLOB UNIQUE,           -- sha256(Mozy ID recovery code)
+  name TEXT NOT NULL,                  -- 2..16 chars, filtered
+  tag INTEGER NOT NULL,                -- 4 digits, profile only (tells two "riya"s apart)
+  pet TEXT NOT NULL,                   -- pet look id
+  country TEXT,                        -- ISO 3166 alpha-2, or NULL
+  public INTEGER NOT NULL,             -- 1 = world, country, web; 0 = crews only
+  tz_min INTEGER NOT NULL,             -- UTC offset at the last sync
+  tier INTEGER NOT NULL DEFAULT 1,     -- league tier (phase 2)
+  status INTEGER NOT NULL DEFAULT 0,   -- 0 ok, 1 name hidden, 2 steps under review, 3 banned
+  created_at INTEGER NOT NULL, last_sync_at INTEGER
+);
+
+-- One row per person per race day. The key keeps a day's rows together, so a board build
+-- reads one range; no second index, so each change costs exactly one written row.
+CREATE TABLE day_steps (
+  day TEXT NOT NULL, profile_id TEXT NOT NULL, steps INTEGER NOT NULL,
+  country TEXT, public INTEGER NOT NULL, updated_at INTEGER NOT NULL,
+  PRIMARY KEY (day, profile_id)
+) WITHOUT ROWID;
+
+CREATE TABLE crews (id TEXT PRIMARY KEY, code TEXT UNIQUE NOT NULL, name TEXT NOT NULL,
+  kind TEXT NOT NULL, owner_id TEXT NOT NULL, size INTEGER NOT NULL DEFAULT 1, created_at INTEGER NOT NULL);
+CREATE TABLE crew_members (crew_id TEXT NOT NULL, profile_id TEXT NOT NULL, joined_at INTEGER NOT NULL,
+  PRIMARY KEY (crew_id, profile_id)) WITHOUT ROWID;
+CREATE INDEX crew_members_by_profile ON crew_members (profile_id);
+
+CREATE TABLE board_snapshots (key TEXT PRIMARY KEY, built_at INTEGER NOT NULL, n INTEGER NOT NULL,
+  top TEXT NOT NULL,                   -- top 100 public entries as JSON
+  sorted BLOB NOT NULL);               -- every total, descending, int32 (rank lookups)
+CREATE TABLE period_base (period TEXT PRIMARY KEY, through_day TEXT NOT NULL, totals BLOB NOT NULL);
+CREATE TABLE awards (period TEXT, kind TEXT, scope TEXT, profile_id TEXT, crew_id TEXT, value INTEGER,
+  PRIMARY KEY (period, kind, scope));
+CREATE TABLE crowns (crew_id TEXT, period TEXT, profile_id TEXT, PRIMARY KEY (crew_id, period));
+CREATE TABLE reports (reporter_id TEXT, target_id TEXT, reason TEXT, created_at INTEGER,
+  PRIMARY KEY (reporter_id, target_id));
+CREATE TABLE blocks (profile_id TEXT, blocked_id TEXT, PRIMARY KEY (profile_id, blocked_id)) WITHOUT ROWID;
+-- Phase 2: league_members, duels, push_tokens, reactions</pre>
+<div class="table-wrap" style="margin-top:14px">
+  <table>
+    <thead><tr><th>Method and path</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><code>POST /v1/profile</code></td><td>Opt in: name, pet, country, visibility, offset → id, token, tag, recovery code</td></tr>
+      <tr><td><code>POST /v1/profile/recover</code></td><td>Mozy ID recovery code → new token (Keychain and Block Store restore the token on their own)</td></tr>
+      <tr><td><code>PATCH /v1/profile</code> · <code>DELETE /v1/profile</code></td><td>Edit; delete everything</td></tr>
+      <tr><td><code>PUT /v1/steps</code></td><td>Upload today and yesterday; returns my ranks and the next sync time</td></tr>
+      <tr><td><code>GET /v1/me/boards?period=</code></td><td>My rank, percentile and neighbours in world, country and each crew</td></tr>
+      <tr><td><code>GET /v1/boards/{scope}/{period}/{key}</code></td><td>Public snapshot (top 100, count, build time), edge-cached</td></tr>
+      <tr><td><code>POST /v1/crews</code> · <code>POST /v1/crews/join</code></td><td>Create (name, kind) → code and link; join by code</td></tr>
+      <tr><td><code>GET /v1/crews/{id}/board?period=</code></td><td>Crew board, read live, cached 60 s</td></tr>
+      <tr><td><code>DELETE /v1/crews/{id}/members/{me|id}</code></td><td>Leave; the owner may remove a member</td></tr>
+      <tr><td><code>POST /v1/reports</code> · <code>POST /v1/blocks</code></td><td>Report a name; block a person</td></tr>
+      <tr><td><code>GET /v1/public/invite/{code}</code></td><td>Invite page: crew name, size, inviter's name. No totals</td></tr>
+      <tr><td><code>GET /v1/public/stats</code> · <code>GET /v1/public/awards/{month}</code></td><td>Website ticker and hall of fame</td></tr>
+    </tbody>
+  </table>
+</div>
+
+    </details>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>Notifications</h3>
+        <ul>
+          <li><strong>Phase 1, local:</strong> the phone compares ranks after each sync. Android's step service runs all day, so it works there; on iPhone only when the app wakes.</li>
+          <li><strong>Phase 2, push</strong> through Firebase Cloud Messaging (already in the app), which also delivers to iPhones.</li>
+          <li>At most 2 race notifications a day, none 22:00–08:00, each type can be turned off, never guilt copy.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Moderation without a team</h3>
+        <ul>
+          <li>Names: 2–16 characters, normalised, checked against blocklists (English, Hindi/Hinglish and other top languages) and reserved words; no links or handles.</li>
+          <li>Long-press any name to report; 3 different reporters hide it ("walker 4821") until reviewed.</li>
+          <li>Block a person; leave or remove from crews.</li>
+          <li>No chat, bios or photos. Phase 2 reactions are 5 fixed pet stickers inside crews.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Keeping it fair</h3>
+        <ul>
+          <li><strong>Only Mozy's own sensor steps count.</strong> No HealthKit or Health Connect imports, so no manual entries; Android rides are already filtered out.</li>
+          <li><strong>Phone shakers walk at walking pace</strong> (about 100–117 steps a minute), so rhythm limits won't catch them. Instead: a <strong>review line of 40,000 steps a day</strong> on public boards (corporate challenges cap at 20,000–50,000), a hard limit of 100,000, and a flag for minutes above ~250 steps.</li>
+          <li><strong>Crews stay simple:</strong> friends see each other's real numbers; the review line only guards public boards.</li>
+          <li><strong>Phase 2:</strong> Apple App Attest and Google Play Integrity once a day for anyone near the top of a public board (Play's default quota is 10,000 checks a day).</li>
+          <li><strong>Review, don't accuse:</strong> flagged days stay visible to the person and their crews but wait before reaching public boards. Some "cheaters" are just people who trained hard. No prizes means little to gain.</li>
+        </ul>
+
+      </div>
+      <div class="card">
+        <h3>When things go wrong</h3>
+        <ul>
+          <li>Any daily quota at 50% → alert; 70% → phones sync every 60 minutes; 85% → boards from snapshots only, phones keep totals and retry.</li>
+          <li>API down → blocking, earning and Home are untouched; the race screen shows the last boards it saw.</li>
+          <li>Daily totals kept 40 days, monthly totals 25 months; profiles with no sync for 13 months are deleted.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="cost">
+    <div class="label">Cost</div>
+    <h2>$0 to start, about $5 a month at launch</h2>
+    <p>Prices are Cloudflare's published ones (pages updated April – October 2026). The model assumes 6 syncs and 3 board views per racer per day, crews of 6, and boards rebuilt every 10 minutes. Move the sliders to try other numbers.</p>
+    <div class="calc card">
+      <div class="ctl-col" style="display:grid; gap:16px; align-content:start">
+        <div class="ctl">
+          <label for="inDau">Daily racers <output id="outDau">5,000</output></label>
+          <input id="inDau" type="range" min="2" max="6" step="0.01" value="3.699">
+          <small>100 to 1,000,000 people opening the race in a day</small>
+        </div>
+        <div class="ctl">
+          <label for="inSync">Syncs per racer per day <output id="outSync">6</output></label>
+          <input id="inSync" type="range" min="2" max="12" step="1" value="6">
+        </div>
+        <div class="ctl">
+          <label for="inView">Board views per racer per day <output id="outView">3</output></label>
+          <input id="inView" type="range" min="1" max="10" step="1" value="3">
+        </div>
+      </div>
+      <div style="display:grid; gap:14px; align-content:start" aria-live="polite">
+        <div class="label" style="color:var(--ink-3)">Free plan, per day</div>
+        <div class="meter"><div class="top"><span>Worker requests (limit 100,000)</span><b id="mReqV">–</b></div><div class="track"><div class="fill" id="mReq"></div></div></div>
+        <div class="meter"><div class="top"><span>Database rows written (limit 100,000)</span><b id="mWrV">–</b></div><div class="track"><div class="fill" id="mWr"></div></div></div>
+        <div class="meter"><div class="top"><span>Database rows read (limit 5,000,000)</span><b id="mRdV">–</b></div><div class="track"><div class="fill" id="mRd"></div></div></div>
+        <p class="verdict" id="verdict">–</p>
+        <div class="label" style="color:var(--ink-3)">On Workers Paid</div>
+        <div class="hero-fig" id="paid">$5<small> / month</small></div>
+      </div>
+    </div>
+
+    <figure class="chart" id="costFig">
+      <figcaption><b>Monthly cost on Workers Paid, by daily racers</b><span>The $5 base covers everything up to roughly 30,000–50,000 daily racers. Hover a column for details; the table below has every value.</span></figcaption>
+      <svg id="costChart" viewBox="0 0 860 280" role="img" aria-label="Column chart of monthly cost by daily racers"></svg>
+      <div class="tip" id="tip"></div>
+    </figure>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th class="num">Daily racers</th><th class="num">Requests/day</th><th class="num">Rows written/day</th><th class="num">Rows read/day</th><th>Free plan?</th><th class="num">Paid, per month</th></tr></thead>
+        <tbody id="costRows"></tbody>
+      </table>
+    </div>
+    <div class="grid2">
+      <div class="card accent">
+        <h3>Recommendation</h3>
+        <ul>
+          <li>Build and beta on the <strong>Free</strong> plan.</li>
+          <li>Switch to <strong>Workers Paid ($5/month)</strong> on public launch day. The Free plan stops dead at 100,000 requests a day until midnight UTC, which is exactly when a post goes viral.</li>
+          <li>Turn on Cloudflare usage notifications and keep the 50/70/85% checks.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Why it stays cheap</h3>
+        <ul>
+          <li>One call does both upload and "my ranks".</li>
+          <li>One database row per change, no extra index on the busiest table.</li>
+          <li>Website boards come from the edge cache, so page views barely touch the API.</li>
+          <li>No KV, R2 or Durable Objects until they pay for themselves.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="ideas">
+    <div class="label">Idea bank</div>
+    <h2>36 ideas, scored, and which ones make the cut</h2>
+    <p><strong>Pull</strong> = brings new people in; <strong>keep</strong> = brings people back (1–5). <strong>Effort</strong>: S = days, M = 1–2 weeks, L = more.</p>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>ID</th><th>Idea</th><th class="num">Pull</th><th class="num">Keep</th><th>Effort</th><th>Phase</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="pick"><td>X1</td><td><strong>Crews</strong> (friends), today/week/month</td><td class="num">5</td><td class="num">5</td><td>M</td><td><span class="chip good">1</span></td><td>The invite engine</td></tr>
+      <tr class="pick"><td>X2</td><td><strong>Family</strong> crew type</td><td class="num">4</td><td class="num">4</td><td>S</td><td><span class="chip good">1</span></td><td>A crew flag; family goal bar in phase 2</td></tr>
+      <tr class="pick"><td>X3</td><td><strong>World board</strong>: percentile, top 3, around you</td><td class="num">2</td><td class="num">3</td><td>M</td><td><span class="chip good">1</span></td><td>Same server work as X4</td></tr>
+      <tr class="pick"><td>X4</td><td><strong>Country board</strong> with flags</td><td class="num">3</td><td class="num">3</td><td>S</td><td><span class="chip good">1</span></td><td>Needs D2</td></tr>
+      <tr class="pick"><td>X5</td><td><strong>Invites</strong>: links, QR, <code>/j/</code> page, Play referrer</td><td class="num">5</td><td class="num">2</td><td>M</td><td><span class="chip good">1</span></td><td></td></tr>
+      <tr class="pick"><td>X6</td><td><strong>Share cards</strong>: today, week result, percentile</td><td class="num">4</td><td class="num">2</td><td>M</td><td><span class="chip good">1</span></td><td>One renderer, also used by S1/S2</td></tr>
+      <tr class="pick"><td>X7</td><td>WhatsApp week-grid text</td><td class="num">3</td><td class="num">2</td><td>S</td><td><span class="chip good">1</span></td><td>The Wordle pattern</td></tr>
+      <tr class="pick"><td>X8</td><td>"steps to pass" nudge</td><td class="num">1</td><td class="num">4</td><td>S</td><td><span class="chip good">1</span></td><td>Goal gradient</td></tr>
+      <tr class="pick"><td>X9</td><td>Overtake notifications (local)</td><td class="num">2</td><td class="num">4</td><td>S–M</td><td><span class="chip good">1</span></td><td>Android all day; iPhone on wake</td></tr>
+      <tr class="pick"><td>X10</td><td>Daily and weekly crowns on the pet</td><td class="num">2</td><td class="num">4</td><td>S</td><td><span class="chip good">1</span></td><td>A cheap status symbol</td></tr>
+      <tr><td>X11</td><td><strong>Weekly leagues</strong>, 30 people, plant tiers</td><td class="num">2</td><td class="num">5</td><td>L</td><td><span class="chip warn">2</span></td><td>Gate: ≥500 weekly racers</td></tr>
+      <tr><td>X12</td><td><strong>Step-offs</strong> (1v1)</td><td class="num">5</td><td class="num">3</td><td>M</td><td><span class="chip warn">2</span></td><td><code>/d/</code> links</td></tr>
+      <tr><td>X13</td><td>5 pet reactions inside crews</td><td class="num">1</td><td class="num">3</td><td>S</td><td><span class="chip warn">2</span></td><td>No chat</td></tr>
+      <tr><td>X14</td><td>Website hall of fame + monthly awards</td><td class="num">3</td><td class="num">2</td><td>M</td><td><span class="chip warn">2</span></td><td>Search traffic and social proof</td></tr>
+      <tr><td>X15</td><td>Weekly world total ticker on the website</td><td class="num">2</td><td class="num">1</td><td>S</td><td><span class="chip warn">2</span></td><td>Only once the number is worth showing</td></tr>
+      <tr><td>X16</td><td>Most improved board</td><td class="num">1</td><td class="num">4</td><td>S</td><td><span class="chip warn">2</span></td><td>Fair to beginners</td></tr>
+      <tr><td>X17</td><td>Consistency board (days ≥8,000)</td><td class="num">1</td><td class="num">4</td><td>S</td><td><span class="chip warn">2</span></td><td>Fair to steady walkers</td></tr>
+      <tr><td>X18</td><td>Country cup (average per walker)</td><td class="num">4</td><td class="num">2</td><td>S</td><td><span class="chip warn">2</span></td><td>Needs ≥50 walkers per country</td></tr>
+      <tr><td>X19</td><td>Push notifications (FCM)</td><td class="num">1</td><td class="num">4</td><td>M</td><td><span class="chip warn">2</span></td><td>Needed for iPhone overtakes</td></tr>
+      <tr><td>X20</td><td>Founder crew "walk with mahesh"</td><td class="num">3</td><td class="num">2</td><td>S</td><td><span class="chip warn">2</span></td><td>MCX content, real walks only</td></tr>
+      <tr><td>X21</td><td>Rival of the week (just ahead of you)</td><td class="num">1</td><td class="num">4</td><td>S</td><td><span class="chip warn">2</span></td><td>Rivalry research</td></tr>
+      <tr><td>X22</td><td>Race your Mozy: your pet walks at your own last-week pace</td><td class="num">1</td><td class="num">3</td><td>S</td><td><span class="chip warn">2</span></td><td>A beatable rival for solo users (StepUp uses bots; never a fake person)</td></tr>
+      <tr><td>X23</td><td>Open crews (college, office, gym), up to 500, ranked by average</td><td class="num">5</td><td class="num">3</td><td>M</td><td><span class="chip muted">3</span></td><td>Needs moderation at scale</td></tr>
+      <tr><td>X24</td><td>Race widget on the Home Screen</td><td class="num">2</td><td class="num">4</td><td>M</td><td><span class="chip muted">3</span></td><td>Rank always visible</td></tr>
+      <tr><td>X25</td><td>iOS Live Activity for Sunday's final hours</td><td class="num">1</td><td class="num">3</td><td>M</td><td><span class="chip muted">3</span></td><td></td></tr>
+      <tr><td>X26</td><td>Seasons with cosmetic rewards</td><td class="num">2</td><td class="num">4</td><td>M</td><td><span class="chip muted">3</span></td><td></td></tr>
+      <tr><td>X27</td><td>Events: New Year week, National Walking Day</td><td class="num">4</td><td class="num">3</td><td>S each</td><td><span class="chip muted">3</span></td><td>Dates in the growth study §7</td></tr>
+      <tr><td>X28</td><td>"Last walker standing" crew game</td><td class="num">3</td><td class="num">3</td><td>M</td><td><span class="chip muted">3</span></td><td>Experiment</td></tr>
+      <tr><td>X29</td><td>"Walk o'clock" daily window</td><td class="num">2</td><td class="num">2</td><td>M</td><td><span class="chip muted">test</span></td><td>BeReal-style; novelty fades</td></tr>
+      <tr><td>X30</td><td>Race Wrapped with percentile</td><td class="num">5</td><td class="num">1</td><td>M</td><td><span class="chip muted">Dec</span></td><td></td></tr>
+      <tr><td>X31</td><td>Streak freezes earned by walking, streak repair, "welcome back" crown</td><td class="num">1</td><td class="num">4</td><td>S</td><td><span class="chip warn">2</span></td><td>Broken streaks are the drop-off point</td></tr>
+      <tr><td>X32</td><td>Buddy quests: two people, both must finish</td><td class="num">2</td><td class="num">4</td><td>M</td><td><span class="chip warn">2</span></td><td>Köhler effect</td></tr>
+      <tr><td>X33</td><td>Rookie week: new racers matched with other new racers</td><td class="num">2</td><td class="num">3</td><td>S</td><td><span class="chip warn">2</span></td><td>Starting is intimidating for Gen Z</td></tr>
+      <tr><td>X34</td><td>Crew vs crew week, ranked by average per member</td><td class="num">4</td><td class="num">4</td><td>M</td><td><span class="chip warn">2</span></td><td>Competition + collaboration works best</td></tr>
+      <tr><td>X35</td><td>Family goal-day mode: score by % of each person's own goal</td><td class="num">3</td><td class="num">4</td><td>M</td><td><span class="chip warn">2</span></td><td>Apple and Fitbit pattern; needs D17</td></tr>
+      <tr><td>X36</td><td>Friend streaks: both walk ≥5,000 to keep it alive</td><td class="num">3</td><td class="num">4</td><td>M</td><td><span class="chip warn">2</span></td><td>Duolingo Friend Streak +22%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+    <div class="card risk">
+      <h3>Never build</h3>
+      <p>Cash or gift-card prizes · screen minutes as rewards · chat or comments · photos · public profiles or following strangers · contact upload or "people near you" · any ranking by app use · shaming the bottom of a board · paid boosts · a named person's steps in marketing posts without their separate permission (Apple 5.1.3).</p>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <div class="label">Roadmap</div>
+    <h2>Crews before New Year, leagues for the fresh start</h2>
+<ol class="timeline">
+  <li><div class="when">Phase 0<small>14 – 24 Oct 2026</small></div><div class="what"><p><strong>Decide and prepare.</strong> Your decisions D1–D19; move mozy.mcrudra.com to the new site Worker (WEB.md W0); a free iPhone path into the race (D6); drafts of the privacy policy, store labels and Trust copy; a secure-storage module and the Android device-id getter; Universal Links / App Links files on mozy.mcrudra.com; confirm which Worker serves mozy.mcrudra.com.</p><p class="note">Gate: decisions recorded; links open the app on both platforms.</p></div></li>
+  <li><div class="when">Phase 1<small>27 Oct – 30 Nov 2026</small></div><div class="what"><p><strong>Crews and world.</strong> The <code>mozy-race</code> Worker and D1 on the Free plan; the 4 AM race day in native code; the race screen (crews, country, world); invites and <code>/j/</code>; share card and week grid; local overtake notifications; <code>/leaderboard</code>.</p><p class="note">Gate: a beta with 50–200 testers. Invite → join works on both stores, boards are right across time zones, deletion works.</p></div></li>
+  <li><div class="when">Launch<small>early Dec 2026</small></div><div class="what"><p>Switch to Workers Paid ($5). Store labels go live. MCX founder content from real crews and real footage only.</p></div></li>
+  <li><div class="when">Phase 2<small>Dec 2026 – Jan 2027</small></div><div class="what"><p><strong>Leagues and awards.</strong> Leagues (once ≥500 people race weekly), step-offs, reactions, push notifications, the hall of fame, most-improved and consistency boards.</p><p class="note">Gate: league members come back more than non-members.</p></div></li>
+  <li><div class="when">Phase 3<small>2027</small></div><div class="what"><p><strong>Seasons.</strong> New Year week (1–7 Jan 2027) as the big moment: fresh-start timing, and Health & Fitness spending peaks in January. Then open crews for colleges and offices, the widget, the Live Activity, seasons.</p></div></li>
+</ol>
+
+  </section>
+
+  <section id="measure">
+    <div class="label">Measuring it</div>
+    <h2>Ten numbers that say whether the race pulls people in</h2>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>ID</th><th>Metric</th><th>First target</th></tr></thead>
+    <tbody>
+      <tr><td>K1</td><td>Weekly active users who create a race profile</td><td>≥35%</td></tr>
+      <tr><td>K2</td><td>Profiles in a crew with at least 2 people</td><td>≥40%</td></tr>
+      <tr><td>K3</td><td>Invites shared per new profile in its first 7 days</td><td>≥1.0</td></tr>
+      <tr><td>K4</td><td><code>/j/</code> visits that end in a crew join</td><td>≥15%</td></tr>
+      <tr><td>K5</td><td>Viral factor K = invites per user × conversion</td><td>0.1–0.3 is realistic; above 0.5 is excellent</td></tr>
+      <tr><td>K6</td><td>Day-7 and day-30 retention, racers vs non-racers</td><td>Racers clearly higher</td></tr>
+      <tr><td>K7</td><td>Steps per day before vs after joining a crew</td><td>Up (STEP UP saw +920 a day)</td></tr>
+      <tr><td>K8</td><td>Weekly users who share a card</td><td>≥10%</td></tr>
+      <tr><td>K9</td><td>Cost per 1,000 daily racers; quota headroom</td><td>≤$0.10; under 50% of any limit</td></tr>
+      <tr><td>K10</td><td>Reports and step reviews per 1,000 racers</td><td>Low and falling</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="note">Events (Firebase on Android, PostHog on the website) never carry names, codes or totals: <code>race_intro_viewed</code>, <code>race_profile_created</code>, <code>crew_created</code>, <code>invite_shared</code>, <code>crew_joined {entry}</code>, <code>board_viewed</code>, <code>card_shared</code>, <code>race_notification_opened</code>, <code>race_profile_deleted</code>. iOS has no analytics today, so iOS numbers come from the server's own counts.</p>
+
+  </section>
+
+  <section id="risks">
+    <div class="label">Risks</div>
+    <h2>What could go wrong</h2>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Risk</th><th>How the plan handles it</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Empty boards at launch</strong> (Mozy has very few users today)</td><td>Crews first: they work with 2 people. Country ranks appear once a country has ≥10 public walkers ("be the first walker from Kenya"). The website shows totals, not lists, until ≥100 public walkers. Never seed fake users.</td></tr>
+      <tr><td><strong>The iPhone paywall blocks invited friends</strong></td><td>Decision D6 before launch.</td></tr>
+      <tr><td><strong>Cheating makes public boards meaningless</strong></td><td>Plausibility checks, a review line, attestation for the top of public boards, the report button, and no prizes, so there is little to gain.</td></tr>
+      <tr><td><strong>Privacy backlash</strong> ("you said nothing leaves my phone")</td><td>Opt-in only, the exact list of what leaves, rewritten privacy copy, delete any time.</td></tr>
+      <tr><td><strong>Store rules and age ratings</strong></td><td>The rules checklist; no feed, no chat, no strangers' interaction.</td></tr>
+      <tr><td><strong>Minors</strong></td><td>Age gate per D5; crews only below the public-board age.</td></tr>
+      <tr><td><strong>A viral spike breaks the API</strong></td><td>Paid plan from launch; the app works without the API.</td></tr>
+      <tr><td><strong>Notification fatigue</strong></td><td>At most 2 a day, quiet hours, a switch per type.</td></tr>
+      <tr><td><strong>Over-exercise or obsession</strong></td><td>No punishment for rest days; weekly resets; the "resting" tag; no late-night nudges; percentile instead of a bare rank for the bottom half.</td></tr>
+      <tr><td><strong>iPhone vs Android fairness</strong> (only Android filters rides)</td><td>Watch step distributions per platform; add an iPhone ride filter (the bug 84 path) if iPhones skew high.</td></tr>
+      <tr><td><strong>Someone pretends to be another racer</strong></td><td>Every write needs that racer's secret token; recovery codes are long, random and rate-limited; App Attest and Play Integrity checks from phase 2.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+  </section>
+
+  <section id="decisions">
+    <div class="label">Your decisions</div>
+    <h2>What I need from you before building</h2>
+    <div class="grid2">
+<div class="card accent"><div class="label">D1 · public boards</div><h3>World and country boards: yes, with an explicit choice</h3><p>You asked for them. Recommended: every racer picks "everyone" or "only my crews" at joining, with nothing pre-selected, and can change it any time.</p></div>
+<div class="card"><div class="label">D2 · country</div><h3>Store a country code?</h3><p>Recommended: yes, pre-filled from the phone's region setting (no location permission, no GPS), editable, and "hide my flag" allowed. It is the only new data point beyond your name-and-steps rule.</p></div>
+<div class="card"><div class="label">D3 · race day</div><h3>4 AM to 4 AM local</h3><p>Recommended over midnight: it matches Mozy's default day, so Home and the race show the same number for most people, and late-night walks count for "tonight". Alternative: midnight, like Apple and Fitbit.</p></div>
+<div class="card"><div class="label">D4 · names</div><h3>Free-text race name with a filter</h3><p>Recommended: the onboarding name pre-filled, 2–16 characters, blocklists, report and block. Alternative: generated names only ("sprouty walker 4821"), which need no moderation but feel less personal.</p></div>
+<div class="card"><div class="label">D5 · age</div><h3>Minimum age</h3><p>Recommended: <strong>13+ to join the race</strong>, asked as birth month and year (a neutral screen). Public boards 16+. Under-13s keep Mozy fully local. In <strong>India</strong>, build a parental-consent path before 13 May 2027 or keep under-18s out of the race there. In Texas, Utah and Louisiana, minors need a parent's approval (Apple's PermissionKit) before the race turns on.</p>
+</div>
+<div class="card risk"><div class="label">D6 · iPhone door</div><h3>Let invited iPhone users race without paying</h3><p>Today a non-subscriber can't get past the iPhone onboarding paywall, so every iPhone invite ends at a payment screen. The race only works if the paywall can be closed (with a free core) or skipped for people who arrive with an invite. This is the biggest single blocker.</p></div>
+<div class="card"><div class="label">D7 · Cloudflare plan</div><h3>Free for beta, $5 at launch</h3><p>Recommended: Workers Paid from public launch day, so a viral day can't switch the race off until midnight UTC.</p></div>
+<div class="card"><div class="label">D8 · push notifications</div><h3>Local first, push in phase 2</h3><p>Recommended: phase 1 uses local notifications (no new service); phase 2 adds Firebase Cloud Messaging, which needs a push token and a privacy-label line.</p></div>
+<div class="card"><div class="label">D9 · prizes</div><h3>No prizes, cosmetics only</h3><p>Recommended: crowns, leaf colours and hats for the pet. Prizes invite cheating and bring sweepstakes and tax rules.</p></div>
+<div class="card"><div class="label">D10 · names on the web</div><h3>Public names on mozy.mcrudra.com?</h3><p>Recommended: show public racers' race names and flags on the web boards, but keep name lists out of search engines (<code>noindex</code>) and index only totals and country stats.</p></div>
+<div class="card"><div class="label">D11 · how long data is kept</div><h3>40 days of daily totals</h3><p>Recommended: daily totals 40 days (enough for monthly boards and 4-week baselines; step histories are likely health data, so keep them short), monthly totals 25 months, profiles deleted after 13 months with no sync, immediate deletion on request.</p></div>
+<div class="card"><div class="label">D12 · names of things</div><h3>Mozy Race, crews, step-off, plant tiers</h3><p>Proposed: "Mozy Race" with crews · india · world; step-off for 1v1; leagues seed → sprout → sapling → bloom → grove. Your call; they are easy to change before launch.</p></div>
+<div class="card"><div class="label">D13 · store age rating</div><h3>Stay out of "social media"</h3><p>Always-on contests make the app 13+, which is fine. Recommended: avoid the "social media" answer (13+, 16+ in Australia, and a Social Media label) by building no feed, no browsing of strangers' content, and reactions only inside invite-only crews. Answer Apple's questionnaire again in the release that adds the race.</p>
+</div>
+<div class="card"><div class="label">D14 · the privacy promise</div><h3>Rewrite "No account, ever"</h3><p>Proposed: "No sign-up, ever. If you join the race, only your race name and one step total per day leave your phone. Delete it any time." The App Store label, Play Data safety form, the website privacy page and the in-app Trust screen all change together.</p></div>
+<div class="card"><div class="label">D15 · new phones</div><h3>A "Mozy ID" recovery code?</h3><p>Recommended: yes, shown in the race profile, so someone who changes phone keeps their crews and history. No email needed.</p></div>
+<div class="card"><div class="label">D16 · league scoring</div><h3>Cap what counts in leagues</h3><p>Recommended: leagues count steps up to 20,000 a day, so an ultra-walker can't run away with every league and there's less reason to fake huge days. Crew, country and world boards show plain steps.</p></div>
+<div class="card"><div class="label">D17 · family fairness</div><h3>Score families by % of their own goal?</h3><p>Recommended for phase 2, as an option per crew: each person scores the share of their own daily goal (Apple and Fitbit do this), so a grandmother can beat a college student. It needs each member's daily goal to leave the phone, one number beyond your name-and-steps rule.</p></div>
+<div class="card"><div class="label">D18 · where the backend lives</div><h3>The website repo, as its own Worker</h3><p>Recommended: a <code>race-api/</code> folder in the website repo, deployed separately as <code>mozy-race</code>. Both are Cloudflare and TypeScript, the web pages are its first users, and you keep two repos. Alternatives: a new repo, or the app repo.</p></div>
+<div class="card"><div class="label">D19 · API address</div><h3>api.mozy.mcrudra.com</h3><p>Recommended: its own hostname, so a website deploy can never break the API and routes never clash. Alternative: <code>mozy.mcrudra.com/api</code> through the site Worker.</p></div>
+
+    </div>
+  </section>
+
+  <footer>
+    <strong style="color:var(--ink)">Sources</strong>
+<details><summary>All sources (172)</summary>
+<p style="margin-top:10px"><strong>Behavioural science</strong></p><ol>
+<li><a href="https://doi.org/10.1177/001872675400700202">Festinger 1954, A theory of social comparison processes, Human Relations 7(2)</a></li>
+<li><a href="https://public.websites.umich.edu/~smgarcia/pubs/n-effect.pdf">Garcia &amp; Tor 2009, The N-effect, Psychological Science 20(7)</a></li>
+<li><a href="https://public.websites.umich.edu/~smgarcia/pubs/ranksandrivals.pdf">Garcia, Tor &amp; Gonzalez 2006, Ranks and rivals, PSPB 32(7)</a></li>
+<li><a href="https://cris.haifa.ac.il/en/publications/rankings-standards-and-competition-task-vs-scale-comparisons/">Garcia &amp; Tor 2007, Rankings, standards, and competition, OBHDP</a></li>
+<li><a href="https://doi.org/10.1177/1088868310366144">Zell &amp; Alicke 2010, The local dominance effect, PSPR 14(4)</a></li>
+<li><a href="https://doi.org/10.1177/0956797609357718">Alicke, Zell &amp; Bloom 2010, Mere categorization and the frog-pond effect, Psychological Science 21(2)</a></li>
+<li><a href="https://doi.org/10.1037/0003-066X.58.5.364">Marsh &amp; Hau 2003, Big-fish-little-pond effect in 26 countries, American Psychologist 58(5)</a></li>
+<li><a href="https://doi.org/10.1037/0022-3514.73.1.91">Lockwood &amp; Kunda 1997, Superstars and me, JPSP 73(1)</a></li>
+<li><a href="https://doi.org/10.1287/mnsc.2017.2907">Gill et al. 2019, First-place loving and last-place loathing, Management Science 65(2)</a></li>
+<li><a href="https://doi.org/10.1093/qje/qjt035">Kuziemko et al. 2014, Last-place aversion, QJE 129(1)</a></li>
+<li><a href="https://doi.org/10.1177/0146167296221003">Reeve &amp; Deci 1996, Elements of the competitive situation, PSPB 22(1)</a></li>
+<li><a href="https://doi.org/10.1177/1046878114563662">Landers &amp; Landers 2014, Leaderboards and time-on-task, Simulation &amp; Gaming 45(6)</a></li>
+<li><a href="https://doi.org/10.1145/3025453.3025826">Jia, Liu, Yu &amp; Voida 2017, Designing leaderboards for gamification, CHI &#x27;17</a></li>
+<li><a href="https://doi.org/10.1007/s10648-019-09498-w">Sailer &amp; Homner 2020, The gamification of learning: a meta-analysis, Educational Psychology Review 32</a></li>
+<li><a href="https://doi.org/10.1001/jamainternmed.2019.3505">Patel et al. 2019, STEP UP randomized trial, JAMA Internal Medicine 179(12)</a></li>
+<li><a href="https://pennmedicine.org/news/news-releases/2019/september/using-a-wearable-device-to-exercise-more-add-competition-to-improve-your-results">Penn Medicine news on STEP UP, Sep 2019</a></li>
+<li><a href="https://doi.org/10.1001/jamainternmed.2017.3458">Patel et al. 2017, BE FIT family gamification trial, JAMA Internal Medicine 177(11)</a></li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5008041/">Zhang et al. 2016, Support or competition? Preventive Medicine Reports 4</a></li>
+<li><a href="https://doi.org/10.7326/M15-1635">Patel et al. 2016, Framing financial incentives, Annals of Internal Medicine 164(6)</a></li>
+<li><a href="https://doi.org/10.1287/mnsc.2014.1901">Dai, Milkman &amp; Riis 2014, The fresh start effect, Management Science 60(10)</a></li>
+<li><a href="https://home.uchicago.edu/ourminsky/Goal-Gradient_Illusionary_Goal_Progress.pdf">Kivetz, Urminsky &amp; Zheng 2006, The goal-gradient hypothesis resurrected, JMR 43(1)</a></li>
+<li><a href="https://doi.org/10.1123/jsep.33.4.506">Feltz, Kerr &amp; Irwin 2011, Buddy up (Köhler effect), JSEP 33(4)</a></li>
+<li><a href="https://doi.org/10.1007/s12160-012-9367-4">Irwin et al. 2012, Aerobic exercise is promoted when partners are slightly better, Annals of Behavioral Medicine 44(2)</a></li>
+<li><a href="https://doi.org/10.1093/jcr/ucac029">Silverman &amp; Barasch 2022, On or off track: streaks, JCR 49(6)</a></li>
+<li><a href="https://doi.org/10.1038/s41586-021-04128-4">Milkman et al. 2021, Megastudies improve the impact of applied behavioural science, Nature 600</a></li>
+<li><a href="https://doi.org/10.1093/jcr/ucv095">Etkin 2016, The hidden cost of personal quantification, JCR 42(6)</a></li>
+<li><a href="https://doi.org/10.1177/1948550614539770">Kilduff 2014, Driven to win: rivalry, motivation, and performance, SPPS 5(8)</a></li>
+<li><a href="https://doi.org/10.2196/26779">Mazeas et al. 2022, Gamification and physical activity: meta-analysis, JMIR 24(1)</a></li>
+<li><a href="https://doi.org/10.1016/j.eclinm.2024.102798">Nishi et al. 2024, Gamified apps and step counts, eClinicalMedicine 76</a></li>
+<li><a href="https://doi.org/10.1016/j.compedu.2014.08.019">Hanus &amp; Fox 2015, Computers &amp; Education 80 (unverified)</a></li>
+</ol>
+<p style="margin-top:10px"><strong>Duolingo, Strava and other products</strong></p><ol>
+<li><a href="https://www.sec.gov/Archives/edgar/data/1562088/000162828021013065/duolingos-1.htm">Duolingo S-1 filing, 28 Jun 2021</a></li>
+<li><a href="https://www.lennysnewsletter.com/p/how-duolingo-reignited-user-growth">Lenny&#x27;s Newsletter, How Duolingo reignited user growth, 28 Feb 2023</a></li>
+<li><a href="https://blog.duolingo.com/duolingo-leagues-leaderboards/">Duolingo blog, Leagues and leaderboards, 3 May 2023</a></li>
+<li><a href="https://blog.duolingo.com/time-spent-learning-well">Duolingo blog, Time spent learning well, 13 Jun 2024</a></li>
+<li><a href="https://blog.duolingo.com/how-streaks-keep-duolingo-learners-committed-to-their-language-goals">Duolingo blog, How streaks keep learners committed, 10 May 2017</a></li>
+<li><a href="https://blog.duolingo.com/friends-social-features/">Duolingo blog, Friends and social features, 6 Jun 2023</a></li>
+<li><a href="https://blog.duolingo.com/product-lessons-friend-streak/">Duolingo blog, Product lessons from Friend Streak, 20 Sep 2024</a></li>
+<li><a href="https://blog.duolingo.com/year-in-review-behind-the-scenes">Duolingo blog, Year in Review behind the scenes, 8 Dec 2022</a></li>
+<li><a href="https://blog.duolingo.com/duolingo-2020-year-in-review">Duolingo blog, 2020 Year in Review, 3 May 2021</a></li>
+<li><a href="https://press.strava.com/articles/strava-releases-12th-annual-year-in-sport-trend-report-2025">Strava Year in Sport 2025 press release, 2 Dec 2025</a></li>
+<li><a href="https://press.strava.com/articles/strava-mid-year-data-shows-how-athletes-are-tracking-toward-2025-goals">Strava mid-year data, 26 Aug 2025</a></li>
+<li><a href="https://press.strava.com/articles/in-a-world-of-digital-oversharing-strava-is-reminding-users-that-some">Strava privacy features, 14 Apr 2026</a></li>
+<li><a href="https://road.cc/content/news/strava-year-sport-now-only-subscribers-317425">road.cc, Strava Year in Sport now subscriber-only, 23 Dec 2025</a></li>
+<li><a href="https://techcrunch.com/2025/12/04/spotify-says-wrapped-2025-is-its-biggest-yet-with-200m-users-in-its-first-day">TechCrunch, Spotify Wrapped 2025, 4 Dec 2025</a></li>
+<li><a href="https://thespinoff.co.nz/media/13-01-2022/those-coloured-boxes-on-twitter-are-new-zealands-fault">Wordle (Wikipedia) and The Spinoff, 13 Jan 2022</a></li>
+<li><a href="https://studioforcreativeinquiry.org/project/receiptify">Receiptify (Studio for Creative Inquiry)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BeReal">BeReal (Wikipedia)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gas_(app)">Gas (Wikipedia)</a></li>
+<li><a href="https://www.bgr.com/2041453/apple-music-replay-2025-now-available-how-to-find">BGR, Apple Music Replay 2025</a></li>
+<li><a href="https://apps.apple.com/in/app/stepsetgo-step-into-rewards/id1434541801">StepSetGo on the App Store (India)</a></li>
+<li><a href="https://moengage.com/blog/get-to-know-your-customers-day-sweatcoin">MoEngage on Sweatcoin, 20 Apr 2023</a></li>
+<li><a href="https://techcrunch.com/2025/03/17/this-app-limits-your-screen-time-by-making-you-literally-touch-grass/">TechCrunch, the touch grass app, 17 Mar 2025</a></li>
+<li><a href="https://media.sproutsocial.com/uploads/2025/12/Social-Dictionary.pdf">Sprout Social, Social Dictionary 2025</a></li>
+<li><a href="https://www.ypulse.com/article/2025/10/27/the-coolest-and-cringiest-things-brands-do-according-to-gen-z/">YPulse, coolest and cringiest brand moves, 27 Oct 2025</a></li>
+</ol>
+<p style="margin-top:10px"><strong>Step-competition products and anti-cheat</strong></p><ol>
+<li><a href="https://support.apple.com/guide/watch/apd68a69f5c7/watchos">Apple, Share Activity and compete (Apple Watch User Guide)</a></li>
+<li><a href="https://support.apple.com/en-us/HT207014">Apple Support, Activity sharing (HT207014), 10 Mar 2026</a></li>
+<li><a href="https://9to5google.com/2023/02/17/fitbit-challenges-adventures">9to5Google, Fitbit removing Challenges and Adventures, 17 Feb 2023</a></li>
+<li><a href="https://9to5google.com/2023/03/27/fitbit-challenges-groups-removed">9to5Google, Fitbit Challenges and Groups removed, 27 Mar 2023</a></li>
+<li><a href="https://9to5google.com/2026/05/07/google-health-fitbit-features">9to5Google, Google Health and Fitbit features, 7 May 2026</a></li>
+<li><a href="https://www.samsung.com/us/support/answer/ANS10001382">Samsung Support, Together challenges</a></li>
+<li><a href="https://news.samsung.com/uk/achieve-your-new-years-resolution-with-new-group-challenge-feature-in-samsung-health">Samsung Newsroom, group challenge feature, 5 Jan 2021</a></li>
+<li><a href="https://www.sammobile.com/news/samsung-health-together-feature-ending-minor-users">SamMobile, Samsung Health Together ending for minors, 9 Sep 2026</a></li>
+<li><a href="https://www.garmin.com/en-US/blog/?p=25788">Garmin blog, Connect challenges, 14 Oct 2016</a></li>
+<li><a href="https://support.strava.com/hc/en-us/articles/360043099552">Strava Support, segment leaderboards and Local Legends</a></li>
+<li><a href="https://support.strava.com/hc/en-us/articles/216918347">Strava Support, club leaderboards</a></li>
+<li><a href="https://www.bikeradar.com/news/strava-cracks-down-on-leaderboard-cheats">BikeRadar, Strava cracks down on leaderboard cheats, 21 May 2025</a></li>
+<li><a href="https://www.bikeradar.com/news/strava-deletes-2-3m-electric-bike-activities">BikeRadar, Strava deletes 2.3M e-bike activities, 28 Jan 2026</a></li>
+<li><a href="https://www.onepeloton.com/blog/peloton-community-features">Peloton blog, community features</a></li>
+<li><a href="https://blog.duolingo.com/friend-streak">Duolingo blog, Friend Streak, 5 Aug 2024</a></li>
+<li><a href="https://help.snapchat.com/hc/en-us/articles/7012394193684">Snapchat Support, Snapstreaks</a></li>
+<li><a href="https://www.mypacer.com/step-challenge">Pacer, step challenges</a></li>
+<li><a href="https://blog.mypacer.com/blog/step-challenge-rules">Pacer blog, step challenge rules, 20 Jul 2026</a></li>
+<li><a href="https://apps.apple.com/us/app/-/id979101825">StepUp on the App Store</a></li>
+<li><a href="https://thestepupapp.com">StepUp website</a></li>
+<li><a href="https://www.wewardapp.com/eu-cgu-12-24-en">WeWard terms (EU), 25 Sep 2026</a></li>
+<li><a href="https://www.wewardapp.com/blog/walking-mode">WeWard blog, Walking Mode, 8 Jul 2026</a></li>
+<li><a href="https://swcapp.com/verification-algorithm">Sweatcoin, verification algorithm</a></li>
+<li><a href="https://scopelyexplore.helpshift.com/hc/en/11-pikmin-bloom/faq/2143-weekly-challenges">Pikmin Bloom, weekly challenges FAQ</a></li>
+<li><a href="https://niantic.helpshift.com/hc/en/6-pokemon-go/faq/39-gameplay-fairness-policy-1701994322">Pokémon GO, gameplay fairness policy</a></li>
+<li><a href="https://help.opalapp.com/v3/how-when-and-where-does-opal-report-your-screen-time">Opal Help, how Opal reports screen time</a></li>
+<li><a href="https://help.jomo.so/en/article/how-do-squads-work-on-jomo-1poxmiy">Jomo Help, Squads</a></li>
+<li><a href="https://apps.apple.com/us/app/stroll-steps-to-screen-time/id6782306709">Stroll on the App Store (global and country boards, v1.6)</a></li>
+<li><a href="https://apps.apple.com/us/app/lockt-walk-to-unlock/id6744921343">Lockt on the App Store (monthly leagues, v2.5.1)</a></li>
+<li><a href="https://apps.apple.com/us/app/walklock-walk-to-unlock-apps/id1633153202">WalkLock on the App Store</a></li>
+<li><a href="https://apps.apple.com/us/app/steppin-steps-for-screen-time/id6737981423">Steppin on the App Store</a></li>
+<li><a href="https://help.movespring.com/en/articles/4195562">MoveSpring Help, step caps and grace periods</a></li>
+<li><a href="https://www.nyc.gov/assets/olr/downloads/pdf/wellness/steptember2020-challenge-rules-guidelines.pdf">NYC Steptember 2020 challenge rules (35,000/day cap)</a></li>
+<li><a href="https://www.yumuuv.com/blog/wellness-challenge-rewards-guide">YuMuuv, wellness challenge rewards guide</a></li>
+<li><a href="https://personifyhealth.zendesk.com/hc/en-us/articles/28341969035419">Personify Health Help, challenge rules</a></li>
+<li><a href="https://www.stridekick.com/blog/12-ways-to-keep-challenge-prizes-fun-fair-and-cheater-proof">Stridekick, keeping challenge prizes fair</a></li>
+<li><a href="https://www.sixthtone.com/news/1002530">Sixth Tone, WeRun step-faking pendulums, 28 Jun 2018</a></li>
+<li><a href="https://www.bcheights.com/?p=123351">The Heights (Boston College), 200,000-step days, 23 Oct 2016</a></li>
+<li><a href="https://ijbnpa.biomedcentral.com/track/pdf/10.1186/s12966-019-0769-6">Tudor-Locke et al. 2019, walking cadence thresholds, IJBNPA</a></li>
+<li><a href="https://www.testdevlab.com/blog/testing-fitness-apps-can-you-cheat-the-algorithm">TestDevLab, can you cheat fitness apps (updated 31 Mar 2026)</a></li>
+<li><a href="https://developer.apple.com/documentation/healthkit/hkmetadatakeywasuserentered">Apple, HKMetadataKeyWasUserEntered</a></li>
+<li><a href="https://developer.android.com/health-and-fitness/health-connect/metadata">Android Health Connect, metadata and recording method</a></li>
+<li><a href="https://developer.apple.com/documentation/devicecheck/assessing-fraud-risk">Apple, Assessing fraud risk (App Attest)</a></li>
+<li><a href="https://developer.android.com/google/play/integrity/verdicts">Play Integrity verdicts</a></li>
+</ol>
+<p style="margin-top:10px"><strong>Sharing, previews and invites</strong></p><ol>
+<li><a href="https://developers.facebook.com/docs/instagram-platform/sharing-to-stories/">Meta, Sharing to Instagram Stories</a></li>
+<li><a href="https://react-native-share.github.io/react-native-share/docs/share-single">react-native-share, shareSingle</a></li>
+<li><a href="https://developers.snap.com/snap-kit/creative-kit/overview">Snap Creative Kit overview and review rules</a></li>
+<li><a href="https://developers.tiktok.com/doc/share-kit-ios-quickstart-v2">TikTok Share Kit (iOS), Aug 2026</a></li>
+<li><a href="https://developers.facebook.com/docs/whatsapp/link-previews">WhatsApp, link previews</a></li>
+<li><a href="https://blog.whatsapp.com/helping-you-find-more-channels-and-businesses-on-whatsapp">WhatsApp blog, 16 Jun 2025 (Updates tab)</a></li>
+<li><a href="https://developer.apple.com/documentation/technotes/tn3156-create-rich-previews-for-messages">Apple TN3156, Rich previews for Messages</a></li>
+<li><a href="https://developers.facebook.com/docs/sharing/webmasters/images/">Meta, images for link sharing</a></li>
+<li><a href="https://firebase.google.com/support/dynamic-links-faq/">Firebase Dynamic Links FAQ (shut down 25 Aug 2025)</a></li>
+<li><a href="https://www.appsflyer.com/zero-update-2026/">AppsFlyer Zero plan update 2026</a></li>
+<li><a href="https://www.airbridge.io/tips/mobile-attribution-pricing-plans-contract-terms">Airbridge, attribution pricing comparison, 2 Sep 2026</a></li>
+<li><a href="https://developer.android.com/google/play/installreferrer/library">Google Play Install Referrer</a></li>
+<li><a href="https://developer.apple.com/documentation/uikit/uipastecontrol">Apple UIPasteControl</a></li>
+<li><a href="https://developer.apple.com/app-store/user-privacy-and-data-use/">Apple, User privacy and data use (no fingerprinting)</a></li>
+<li><a href="https://andrewchen.com/more-retention-more-viral-growth/">Andrew Chen, More retention, more viral growth</a></li>
+<li><a href="https://success.extole.com/en/articles/11199311-how-to-measure-and-benchmark-your-referral-program-success">Extole, referral benchmarks, 16 Mar 2026</a></li>
+<li><a href="https://referralhero.com/blog/fitness-app-referral-program-case-study">ReferralHero, fitness app referral case study, 2026</a></li>
+<li><a href="https://www.lazyweb.com/research/percent-apps-referral-invite-by-vertical">Lazyweb, share of apps with referral by vertical, Jul 2026</a></li>
+</ol>
+<p style="margin-top:10px"><strong>Store rules, privacy law and identity</strong></p><ol>
+<li><a href="https://developer.apple.com/app-store/review/guidelines/">Apple App Review Guidelines (updated 8 Jun 2026)</a></li>
+<li><a href="https://developer.apple.com/support/offering-account-deletion-in-your-app/">Apple, Offering account deletion in your app</a></li>
+<li><a href="https://developer.apple.com/app-store/app-privacy-details/">Apple, App privacy details</a></li>
+<li><a href="https://developer.apple.com/help/app-store-connect/reference/age-ratings-values-and-definitions/">Apple, Age ratings values and definitions</a></li>
+<li><a href="https://developer.apple.com/news/?id=tlur8uvi">Apple news, social media age-rating questions, 9 Jul 2026</a></li>
+<li><a href="https://developer.apple.com/news/?id=sg176nne">Apple news, Declared Age Range and state laws</a></li>
+<li><a href="https://developer.apple.com/news/?id=f5zj08ey">Apple news, significant change approvals</a></li>
+<li><a href="https://developer.apple.com/support/age-assurance">Apple, Age assurance</a></li>
+<li><a href="https://capitol.texas.gov/tlodocs/89R/billtext/html/SB02420F.htm">Texas SB 2420</a></li>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/9876937">Google Play, User Generated Content policy</a></li>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/13327111">Google Play, Account deletion requirements</a></li>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/10144311">Google Play, User Data policy</a></li>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/10787469">Google Play, Data safety form</a></li>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/16679511">Google Play, Health apps declaration</a></li>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/9898843">Google Play, Content ratings</a></li>
+<li><a href="https://developer.android.com/google/play/age-signals/overview">Google Play, Age Signals API (beta)</a></li>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/9893335">Google Play, Families policy</a></li>
+<li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">GDPR (Regulation 2016/679)</a></li>
+<li><a href="https://ec.europa.eu/justice/article-29/documentation/other-document/files/2015/20150205_letter_art29wp_ec_health_data_after_plenary_annex_en.pdf">Article 29 Working Party, health data in apps and devices (annex, 2015)</a></li>
+<li><a href="https://www.edpb.europa.eu/system/files/documents/files/file1/edpb_guidelines_202003_healthdatascientificresearchcovid19_en.pdf">EDPB Guidelines 03/2020</a></li>
+<li><a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/special-category-data/what-is-special-category-data/">UK ICO, What is special category data</a></li>
+<li><a href="https://www.scconline.com/blog/post/2025/11/14/meity-notified-digital-personal-data-protection-rules-2025/">SCC Online, DPDP Rules 2025 notified, 14 Nov 2025 (secondary)</a></li>
+<li><a href="https://www.ftc.gov/business-guidance/resources/complying-coppa-frequently-asked-questions">FTC, COPPA FAQ</a></li>
+<li><a href="https://www.legislation.gov.au/F2025L00889/latest/text">Australia, Online Safety (Age-Restricted Social Media Platforms) Rules 2025</a></li>
+<li><a href="https://developer.apple.com/documentation/uikit/uidevice/identifierforvendor">Apple, identifierForVendor</a></li>
+<li><a href="https://developer.apple.com/documentation/security/ksecattrsynchronizable">Apple, kSecAttrSynchronizable</a></li>
+<li><a href="https://developer.apple.com/documentation/security/restricting-keychain-item-accessibility">Apple, Restricting keychain item accessibility</a></li>
+<li><a href="https://developer.apple.com/forums/thread/36442">Apple Developer Forums, keychain after app deletion</a></li>
+<li><a href="https://developer.apple.com/documentation/devicecheck/dcdevice">Apple, DeviceCheck (DCDevice)</a></li>
+<li><a href="https://developer.apple.com/documentation/devicecheck/establishing-your-app-s-integrity">Apple, Establishing your app&#x27;s integrity (App Attest)</a></li>
+<li><a href="https://developer.android.com/about/versions/oreo/android-8.0-changes">Android 8.0 behaviour changes (ANDROID_ID)</a></li>
+<li><a href="https://developer.android.com/identity/user-data-ids">Android, Best practices for unique identifiers</a></li>
+<li><a href="https://developer.android.com/identity/block-store">Android, Block Store</a></li>
+<li><a href="https://developer.android.com/identity/data/autobackup">Android, Auto Backup</a></li>
+<li><a href="https://developer.android.com/google/play/integrity/overview">Play Integrity API overview and device recall</a></li>
+</ol>
+<p style="margin-top:10px"><strong>Cloudflare</strong></p><ol>
+<li><a href="https://developers.cloudflare.com/workers/platform/limits/">Workers limits (12 Oct 2026)</a></li>
+<li><a href="https://developers.cloudflare.com/workers/platform/pricing/">Workers pricing (2 Oct 2026)</a></li>
+<li><a href="https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/">Workers Static Assets billing</a></li>
+<li><a href="https://developers.cloudflare.com/d1/platform/pricing/">D1 pricing</a></li>
+<li><a href="https://developers.cloudflare.com/d1/platform/limits/">D1 limits</a></li>
+<li><a href="https://developers.cloudflare.com/kv/platform/pricing/">KV pricing</a></li>
+<li><a href="https://developers.cloudflare.com/kv/platform/limits/">KV limits</a></li>
+<li><a href="https://developers.cloudflare.com/durable-objects/platform/pricing/">Durable Objects pricing</a></li>
+<li><a href="https://developers.cloudflare.com/durable-objects/platform/limits/">Durable Objects limits</a></li>
+<li><a href="https://developers.cloudflare.com/r2/pricing/">R2 pricing</a></li>
+<li><a href="https://developers.cloudflare.com/queues/platform/pricing/">Queues pricing</a></li>
+<li><a href="https://developers.cloudflare.com/workers/runtime-apis/cache/">Cache API</a></li>
+<li><a href="https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/">Rate Limiting binding</a></li>
+<li><a href="https://developers.cloudflare.com/waf/rate-limiting-rules/">WAF rate limiting rules</a></li>
+<li><a href="https://developers.cloudflare.com/turnstile/plans/">Turnstile plans</a></li>
+<li><a href="https://developers.cloudflare.com/analytics/analytics-engine/pricing/">Workers Analytics Engine pricing</a></li>
+<li><a href="https://developers.cloudflare.com/workers/runtime-apis/html-rewriter/">HTMLRewriter</a></li>
+<li><a href="https://developers.cloudflare.com/workers/runtime-apis/web-crypto/">Workers Web Crypto</a></li>
+<li><a href="https://firebase.google.com/docs/cloud-messaging/send/v1-api">Firebase Cloud Messaging HTTP v1</a></li>
+<li><a href="https://developers.google.com/identity/protocols/oauth2/service-account">Google OAuth 2.0 for service accounts</a></li>
+<li><a href="https://github.com/kvnang/workers-og">workers-og (satori + resvg on Workers)</a></li>
+</ol>
+<p style="margin-top:10px">Internal: growth-research/MOZY_GROWTH_RESEARCH.md and IMPLEMENTATION_PLAN.md (12 Oct 2026); v3/06-STEP-CIRCLES-AND-CLOUDFLARE.md (22 Sep 2026); app code at f5cbd05 and 42a5291; website code at ef5809a; Cloudflare account read through the connector on 14 Oct 2026.</p></details>
+
+    <p>Prepared with Claude for Mahesh Chambhare · MCRUDRA · mcrudra.com · @mcrudrax</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var LIM = { req: 100000, wr: 100000, rd: 5000000 };
+  function model(dau, syncs, views) {
+    var req = dau * (syncs + views) + 144 + 2000;
+    var wr = dau * syncs + dau * 0.02 * 3 + 3000;
+    var rd = 144 * 2 * dau + dau * views * 6 * 7 + dau * 31;
+    var gb = (dau * 1.4 * 40 * 64 + dau * 1.4 * 25 * 64) / 1e9;
+    var m = 30;
+    var paid = 5
+      + Math.max(0, req * m - 10e6) / 1e6 * 0.30
+      + Math.max(0, req * m * 3 - 30e6) / 1e6 * 0.02
+      + Math.max(0, rd * m - 25e9) / 1e6 * 0.001
+      + Math.max(0, wr * m - 50e6) / 1e6 * 1.00
+      + Math.max(0, gb - 5) * 0.75;
+    return { req: req, wr: wr, rd: rd, gb: gb, paid: paid };
+  }
+  function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
+  function compact(n) { return n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 1) + 'M' : n >= 1e3 ? (n / 1e3).toFixed(n >= 1e4 ? 0 : 1) + 'k' : String(Math.round(n)); }
+  function money(n) { return n < 10 ? '$' + n.toFixed(2) : '$' + Math.round(n).toLocaleString('en-US'); }
+
+  var inDau = document.getElementById('inDau'), inSync = document.getElementById('inSync'), inView = document.getElementById('inView');
+  function setMeter(id, v, lim) {
+    var pct = v / lim * 100, el = document.getElementById(id), lab = document.getElementById(id + 'V');
+    el.style.width = Math.min(100, pct).toFixed(1) + '%';
+    el.className = 'fill' + (pct >= 85 ? ' risk' : pct >= 70 ? ' warn' : '');
+    lab.textContent = fmt(v) + ' · ' + (pct >= 1000 ? fmt(pct) : pct.toFixed(0)) + '%';
+    return pct;
+  }
+  function update() {
+    var dau = Math.round(Math.pow(10, parseFloat(inDau.value)));
+    if (dau > 1000) dau = Math.round(dau / 100) * 100;
+    var s = parseInt(inSync.value, 10), v = parseInt(inView.value, 10);
+    document.getElementById('outDau').textContent = fmt(dau);
+    document.getElementById('outSync').textContent = s;
+    document.getElementById('outView').textContent = v;
+    var r = model(dau, s, v);
+    var a = setMeter('mReq', r.req, LIM.req), b = setMeter('mWr', r.wr, LIM.wr), c = setMeter('mRd', r.rd, LIM.rd);
+    var worst = Math.max(a, b, c);
+    var vd = document.getElementById('verdict');
+    vd.textContent = worst <= 50 ? 'Fits the Free plan comfortably.' : worst <= 100 ? 'Fits the Free plan, but with little headroom. Time to plan the switch.' : 'Needs Workers Paid: the Free plan would stop partway through the day.';
+    document.getElementById('paid').firstChild.nodeValue = money(r.paid);
+  }
+  [inDau, inSync, inView].forEach(function (el) { el.addEventListener('input', update); });
+  update();
+
+  // scenario table + column chart (same numbers)
+  var SC = [100, 1000, 5000, 10000, 30000, 100000, 300000, 1000000];
+  var tb = document.getElementById('costRows');
+  SC.forEach(function (d) {
+    var r = model(d, 6, 3);
+    var worst = Math.max(r.req / LIM.req, r.wr / LIM.wr, r.rd / LIM.rd) * 100;
+    var tr = document.createElement('tr');
+    [fmt(d), fmt(r.req), fmt(r.wr), fmt(r.rd)].forEach(function (t) { var td = document.createElement('td'); td.className = 'num'; td.textContent = t; tr.appendChild(td); });
+    var f = document.createElement('td'); var ch = document.createElement('span');
+    ch.className = 'chip ' + (worst <= 50 ? 'good' : worst <= 100 ? 'warn' : 'muted'); ch.textContent = worst <= 50 ? 'Yes' : worst <= 100 ? 'Barely' : 'No'; f.appendChild(ch); tr.appendChild(f);
+    var p = document.createElement('td'); p.className = 'num'; p.textContent = money(r.paid); tr.appendChild(p);
+    tb.appendChild(tr);
+  });
+
+  var svg = document.getElementById('costChart'), NS = 'http://www.w3.org/2000/svg';
+  var W = 860, H = 280, L = 46, R = 10, T = 20, B = 34, ph = H - T - B, pw = W - L - R;
+  var vals = SC.map(function (d) { return model(d, 6, 3).paid; });
+  var ymax = 250, ticks = [0, 50, 100, 150, 200, 250];
+  function el(n, a) { var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); return e; }
+  ticks.forEach(function (t) {
+    var y = T + ph - t / ymax * ph;
+    svg.appendChild(el('line', { x1: L, x2: W - R, y1: y, y2: y, 'class': 'gridline' }));
+    var tx = el('text', { x: L - 8, y: y + 4, 'text-anchor': 'end', 'class': 'tick' }); tx.textContent = '$' + t; svg.appendChild(tx);
+  });
+  var band = pw / SC.length, bw = Math.min(24, band * 0.5);
+  var tip = document.getElementById('tip'), fig = document.getElementById('costFig');
+  SC.forEach(function (d, i) {
+    var v = vals[i], h = Math.max(2, v / ymax * ph), x = L + band * i + (band - bw) / 2, y = T + ph - h;
+    var g = el('g', { 'class': 'col', tabindex: 0, 'aria-label': fmt(d) + ' daily racers: ' + money(v) + ' per month' });
+    var rr = Math.min(4, h);
+    g.appendChild(el('path', { 'class': 'bar', d: 'M' + x + ',' + (y + h) + ' V' + (y + rr) + ' Q' + x + ',' + y + ' ' + (x + rr) + ',' + y + ' H' + (x + bw - rr) + ' Q' + (x + bw) + ',' + y + ' ' + (x + bw) + ',' + (y + rr) + ' V' + (y + h) + ' Z' }));
+    if (i === 0 || v > 5.005) { var lab = el('text', { x: x + bw / 2, y: y - 6, 'text-anchor': 'middle', 'class': 'val' }); lab.textContent = money(v); g.appendChild(lab); }
+    var xl = el('text', { x: x + bw / 2, y: H - 12, 'text-anchor': 'middle', 'class': 'tick' }); xl.textContent = compact(d); g.appendChild(xl);
+    g.appendChild(el('rect', { 'class': 'hit', x: L + band * i, y: T, width: band, height: ph + B }));
+    function show() {
+      var r = model(d, 6, 3);
+      tip.textContent = '';
+      var b1 = document.createElement('b'); b1.textContent = money(v) + ' / month'; tip.appendChild(b1);
+      tip.appendChild(document.createElement('br'));
+      tip.appendChild(document.createTextNode(fmt(d) + ' daily racers · ' + compact(r.req) + ' requests/day'));
+      var bb = svg.getBoundingClientRect(), fb = fig.getBoundingClientRect(), sx = bb.width / W;
+      tip.style.left = Math.max(8, Math.min(fb.width - 230, (bb.left - fb.left) + (x + bw / 2) * sx - 100)) + 'px';
+      tip.style.top = ((bb.top - fb.top) + y * (bb.height / H) - 52) + 'px';
+      tip.style.opacity = 1;
+    }
+    g.addEventListener('pointerenter', show); g.addEventListener('focus', show);
+    g.addEventListener('pointerleave', function () { tip.style.opacity = 0; }); g.addEventListener('blur', function () { tip.style.opacity = 0; });
+    svg.appendChild(g);
+  });
+  svg.appendChild(el('line', { x1: L, x2: W - R, y1: T + ph, y2: T + ph, stroke: 'currentColor', 'stroke-opacity': 0.25 }));
+})();
+</script>
+</body>
+</html>
